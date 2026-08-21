@@ -1,0 +1,10 @@
+REVISION V3 — OMODA O4 TYPOGRAPHY / HERO / CTA / SEO
+
+1. Hero O4 dan seluruh subpage O4 diposisikan bottom-aligned pada desktop dan mobile; text + CTA berada di area bawah hero dengan padding responsive.
+2. Font display diganti ke Sora (geometric/futuristic modern) dan body tetap Inter; typography, weight, tracking dan ukuran dibuat responsive untuk desktop/mobile.
+3. Menambahkan final full-width WhatsApp CTA yang besar dan elegan di bagian paling bawah semua halaman O4. Floating WhatsApp juga dipastikan terlihat di semua halaman O4.
+4. Mengurangi vertical spacing pada section O4 agar ritme scroll lebih padat namun tetap premium.
+5. SEO ditingkatkan: title/meta unik, robots directives, Open Graph, Twitter cards, canonical dipertahankan, schema existing dipertahankan tanpa duplicate, semantic heading/alt/internal links tidak dihapus.
+6. URL O4 tidak diubah. Data model dan spesifikasi tidak diubah.
+
+V4: Delivery gallery preserves natural image ratios (no cropping); O4 non-final CTA sections removed so each O4 page has max one large final WhatsApp CTA.

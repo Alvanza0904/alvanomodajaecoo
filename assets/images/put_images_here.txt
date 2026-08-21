@@ -1,0 +1,10 @@
+Masukkan aset gambar website di folder ini.
+Nama yang dipakai oleh homepage revamp:
+- omoda-o4.png
+- jaecoo-j5.png
+- jaecoo-j7.png
+- jaecoo-j7-sivp.png
+- jaecoo-j8.png
+
+Background hero dan delivery yang sebelumnya masih berupa URL eksternal
+akan diganti setelah file gambar final tersedia.

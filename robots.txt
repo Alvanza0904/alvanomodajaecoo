@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://omodajaecoopalembang.web.id/sitemap.xml
