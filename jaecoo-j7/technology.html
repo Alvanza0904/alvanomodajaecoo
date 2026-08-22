@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Teknologi JAECOO J7 SHS — Intelligent Driver Assistance | OMODA JAECOO Palembang</title>
+<meta content="Teknologi JAECOO J7 SHS — 19 fitur ADAS, sistem kamera 540° HD surround view, dan konektivitas cerdas untuk pengalaman berkendara yang aman dan terhubung." name="description"/>
+<link href="https://omodajaecoopalembang.web.id/jaecoo-j7/technology.html" rel="canonical"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="website" property="og:type"/>
+<meta content="id_ID" property="og:locale"/>
+<meta content="Teknologi JAECOO J7 SHS | OMODA JAECOO Palembang" property="og:title"/>
+<meta content="19 fitur ADAS, sistem kamera 540° HD surround view, dan konektivitas cerdas untuk pengalaman berkendara yang aman dan terhubung." property="og:description"/>
+<meta content="OMODA JAECOO Palembang" property="og:site_name"/>
+<meta content="https://omodajaecoopalembang.web.id/assets/images/jaecoo-j7/int-screen.jpg" property="og:image"/>
+<meta content="1440" property="og:image:width"/>
+<meta content="960" property="og:image:height"/>
+<meta content="Layar infotainment dan teknologi JAECOO J7 SHS" property="og:image:alt"/>
+<meta content="https://omodajaecoopalembang.web.id/jaecoo-j7/technology.html" property="og:url"/>
+
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Teknologi JAECOO J7 SHS — 19 ADAS & 540° Camera | OMODA JAECOO Palembang" name="twitter:title"/>
+<meta content="19 fitur ADAS dan sistem kamera 540° HD surround view untuk pengalaman berkendara yang aman dan terhubung." name="twitter:description"/>
+<meta content="https://omodajaecoopalembang.web.id/assets/images/jaecoo-j7/int-screen.jpg" name="twitter:image"/>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://omodajaecoopalembang.web.id/"},{"@type":"ListItem","position":2,"name":"JAECOO J7 SHS","item":"https://omodajaecoopalembang.web.id/jaecoo-j7.html"},{"@type":"ListItem","position":3,"name":"Teknologi","item":"https://omodajaecoopalembang.web.id/jaecoo-j7/technology.html"}]}</script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+
+<style>
+/* =============================================================
+   JAECOO J7 SHS — TECHNOLOGY PAGE
+   Scoped selectors — tidak memengaruhi halaman lain.
+   Palette & tokens konsisten dengan Overview, Design, Interior, Performance.
+============================================================= */
+
+.j7-site {
+  --j7-bg:         #090b0d;
+  --j7-bg-2:       #0f1218;
+  --j7-text:       #F4F5F7;
+  --j7-muted:      #8A9099;
+  --j7-line:       rgba(244,245,247,.12);
+  --j7-accent:     #C9A867;
+  --j7-accent-dim: rgba(201,168,103,.15);
+  --j7-display:    'Space Grotesk','Helvetica Neue',Arial,sans-serif;
+  background: var(--j7-bg);
+}
+
+.j7-site main { background: var(--j7-bg); overflow: hidden; }
+
+/* ---- SUBNAV ---- */
+.j7-subnav {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 80;
+  background: rgba(9,11,13,.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--j7-line);
+}
+@media (max-width: 860px) { .j7-subnav { top: var(--nav-height-mobile); } }
+
+.j7-subnav__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.j7-subnav__inner::-webkit-scrollbar { display: none; }
+
+.j7-subnav__inner a {
+  position: relative;
+  display: block;
+  padding: 18px 24px;
+  font-family: var(--j7-display);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--j7-muted);
+  white-space: nowrap;
+  transition: color .3s var(--ease-premium);
+}
+.j7-subnav__inner a:hover { color: var(--j7-text); }
+.j7-subnav__inner a.is-active { color: var(--j7-text); }
+.j7-subnav__inner a.is-active::after {
+  content: '';
+  position: absolute;
+  left: 24px; right: 24px; bottom: 0;
+  height: 2px;
+  background: var(--j7-accent);
+}
+.j7-subnav__inner a:first-child { padding-left: 0; }
+.j7-subnav__inner a:first-child.is-active::after { left: 0; }
+
+@media (max-width: 640px) {
+  .j7-subnav__inner a { padding: 15px 17px; font-size: 10.5px; }
+  .j7-subnav__inner a.is-active::after { left: 17px; right: 17px; }
+  .j7-subnav__inner a:first-child.is-active::after { left: 0; }
+}
+
+/* ---- SHARED UTILS ---- */
+.tech-eyebrow {
+  margin: 0 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--j7-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+}
+.tech-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--j7-accent);
+  flex-shrink: 0;
+}
+
+.tech-kicker {
+  display: block;
+  margin: 0 0 18px;
+  font-family: var(--j7-display);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  opacity: .85;
+}
+
+.tech-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--j7-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  border: 1.5px solid var(--j7-accent);
+  padding: 16px 32px;
+  white-space: nowrap;
+  border-radius: 2px;
+  transition: background .3s var(--ease-premium), border-color .3s var(--ease-premium), color .3s var(--ease-premium), gap .3s var(--ease-premium);
+}
+.tech-link:hover {
+  background: var(--j7-accent);
+  border-color: var(--j7-accent);
+  color: #090b0d;
+  gap: 20px;
+}
+.tech-link:active { opacity: .85; }
+
+/* ---- BTN ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--j7-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .3s var(--ease-premium), color .3s var(--ease-premium), border-color .3s var(--ease-premium);
+}
+.btn--primary {
+  background: var(--j7-accent);
+  color: #090b0d;
+  border: 1px solid var(--j7-accent);
+}
+.btn--primary:hover { background: #e0be80; border-color: #e0be80; }
+.btn--secondary {
+  background: transparent;
+  color: var(--j7-accent);
+  border: 1.5px solid var(--j7-accent);
+}
+.btn--secondary:hover { background: var(--j7-accent); border-color: var(--j7-accent); color: #090b0d; }
+.btn--secondary:active { opacity: .85; }
+
+/* ---- REVEAL ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s var(--ease-premium), transform .8s var(--ease-premium);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---- WA FLOAT ---- */
+.wa-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  padding: 12px 20px 12px 14px;
+  border-radius: 40px;
+  font-family: var(--j7-display);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,.35);
+  transition: transform .3s var(--ease-premium), box-shadow .3s var(--ease-premium);
+}
+.wa-float:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.45); }
+.wa-float svg { width: 22px; height: 22px; flex-shrink: 0; }
+@media (max-width: 640px) {
+  .wa-float { bottom: 20px; right: 16px; padding: 11px 16px 11px 12px; font-size: 12px; }
+}
+
+/* ---- NAVBAR OVERRIDE ---- */
+.j7-site .navbar__link[aria-current="page"] { opacity: 1; color: var(--color-accent); }
+.j7-site .navbar__link[aria-current="page"]::after { display: none; }
+
+/* =============================================================
+   TECHNOLOGY HERO
+============================================================= */
+.tech-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 560px;
+  max-height: 1000px;
+  overflow: hidden;
+  background: var(--j7-bg);
+}
+.tech-hero__media {
+  position: absolute;
+  inset: 0;
+}
+.tech-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+.tech-hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(9,11,13,.97) 0%, rgba(9,11,13,.55) 30%, rgba(9,11,13,.0) 60%),
+    linear-gradient(to bottom, rgba(9,11,13,.5) 0%, rgba(9,11,13,.0) 28%),
+    linear-gradient(to right, rgba(9,11,13,.5) 0%, rgba(9,11,13,.0) 55%);
+}
+.tech-hero__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--container-pad) 100px;
+  max-width: 860px;
+}
+.tech-hero h1 {
+  margin: 0 0 18px;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 8.5vw, 7.6rem);
+  line-height: .9;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+}
+.tech-hero h1 em {
+  font-style: normal;
+  color: var(--j7-accent);
+}
+.tech-hero__sub {
+  margin: 0 0 44px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(244,245,247,.65);
+  max-width: 46ch;
+}
+.tech-hero__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.tech-hero__scroll {
+  position: absolute;
+  z-index: 2;
+  right: var(--container-pad);
+  bottom: 44px;
+  writing-mode: vertical-rl;
+  font-family: var(--j7-display);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--j7-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tech-hero__scroll::after {
+  content: '';
+  display: block;
+  width: 1px; height: 44px;
+  background: linear-gradient(to bottom, var(--j7-accent), transparent);
+  animation: techScrollLine 2.4s ease-in-out infinite;
+}
+@keyframes techScrollLine {
+  0%,100% { opacity: .3; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .tech-hero {
+    height: 80vh;
+    height: 80dvh;
+    min-height: 460px;
+    max-height: 700px;
+  }
+  .tech-hero__media img { object-position: 62% 35%; }
+  .tech-hero__content { padding-bottom: 64px; }
+  .tech-hero h1 { font-size: clamp(2.8rem, 11vw, 4rem); }
+  .tech-hero__sub { font-size: 14px; max-width: 100%; margin-bottom: 32px; }
+  .tech-hero__scroll { display: none; }
+}
+@media (max-width: 420px) {
+  .tech-hero__actions { flex-direction: column; }
+  .tech-hero__actions .btn { width: 100%; }
+}
+
+/* =============================================================
+   SECTION: INTELLIGENT DRIVER ASSISTANCE
+============================================================= */
+.tech-idas {
+  background: var(--j7-bg-2);
+  border-bottom: 1px solid var(--j7-line);
+  padding: clamp(88px, 11vw, 148px) var(--container-pad);
+}
+.tech-idas__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.tech-idas__header {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 72px;
+  align-items: start;
+  margin-bottom: 72px;
+}
+.tech-idas h2 {
+  margin: 0;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  line-height: .93;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+}
+.tech-idas h2 em {
+  display: block;
+  font-style: normal;
+  color: var(--j7-accent);
+}
+.tech-idas__desc {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--j7-muted);
+  max-width: 44ch;
+  padding-top: 6px;
+}
+.tech-idas__note {
+  font-family: var(--j7-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: var(--j7-muted);
+  opacity: .65;
+}
+
+/* Big number statement */
+.tech-idas__statement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: 40px 0 32px;
+  border-top: 1px solid var(--j7-line);
+}
+.tech-idas__num {
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(6rem, 14vw, 13rem);
+  letter-spacing: -.06em;
+  line-height: .86;
+  color: var(--j7-text);
+  flex-shrink: 0;
+}
+.tech-idas__num-info {
+  padding: 12px 0 0 28px;
+}
+.tech-idas__num-label {
+  font-family: var(--j7-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  margin-bottom: 14px;
+}
+.tech-idas__num-copy {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--j7-muted);
+  max-width: 36ch;
+}
+
+@media (max-width: 900px) {
+  .tech-idas__header { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; }
+  .tech-idas h2 { font-size: clamp(2.4rem, 9vw, 3.6rem); }
+  .tech-idas__desc { max-width: none; }
+  .tech-idas__statement { gap: 0; }
+  .tech-idas__num { font-size: clamp(5rem, 20vw, 9rem); }
+  .tech-idas__num-info { padding-left: 20px; padding-top: 8px; }
+}
+
+/* =============================================================
+   SECTION: ADAS FEATURES
+============================================================= */
+.tech-adas {
+  background: var(--j7-bg);
+  padding: clamp(88px, 11vw, 148px) var(--container-pad);
+}
+.tech-adas__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.tech-adas__header {
+  margin-bottom: 64px;
+}
+.tech-adas h2 {
+  margin: 0 0 18px;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: .93;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+  max-width: 24ch;
+}
+.tech-adas__intro {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--j7-muted);
+  max-width: 52ch;
+}
+
+/* Two-column editorial list */
+.tech-adas__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--j7-line);
+  border: 1px solid var(--j7-line);
+}
+.tech-adas__col {
+  background: var(--j7-bg-2);
+  padding: 40px 36px;
+}
+.tech-adas__col-title {
+  font-family: var(--j7-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  margin: 0 0 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--j7-line);
+}
+.tech-adas__col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.tech-adas__col ul li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(244,245,247,.06);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--j7-text);
+}
+.tech-adas__col ul li:last-child { border-bottom: none; }
+.tech-adas__col ul li::before {
+  content: '';
+  display: block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--j7-accent);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+@media (max-width: 760px) {
+  .tech-adas__cols { grid-template-columns: 1fr; }
+  .tech-adas__col { padding: 28px 24px; }
+}
+
+/* =============================================================
+   SECTION: VISION & SURROUND AWARENESS
+============================================================= */
+.tech-vision {
+  background: var(--j7-bg-2);
+  border-top: 1px solid var(--j7-line);
+  border-bottom: 1px solid var(--j7-line);
+  padding: clamp(88px, 11vw, 148px) var(--container-pad);
+}
+.tech-vision__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 88px;
+  align-items: center;
+}
+.tech-vision__content { }
+.tech-vision h2 {
+  margin: 0 0 22px;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+  line-height: .93;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+}
+.tech-vision h2 em {
+  display: block;
+  font-style: normal;
+  color: var(--j7-accent);
+}
+.tech-vision__focal {
+  margin: 0 0 24px;
+}
+.tech-vision__focal-val {
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(4.5rem, 9vw, 8rem);
+  letter-spacing: -.055em;
+  line-height: .9;
+  color: var(--j7-text);
+}
+.tech-vision__focal-unit {
+  font-size: .28em;
+  font-weight: 500;
+  color: var(--j7-accent);
+  letter-spacing: .02em;
+  vertical-align: middle;
+}
+.tech-vision__focal-label {
+  margin-top: 10px;
+  font-family: var(--j7-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--j7-muted);
+}
+.tech-vision__copy {
+  margin: 0 0 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--j7-muted);
+  max-width: 44ch;
+}
+.tech-vision__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  border-radius: 2px;
+}
+.tech-vision__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.tech-vision__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+  transition: transform 1.4s var(--ease-premium);
+}
+.tech-vision__media:hover img { transform: scale(1.03); }
+
+/* NO BLIND SPOT badge */
+.tech-vision__nbs {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(9,11,13,.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(201,168,103,.35);
+  padding: 8px 16px;
+  font-family: var(--j7-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  pointer-events: none;
+  z-index: 2;
+}
+.tech-vision__nbs::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--j7-accent);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .tech-vision__inner { grid-template-columns: 1fr; gap: 44px; }
+  .tech-vision__inner .tech-vision__media { order: -1; aspect-ratio: 16/9; }
+  .tech-vision h2 { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+  .tech-vision__copy { max-width: none; }
+}
+
+/* =============================================================
+   SECTION: CONNECTED TECHNOLOGY
+============================================================= */
+.tech-connected {
+  background: var(--j7-bg);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.tech-connected__visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  background: var(--j7-bg-2);
+}
+@media (max-width: 640px) { .tech-connected__visual { aspect-ratio: 4/3; } }
+.tech-connected__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  filter: saturate(.85);
+}
+.tech-connected__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(9,11,13,.92) 0%, rgba(9,11,13,.6) 40%, rgba(9,11,13,.0) 72%),
+    linear-gradient(to top, rgba(9,11,13,.5) 0%, transparent 40%);
+  display: flex;
+  align-items: center;
+}
+.tech-connected__caption {
+  padding: var(--container-pad);
+  max-width: 640px;
+}
+.tech-connected h2 {
+  margin: 0 0 16px;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: .93;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+}
+.tech-connected__copy {
+  font-size: 15px;
+  line-height: 1.72;
+  color: rgba(244,245,247,.7);
+  max-width: 44ch;
+}
+
+@media (max-width: 640px) {
+  .tech-connected__caption { padding: 28px var(--container-pad); }
+  .tech-connected h2 { font-size: clamp(2rem, 9vw, 3rem); }
+}
+
+/* =============================================================
+   SECTION: TECHNOLOGY SUMMARY
+============================================================= */
+.tech-summary {
+  background: var(--j7-bg-2);
+  border-top: 1px solid var(--j7-line);
+  padding: clamp(88px, 12vw, 164px) var(--container-pad);
+  position: relative;
+  overflow: hidden;
+}
+.tech-summary::before {
+  content: 'SHS';
+  position: absolute;
+  right: -2vw;
+  bottom: -0.08em;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: 22vw;
+  line-height: 1;
+  letter-spacing: -.06em;
+  color: rgba(201,168,103,.03);
+  pointer-events: none;
+  user-select: none;
+}
+.tech-summary__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  position: relative;
+}
+.tech-summary__label {
+  font-family: var(--j7-display);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  margin-bottom: 52px;
+}
+.tech-summary__pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.tech-summary__pillar {
+  padding: 0 0 0 32px;
+  border-left: 1px solid var(--j7-line);
+}
+.tech-summary__pillar:first-child { border-left: none; padding-left: 0; }
+.tech-summary__pillar-word {
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.tech-summary__pillar-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--j7-muted);
+}
+
+@media (max-width: 860px) {
+  .tech-summary__pillars { grid-template-columns: repeat(2, 1fr); gap: 36px 0; }
+  .tech-summary__pillar { padding-left: 28px; }
+  .tech-summary__pillar:first-child { border-left: none; padding-left: 0; }
+  .tech-summary__pillar:nth-child(2) { border-left: 1px solid var(--j7-line); }
+  .tech-summary__pillar:nth-child(3) { border-left: none; padding-left: 0; }
+  .tech-summary__pillar:nth-child(4) { border-left: 1px solid var(--j7-line); }
+}
+@media (max-width: 520px) {
+  .tech-summary__pillars { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+  .tech-summary__pillar-word { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+}
+
+/* =============================================================
+   SECTION: NEXT PAGE CTA (Safety)
+============================================================= */
+.tech-next {
+  background: var(--j7-bg);
+  border-top: 1px solid var(--j7-line);
+  padding: clamp(72px, 9vw, 120px) var(--container-pad);
+}
+.tech-next__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.tech-next__label {
+  font-family: var(--j7-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  margin-bottom: 14px;
+}
+.tech-next h2 {
+  margin: 0;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  color: var(--j7-text);
+  max-width: 26ch;
+}
+
+@media (max-width: 640px) {
+  .tech-next__inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* =============================================================
+   FINAL CTA
+============================================================= */
+.tech-cta {
+  background: var(--j7-bg-2);
+  border-top: 1px solid var(--j7-line);
+  padding: clamp(100px, 13vw, 170px) var(--container-pad);
+  position: relative;
+  overflow: hidden;
+}
+.tech-cta::before {
+  content: 'J7';
+  position: absolute;
+  right: -2vw;
+  bottom: -0.08em;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: 28vw;
+  line-height: 1;
+  letter-spacing: -.06em;
+  color: rgba(201,168,103,.03);
+  pointer-events: none;
+  user-select: none;
+}
+.tech-cta__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.tech-cta-kicker {
+  display: block;
+  font-family: var(--j7-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+  margin-bottom: 22px;
+}
+.tech-cta h2 {
+  margin: 0 0 18px;
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5.5vw, 4.8rem);
+  line-height: .94;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+}
+.tech-cta__sub {
+  margin: 0 0 52px;
+  font-size: 15px;
+  color: var(--j7-muted);
+  max-width: 44ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tech-cta__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .tech-cta { padding: 80px var(--container-pad); }
+  .tech-cta__actions { flex-direction: column; }
+  .tech-cta__actions .btn { width: 100%; }
+}
+</style>
+</head>
+
+<body class="j7-site">
+
+<!-- ======================= NAVBAR ======================= -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a aria-label="OMODA JAECOO Palembang" class="navbar__logo" href="/">
+      <img alt="OMODA JAECOO Palembang" decoding="async" height="66" src="/assets/images/logo-omoda-jaecoo.png" width="496"/>
+    </a>
+    <nav aria-label="Primary" class="navbar__menu" id="navbarMenu">
+      <a class="navbar__link" href="/">BERANDA</a>
+      <a class="navbar__link" href="/omoda-o4/">OMODA O4</a>
+      <a class="navbar__link" href="/jaecoo-j5.html">JAECOO J5</a>
+      <a aria-current="page" class="navbar__link" href="/jaecoo-j7.html">JAECOO J7</a>
+      <a class="navbar__link" href="/jaecoo-j8.html">JAECOO J8</a>
+      <a class="navbar__link navbar__link--cta" href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+tertarik+test+drive+JAECOO+J7+SHS.+Saya+menghubungi+dari+website+OMODA+JAECOO+Palembang." rel="noopener" target="_blank">TEST DRIVE</a>
+    </nav>
+    <button aria-controls="navbarMenu" aria-expanded="false" aria-label="Buka menu navigasi" class="navbar__toggle" id="navbarToggle" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ======================= SUBNAV ======================= -->
+  <nav aria-label="JAECOO J7 SHS" class="j7-subnav">
+    <div class="j7-subnav__inner">
+      <a href="/jaecoo-j7.html">IKHTISAR</a>
+      <a href="/jaecoo-j7/design.html">DESAIN</a>
+      <a href="/jaecoo-j7/interior.html">INTERIOR</a>
+      <a href="/jaecoo-j7/performance.html">PERFORMA</a>
+      <a class="is-active" href="/jaecoo-j7/technology.html">TEKNOLOGI</a>
+      <a href="/jaecoo-j7/safety.html">KESELAMATAN</a>
+    </div>
+  </nav>
+
+  <!-- ======================= HERO ======================= -->
+  <section class="tech-hero">
+    <div class="tech-hero__media">
+      <img
+        src="/assets/images/jaecoo-j7/int-dashboard.jpg"
+        alt="Dashboard teknologi JAECOO J7 SHS — intelligent cockpit"
+        width="1440"
+        height="960"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+    <div class="tech-hero__shade"></div>
+    <div class="tech-hero__content">
+      <p class="tech-eyebrow">JAECOO J7 SHS · INTELLIGENT TECHNOLOGY</p>
+      <h1>Intelligence,<br><em>In Every Detail.</em></h1>
+      <p class="tech-hero__sub">J7 SHS hadir dengan sistem kecerdasan yang bekerja diam-diam di balik setiap keputusan — mendukung pengemudi, memperluas visibilitas, dan menghubungkan Anda ke dunia di sekitar.</p>
+      <div class="tech-hero__actions">
+        <a class="btn btn--primary" href="#idas">Jelajahi Teknologi</a>
+        <a class="btn btn--secondary" href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+tertarik+test+drive+JAECOO+J7+SHS.+Saya+menghubungi+dari+website+OMODA+JAECOO+Palembang." rel="noopener" target="_blank">Test Drive</a>
+      </div>
+    </div>
+    <div class="tech-hero__scroll" aria-hidden="true">Scroll</div>
+  </section>
+
+  <!-- ======================= INTELLIGENT DRIVER ASSISTANCE ======================= -->
+  <section class="tech-idas" id="idas">
+    <div class="tech-idas__inner">
+      <div class="tech-idas__header">
+        <div class="reveal">
+          <span class="tech-kicker">01 / INTELLIGENT DRIVER ASSISTANCE</span>
+          <h2>A Smarter<br><em>Eye on the Road.</em></h2>
+        </div>
+        <div class="reveal">
+          <p class="tech-idas__desc">J7 SHS dilengkapi dengan sistem driver assistance yang bekerja sebagai perpanjangan indra pengemudi — mendeteksi, memperingatkan, dan mendukung respons dalam situasi yang membutuhkan kecepatan dan presisi.</p>
+          <p class="tech-idas__note">Sistem dirancang untuk mendukung pengemudi, bukan menggantikan kendali. Pengemudi tetap bertanggung jawab penuh atas kendaraan.</p>
+        </div>
+      </div>
+
+      <div class="tech-idas__statement reveal">
+        <div class="tech-idas__num">19</div>
+        <div class="tech-idas__num-info">
+          <div class="tech-idas__num-label">Fitur ADAS</div>
+          <p class="tech-idas__num-copy">Sembilan belas sistem intelligent assistance yang bekerja secara terintegrasi — dari antisipasi tabrakan, pemantauan lajur, hingga deteksi titik buta di sekeliling kendaraan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ADAS FEATURES ======================= -->
+  <section class="tech-adas">
+    <div class="tech-adas__inner">
+      <div class="tech-adas__header reveal">
+        <span class="tech-kicker">02 / ADAS FEATURES</span>
+        <h2>Built for<br>Every Situation.</h2>
+        <p class="tech-adas__intro">Sistem ADAS J7 SHS mencakup empat domain utama — menghadirkan bantuan yang tepat, pada waktu yang tepat, tanpa mengalihkan perhatian dari jalan.</p>
+      </div>
+
+      <div class="tech-adas__cols reveal">
+        <div class="tech-adas__col">
+          <div class="tech-adas__col-title">Driving Assistance</div>
+          <ul>
+            <li>Adaptive Cruise Control (terintegrasi Curve Speed Assist)</li>
+            <li>Traffic Jam Assist</li>
+            <li>Forward Collision Warning &amp; AEB</li>
+            <li>Emergency Lane Keeping</li>
+            <li>Lane Changing Assistance</li>
+          </ul>
+        </div>
+        <div class="tech-adas__col">
+          <div class="tech-adas__col-title">Awareness &amp; Monitoring</div>
+          <ul>
+            <li>Blind Spot Detection</li>
+            <li>Rear Cross Traffic Alert &amp; Braking</li>
+            <li>Driver Monitoring System</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= VISION & SURROUND AWARENESS ======================= -->
+  <section class="tech-vision">
+    <div class="tech-vision__inner">
+      <div class="tech-vision__content reveal">
+        <span class="tech-kicker">03 / SURROUND AWARENESS</span>
+        <h2>See More.<br><em>Drive with Confidence.</em></h2>
+        <div class="tech-vision__focal">
+          <div class="tech-vision__focal-val">540<span class="tech-vision__focal-unit">°</span></div>
+          <div class="tech-vision__focal-label">HD Surround Camera</div>
+        </div>
+        <p class="tech-vision__copy">Sistem kamera surround view resolusi tinggi memberikan visibilitas penuh di sekeliling kendaraan — membantu pengemudi mengenali lingkungan sekitar saat bermanuver, parkir, atau melewati ruang yang sempit.</p>
+      </div>
+      <div class="tech-vision__media reveal">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="JAECOO J7 SHS — 540° HD Surround Camera No Blind Spot"
+        >
+          <source src="/assets/video/jaecoo-j7/surround-540.mp4" type="video/mp4">
+          <source src="/assets/video/jaecoo-j7/surround-540.mov" type="video/quicktime">
+        </video>
+        <div class="tech-vision__nbs">No Blind Spot</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CONNECTED TECHNOLOGY ======================= -->
+  <section class="tech-connected">
+    <div class="tech-connected__visual">
+      <img
+        src="/assets/images/jaecoo-j7/int-screen.jpg"
+        alt="Layar infotainment JAECOO J7 SHS — connected technology"
+        width="1440"
+        height="810"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="tech-connected__overlay">
+        <div class="tech-connected__caption reveal">
+          <span class="tech-kicker">04 / CONNECTED TECHNOLOGY</span>
+          <h2>Connected<br>to Your World.</h2>
+          <p class="tech-connected__copy">Sistem layar terintegrasi J7 SHS menghadirkan navigasi, hiburan, dan kontrol kendaraan dalam satu antarmuka yang responsif — konektivitas yang terasa natural dan intuitif di setiap perjalanan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= TECHNOLOGY SUMMARY ======================= -->
+  <section class="tech-summary">
+    <div class="tech-summary__inner reveal">
+      <div class="tech-summary__label">05 / FILOSOFI TEKNOLOGI</div>
+      <div class="tech-summary__pillars">
+        <div class="tech-summary__pillar">
+          <div class="tech-summary__pillar-word">Awareness</div>
+          <p class="tech-summary__pillar-desc">Sistem kamera dan sensor yang memperluas pandangan pengemudi ke segala arah.</p>
+        </div>
+        <div class="tech-summary__pillar">
+          <div class="tech-summary__pillar-word">Assistance</div>
+          <p class="tech-summary__pillar-desc">19 fitur ADAS yang bekerja mendukung pengemudi tanpa mengambil alih kendali.</p>
+        </div>
+        <div class="tech-summary__pillar">
+          <div class="tech-summary__pillar-word">Control</div>
+          <p class="tech-summary__pillar-desc">Respons yang terukur dan presisi — teknologi yang membantu, bukan mendistraksi.</p>
+        </div>
+        <div class="tech-summary__pillar">
+          <div class="tech-summary__pillar-word">Connection</div>
+          <p class="tech-summary__pillar-desc">Antarmuka yang menghubungkan pengemudi dengan informasi dan lingkungan sekitar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= NEXT PAGE CTA (Safety) ======================= -->
+  <section class="tech-next">
+    <div class="tech-next__inner reveal">
+      <div>
+        <p class="tech-next__label">Selanjutnya · Keselamatan</p>
+        <h2>Confidence, Built In.</h2>
+      </div>
+      <a class="tech-link" href="/jaecoo-j7/safety.html">
+        Explore Safety
+        <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="width:17px;height:17px;flex-shrink:0;transition:transform .3s">
+          <path d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======================= FINAL CTA ======================= -->
+  <section class="tech-cta">
+    <div class="tech-cta__inner reveal">
+      <span class="tech-cta-kicker">JAECOO J7 SHS · PALEMBANG</span>
+      <h2>Ready to Experience J7 SHS?</h2>
+      <p class="tech-cta__sub">Jadwalkan test drive J7 SHS di Palembang dan rasakan langsung teknologi intelligent assistance dalam berkendara.</p>
+      <div class="tech-cta__actions">
+        <a class="btn btn--primary" href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+ingin+booking+test+drive+JAECOO+J7+SHS.+Saya+menghubungi+dari+website+OMODA+JAECOO+Palembang." rel="noopener" target="_blank">Book a Test Drive</a>
+        <a class="btn btn--secondary" href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+mau+tanya+soal+JAECOO+J7+SHS.+Saya+menghubungi+dari+website+OMODA+JAECOO+Palembang." rel="noopener" target="_blank">Chat dengan Alvan</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer" id="footer">
+  <div class="footer__inner">
+    <a class="footer__logo" href="/">OMODA JAECOO PALEMBANG</a>
+    <nav aria-label="Footer" class="footer__nav">
+      <a href="/">HOME</a>
+      <a href="/omoda-o4/">OMODA O4</a>
+      <a href="/jaecoo-j5.html">J5</a>
+      <a href="/jaecoo-j7.html">J7</a>
+      <a href="/jaecoo-j8.html">J8</a>
+      <a href="https://wa.me/6285183145926?text=Saya%20menghubungi%20dari%20website%20OMODA%20JAECOO%20Palembang." rel="noopener" target="_blank">CONTACT</a>
+    </nav>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 OMODA JAECOO Palembang · Informasi model, harga &amp; test drive.</p>
+    <p>Palembang, Sumatera Selatan · WhatsApp 0851-8314-5926</p>
+  </div>
+</footer>
+
+<!-- WA Float -->
+<a aria-label="Chat WhatsApp Alvan" class="wa-float" href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+mau+tanya+soal+JAECOO+J7+SHS.+Saya+menghubungi+dari+website+OMODA+JAECOO+Palembang." rel="noopener" target="_blank">
+  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.12 0C5.61 0 .32 5.29.32 11.8c0 2.08.54 4.11 1.57 5.9L.22 24l6.45-1.69a11.77 11.77 0 0 0 5.45 1.35h.01c6.51 0 11.8-5.29 11.8-11.8a11.76 11.76 0 0 0-3.41-8.38Zm-8.4 18.16h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.79 9.79 0 0 1-1.5-5.15C2.22 6.4 6.66 1.96 12.12 1.96c2.65 0 5.14 1.03 7.01 2.91a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.44 9.76-9.91 9.76Zm5.39-7.32c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.28-.47-2.43-1.5-.9-.8-1.51-1.79-1.69-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+  <span>WhatsApp Alvan</span>
+</a>
+
+<script src="/assets/js/main.js"></script>
+<script>
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+  els.forEach(function(el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
