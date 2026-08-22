@@ -1,0 +1,23 @@
+REVISION — NEXT PAGE CTA + LANGUAGE
+Date: 2026-08-21
+
+1. Added a sequential navigation CTA immediately before the final WhatsApp/contact CTA on every JAECOO J5 page:
+   Overview -> Design -> Interior -> Technology -> Specifications -> back to Overview.
+
+2. Added/normalized the same sequential navigation on every OMODA O4 page:
+   Overview -> Design -> Interior -> Technology -> Performance -> back to Overview.
+
+3. The next-page CTA is a navigation CTA, not a WhatsApp CTA, so the final contact CTA remains the only primary WhatsApp conversion CTA on each page.
+
+4. Visible website copy is now predominantly Indonesian. English is intentionally retained only for the first hero/highlight headline on each model page, for example:
+   - JAECOO J5: “This Is The Real SUV.”
+   - OMODA O4: “OMODA O4. The future is here.”
+   - O4 Design: “Designed to be seen.”
+   - O4 Interior: “A cabin built around you.”
+   - O4 Technology: “Intelligence, built in.”
+   - O4 Performance: “Instant power. Real performance.”
+   Official product/technology names such as Cyber Mecha Design and AI 1.0 Intelligent Cockpit are retained where appropriate.
+
+5. Existing URLs/routing are preserved. No route was renamed.
+
+6. SEO structure was not intentionally removed. Existing canonical/schema/meta structure remains in place while visible language was localized.

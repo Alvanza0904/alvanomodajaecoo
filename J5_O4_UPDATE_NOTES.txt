@@ -1,0 +1,22 @@
+JAECOO J5 / OMODA O4 UPDATE — 2026-08-21
+
+JAECOO J5
+- Existing /jaecoo-j5.html URL preserved.
+- J5 redesigned as an overview plus four sub-pages:
+  /jaecoo-j5/design/
+  /jaecoo-j5/interior/
+  /jaecoo-j5/technology/
+  /jaecoo-j5/specifications/
+- Existing J5 SEO title, description and canonical URL were preserved.
+- J5 price remains immediately below the hero: Rp 359.900.000 (taken from the supplied V6 source).
+- Added new J5 exterior/interior photography under assets/images/jaecoo-j5/.
+- Added a scoped J5 design layer to avoid changing the global OMODA/JAECOO styling.
+- Added J5 local navigation and responsive layouts.
+- Updated sitemap.xml with the four new J5 URLs.
+
+OMODA O4
+- Added a PRE-BOOK O4 highlight directly after the hero.
+- Existing O4 visual system and page structure were retained.
+- Final O4 CTA now explicitly communicates pre-booking.
+
+No J7/J8 page content was intentionally modified.
