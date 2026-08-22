@@ -132,7 +132,8 @@
   inset: 0;
 }
 
-.j7-hero__media img {
+.j7-hero__media img,
+.j7-hero__media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -244,7 +245,7 @@
 
 @media (max-width: 860px) {
   .j7-hero { max-height: none; min-height: 520px; }
-  .j7-hero__media img { object-position: 60% 30%; }
+  .j7-hero__media img, .j7-hero__media video { object-position: 60% 30%; }
   .j7-hero__content { padding-bottom: 72px; max-width: 100%; }
   .j7-hero h1 { font-size: clamp(2.6rem, 10vw, 4rem); }
   .j7-hero__sub { font-size: 14px; margin-bottom: 36px; }
@@ -968,14 +969,16 @@
   <!-- ======================= HERO ======================= -->
   <section class="j7-hero" id="hero">
     <div class="j7-hero__media">
-      <img
-        src="/assets/images/jaecoo-j7/ext-hero.jpeg"
-        alt="JAECOO J7 SHS-P tampak depan 3/4"
-        width="1440"
-        height="1919"
-        fetchpriority="high"
-        decoding="async"
-      />
+      <video
+        src="/assets/video/jaecoo-j7/j7-hero.mp4"
+        poster="/assets/images/jaecoo-j7/ext-hero.jpeg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      ></video>
     </div>
     <div class="j7-hero__shade"></div>
     <div class="j7-hero__content">
