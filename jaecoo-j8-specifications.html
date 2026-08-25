@@ -41,11 +41,10 @@
     .spec-table th.col-ardis{width:30%;color:inherit;opacity:0.6;}
     .spec-table th.col-shsp{width:30%;color:inherit;opacity:1;}
     .spec-table td.col-feature{opacity:0.6;font-size:0.82rem;}
-    .spec-table td.col-ardis{opacity:0.45;font-style:italic;}
+    .spec-table td.col-ardis{opacity:0.85;font-weight:500;}
     .spec-table td.col-shsp{font-weight:500;}
     .spec-table tr:last-child td{border-bottom:none;}
     .spec-table .row-group th{background:rgba(255,255,255,0.04);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.3;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.07);border-top:1px solid rgba(255,255,255,0.05);}
-    .spec-placeholder{opacity:0.35;font-style:italic;}
 
     /* ── PRICE BLOCK ── */
     .price-block{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
@@ -79,6 +78,8 @@
     .footer-v2__bottom p{margin:0;font-size:0.72rem;letter-spacing:0.05em;opacity:0.3;}
     @media(max-width:900px){.footer-v2__inner{grid-template-columns:1fr 1fr;gap:40px 32px;padding:0 32px 40px;}.footer-v2__social-row-inner{padding:28px 32px;gap:20px;}}
     @media(max-width:640px){.j8-subnav__inner{padding:0 20px;}.j8-subnav__model{padding:0 16px 0 0;margin-right:0;}.j8-subnav__link{padding:14px 14px;font-size:0.68rem;}.footer-v2__inner{grid-template-columns:1fr;padding:0 24px 36px;gap:32px;}.spec-table th,.spec-table td{padding:12px 12px;font-size:0.78rem;}.footer-v2__social-row-inner{padding:24px;flex-direction:column;align-items:flex-start;gap:16px;}.footer-v2__social-links{gap:8px;}.footer-v2__social-links a{padding:10px 14px;min-height:44px;font-size:0.78rem;}.footer-v2__bottom{padding:16px 24px;}}
+    /* Navbar offset */
+    body{padding-top:68px;}
   </style>
   <script type="application/ld+json">
   {
@@ -93,15 +94,28 @@
         "image": "https://omodajaecoopalembang.web.id/assets/images/jaecoo-j8.webp",
         "model": "JAECOO J8 SHS-P ARDIS",
         "fuelType": "PlugInHybrid",
-        "offers": {
-          "@type": "Offer",
-          "url": "https://omodajaecoopalembang.web.id/jaecoo-j8-specifications.html",
-          "priceCurrency": "IDR",
-          "price": "855000000",
-          "availability": "https://schema.org/InStock",
-          "itemCondition": "https://schema.org/NewCondition",
-          "seller": {"@id": "https://omodajaecoopalembang.web.id/#business"}
-        }
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "JAECOO J8 ARDIS",
+            "url": "https://omodajaecoopalembang.web.id/jaecoo-j8-specifications.html",
+            "priceCurrency": "IDR",
+            "price": "719900000",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {"@id": "https://omodajaecoopalembang.web.id/#business"}
+          },
+          {
+            "@type": "Offer",
+            "name": "JAECOO J8 SHS-P ARDIS",
+            "url": "https://omodajaecoopalembang.web.id/jaecoo-j8-specifications.html",
+            "priceCurrency": "IDR",
+            "price": "855000000",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {"@id": "https://omodajaecoopalembang.web.id/#business"}
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -114,6 +128,17 @@
     ]
   }
   </script>
+<style>
+    /* ── EXPLORE J8 INTER-PAGE NAV ── */
+    .j8-explore-nav{background:#060606;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);padding:48px 0;}
+    .j8-explore-nav__wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+    .j8-explore-nav__label{font-size:0.6rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;opacity:0.3;display:block;margin-bottom:20px;}
+    .j8-explore-nav__links{display:flex;flex-wrap:wrap;gap:8px;}
+    .j8-explore-nav__link{display:inline-flex;align-items:center;padding:11px 22px;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,0.12);opacity:0.52;transition:opacity .2s,border-color .2s,background .2s;white-space:nowrap;}
+    .j8-explore-nav__link:hover{opacity:1;border-color:rgba(255,255,255,0.38);background:rgba(255,255,255,0.04);}
+    .j8-explore-nav__link--active{opacity:1;border-color:rgba(255,255,255,0.48);background:rgba(255,255,255,0.05);}
+    @media(max-width:640px){.j8-explore-nav{padding:36px 0;}.j8-explore-nav__wrap{padding:0 24px;}.j8-explore-nav__link{padding:9px 16px;font-size:0.66rem;}}
+  </style>
 </head>
 <body>
 
@@ -155,7 +180,7 @@
     <div class="wrap">
       <div class="eyebrow">JAECOO J8 · Spesifikasi</div>
       <h1>Specifications</h1>
-      <p>Perbandingan spesifikasi lengkap dua varian JAECOO J8. Kolom J8 ARDIS masih menunggu data resmi dari pabrikan.</p>
+      <p>Perbandingan spesifikasi lengkap dua varian JAECOO J8: J8 ARDIS (2.0T · 6-Seater) dan J8 SHS-P ARDIS (Triple Motor · 7-Seater).</p>
     </div>
   </section>
 
@@ -167,8 +192,8 @@
       <div class="price-block">
         <div class="price-card">
           <div class="price-card__variant">J8 ARDIS</div>
-          <div class="price-card__price spec-placeholder">— Hubungi Alvan</div>
-          <div class="price-card__note">Data harga belum tersedia. Tanya via WhatsApp.</div>
+          <div class="price-card__price">Rp 719.900.000</div>
+          <div class="price-card__note">OTR Palembang · Harga dapat berubah sewaktu-waktu.</div>
         </div>
         <div class="price-card price-card--highlighted">
           <div class="price-card__variant">J8 SHS-P ARDIS</div>
@@ -180,7 +205,6 @@
   </section>
 
   <!-- ── TABEL SPESIFIKASI LENGKAP ── -->
-  <!-- Sumber: jaecoo-j8.html existing — dipindahkan utuh, tidak dikarang -->
   <section class="section">
     <div class="wrap">
       <div class="kicker">Spesifikasi Teknis</div>
@@ -200,65 +224,80 @@
             <tr class="row-group"><th colspan="3">Dimensi &amp; Berat</th></tr>
             <tr>
               <td class="col-feature">Panjang × Lebar × Tinggi</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">4.820 × 1.930 × 1.710 mm</td>
               <td class="col-shsp">4.820 × 1.930 × 1.710 mm</td>
             </tr>
             <tr>
               <td class="col-feature">Wheelbase</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">2.820 mm</td>
               <td class="col-shsp">2.820 mm</td>
             </tr>
             <tr>
+              <td class="col-feature">Ground clearance</td>
+              <td class="col-ardis">190 mm</td>
+              <td class="col-shsp">190 mm</td>
+            </tr>
+            <tr>
               <td class="col-feature">Berat kosong</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">1.929 kg</td>
               <td class="col-shsp">2.490 kg</td>
             </tr>
             <tr>
               <td class="col-feature">Kapasitas</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">6 penumpang</td>
               <td class="col-shsp">7 penumpang</td>
+            </tr>
+            <tr>
+              <td class="col-feature">Kapasitas bagasi</td>
+              <td class="col-ardis">738 L / maks. 2.021 L</td>
+              <td class="col-shsp">—</td>
+            </tr>
+            <tr>
+              <td class="col-feature">Kapasitas tangki</td>
+              <td class="col-ardis">70 L</td>
+              <td class="col-shsp">70 L</td>
             </tr>
 
             <!-- BATERAI & LISTRIK -->
             <tr class="row-group"><th colspan="3">Baterai &amp; Listrik</th></tr>
             <tr>
               <td class="col-feature">Kapasitas baterai</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">34,46 kWh LFP</td>
             </tr>
             <tr>
               <td class="col-feature">EV range</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">hingga 180 km*</td>
             </tr>
             <tr>
               <td class="col-feature">Total range</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">&gt;1.400 km†</td>
             </tr>
             <tr>
               <td class="col-feature">DC Fast Charging</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">~20 menit (0–80%)</td>
             </tr>
             <tr>
               <td class="col-feature">AC Wall Mount Charger</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">7.700 W · ~6 jam</td>
             </tr>
             <tr>
               <td class="col-feature">Portable charging</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">2.200 W · ~18 jam</td>
             </tr>
             <tr>
               <td class="col-feature">V2L output</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">6,6 kW</td>
             </tr>
             <tr>
               <td class="col-feature">Regeneratif braking</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">3 level</td>
             </tr>
 
@@ -266,60 +305,70 @@
             <tr class="row-group"><th colspan="3">Powertrain</th></tr>
             <tr>
               <td class="col-feature">Tipe sistem</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">2.0L Turbo · 8-speed AT</td>
               <td class="col-shsp">SHS (Super Hybrid System) · Triple Motor</td>
             </tr>
             <tr>
-              <td class="col-feature">Tenaga gabungan</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-feature">Tenaga</td>
+              <td class="col-ardis">245 HP</td>
               <td class="col-shsp">530 PS</td>
             </tr>
             <tr>
-              <td class="col-feature">Torsi gabungan</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-feature">Torsi</td>
+              <td class="col-ardis">385 Nm</td>
               <td class="col-shsp">650 Nm</td>
             </tr>
             <tr>
+              <td class="col-feature">Transmisi</td>
+              <td class="col-ardis">8-speed AT</td>
+              <td class="col-shsp">—</td>
+            </tr>
+            <tr>
               <td class="col-feature">0–100 km/jam</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">8,8 detik</td>
               <td class="col-shsp">5,4 detik</td>
             </tr>
             <tr>
               <td class="col-feature">Top speed</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">—</td>
               <td class="col-shsp">205 km/jam</td>
             </tr>
             <tr>
               <td class="col-feature">Sistem penggerak</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">AWD · ARDIS</td>
               <td class="col-shsp">AWD · ARDIS</td>
+            </tr>
+            <tr>
+              <td class="col-feature">Driving Modes</td>
+              <td class="col-ardis">7 mode</td>
+              <td class="col-shsp">7 mode</td>
             </tr>
 
             <!-- SUSPENSI & HANDLING -->
             <tr class="row-group"><th colspan="3">Suspensi &amp; Handling</th></tr>
             <tr>
               <td class="col-feature">Suspensi depan</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">CDC Magnetic Suspension · Double wishbone</td>
               <td class="col-shsp">CDC Magnetic Suspension · Double wishbone</td>
             </tr>
             <tr>
               <td class="col-feature">Suspensi belakang</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">CDC Magnetic Suspension · Multi-link</td>
               <td class="col-shsp">CDC Magnetic Suspension · Multi-link</td>
             </tr>
             <tr>
               <td class="col-feature">Rem depan / belakang</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">Disc / Disc</td>
               <td class="col-shsp">Disc / Disc</td>
             </tr>
             <tr>
               <td class="col-feature">Ukuran ban</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">265/45 R20</td>
               <td class="col-shsp">265/45 R20</td>
             </tr>
             <tr>
               <td class="col-feature">Velg</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">20 inci</td>
               <td class="col-shsp">20 inci</td>
             </tr>
 
@@ -327,22 +376,22 @@
             <tr class="row-group"><th colspan="3">Keselamatan</th></tr>
             <tr>
               <td class="col-feature">Airbag</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">10 airbag</td>
               <td class="col-shsp">10 airbag</td>
             </tr>
             <tr>
               <td class="col-feature">ADAS</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">19 fitur</td>
               <td class="col-shsp">19 fitur</td>
             </tr>
             <tr>
               <td class="col-feature">Kamera</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">540° HD</td>
               <td class="col-shsp">540° HD</td>
             </tr>
             <tr>
               <td class="col-feature">ABS / EBD / ESC</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">Standar</td>
               <td class="col-shsp">Standar</td>
             </tr>
 
@@ -350,18 +399,25 @@
             <tr class="row-group"><th colspan="3">Kenyamanan &amp; Konektivitas</th></tr>
             <tr>
               <td class="col-feature">Wireless charging</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">50 W</td>
               <td class="col-shsp">50 W</td>
             </tr>
             <tr>
               <td class="col-feature">Kursi baris 1</td>
-              <td class="col-ardis spec-placeholder">—</td>
+              <td class="col-ardis">Elektrik · Ventilasi · Pemanas</td>
               <td class="col-shsp">Elektrik · Ventilasi · Pemanas</td>
             </tr>
             <tr>
-              <td class="col-feature">Panoramic roof</td>
-              <td class="col-ardis spec-placeholder">—</td>
-              <td class="col-shsp">Standar</td>
+              <td class="col-feature">Panoramic Sunroof</td>
+              <td class="col-ardis">Panoramic Sunroof</td>
+              <td class="col-shsp">Panoramic Sunroof</td>
+            </tr>
+
+            <!-- PILIHAN WARNA -->
+            <tr class="row-group"><th colspan="3">Pilihan Warna</th></tr>
+            <tr>
+              <td class="col-feature">Warna tersedia</td>
+              <td class="col-ardis" colspan="2">Stone Gray · Pristine White Two Tone · Lunar Silver · Jet Black</td>
             </tr>
 
           </tbody>
@@ -370,7 +426,7 @@
       <p style="margin-top:20px;font-size:0.72rem;opacity:0.3;line-height:1.8;">
         * 180 km EV range: klaim pabrikan; pengujian lapangan dapat berbeda.<br/>
         † Total range klaim pabrikan; hasil pengujian lapangan tercatat hingga 1.660 km.<br/>
-        Kolom J8 ARDIS (—) menunggu data resmi pabrikan. Tidak ada data yang dikarang.
+        Harga OTR Palembang. Harga dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya.
       </p>
     </div>
   </section>
@@ -384,6 +440,22 @@
       </div>
     </div>
   </section>
+
+
+<!-- ── EXPLORE J8 — INTER-PAGE NAVIGATION ── -->
+<section class="j8-explore-nav" aria-label="Explore JAECOO J8">
+  <div class="j8-explore-nav__wrap">
+    <span class="j8-explore-nav__label">Explore JAECOO J8</span>
+    <div class="j8-explore-nav__links">
+      <a class="j8-explore-nav__link " href="/jaecoo-j8.html">Overview</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-design.html">Design</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-interior.html">Interior</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-performance.html">Performance</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-technology.html">Technology</a>
+      <a class="j8-explore-nav__link j8-explore-nav__link--active" href="/jaecoo-j8-specifications.html">Specifications</a>
+    </div>
+  </div>
+</section>
 
 </main>
 

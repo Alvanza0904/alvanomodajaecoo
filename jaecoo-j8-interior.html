@@ -76,7 +76,7 @@
     /* ── S1 HERO ── */
     .j8-hero {
       background: #0a0a0a;
-      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       align-items: stretch;
       overflow: hidden;
@@ -562,7 +562,9 @@
       .j8-cta { padding: 64px 24px; }
       .j8-cta__btn { min-height: 52px; width: 100%; }
     }
-  </style>
+      /* Navbar offset — prevents fixed navbar (68px) from covering content */
+    body{padding-top:68px;}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -585,6 +587,18 @@
     ]
   }
   </script>
+<style>
+
+    /* ── EXPLORE J8 INTER-PAGE NAV ── */
+    .j8-explore-nav{background:#060606;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);padding:48px 0;}
+    .j8-explore-nav__wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+    .j8-explore-nav__label{font-size:0.6rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;opacity:0.3;display:block;margin-bottom:20px;}
+    .j8-explore-nav__links{display:flex;flex-wrap:wrap;gap:8px;}
+    .j8-explore-nav__link{display:inline-flex;align-items:center;padding:11px 22px;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,0.12);opacity:0.52;transition:opacity .2s,border-color .2s,background .2s;white-space:nowrap;}
+    .j8-explore-nav__link:hover{opacity:1;border-color:rgba(255,255,255,0.38);background:rgba(255,255,255,0.04);}
+    .j8-explore-nav__link--active{opacity:1;border-color:rgba(255,255,255,0.48);background:rgba(255,255,255,0.05);}
+    @media(max-width:640px){.j8-explore-nav{padding:36px 0;}.j8-explore-nav__wrap{padding:0 24px;}.j8-explore-nav__link{padding:9px 16px;font-size:0.66rem;}}
+  </style>
 </head>
 <body>
 
@@ -633,7 +647,7 @@
       <picture>
         <source srcset="/assets/images/jaecoo-j8/img06.webp" type="image/webp">
         <img
-          src="/assets/images/jaecoo-j8/img06.jpg"
+          src="/assets/images/jaecoo-j8/img06.jpeg"
           alt="Dashboard dan kabin depan JAECOO J8 — layar infotainment lebar, setir premium, dan sunroof panoramik"
           width="1440"
           height="1920"
@@ -650,7 +664,7 @@
       <picture>
         <source srcset="/assets/images/jaecoo-j8/img07.webp" type="image/webp">
         <img
-          src="/assets/images/jaecoo-j8/img07.jpg"
+          src="/assets/images/jaecoo-j8/img07.jpeg"
           alt="Setir kemudi JAECOO J8 dengan tombol kontrol dan panel dashboard premium"
           width="1440"
           height="1920"
@@ -672,7 +686,7 @@
         <picture>
           <source srcset="/assets/images/jaecoo-j8/img08.webp" type="image/webp">
           <img
-            src="/assets/images/jaecoo-j8/img08.jpg"
+            src="/assets/images/jaecoo-j8/img08.jpeg"
             alt="Knob MODE JAECOO J8 untuk berpindah antara mode EV, HEV, dan berkendara — kontrol PHEV paling intuitif"
             width="1440"
             height="1920"
@@ -704,7 +718,7 @@
       <picture>
         <source srcset="/assets/images/jaecoo-j8/img09.webp" type="image/webp">
         <img
-          src="/assets/images/jaecoo-j8/img09.jpg"
+          src="/assets/images/jaecoo-j8/img09.jpeg"
           alt="Speaker Sony premium di pintu JAECOO J8 — sistem audio 9 speaker untuk pengalaman suara terbaik di kelasnya"
           width="1440"
           height="1800"
@@ -717,7 +731,7 @@
   <!-- ── S5 KABIN & RUANG ──────────────────────────── -->
   <section class="j8-int j8-immersive" aria-label="Kabin 7 penumpang JAECOO J8">
     <img
-      src="/assets/images/jaecoo-j8/img16.jpg"
+      src="/assets/images/jaecoo-j8/img16.jpeg"
       alt="Kabin JAECOO J8 tiga baris dengan tujuh kursi — ruang lega dan kenyamanan untuk semua penumpang"
       width="1080"
       height="1350"
@@ -802,6 +816,22 @@
       Chat WhatsApp
     </a>
   </section>
+
+
+<!-- ── EXPLORE J8 — INTER-PAGE NAVIGATION ── -->
+<section class="j8-explore-nav" aria-label="Explore JAECOO J8">
+  <div class="j8-explore-nav__wrap">
+    <span class="j8-explore-nav__label">Explore JAECOO J8</span>
+    <div class="j8-explore-nav__links">
+      <a class="j8-explore-nav__link " href="/jaecoo-j8.html">Overview</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-design.html">Design</a>
+      <a class="j8-explore-nav__link j8-explore-nav__link--active" href="/jaecoo-j8-interior.html">Interior</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-performance.html">Performance</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-technology.html">Technology</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-specifications.html">Specifications</a>
+    </div>
+  </div>
+</section>
 
 </main>
 

@@ -343,7 +343,9 @@
     .d-cta .btn.primary:hover{opacity:0.85;}
     @media(max-width:640px){.d-cta{padding:64px 24px;}}
 
-  </style>
+      /* Navbar offset — prevents fixed navbar (68px) from covering content */
+    body{padding-top:68px;}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -366,6 +368,18 @@
     ]
   }
   </script>
+<style>
+
+    /* ── EXPLORE J8 INTER-PAGE NAV ── */
+    .j8-explore-nav{background:#060606;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);padding:48px 0;}
+    .j8-explore-nav__wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+    .j8-explore-nav__label{font-size:0.6rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;opacity:0.3;display:block;margin-bottom:20px;}
+    .j8-explore-nav__links{display:flex;flex-wrap:wrap;gap:8px;}
+    .j8-explore-nav__link{display:inline-flex;align-items:center;padding:11px 22px;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,0.12);opacity:0.52;transition:opacity .2s,border-color .2s,background .2s;white-space:nowrap;}
+    .j8-explore-nav__link:hover{opacity:1;border-color:rgba(255,255,255,0.38);background:rgba(255,255,255,0.04);}
+    .j8-explore-nav__link--active{opacity:1;border-color:rgba(255,255,255,0.48);background:rgba(255,255,255,0.05);}
+    @media(max-width:640px){.j8-explore-nav{padding:36px 0;}.j8-explore-nav__wrap{padding:0 24px;}.j8-explore-nav__link{padding:9px 16px;font-size:0.66rem;}}
+  </style>
 </head>
 <body>
 
@@ -426,7 +440,7 @@
       <source srcset="/assets/images/jaecoo-j8/exterior-hero.webp" type="image/webp"/>
       <img
         class="d-hero__media"
-        src="/assets/images/jaecoo-j8/exterior-hero.jpg"
+        src="/assets/images/jaecoo-j8/exterior-hero.jpeg"
         alt="JAECOO J8 tampak depan tiga perempat dengan pencahayaan malam premium di gedung modern"
         width="1440" height="1920"
         fetchpriority="high"
@@ -442,11 +456,11 @@
       class="d-hero__video"
       autoplay muted loop playsinline
       preload="metadata"
-      poster="/assets/images/jaecoo-j8/exterior-hero.jpg"
+      poster="/assets/images/jaecoo-j8/exterior-hero.jpeg"
       aria-label="Video eksterior JAECOO J8"
       onerror="this.style.display='none';document.getElementById('heroFallback').style.display='block';"
     >
-      <source src="/assets/videos/jaecoo-j8/hero.mov" type="video/quicktime"/>
+      <source src="/assets/video/jaecoo-j8/hero.mov" type="video/quicktime"/>
     </video>
 
     <!-- Mobile fallback: tampil hanya jika video gagal load -->
@@ -455,7 +469,7 @@
       <img
         id="heroFallback"
         class="d-hero__img-fallback"
-        src="/assets/images/jaecoo-j8/exterior-hero.jpg"
+        src="/assets/images/jaecoo-j8/exterior-hero.jpeg"
         alt="JAECOO J8 tampak depan tiga perempat dengan pencahayaan malam premium"
         width="1440" height="1920"
         loading="lazy"
@@ -479,7 +493,7 @@
       <source srcset="/assets/images/jaecoo-j8/exterior-rear.webp" type="image/webp"/>
       <img
         class="d-fullbleed__img"
-        src="/assets/images/jaecoo-j8/exterior-rear.jpg"
+        src="/assets/images/jaecoo-j8/exterior-rear.jpeg"
         alt="JAECOO J8 tampak belakang tiga perempat dengan lampu LED menyala di malam hari"
         width="1440" height="1920"
         loading="lazy"
@@ -509,7 +523,7 @@
         <source srcset="/assets/images/jaecoo-j8/exterior-front.webp" type="image/webp"/>
         <img
           class="d-split__img"
-          src="/assets/images/jaecoo-j8/exterior-front.jpg"
+          src="/assets/images/jaecoo-j8/exterior-front.jpeg"
           alt="JAECOO J8 tampak depan tiga perempat menampilkan grille vertikal signature dan DRL LED"
           width="1440" height="1920"
           loading="lazy"
@@ -534,7 +548,7 @@
         <source srcset="/assets/images/jaecoo-j8/rear-light.webp" type="image/webp"/>
         <img
           class="d-split__img"
-          src="/assets/images/jaecoo-j8/rear-light.jpg"
+          src="/assets/images/jaecoo-j8/rear-light.jpeg"
           alt="Lampu belakang LED JAECOO J8 menyala dengan detail garis horisontal yang dramatis"
           width="1440" height="1920"
           loading="lazy"
@@ -553,7 +567,7 @@
       <source srcset="/assets/images/jaecoo-j8/side-profile.webp" type="image/webp"/>
       <img
         class="d-profile__img"
-        src="/assets/images/jaecoo-j8/side-profile.jpg"
+        src="/assets/images/jaecoo-j8/side-profile.jpeg"
         alt="JAECOO J8 tampak samping penuh menampilkan proporsi SUV flagship dengan velg 20 inci"
         width="1440" height="1920"
         loading="lazy"
@@ -577,7 +591,7 @@
         <source srcset="/assets/images/jaecoo-j8/wheel-detail.webp" type="image/webp"/>
         <img
           class="d-detail__panel-img"
-          src="/assets/images/jaecoo-j8/wheel-detail.jpg"
+          src="/assets/images/jaecoo-j8/wheel-detail.jpeg"
           alt="Velg 20 inci multi-spoke JAECOO J8 dengan desain premium berlapis hitam dan chrome"
           width="1440" height="1920"
           loading="lazy"
@@ -599,7 +613,7 @@
       <source srcset="/assets/images/jaecoo-j8/phev-badge.webp" type="image/webp"/>
       <img
         class="d-cinematic__img"
-        src="/assets/images/jaecoo-j8/phev-badge.jpg"
+        src="/assets/images/jaecoo-j8/phev-badge.jpeg"
         alt="Badge PHEV JAECOO J8 dengan aksen biru pada bodi putih — penanda teknologi plug-in hybrid"
         width="1440" height="1920"
         loading="lazy"
@@ -665,7 +679,7 @@
           id="colorVehicle"
           class="d-colors__vehicle"
           src="/assets/images/jaecoo-j8/warna/color-slate-grey.png"
-          alt="JAECOO J8 dalam warna Slate Green-Grey tampak samping studio"
+          alt="JAECOO J8 dalam warna Stone Gray tampak samping studio"
           width="1095" height="462"
           loading="lazy"
           decoding="async"
@@ -678,53 +692,53 @@
         <button
           class="d-colors__swatch is-active"
           data-color-src="/assets/images/jaecoo-j8/warna/color-slate-grey.png"
-          data-color-alt="JAECOO J8 dalam warna Slate Green-Grey tampak samping studio"
-          data-color-name="Slate Green-Grey"
+          data-color-alt="JAECOO J8 dalam warna Stone Gray tampak samping studio"
+          data-color-name="Stone Gray"
           aria-pressed="true"
-          aria-label="Pilih warna Slate Green-Grey"
+          aria-label="Pilih warna Stone Gray"
           type="button"
         >
           <span class="d-colors__swatch-dot" style="background:#6a7d6e;"></span>
-          <span class="d-colors__swatch-name">Slate Green-Grey</span>
+          <span class="d-colors__swatch-name">Stone Gray</span>
         </button>
 
         <button
           class="d-colors__swatch"
           data-color-src="/assets/images/jaecoo-j8/warna/color-pearl-white.png"
-          data-color-alt="JAECOO J8 dalam warna Pearl White tampak samping studio"
-          data-color-name="Pearl White"
+          data-color-alt="JAECOO J8 dalam warna Pristine White Two Tone tampak samping studio"
+          data-color-name="Pristine White Two Tone"
           aria-pressed="false"
-          aria-label="Pilih warna Pearl White"
+          aria-label="Pilih warna Pristine White Two Tone"
           type="button"
         >
           <span class="d-colors__swatch-dot" style="background:#f0efec;"></span>
-          <span class="d-colors__swatch-name">Pearl White</span>
+          <span class="d-colors__swatch-name">Pristine White Two Tone</span>
         </button>
 
         <button
           class="d-colors__swatch"
           data-color-src="/assets/images/jaecoo-j8/warna/color-silver.png"
-          data-color-alt="JAECOO J8 dalam warna Silver tampak samping studio"
-          data-color-name="Silver"
+          data-color-alt="JAECOO J8 dalam warna Lunar Silver tampak samping studio"
+          data-color-name="Lunar Silver"
           aria-pressed="false"
-          aria-label="Pilih warna Silver"
+          aria-label="Pilih warna Lunar Silver"
           type="button"
         >
           <span class="d-colors__swatch-dot" style="background:#c8c9cc;"></span>
-          <span class="d-colors__swatch-name">Silver</span>
+          <span class="d-colors__swatch-name">Lunar Silver</span>
         </button>
 
         <button
           class="d-colors__swatch"
           data-color-src="/assets/images/jaecoo-j8/warna/color-black.png"
-          data-color-alt="JAECOO J8 dalam warna Black tampak samping studio"
-          data-color-name="Black"
+          data-color-alt="JAECOO J8 dalam warna Jet Black tampak samping studio"
+          data-color-name="Jet Black"
           aria-pressed="false"
-          aria-label="Pilih warna Black"
+          aria-label="Pilih warna Jet Black"
           type="button"
         >
           <span class="d-colors__swatch-dot" style="background:#1a1a1a;"></span>
-          <span class="d-colors__swatch-name">Black</span>
+          <span class="d-colors__swatch-name">Jet Black</span>
         </button>
 
       </div>
@@ -741,6 +755,22 @@
       <a class="btn primary" href="https://wa.me/6285183145926?text=Saya%20menghubungi%20dari%20website%20OMODA%20JAECOO%20Palembang." rel="noopener" target="_blank">Chat WhatsApp</a>
     </div>
   </section>
+
+
+<!-- ── EXPLORE J8 — INTER-PAGE NAVIGATION ── -->
+<section class="j8-explore-nav" aria-label="Explore JAECOO J8">
+  <div class="j8-explore-nav__wrap">
+    <span class="j8-explore-nav__label">Explore JAECOO J8</span>
+    <div class="j8-explore-nav__links">
+      <a class="j8-explore-nav__link " href="/jaecoo-j8.html">Overview</a>
+      <a class="j8-explore-nav__link j8-explore-nav__link--active" href="/jaecoo-j8-design.html">Design</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-interior.html">Interior</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-performance.html">Performance</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-technology.html">Technology</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-specifications.html">Specifications</a>
+    </div>
+  </div>
+</section>
 
 </main>
 

@@ -27,8 +27,11 @@
     /* ════════════════════════════════════════
        J8 SUB-NAVIGATION
     ════════════════════════════════════════ */
+    /* Offset body so fixed navbar doesn't overlap content */
+    body { padding-top: 68px; }
+
     .j8-subnav {
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -675,6 +678,61 @@
       .footer-v2__inner { grid-template-columns: 1fr 1fr; gap: 40px 32px; padding: 0 32px 40px; }
       .footer-v2__social-row-inner { padding: 28px 32px; gap: 20px; }
     }
+    /* ════════════════════════════════════════
+       EXPLORE J8 — INTER-PAGE NAV
+    ════════════════════════════════════════ */
+    .j8-explore-nav {
+      background: #080808;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 48px 0;
+    }
+    .j8-explore-nav__label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.3;
+      display: block;
+      margin-bottom: 24px;
+    }
+    .j8-explore-nav__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .j8-explore-nav__link {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      opacity: 0.55;
+      transition: opacity 0.2s, border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .j8-explore-nav__link:hover {
+      opacity: 1;
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.04);
+    }
+    .j8-explore-nav__link--active {
+      opacity: 1;
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.06);
+    }
+
+    @media (max-width: 640px) {
+      .j8-explore-nav { padding: 36px 0; }
+      .j8-explore-nav__links { gap: 6px; }
+      .j8-explore-nav__link { padding: 10px 18px; font-size: 0.68rem; }
+    }
+
     @media (max-width: 640px) {
       .j8-subnav__inner { padding: 0 20px; }
       .j8-subnav__model { padding: 0 14px 0 0; margin-right: 0; }
@@ -811,11 +869,11 @@
         loop
         playsinline
         preload="metadata"
-        poster="/assets/images/jaecoo-j8/exterior-hero.jpg"
+        poster="/assets/images/jaecoo-j8/exterior-hero.jpeg"
         aria-hidden="true"
+        onerror="this.style.display='none'"
       >
-        <source src="/assets/videos/jaecoo-j8/hero.mov" type="video/quicktime" />
-        <source src="/assets/videos/jaecoo-j8/hero.mov" type="video/mp4" />
+        <source src="/assets/video/jaecoo-j8/hero.mov" type="video/quicktime" />
       </video>
     </div>
     <div class="j8-hero__overlay" aria-hidden="true"></div>
@@ -999,7 +1057,7 @@
           <picture>
             <source srcset="/assets/images/jaecoo-j8/exterior-hero.webp" type="image/webp" />
             <img
-              src="/assets/images/jaecoo-j8/exterior-hero.jpg"
+              src="/assets/images/jaecoo-j8/exterior-hero.jpeg"
               alt="Eksterior JAECOO J8 — Desain Flagship SUV"
               width="1440"
               height="960"
@@ -1123,7 +1181,7 @@
           <picture>
             <source srcset="/assets/images/jaecoo-j8/tech-hero.webp" type="image/webp" />
             <img
-              src="/assets/images/jaecoo-j8/tech-hero.jpg"
+              src="/assets/images/jaecoo-j8/tech-hero.jpeg"
               alt="Teknologi Cerdas JAECOO J8 — Intelligent Cockpit"
               width="1440"
               height="960"
@@ -1189,6 +1247,35 @@
         <a class="j8-btn-ghost" href="/jaecoo-j8-specifications.html">
           View Full Specifications
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EXPLORE J8 — INTER-PAGE NAVIGATION
+  ══════════════════════════════════════════ -->
+  <section class="j8-explore-nav" aria-label="Explore JAECOO J8">
+    <div class="j8-wrap">
+      <span class="j8-explore-nav__label">Explore JAECOO J8</span>
+      <div class="j8-explore-nav__links">
+        <a class="j8-explore-nav__link j8-explore-nav__link--active" href="/jaecoo-j8.html" aria-current="page">
+          <span class="j8-explore-nav__link-name">Overview</span>
+        </a>
+        <a class="j8-explore-nav__link" href="/jaecoo-j8-design.html">
+          <span class="j8-explore-nav__link-name">Design</span>
+        </a>
+        <a class="j8-explore-nav__link" href="/jaecoo-j8-interior.html">
+          <span class="j8-explore-nav__link-name">Interior</span>
+        </a>
+        <a class="j8-explore-nav__link" href="/jaecoo-j8-performance.html">
+          <span class="j8-explore-nav__link-name">Performance</span>
+        </a>
+        <a class="j8-explore-nav__link" href="/jaecoo-j8-technology.html">
+          <span class="j8-explore-nav__link-name">Technology</span>
+        </a>
+        <a class="j8-explore-nav__link" href="/jaecoo-j8-specifications.html">
+          <span class="j8-explore-nav__link-name">Specifications</span>
         </a>
       </div>
     </div>

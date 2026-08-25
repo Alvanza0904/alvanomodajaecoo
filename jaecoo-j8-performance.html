@@ -502,7 +502,9 @@
     /* ARDIS title */
     .p-ardis__title{font-size:2.2rem;}
   }
-  </style>
+      /* Navbar offset — prevents fixed navbar (68px) from covering content */
+    body{padding-top:68px;}
+</style>
 
   <script type="application/ld+json">
   {
@@ -526,6 +528,18 @@
     ]
   }
   </script>
+<style>
+
+    /* ── EXPLORE J8 INTER-PAGE NAV ── */
+    .j8-explore-nav{background:#060606;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);padding:48px 0;}
+    .j8-explore-nav__wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+    .j8-explore-nav__label{font-size:0.6rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;opacity:0.3;display:block;margin-bottom:20px;}
+    .j8-explore-nav__links{display:flex;flex-wrap:wrap;gap:8px;}
+    .j8-explore-nav__link{display:inline-flex;align-items:center;padding:11px 22px;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,0.12);opacity:0.52;transition:opacity .2s,border-color .2s,background .2s;white-space:nowrap;}
+    .j8-explore-nav__link:hover{opacity:1;border-color:rgba(255,255,255,0.38);background:rgba(255,255,255,0.04);}
+    .j8-explore-nav__link--active{opacity:1;border-color:rgba(255,255,255,0.48);background:rgba(255,255,255,0.05);}
+    @media(max-width:640px){.j8-explore-nav{padding:36px 0;}.j8-explore-nav__wrap{padding:0 24px;}.j8-explore-nav__link{padding:9px 16px;font-size:0.66rem;}}
+  </style>
 </head>
 <body>
 
@@ -571,7 +585,7 @@
   <section class="p-hero" aria-label="JAECOO J8 SHS-P ARDIS performance hero">
     <img
       class="p-hero__img"
-      src="/assets/images/jaecoo-j8/exterior-front-day.jpg"
+      src="/assets/images/jaecoo-j8/exterior-front-day.jpeg"
       alt="JAECOO J8 SHS-P ARDIS tampak depan tiga perempat dalam suasana on-road siang hari"
       width="1440" height="1920"
       fetchpriority="high"
@@ -734,7 +748,7 @@
   <section class="p-range" aria-label="Jangkauan EV dan total range JAECOO J8">
     <img
       class="p-range__img"
-      src="/assets/images/jaecoo-j8/phev-badge.jpg"
+      src="/assets/images/jaecoo-j8/phev-badge.jpeg"
       alt="Badge PHEV JAECOO J8 dengan aksen biru — simbol teknologi plug-in hybrid dan kemampuan jangkauan jauh"
       width="1440" height="1920"
       loading="lazy"
@@ -823,6 +837,22 @@
       </a>
     </div>
   </section>
+
+
+<!-- ── EXPLORE J8 — INTER-PAGE NAVIGATION ── -->
+<section class="j8-explore-nav" aria-label="Explore JAECOO J8">
+  <div class="j8-explore-nav__wrap">
+    <span class="j8-explore-nav__label">Explore JAECOO J8</span>
+    <div class="j8-explore-nav__links">
+      <a class="j8-explore-nav__link " href="/jaecoo-j8.html">Overview</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-design.html">Design</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-interior.html">Interior</a>
+      <a class="j8-explore-nav__link j8-explore-nav__link--active" href="/jaecoo-j8-performance.html">Performance</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-technology.html">Technology</a>
+      <a class="j8-explore-nav__link " href="/jaecoo-j8-specifications.html">Specifications</a>
+    </div>
+  </div>
+</section>
 
 </main>
 
