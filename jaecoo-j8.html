@@ -97,6 +97,17 @@
       inset: 0;
       z-index: 0;
     }
+    .j8-hero__video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      filter: brightness(0.72);
+      position: absolute;
+      inset: 0;
+    }
+    /* fallback image — tampil jika video tidak bisa diputar */
     .j8-hero__img {
       width: 100%;
       height: 100%;
@@ -104,6 +115,9 @@
       object-position: center 40%;
       display: block;
       filter: brightness(0.72);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
     }
     /* gradient overlay — bottom-heavy, editorial */
     .j8-hero__overlay {
@@ -706,6 +720,16 @@
         "offers": [
           {
             "@type": "Offer",
+            "name": "JAECOO J8 ARDIS",
+            "url": "https://omodajaecoopalembang.web.id/jaecoo-j8.html",
+            "priceCurrency": "IDR",
+            "price": "719900000",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {"@id": "https://omodajaecoopalembang.web.id/#business"}
+          },
+          {
+            "@type": "Offer",
             "name": "JAECOO J8 SHS-P ARDIS",
             "url": "https://omodajaecoopalembang.web.id/jaecoo-j8.html",
             "priceCurrency": "IDR",
@@ -770,20 +794,34 @@
   ══════════════════════════════════════════ -->
   <section class="j8-hero" aria-label="JAECOO J8 Hero">
     <div class="j8-hero__media" aria-hidden="true">
+      <!-- fallback image — tampil sebelum video load / browser tidak support -->
       <img
         class="j8-hero__img"
         src="/assets/images/jaecoo-j8.webp"
-        alt="JAECOO J8 Flagship SUV"
+        alt=""
         width="1920"
         height="1080"
         fetchpriority="high"
         decoding="async"
       />
+      <video
+        class="j8-hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="/assets/images/jaecoo-j8/exterior-hero.jpg"
+        aria-hidden="true"
+      >
+        <source src="/assets/videos/jaecoo-j8/hero.mov" type="video/quicktime" />
+        <source src="/assets/videos/jaecoo-j8/hero.mov" type="video/mp4" />
+      </video>
     </div>
     <div class="j8-hero__overlay" aria-hidden="true"></div>
 
     <div class="j8-hero__content">
-      <span class="j8-hero__eyebrow">Flagship SUV · ARDIS AWD · Plug-in Hybrid · 7-Seater</span>
+      <span class="j8-hero__eyebrow">Flagship SUV · ARDIS AWD · 2 Varian · 6 &amp; 7 Seater</span>
       <h1 class="j8-hero__title">JAECOO J8</h1>
       <p class="j8-hero__sub">The Flagship SUV</p>
       <p class="j8-hero__desc">
@@ -887,9 +925,16 @@
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
         </div>
-        <div class="j8-placeholder" aria-label="Visual ARDIS – segera tersedia">
-          <svg class="j8-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          Visual ARDIS<br/>Segera tersedia
+        <div class="j8-editorial__visual">
+          <img
+            src="/assets/images/jaecoo-j8/tech-ardis.png"
+            alt="JAECOO J8 ARDIS All-Road Drive Intelligent System"
+            width="720"
+            height="335"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:auto;display:block;border-radius:2px;"
+          />
         </div>
       </div>
     </div>
@@ -915,9 +960,16 @@
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
         </div>
-        <div class="j8-placeholder" aria-label="Visual Interior – segera tersedia">
-          <svg class="j8-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          Visual Interior<br/>Segera tersedia
+        <div class="j8-editorial__visual">
+          <img
+            src="/assets/images/jaecoo-j8/interior-7seater.png"
+            alt="Kabin Interior JAECOO J8 7-Seater Premium"
+            width="1150"
+            height="1176"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:auto;display:block;border-radius:2px;"
+          />
         </div>
       </div>
     </div>
@@ -943,9 +995,19 @@
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
         </div>
-        <div class="j8-placeholder" aria-label="Visual Design – segera tersedia">
-          <svg class="j8-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          Visual Design<br/>Segera tersedia
+        <div class="j8-editorial__visual">
+          <picture>
+            <source srcset="/assets/images/jaecoo-j8/exterior-hero.webp" type="image/webp" />
+            <img
+              src="/assets/images/jaecoo-j8/exterior-hero.jpg"
+              alt="Eksterior JAECOO J8 — Desain Flagship SUV"
+              width="1440"
+              height="960"
+              loading="lazy"
+              decoding="async"
+              style="width:100%;height:auto;display:block;border-radius:2px;"
+            />
+          </picture>
         </div>
       </div>
     </div>
@@ -976,11 +1038,19 @@
             </div>
             <div class="j8-variant__stat">
               <span class="j8-variant__stat-label">Kapasitas</span>
-              <span class="j8-variant__stat-val">7 Seater</span>
+              <span class="j8-variant__stat-val">6 Seater</span>
             </div>
             <div class="j8-variant__stat">
-              <span class="j8-variant__stat-label">Tenaga &amp; Range</span>
-              <span class="j8-variant__stat-val j8-variant__placeholder">Data segera tersedia</span>
+              <span class="j8-variant__stat-label">Mesin</span>
+              <span class="j8-variant__stat-val">2.0L Turbo · 8-speed AT</span>
+            </div>
+            <div class="j8-variant__stat">
+              <span class="j8-variant__stat-label">Tenaga</span>
+              <span class="j8-variant__stat-val">245 HP · 385 Nm</span>
+            </div>
+            <div class="j8-variant__stat">
+              <span class="j8-variant__stat-label">0–100 km/h</span>
+              <span class="j8-variant__stat-val">8.8 detik</span>
             </div>
           </div>
           <a class="j8-link-arrow" href="/jaecoo-j8-performance.html">
@@ -1049,9 +1119,19 @@
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
         </div>
-        <div class="j8-placeholder" aria-label="Visual Technology – segera tersedia">
-          <svg class="j8-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          Visual Technology<br/>Segera tersedia
+        <div class="j8-editorial__visual">
+          <picture>
+            <source srcset="/assets/images/jaecoo-j8/tech-hero.webp" type="image/webp" />
+            <img
+              src="/assets/images/jaecoo-j8/tech-hero.jpg"
+              alt="Teknologi Cerdas JAECOO J8 — Intelligent Cockpit"
+              width="1440"
+              height="960"
+              loading="lazy"
+              decoding="async"
+              style="width:100%;height:auto;display:block;border-radius:2px;"
+            />
+          </picture>
         </div>
       </div>
     </div>
@@ -1069,9 +1149,9 @@
         <!-- J8 ARDIS -->
         <div class="j8-choose__card">
           <h3 class="j8-choose__name">J8 ARDIS</h3>
-          <span class="j8-choose__type">AWD · Plug-in Hybrid · 7-Seater</span>
-          <p class="j8-choose__price" aria-label="Harga">Hubungi Alvan</p>
-          <span class="j8-choose__price-note">Harga OTR Palembang · Segera tersedia</span>
+          <span class="j8-choose__type">ARDIS AWD · 2.0T · 6-Seater</span>
+          <p class="j8-choose__price" aria-label="Harga Rp719.900.000">Rp 719.900.000</p>
+          <span class="j8-choose__price-note">OTR Palembang · Harga dapat berubah sewaktu-waktu</span>
           <a class="j8-choose__cta" href="/jaecoo-j8-specifications.html">
             View Specifications
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>

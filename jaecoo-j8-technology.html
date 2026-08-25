@@ -273,43 +273,61 @@
       margin: 0 auto;
     }
 
+    /* ── ARDIS Driving Modes — 2-col premium layout ── */
     .tech-2col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
       margin-top: 0;
       align-items: start;
     }
     .tech-2col__item {
       position: relative;
     }
+    /* Infographic column — fills available width */
+    .tech-2col__item--infographic {
+      display: flex;
+      flex-direction: column;
+    }
+    /* Video column — fixed to natural 9:16 proportion, capped for elegance */
+    .tech-2col__item--video {
+      width: 320px;
+      flex-shrink: 0;
+    }
     .tech-2col__label {
       font-size: 0.63rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      margin: 0 0 12px;
+      color: rgba(255,255,255,0.35);
+      margin: 0 0 14px;
     }
     .tech-2col__item img {
       width: 100%;
       height: auto;
       object-fit: contain;
       display: block;
+      border-radius: 12px;
     }
-    /* Video portrait container */
+    /* Video portrait container — locked 9:16 */
     .tech-video-wrap {
-      width: 100%;
       position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 16px;
       overflow: hidden;
+      background: #000;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 24px 64px rgba(0,0,0,0.6),
+        0 2px 8px rgba(0,0,0,0.4);
     }
     .tech-video-wrap video {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      /* Preserve native 9:16 portrait ratio — do not stretch */
-      max-height: 640px;
-      object-fit: contain;
-      background: #000;
     }
 
     /* ── [03] CDC ── */
@@ -588,7 +606,17 @@
     @media (max-width: 768px) {
       .tech-section { padding: 64px 0; }
       .tech-spec-grid { grid-template-columns: repeat(2, 1fr); }
-      .tech-2col { grid-template-columns: 1fr; gap: 28px; }
+      .tech-2col {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .tech-2col__item--infographic { order: 2; }
+      .tech-2col__item--video {
+        order: 1;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+      }
       .tech-stat-cards { gap: 12px; }
       .tech-icon-grid { grid-template-columns: repeat(2, 1fr); }
       .tech-charge-grid { grid-template-columns: repeat(3, 1fr); }
@@ -704,7 +732,7 @@
   <section class="tech-hero" aria-label="JAECOO J8 Technology Hero">
     <img
       class="tech-hero__bg"
-      src="/assets/images/jaecoo-j8/@r07qxo - Download 2.JPEG"
+      src="/assets/images/jaecoo-j8/tech-hero.jpg"
       alt="JAECOO J8 — Teknologi Unggulan"
       fetchpriority="high"
       decoding="async"
@@ -754,7 +782,7 @@
         <div class="tech-split__visual">
           <div class="tech-stacked-img tech-stacked-img--top">
             <img
-              src="/assets/images/jaecoo-j8/IMG_7847.PNG"
+              src="/assets/images/jaecoo-j8/tech-battery.png"
               alt="Battery exploded view — JAECOO J8 SHS"
               loading="lazy"
               decoding="async"
@@ -762,7 +790,7 @@
           </div>
           <div class="tech-stacked-img tech-stacked-img--bottom">
             <img
-              src="/assets/images/jaecoo-j8/IMG_7846.PNG"
+              src="/assets/images/jaecoo-j8/tech-engine.png"
               alt="Engine powertrain — JAECOO J8 SHS"
               loading="lazy"
               decoding="async"
@@ -787,7 +815,7 @@
       <!-- Ghost-car diagram besar -->
       <div class="tech-diagram">
         <img
-          src="/assets/images/jaecoo-j8/IMG_7848.PNG"
+          src="/assets/images/jaecoo-j8/tech-ardis.png"
           alt="Diagram teknis drivetrain ARDIS — JAECOO J8"
           loading="lazy"
           decoding="async"
@@ -799,19 +827,21 @@
       <div class="tech-2col">
 
         <!-- Infographic 7 AWD modes -->
-        <div class="tech-2col__item">
+        <div class="tech-2col__item tech-2col__item--infographic">
           <p class="tech-2col__label">7 Mode Penggerak Cerdas</p>
-          <img
-            src="/assets/images/jaecoo-j8/@r07qxo - Download 9.JPEG"
-            alt="Infographic 7 mode AWD: ECO, NORMAL, SPORT, SNOW, MUD, SAND, OFF-ROAD — JAECOO J8 ARDIS"
-            loading="lazy"
-            decoding="async"
-            style="width:100%;height:auto;object-fit:contain;display:block;"
-          />
+          <picture>
+            <source srcset="/assets/images/jaecoo-j8/tech-ardis-modes.webp" type="image/webp"/>
+            <img
+              src="/assets/images/jaecoo-j8/tech-ardis-modes.jpg"
+              alt="Infographic 7 mode AWD: ECO, NORMAL, SPORT, SNOW, MUD, SAND, OFF-ROAD — JAECOO J8 ARDIS"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
 
         <!-- Video driving modes portrait 9:16 -->
-        <div class="tech-2col__item">
+        <div class="tech-2col__item tech-2col__item--video">
           <p class="tech-2col__label">ARDIS Driving Modes</p>
           <div class="tech-video-wrap">
             <video
@@ -819,11 +849,12 @@
               muted
               loop
               playsinline
+              preload="metadata"
               aria-label="Video demonstrasi ARDIS driving modes — JAECOO J8"
-              poster="/assets/images/jaecoo-j8/@r07qxo - Download 3.JPEG"
+              poster="/assets/images/jaecoo-j8/tech-ardis-video-poster.jpg"
             >
-              <source src="/assets/video/jaecoo-j8/Mode/Download.MP4" type="video/mp4"/>
               <source src="/assets/video/jaecoo-j8/mode.mp4" type="video/mp4"/>
+              <source src="/assets/video/jaecoo-j8/Mode/Download.MP4" type="video/mp4"/>
             </video>
           </div>
         </div>
@@ -842,7 +873,7 @@
         <!-- Visual LEFT -->
         <div class="tech-cdc-img">
           <img
-            src="/assets/images/jaecoo-j8/IMG_7849.PNG"
+            src="/assets/images/jaecoo-j8/tech-suspension.png"
             alt="Diagram teknis CDC Magnetic Suspension — JAECOO J8"
             loading="lazy"
             decoding="async"
@@ -1074,7 +1105,7 @@
   <section class="tech-cta" aria-label="JAECOO J8 Call to Action">
     <img
       class="tech-cta__bg"
-      src="/assets/images/jaecoo-j8/@r07qxo - Download.JPEG"
+      src="/assets/images/jaecoo-j8/tech-cta-bg.jpg"
       alt="JAECOO J8"
       loading="lazy"
       decoding="async"
