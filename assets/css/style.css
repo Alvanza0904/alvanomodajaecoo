@@ -2586,7 +2586,7 @@ a.stat-card:hover .stat-card__value {
   position:relative;min-height:100svh;height:100svh;overflow:hidden;background:#050608;
 }
 .j5-hero__media,.j5-hero__shade{position:absolute;inset:0}
-.j5-hero__media img{width:100%;height:100%;object-fit:cover;object-position:64% 55%}
+.j5-hero__media img,.j5-hero__media video{width:100%;height:100%;object-fit:cover;object-position:64% 55%;display:block}
 .j5-hero__shade{background:linear-gradient(90deg,rgba(5,6,8,.86) 0%,rgba(5,6,8,.48) 40%,rgba(5,6,8,.04) 75%),linear-gradient(0deg,rgba(5,6,8,.8) 0%,transparent 32%)}
 .j5-hero__content{
   position:absolute;left:max(var(--container-pad),5vw);bottom:clamp(74px,11vh,128px);max-width:760px;z-index:2
@@ -2748,7 +2748,7 @@ a.stat-card:hover .stat-card__value {
 
 @media (max-width:900px){
   .j5-hero{height:82svh;min-height:560px}
-  .j5-hero__media img{object-position:64% 55%}
+  .j5-hero__media img,.j5-hero__media video{object-position:50% 50%}
   .j5-hero__content{left:24px;right:24px;bottom:max(72px,10vh)}
   .j5-hero h1{font-size:clamp(3.25rem,16vw,6rem);max-width:8ch}
   .j5-hero__lede{font-size:14px;max-width:44ch}
@@ -2787,7 +2787,7 @@ a.stat-card:hover .stat-card__value {
   .j5-subnav a.is-active::after{left:17px;right:17px}
   .j5-subnav a:first-child.is-active::after{left:0}
   .j5-hero{height:74svh;min-height:520px}
-  .j5-hero__media img{object-position:67% 55%}
+  .j5-hero__media img,.j5-hero__media video{object-position:50% 50%}
   .j5-hero h1{font-size:clamp(3.15rem,17vw,5.1rem)}
   .j5-hero__scroll{display:none}
   .j5-section{padding:78px 0}
@@ -2815,6 +2815,9 @@ a.stat-card:hover .stat-card__value {
   .j5-spec-highlight__grid>div{padding:28px 18px}
   .j5-spec-highlight strong{font-size:2rem}
   .j5-spec-table>div{grid-template-columns:1fr;gap:5px;padding:16px 0}
+  .j5-hero__media video{object-fit:cover;object-position:50% 50%;}
+  .j5-spec-image{padding-bottom:78px;}
+  .j5-spec-image img{width:100%;height:auto;aspect-ratio:auto;max-height:none;object-fit:contain;object-position:center;background:#0d1116;}
   .j5-spec-table strong{font-size:12.5px}
   .j5-final-cta{padding:84px 0}
   .j5-cta{width:100%}
