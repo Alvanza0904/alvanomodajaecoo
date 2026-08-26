@@ -111,6 +111,134 @@
  .j8-spec-hero__title{font-size:2.25rem;}
 }
 
+/* ── TYPOGRAPHY OVERRIDES (specs page only) ── */
+/* Tighten kicker tracking for more confidence */
+.section .kicker{
+  font-size:0.6rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  opacity:0.3;
+  font-weight:600;
+  margin-bottom:10px;
+}
+/* Premium price typography */
+.price-card__price{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.45rem;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+}
+/* Refine section h2 for specs page */
+.section h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.6rem,2.5vw,2.2rem);
+  font-weight:700;
+  letter-spacing:-0.03em;
+  line-height:1.1;
+  margin:0 0 28px;
+}
+
+/* ── SECTION SPACING OVERRIDE (specs page only) ── */
+/* Reduce excessive padding-top on first section after bridge */
+.j8-spec-bridge + .section{
+  padding-top:64px;
+}
+@media(max-width:640px){
+  .j8-spec-bridge + .section{padding-top:48px;}
+}
+
+/* ── SPEC TRANSITION BRIDGE ── */
+.j8-spec-bridge{
+  background:#080808;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:0;
+}
+.j8-spec-bridge__inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 40px;
+}
+.j8-spec-bridge__label{
+  font-size:0.6rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  opacity:0.28;
+  padding:28px 0 24px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  font-weight:500;
+}
+.j8-spec-bridge__stats{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  padding:36px 0 40px;
+}
+.j8-spec-bridge__stat{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:0 32px 0 0;
+}
+.j8-spec-bridge__stat:first-child{
+  padding-left:0;
+}
+.j8-spec-bridge__stat-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2rem,3.2vw,2.8rem);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:1;
+  color:#fff;
+}
+.j8-spec-bridge__stat-unit{
+  font-size:0.72rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  opacity:0.4;
+  font-weight:500;
+  margin-top:2px;
+}
+.j8-spec-bridge__stat-label{
+  font-size:0.75rem;
+  opacity:0.38;
+  line-height:1.4;
+  letter-spacing:0.02em;
+  margin-top:6px;
+}
+.j8-spec-bridge__divider{
+  width:1px;
+  background:rgba(255,255,255,0.07);
+  margin:0 32px 0 0;
+  flex-shrink:0;
+  align-self:stretch;
+}
+@media(max-width:900px){
+  .j8-spec-bridge__inner{padding:0 32px;}
+  .j8-spec-bridge__stat{padding:0 24px 0 0;}
+  .j8-spec-bridge__divider{margin:0 24px 0 0;}
+  .j8-spec-bridge__stat-num{font-size:1.9rem;}
+}
+@media(max-width:640px){
+  .j8-spec-bridge__inner{padding:0 24px;}
+  .j8-spec-bridge__label{font-size:0.58rem;padding:22px 0 18px;}
+  .j8-spec-bridge__stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 0;
+    padding:28px 0 32px;
+  }
+  .j8-spec-bridge__stat{padding:0;}
+  .j8-spec-bridge__divider{display:none;}
+  .j8-spec-bridge__stat-num{font-size:1.7rem;}
+  .j8-spec-bridge__stat:nth-child(5){
+    grid-column:1/-1;
+    border-top:1px solid rgba(255,255,255,0.06);
+    padding-top:24px;
+  }
+}
+
 </style>
 <meta content="JAECOO J8 Palembang" property="og:image:alt"/><meta content="JAECOO J8 Palembang" name="twitter:image:alt"/><meta content="OMODA JAECOO Palembang" name="author"/></head>
 <body>
@@ -147,8 +275,8 @@
 <main>
 <section aria-label="JAECOO J8 Specifications hero" class="j8-spec-hero">
 <picture>
-<source srcset="/assets/images/jaecoo-j8/exterior-hero.webp" type="image/webp"/>
-<img alt="JAECOO J8 tampak depan tiga perempat dengan desain flagship premium" src="/assets/images/jaecoo-j8/exterior-hero.jpeg"/>
+<source srcset="/assets/images/jaecoo-j8/img07.webp" type="image/webp"/>
+<img alt="JAECOO J8 tampak samping penuh — proporsi flagship SUV dengan dimensi premium" src="/assets/images/jaecoo-j8/img07.jpeg"/>
 </picture>
 <div class="j8-spec-hero__content">
 <p class="j8-spec-hero__eyebrow">JAECOO J8 · Specifications</p>
@@ -156,13 +284,33 @@
 <p class="j8-spec-hero__copy">Spesifikasi lengkap J8 ARDIS dan J8 SHS-P ARDIS, dari dimensi, powertrain, teknologi hingga fitur kenyamanan.</p>
 </div>
 </section>
-<section class="section">
-<div class="wrap">
-<div class="eyebrow">JAECOO J8 · Spesifikasi</div>
-<h2>Specifications</h2>
-<p>Perbandingan spesifikasi lengkap dua varian JAECOO J8: J8 ARDIS (2.0T · 6-Seater) dan J8 SHS-P ARDIS (Triple Motor · 7-Seater).</p>
+
+<!-- ── SPEC TRANSITION STRIP ── -->
+<div class="j8-spec-bridge">
+  <div class="j8-spec-bridge__inner">
+    <div class="j8-spec-bridge__label">Dua Varian · Satu Standar Flagship</div>
+    <div class="j8-spec-bridge__stats">
+      <div class="j8-spec-bridge__stat">
+        <span class="j8-spec-bridge__stat-num">4.820</span>
+        <span class="j8-spec-bridge__stat-unit">mm</span>
+        <span class="j8-spec-bridge__stat-label">Panjang Keseluruhan</span>
+      </div>
+      <div class="j8-spec-bridge__divider"></div>
+      <div class="j8-spec-bridge__stat">
+        <span class="j8-spec-bridge__stat-num">530</span>
+        <span class="j8-spec-bridge__stat-unit">HP</span>
+        <span class="j8-spec-bridge__stat-label">Output Sistem SHS-P</span>
+      </div>
+      <div class="j8-spec-bridge__divider"></div>
+      <div class="j8-spec-bridge__stat">
+        <span class="j8-spec-bridge__stat-num">7</span>
+        <span class="j8-spec-bridge__stat-unit">Mode</span>
+        <span class="j8-spec-bridge__stat-label">AWD Intelligent ARDIS</span>
+      </div>
+    </div>
+  </div>
 </div>
-</section>
+
 <!-- ── HARGA ── -->
 <section class="section">
 <div class="wrap">
