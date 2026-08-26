@@ -1,0 +1,17 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "attr-quotes": "off",
+    "doctype-style": "off",
+    "element-required-content": "off",
+    "element-permitted-content": "off",
+    "no-inline-style": "off",
+    "no-implicit-close": "off",
+    "close-order": "off",
+    "svg-focusable": "off",
+    "prefer-native-element": "off",
+    "no-trailing-whitespace": "off",
+    "element-required-attributes": "off",
+    "aria-label-misuse": "off"
+  }
+}
