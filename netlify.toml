@@ -7,7 +7,14 @@
   [plugins.inputs]
     skipPatterns = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"]
 
-# Cache images, fonts, and other static assets
+# ─── Redirect: www → non-www (SEO canonical fix) ───────────────────────────
+[[redirects]]
+  from = "https://www.omodajaecoopalembang.web.id/*"
+  to   = "https://omodajaecoopalembang.web.id/:splat"
+  status = 301
+  force  = true
+
+# ─── Cache: images, fonts, static assets ────────────────────────────────────
 [[headers]]
   for = "/assets/images/*"
   [headers.values]
