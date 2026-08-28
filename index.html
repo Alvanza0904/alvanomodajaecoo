@@ -154,9 +154,58 @@ a.recognized__item .recognized__media{overflow:hidden;}
   border-color:rgba(255,255,255,0.6);
   background:rgba(255,255,255,0.05);
 }
-.delivery-cta-strip{
-  border-top:1px solid rgba(255,255,255,0.07);
-  background:rgba(201,168,103,0.03);
+/* Delivery intro CTA — teaser di atas gallery delivery */
+.delivery-intro{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+  margin-bottom:48px;
+}
+.delivery-intro__text .kicker{margin-bottom:8px;}
+.delivery-intro__text h2{
+  font-family:var(--font-display);
+  font-size:clamp(1.6rem,3.2vw,2.6rem);
+  font-weight:600;
+  letter-spacing:-0.03em;
+  line-height:1.1;
+  margin:0 0 10px;
+  color:var(--color-text);
+}
+.delivery-intro__text p{
+  color:var(--color-text-muted);
+  font-size:15px;
+  line-height:1.65;
+  max-width:48ch;
+  margin:0;
+}
+.delivery-intro__cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-display);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--color-text);
+  border:1px solid rgba(244,245,247,0.22);
+  border-radius:4px;
+  padding:14px 28px;
+  min-height:48px;
+  white-space:nowrap;
+  flex-shrink:0;
+  transition:border-color .2s,background .2s;
+}
+.delivery-intro__cta:hover{
+  border-color:rgba(244,245,247,0.5);
+  background:rgba(244,245,247,0.05);
+}
+@media(max-width:640px){
+  .delivery-intro{flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:32px;}
+  .delivery-intro__cta{width:100%;justify-content:center;}
 }
 @media(max-width:480px){
   .section-closing-nav{padding:56px 20px;}
@@ -436,14 +485,26 @@ a.recognized__item .recognized__media{overflow:hidden;}
     <div class="sales-cta__inner reveal">
       <div class="sales-cta__copy">
         <p class="sales-cta__label">Sales Consultant</p>
-        <h2 class="sales-cta__name">Hai, saya Alvan.</h2>
-        <p class="sales-cta__desc">Sales Consultant JAECOO Palembang. Siap membantu Anda mendapatkan informasi unit, simulasi kredit, test drive, hingga proses delivery.</p>
+        <h2 class="sales-cta__name">HAI, SAYA ALVAN.</h2>
+        <p class="sales-cta__desc">Sales Consultant JAECOO di Palembang.<br><br>Setiap orang punya kebutuhan yang berbeda. Tugas saya adalah membantu Anda menemukan JAECOO yang paling pas.<br><br>Mau tahu bedanya tiap model, cek harga, hitung kredit, atau langsung test drive? Saya siap bantu.<br><br>Kita cari yang paling cocok untuk Anda.</p>
       </div>
       <a class="sales-cta__btn" href="/sales-jaecoo-palembang.html">Profil Sales Consultant →</a>
     </div>
   </div>
 </section>
-<section class="section" id="models"><div class="wrap"><div class="kicker">Explore the lineup</div><h2>Pilih satu model.<br/>Masuk ke halamannya.</h2><p class="lead">Bandingkan model sesuai kebutuhan Anda. Pilih satu model untuk melihat spesifikasi, fitur, harga, dan menghubungi Alvan langsung via WhatsApp.</p><div class="lineup"><article class="lineup__item"><div class="lineup__media"><img alt="OMODA O4 EV Palembang" decoding="async" fetchpriority="high" height="901" loading="eager" src="assets/images/lineup/lineup-omoda-o4.webp" width="800"/></div><div class="lineup__body"><div class="lineup__index">01</div><h3 class="lineup__name">OMODA O4 EV</h3><p class="lineup__tag">Full Electric · BEV · Cyber Mecha Design</p><div class="lineup__price">PRE-BOOK NOW<span>Harga resmi segera diumumkan.</span></div><a class="lineup__cta" href="/omoda-o4/">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J5 EV Palembang" decoding="async" height="498" loading="eager" src="assets/images/lineup/lineup-jaecoo-j5.webp" width="600"/></div><div class="lineup__body"><div class="lineup__index">02</div><h3 class="lineup__name">JAECOO J5 EV</h3><p class="lineup__tag">Premium Electric SUV · BEV</p><div class="lineup__price">Rp 349.900.000<span>OTR Palembang · Harga dapat berubah sewaktu-waktu.</span></div><a class="lineup__cta" href="jaecoo-j5.html">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J7 SHS-P Palembang" decoding="async" height="592" loading="lazy" src="assets/images/lineup/lineup-jaecoo-j7-sivp.webp" width="1020"/></div><div class="lineup__body"><div class="lineup__index">03</div><h3 class="lineup__name">JAECOO J7 SHS</h3><p class="lineup__tag">Plug-in Hybrid · Super Hybrid System</p><div class="lineup__price">Rp 529.900.000<span>OTR Palembang · Harga dapat berubah sewaktu-waktu.</span></div><a class="lineup__cta" href="jaecoo-j7.html">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J7 SHS-P SIVP Palembang" decoding="async" height="372" loading="lazy" src="assets/images/lineup/lineup-jaecoo-j7.webp" width="657"/></div><div class="lineup__body"><div class="lineup__index">04</div><h3 class="lineup__name">JAECOO J7 SHS SIVP</h3><p class="lineup__tag">Plug-in Hybrid · SHS · Smart Valet Parking</p><div class="lineup__price">PRE-BOOK NOW<span>Harga resmi segera diumumkan.</span></div><a class="lineup__cta" href="/jaecoo-j7-sivp/">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J8 SHS-P ARDIS Palembang" decoding="async" height="690" loading="lazy" src="assets/images/lineup/lineup-jaecoo-j8.webp" width="1600"/></div><div class="lineup__body"><div class="lineup__index">05</div><h3 class="lineup__name">JAECOO J8 ARDIS SHS</h3><p class="lineup__tag">Flagship AWD · Plug-in Hybrid · ARDIS</p><div class="lineup__price">Rp 855.000.000<span>OTR Palembang · Harga dapat berubah sewaktu-waktu.</span></div><a class="lineup__cta" href="jaecoo-j8.html">EXPLORE MODEL →</a></div></article></div></div></section><section class="section alt" id="recognized"><div class="wrap"><div class="kicker">Recognition</div><h2>RECOGNIZED FOR MORE</h2><p class="lead">Pencapaian OMODA dan JAECOO yang diakui secara nasional maupun internasional.</p><div class="recognized"><a class="recognized__item" href="/jaecoo-j5.html" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J5 EV — EV terlaris No. 1 di Indonesia" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-j5-no1-ev.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J5 EV</div><div class="recognized__claim">EV Terlaris No. 1 di Indonesia</div><div class="recognized__period">Maret 2026</div></div></a><a class="recognized__item" href="/jaecoo-j7.html" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J7 SHS — Mobil terlaris di Inggris" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-j7-uk-topselling.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J7 SHS</div><div class="recognized__claim">Mobil Terlaris di Inggris</div><div class="recognized__period">Maret 2026</div></div></a><a class="recognized__item" href="/jaecoo-j8.html" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J8 ARDIS SHS — Pemegang rekor MURI 1.660 KM" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-j8-muri.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J8 ARDIS SHS</div><div class="recognized__claim">Pemegang Rekor MURI</div><div class="recognized__period">1.660 KM</div></div></a><a class="recognized__item" href="/omoda-o4/" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media" style="position:relative;overflow:hidden;"><img alt="OMODA O4 EV — Mobil AI pertama di Indonesia" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-o4-ai.webp" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.35s ease;" width="600"/><div style="position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to bottom,transparent,rgba(0,0,0,0.55));pointer-events:none;"></div></div><div class="recognized__caption"><div class="recognized__model">OMODA O4 EV</div><div class="recognized__claim">Mobil AI Pertama di Indonesia</div></div></a><a class="recognized__item" href="/jaecoo-j7-sivp/" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J7 SHS SIVP — Teknologi valet parking pintar pertama di Indonesia" decoding="async" height="750" loading="lazy" src="assets/images/recognized/recognized-j7-sivp.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J7 SHS SIVP</div><div class="recognized__claim">Teknologi Valet Parking Pintar Pertama di Indonesia</div></div></a></div></div></section><section class="section alt" id="delivery"><div class="wrap"><div class="kicker">Customer Delivery</div><h2>Mobil Baru.<br/>Perjalanan Baru.</h2><p class="lead">Beberapa momen serah terima unit JAECOO J5 Premium bersama customer di Palembang.</p><div class="delivery-gallery-v321"><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Customer delivery JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-1.jpg" width="1080"/></div><figcaption>DELIVERY · 01</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Serah terima JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-2.jpg" width="1080"/></div><figcaption>DELIVERY · 02</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Customer delivery JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-3.jpg" width="1080"/></div><figcaption>DELIVERY · 03</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Serah terima JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-4.jpg" width="1080"/></div><figcaption>DELIVERY · 04</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Customer delivery JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-5.webp" width="1080"/></div><figcaption>DELIVERY · 05</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Serah terima JAECOO J7 XT BEV bersama keluarga customer Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-6.webp" width="1080"/></div><figcaption>DELIVERY · 06</figcaption></figure></div>
+<section class="section delivery-teaser-section" aria-label="Momen Delivery JAECOO">
+  <div class="wrap">
+    <div class="delivery-intro reveal">
+      <div class="delivery-intro__text">
+        <div class="kicker">Customer Delivery</div>
+        <h2>Momen Delivery JAECOO</h2>
+        <p>Lihat momen serah terima unit JAECOO bersama customer di Palembang.</p>
+      </div>
+      <a class="delivery-intro__cta" href="#delivery" aria-label="Lihat Foto Delivery">Lihat Foto Delivery →</a>
+    </div>
+  </div>
+</section>
+<section class="section" id="models"><div class="wrap"><div class="kicker">Explore the lineup</div><h2>Pilih model<br/>yang paling pas.</h2><p class="lead">Lima model untuk kebutuhan yang berbeda. Klik salah satu untuk lihat spesifikasi, harga, dan langsung tanya ke Alvan via WhatsApp.</p><div class="lineup"><article class="lineup__item"><div class="lineup__media"><img alt="OMODA O4 EV Palembang" decoding="async" fetchpriority="high" height="901" loading="eager" src="assets/images/lineup/lineup-omoda-o4.webp" width="800"/></div><div class="lineup__body"><div class="lineup__index">01</div><h3 class="lineup__name">OMODA O4 EV</h3><p class="lineup__tag">Full Electric · BEV · Cyber Mecha Design</p><div class="lineup__price">PRE-BOOK NOW<span>Harga resmi segera diumumkan.</span></div><a class="lineup__cta" href="/omoda-o4/">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J5 EV Palembang" decoding="async" height="498" loading="eager" src="assets/images/lineup/lineup-jaecoo-j5.webp" width="600"/></div><div class="lineup__body"><div class="lineup__index">02</div><h3 class="lineup__name">JAECOO J5 EV</h3><p class="lineup__tag">Premium Electric SUV · BEV</p><div class="lineup__price">Rp 349.900.000<span>OTR Palembang · Harga dapat berubah sewaktu-waktu.</span></div><a class="lineup__cta" href="jaecoo-j5.html">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J7 SHS-P Palembang" decoding="async" height="592" loading="lazy" src="assets/images/lineup/lineup-jaecoo-j7-sivp.webp" width="1020"/></div><div class="lineup__body"><div class="lineup__index">03</div><h3 class="lineup__name">JAECOO J7 SHS</h3><p class="lineup__tag">Plug-in Hybrid · Super Hybrid System</p><div class="lineup__price">Rp 529.900.000<span>OTR Palembang · Harga dapat berubah sewaktu-waktu.</span></div><a class="lineup__cta" href="jaecoo-j7.html">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J7 SHS-P SIVP Palembang" decoding="async" height="372" loading="lazy" src="assets/images/lineup/lineup-jaecoo-j7.webp" width="657"/></div><div class="lineup__body"><div class="lineup__index">04</div><h3 class="lineup__name">JAECOO J7 SHS SIVP</h3><p class="lineup__tag">Plug-in Hybrid · SHS · Smart Valet Parking</p><div class="lineup__price">PRE-BOOK NOW<span>Harga resmi segera diumumkan.</span></div><a class="lineup__cta" href="/jaecoo-j7-sivp/">EXPLORE MODEL →</a></div></article><article class="lineup__item"><div class="lineup__media"><img alt="JAECOO J8 SHS-P ARDIS Palembang" decoding="async" height="690" loading="lazy" src="assets/images/lineup/lineup-jaecoo-j8.webp" width="1600"/></div><div class="lineup__body"><div class="lineup__index">05</div><h3 class="lineup__name">JAECOO J8 ARDIS SHS</h3><p class="lineup__tag">Flagship AWD · Plug-in Hybrid · ARDIS</p><div class="lineup__price">Rp 855.000.000<span>OTR Palembang · Harga dapat berubah sewaktu-waktu.</span></div><a class="lineup__cta" href="jaecoo-j8.html">EXPLORE MODEL →</a></div></article></div></div></section><section class="section alt" id="recognized"><div class="wrap"><div class="kicker">Recognition</div><h2>RECOGNIZED FOR MORE</h2><p class="lead">Pencapaian OMODA dan JAECOO yang diakui secara nasional maupun internasional.</p><div class="recognized"><a class="recognized__item" href="/jaecoo-j5.html" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J5 EV — EV terlaris No. 1 di Indonesia" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-j5-no1-ev.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J5 EV</div><div class="recognized__claim">EV Terlaris No. 1 di Indonesia</div><div class="recognized__period">Maret 2026</div></div></a><a class="recognized__item" href="/jaecoo-j7.html" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J7 SHS — Mobil terlaris di Inggris" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-j7-uk-topselling.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J7 SHS</div><div class="recognized__claim">Mobil Terlaris di Inggris</div><div class="recognized__period">Maret 2026</div></div></a><a class="recognized__item" href="/jaecoo-j8.html" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J8 ARDIS SHS — Pemegang rekor MURI 1.660 KM" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-j8-muri.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J8 ARDIS SHS</div><div class="recognized__claim">Pemegang Rekor MURI</div><div class="recognized__period">1.660 KM</div></div></a><a class="recognized__item" href="/omoda-o4/" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media" style="position:relative;overflow:hidden;"><img alt="OMODA O4 EV — Mobil AI pertama di Indonesia" decoding="async" height="1125" loading="lazy" src="assets/images/recognized/recognized-o4-ai.webp" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.35s ease;" width="600"/><div style="position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to bottom,transparent,rgba(0,0,0,0.55));pointer-events:none;"></div></div><div class="recognized__caption"><div class="recognized__model">OMODA O4 EV</div><div class="recognized__claim">Mobil AI Pertama di Indonesia</div></div></a><a class="recognized__item" href="/jaecoo-j7-sivp/" style="display:block;text-decoration:none;cursor:pointer;"><div class="recognized__media"><img alt="JAECOO J7 SHS SIVP — Teknologi valet parking pintar pertama di Indonesia" decoding="async" height="750" loading="lazy" src="assets/images/recognized/recognized-j7-sivp.webp" style="transition:transform 0.35s ease;" width="600" height="750"/></div><div class="recognized__caption"><div class="recognized__model">JAECOO J7 SHS SIVP</div><div class="recognized__claim">Teknologi Valet Parking Pintar Pertama di Indonesia</div></div></a></div></div></section><section class="section alt" id="delivery"><div class="wrap"><div class="delivery-gallery-v321"><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Customer delivery JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-1.jpg" width="1080"/></div><figcaption>DELIVERY · 01</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Serah terima JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-2.jpg" width="1080"/></div><figcaption>DELIVERY · 02</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Customer delivery JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-3.jpg" width="1080"/></div><figcaption>DELIVERY · 03</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Serah terima JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-4.jpg" width="1080"/></div><figcaption>DELIVERY · 04</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Customer delivery JAECOO J5 Premium Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-5.webp" width="1080"/></div><figcaption>DELIVERY · 05</figcaption></figure><figure class="delivery-card"><div class="delivery-card__frame"><img alt="Serah terima JAECOO J7 XT BEV bersama keluarga customer Palembang" decoding="async" height="1350" loading="lazy" src="assets/images/delivery-j5-6.webp" width="1080"/></div><figcaption>DELIVERY · 06</figcaption></figure></div>
 
 <!-- Mobile carousel (hidden on desktop via CSS) -->
 <div class="delivery-mobile-slider" aria-label="Gallery serah terima unit" role="region">
@@ -467,22 +528,14 @@ a.recognized__item .recognized__media{overflow:hidden;}
 
 </div></section><section class="section-closing-nav" id="closing-nav">
   <p class="closing-kicker">Explore</p>
-  <h2>TEMUKAN PILIHAN ANDA</h2>
-  <p class="closing-sub">Jelajahi lebih dekat OMODA O4 EV dan JAECOO J5 EV.</p>
+  <h2>Mau tahu lebih lanjut?</h2>
+  <p class="closing-sub">Mulai dari OMODA O4 EV atau JAECOO J5 EV.</p>
   <div class="closing-links">
     <a class="closing-link" href="/omoda-o4/">OMODA O4 EV &nbsp;→</a>
     <a class="closing-link" href="/jaecoo-j5.html">JAECOO J5 EV &nbsp;→</a>
   </div>
 </section>
-
-<section class="section-closing-nav delivery-cta-strip" id="delivery-cta" aria-label="Foto Delivery">
-  <p class="closing-kicker">Social Proof</p>
-  <h2>Momen Delivery JAECOO</h2>
-  <p class="closing-sub">Lihat beberapa momen serah terima unit JAECOO bersama customer.</p>
-  <div class="closing-links">
-    <a class="closing-link" href="#delivery">Lihat Foto Delivery &nbsp;↑</a>
-  </div>
-</section></main><footer class="footer-v2" id="footer">
+</main><footer class="footer-v2" id="footer">
   <div class="footer-v2__inner">
 
     <!-- Branding -->

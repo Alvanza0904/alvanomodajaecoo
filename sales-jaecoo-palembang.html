@@ -1006,16 +1006,16 @@ input[type="range"].sp-range::-moz-range-thumb {
 /* ── BACK TO HOMEPAGE BAR ── */
 .sp-back-bar {
   position: sticky;
-  top: var(--nav-height, 64px);
+  top: var(--nav-height, 84px);
   z-index: 90;
-  background: var(--color-bg-alt, #0f1115);
-  border-bottom: 1px solid rgba(244, 245, 247, 0.08);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
-  padding: 8px var(--container-pad, 48px);
+  background: #0e1014;
+  border-bottom: 1px solid rgba(244, 245, 247, 0.07);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  padding: 7px var(--container-pad, 64px);
 }
 
 .sp-back-bar__inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -1023,49 +1023,52 @@ input[type="range"].sp-range::-moz-range-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   height: 44px;
-  border: 1px solid rgba(244, 245, 247, 0.1);
-  border-radius: 8px;
-  background: rgba(244, 245, 247, 0.04);
-  font-family: var(--font-display);
+  border: 1px solid rgba(244, 245, 247, 0.11);
+  border-radius: 6px;
+  background: rgba(244, 245, 247, 0.03);
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.03em;
-  color: rgba(244, 245, 247, 0.72);
+  letter-spacing: 0.02em;
+  color: rgba(244, 245, 247, 0.65);
   text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .sp-back-bar__link:hover {
-  background: rgba(244, 245, 247, 0.08);
-  border-color: rgba(244, 245, 247, 0.18);
-  color: rgba(244, 245, 247, 0.92);
+  background: rgba(244, 245, 247, 0.07);
+  border-color: rgba(244, 245, 247, 0.2);
+  color: rgba(244, 245, 247, 0.9);
 }
 
 .sp-back-bar__link:focus-visible {
-  outline: 2px solid rgba(201, 168, 103, 0.55);
+  outline: 2px solid rgba(201, 168, 103, 0.5);
   outline-offset: 2px;
 }
 
 .sp-back-bar__chevron {
-  width: 14px;
-  height: 14px;
-  opacity: 0.5;
+  width: 13px;
+  height: 13px;
+  opacity: 0.45;
   flex-shrink: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s;
 }
 
 .sp-back-bar__link:hover .sp-back-bar__chevron {
-  opacity: 0.75;
+  opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .sp-back-bar { padding: 7px 40px; }
 }
 
 @media (max-width: 768px) {
   .sp-back-bar {
-    top: var(--nav-height-mobile, 56px);
-    padding: 8px 24px;
+    top: var(--nav-height-mobile, 64px);
+    padding: 6px 20px;
   }
   .sp-back-bar__link {
     height: 42px;
@@ -1118,7 +1121,7 @@ input[type="range"].sp-range::-moz-range-thumb {
     <p class="sp-hero__eyebrow reveal">Sales JAECOO Palembang</p>
     <h1 class="sp-hero__name reveal reveal-delay-1">Hai, saya Alvan</h1>
     <p class="sp-hero__role reveal reveal-delay-1">Sales Consultant JAECOO Palembang</p>
-    <p class="sp-hero__desc reveal reveal-delay-2">Saya siap membantu Anda mengenal JAECOO lebih dekat — mulai dari pilihan model, harga, promo, simulasi kredit, hingga jadwal test drive.</p>
+    <p class="sp-hero__desc reveal reveal-delay-2">Ada pertanyaan soal model, harga, kredit, atau test drive? Langsung saja — saya siap bantu.</p>
     <a class="btn btn--primary reveal reveal-delay-3"
        href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+ingin+konsultasi+JAECOO+Palembang."
        rel="noopener" target="_blank"
@@ -1148,10 +1151,10 @@ input[type="range"].sp-range::-moz-range-thumb {
     <hr class="sp-divider"/>
     <div class="sp-about__grid">
       <div>
-        <h2 class="sp-heading reveal">Sales Consultant JAECOO<br/>yang siap memandu Anda</h2>
+        <h2 class="sp-heading reveal">Bukan sekadar jual.<br/>Tapi bantu Anda memilih.</h2>
         <div class="sp-body sp-about__body reveal">
-          <p>Sebagai Sales Consultant JAECOO di Palembang, saya hadir untuk membantu Anda memahami setiap model JAECOO secara mendalam — mulai dari spesifikasi, keunggulan teknologi, hingga perbedaan antar varian. Tujuan saya bukan sekadar menjual, melainkan membantu Anda menemukan kendaraan yang benar-benar sesuai dengan kebutuhan dan gaya hidup Anda.</p>
-          <p>Saya siap mendampingi proses dari awal: konsultasi produk, informasi harga OTR Palembang, promo yang sedang berjalan, simulasi pembelian kredit, hingga menjadwalkan test drive agar Anda dapat merasakan langsung pengalaman berkendara JAECOO.</p>
+          <p>Setiap orang punya kebutuhan yang berbeda — ada yang prioritaskan efisiensi, ada yang cari pengalaman berkendara, ada yang butuh mobil keluarga tapi tetap stylish. Tugas saya adalah membantu Anda menemukan JAECOO yang paling pas.</p>
+          <p>Mulai dari konsultasi model, cek harga OTR Palembang, simulasi kredit, sampai jadwal test drive — semua bisa kita urus bareng.</p>
         </div>
       </div>
       <div class="sp-about__stats">
@@ -1376,7 +1379,7 @@ input[type="range"].sp-range::-moz-range-thumb {
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/>
         </svg>
         <h3 class="sp-service__title">Harga &amp; Promo</h3>
-        <p class="sp-service__desc">Informasi harga OTR Palembang terkini dan promo yang sedang berlaku untuk setiap model JAECOO.</p>
+        <p class="sp-service__desc">Harga OTR Palembang terkini dan promo yang sedang berjalan — langsung dari sumber.</p>
       </div>
 
       <div class="sp-service reveal reveal-delay-1">
@@ -1384,7 +1387,7 @@ input[type="range"].sp-range::-moz-range-thumb {
           <path d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm0 0V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m0 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/>
         </svg>
         <h3 class="sp-service__title">Konsultasi Model</h3>
-        <p class="sp-service__desc">Bingung memilih antara J5, J7 SHS, atau J8 SHS? Saya bantu menemukan model yang paling sesuai dengan kebutuhan Anda.</p>
+        <p class="sp-service__desc">Bingung bedanya J5, J7, atau J8? Saya bantu Anda pilih yang paling pas — tanpa basa-basi.</p>
       </div>
 
       <div class="sp-service reveal reveal-delay-2">
@@ -1392,7 +1395,7 @@ input[type="range"].sp-range::-moz-range-thumb {
           <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>
         </svg>
         <h3 class="sp-service__title">Simulasi Pembelian</h3>
-        <p class="sp-service__desc">Estimasi TDP dan cicilan bulanan berdasarkan budget Anda — transparan, tanpa biaya konsultasi.</p>
+        <p class="sp-service__desc">Hitung TDP dan cicilan sesuai budget Anda. Transparan, tidak ada biaya konsultasi.</p>
       </div>
 
       <div class="sp-service reveal reveal-delay-3">
@@ -1400,7 +1403,7 @@ input[type="range"].sp-range::-moz-range-thumb {
           <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
         </svg>
         <h3 class="sp-service__title">Test Drive</h3>
-        <p class="sp-service__desc">Jadwalkan test drive JAECOO di Palembang dan rasakan sendiri perbedaan berkendara dengan teknologi terkini.</p>
+        <p class="sp-service__desc">Jadwalkan test drive dan rasakan sendiri. Tidak perlu tunggu lama.</p>
       </div>
 
     </div>
@@ -1415,7 +1418,7 @@ input[type="range"].sp-range::-moz-range-thumb {
         <p class="sp-kicker">Test Drive JAECOO Palembang</p>
         <hr class="sp-divider"/>
         <h2 class="sp-testdrive__title">Kenali JAECOO<br/>dari Balik Kemudi</h2>
-        <p class="sp-testdrive__desc">Rasakan sendiri performa, kenyamanan, dan teknologi JAECOO melalui test drive langsung di Palembang. Gratis, tanpa komitmen — cukup jadwalkan bersama saya.</p>
+        <p class="sp-testdrive__desc">Tidak ada yang lebih jujur dari rasanya langsung. Test drive JAECOO di Palembang — gratis, tanpa komitmen, sesuai jadwal Anda.</p>
       </div>
       <div class="reveal reveal-delay-1">
         <a class="btn btn--primary"
@@ -1506,8 +1509,8 @@ input[type="range"].sp-range::-moz-range-thumb {
 <section class="sp-final-cta" id="hubungi-alvan">
   <div class="sp-wrap" style="max-width:680px">
     <p class="sp-kicker reveal" style="text-align:center;margin-bottom:20px">Siap Mengenal JAECOO?</p>
-    <h2 class="sp-final-cta__title reveal">Siap mengenal JAECOO<br/><em>lebih dekat?</em></h2>
-    <p class="sp-final-cta__desc reveal reveal-delay-1">Saya siap membantu Anda mendapatkan informasi yang dibutuhkan — harga, promo, simulasi, hingga test drive.</p>
+    <h2 class="sp-final-cta__title reveal">Ada yang ingin<br/><em>Anda tanyakan?</em></h2>
+    <p class="sp-final-cta__desc reveal reveal-delay-1">Langsung tanya saja — harga, promo, simulasi kredit, atau kapan bisa test drive. Saya akan bantu secepatnya.</p>
     <a class="btn btn--primary reveal reveal-delay-2"
        href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+mau+tanya+soal+JAECOO+Palembang."
        rel="noopener" target="_blank"
@@ -1524,23 +1527,54 @@ input[type="range"].sp-range::-moz-range-thumb {
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="footer-v2" id="footer">
   <div class="footer-v2__inner">
+
+    <!-- Branding -->
     <div class="footer-v2__brand">
       <a class="footer-v2__logo-wrap" href="/" aria-label="OMODA JAECOO Palembang">
         <img alt="OMODA JAECOO" decoding="async" height="32" loading="lazy" src="/assets/images/logo-omoda-jaecoo.png" width="240"/>
         <span class="footer-v2__city">PALEMBANG</span>
       </a>
-      <p class="footer-v2__tagline">Temukan pengalaman berkendara JAECOO bersama Alvan di Palembang.</p>
+      <p class="footer-v2__tagline">Temukan pengalaman berkendara OMODA &amp; JAECOO bersama Alvan.</p>
     </div>
+
+    <!-- Models -->
     <div class="footer-v2__col">
       <p class="footer-v2__col-title">MODELS</p>
       <nav aria-label="Footer models">
+        <a href="/omoda-o4/">OMODA O4 EV</a>
         <a href="/jaecoo-j5.html">JAECOO J5 EV</a>
         <a href="/jaecoo-j7.html">JAECOO J7 SHS-P</a>
         <a href="/jaecoo-j7-sivp/">JAECOO J7 SIVP</a>
         <a href="/jaecoo-j8.html">JAECOO J8 SHS-P ARDIS</a>
       </nav>
     </div>
+
+    <!-- Social (desktop inline col) -->
+    <div class="footer-v2__col footer-v2__col--social">
+      <p class="footer-v2__col-title">TERHUBUNG DENGAN KAMI</p>
+      <div class="footer-v2__social">
+        <a href="https://www.instagram.com/omodajaecoopalembang_alvan" rel="noopener" target="_blank" aria-label="Instagram">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@omodajaecoopalembang" rel="noopener" target="_blank" aria-label="TikTok">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          <span>TikTok</span>
+        </a>
+        <a href="https://www.facebook.com/share/14kxt29FKUz/?mibextid=wwXIfr" rel="noopener" target="_blank" aria-label="Facebook">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://wa.me/6285183145926" rel="noopener" target="_blank" aria-label="WhatsApp" class="footer-v2__social-wa">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.12 0C5.61 0 .32 5.29.32 11.8c0 2.08.54 4.11 1.57 5.9L.22 24l6.45-1.69a11.77 11.77 0 0 0 5.45 1.35h.01c6.51 0 11.8-5.29 11.8-11.8a11.76 11.76 0 0 0-3.41-8.38Zm-8.4 18.16h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.79 9.79 0 0 1-1.5-5.15C2.22 6.4 6.66 1.96 12.12 1.96c2.65 0 5.14 1.03 7.01 2.91a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.44 9.76-9.91 9.76Zm5.39-7.32c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.28-.47-2.43-1.5-.9-.8-1.51-1.79-1.69-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
   </div>
+
+  <!-- Social row — full width, below brand+models grid -->
   <div class="footer-v2__social-row">
     <div class="footer-v2__social-row-inner">
       <p class="footer-v2__col-title">TERHUBUNG DENGAN KAMI</p>
@@ -1564,6 +1598,7 @@ input[type="range"].sp-range::-moz-range-thumb {
       </div>
     </div>
   </div>
+
   <div class="footer-v2__bottom">
     <p>© 2026 OMODA JAECOO Palembang · All Rights Reserved</p>
   </div>
