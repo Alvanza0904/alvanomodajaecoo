@@ -3,7 +3,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"/>
-<link as="image" fetchpriority="high" href="/assets/images/jaecoo-j8/exterior-rear.jpeg" rel="preload"/>
+<link as="image" fetchpriority="high" href="/assets/images/jaecoo-j8/exterior-rear.webp" rel="preload"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -75,53 +75,19 @@
       margin-bottom: 16px;
     }
 
-    /* ── S1 HERO ── */
+    /* ── S1 HERO — full-width cinematic photo hero ── */
     .j8-hero {
-      background: #0a0a0a;
-      min-height: 100svh;
-      display: flex;
-      align-items: stretch;
-      overflow: hidden;
-    }
-    .j8-hero__content {
-      flex: 0 0 45%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 64px 80px 80px;
       position: relative;
-      z-index: 2;
-    }
-    .j8-hero__eyebrow {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      opacity: 0.4;
-      margin-bottom: 20px;
-    }
-    .j8-hero__title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.5rem, 5vw, 5.5rem);
-      font-weight: 700;
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      margin: 0 0 32px 0;
-      color: #fff;
-    }
-    .j8-hero__copy {
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      opacity: 0.6;
-      max-width: 340px;
-      margin: 0;
+      overflow: hidden;
+      background: #000;
+      width: 100%;
+      height: clamp(520px, 85svh, 920px);
     }
     .j8-hero__media {
-      flex: 0 0 55%;
-      position: relative;
-      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
     }
     .j8-hero__media picture,
     .j8-hero__media img {
@@ -129,7 +95,57 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 25%;
+    }
+    .j8-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top,
+          rgba(0,0,0,0.88) 0%,
+          rgba(0,0,0,0.45) 30%,
+          rgba(0,0,0,0.10) 60%,
+          transparent 80%),
+        linear-gradient(to bottom,
+          rgba(0,0,0,0.35) 0%,
+          transparent 20%);
+      pointer-events: none;
+    }
+    .j8-hero__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 48px 64px 56px;
+      z-index: 2;
+    }
+    .j8-hero__eyebrow {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-bottom: 12px;
+    }
+    .j8-hero__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+      color: #fff;
+      max-width: 600px;
+    }
+    .j8-hero__copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.52;
+      max-width: 480px;
+      margin: 0;
     }
 
     /* ── S2 COCKPIT (split reverse) ── */
@@ -137,6 +153,7 @@
       display: flex;
       align-items: stretch;
       overflow: hidden;
+      min-height: 70vh;
     }
     .j8-split--reverse { flex-direction: row-reverse; }
     .j8-split__media {
@@ -157,25 +174,25 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 72px 80px 64px;
+      padding: 64px 72px 64px 64px;
     }
     .j8-split--reverse .j8-split__content {
-      padding: 80px 64px 80px 80px;
+      padding: 64px 64px 64px 72px;
     }
     .j8-split__title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 3vw, 3rem);
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      margin: 0 0 24px 0;
+      margin: 0 0 20px 0;
       color: #fff;
     }
     .j8-split__copy {
       font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       line-height: 1.75;
-      opacity: 0.6;
+      opacity: 0.58;
       max-width: 360px;
       margin: 0;
     }
@@ -186,22 +203,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 80px;
+      padding: 0;
       gap: 0;
       position: relative;
       overflow: hidden;
     }
     .j8-editorial__inner {
       display: flex;
-      align-items: flex-end;
-      gap: 64px;
-      max-width: 1100px;
+      align-items: stretch;
+      gap: 0;
+      max-width: 100%;
       width: 100%;
     }
     .j8-editorial__media {
-      flex: 0 0 460px;
+      flex: 0 0 55%;
       height: min(72vh, 680px);
-      min-height: 520px;
+      min-height: 460px;
       position: relative;
       overflow: hidden;
     }
@@ -215,7 +232,10 @@
     }
     .j8-editorial__content {
       flex: 1 1 auto;
-      padding-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 72px;
     }
     .j8-editorial__title {
       font-family: 'Space Grotesk', sans-serif;
@@ -223,7 +243,7 @@
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      margin: 0 0 24px 0;
+      margin: 0 0 20px 0;
       color: #fff;
     }
     .j8-editorial__copy {
@@ -232,17 +252,17 @@
       line-height: 1.75;
       opacity: 0.55;
       margin: 0;
-      max-width: 300px;
+      max-width: 320px;
     }
 
     /* ── S4 SONY AUDIO (split normal) ── */
     .j8-split--audio {
       background: #111111;
-      min-height: 80vh;
+      min-height: 65vh;
     }
     .j8-split__content--audio {
       flex: 0 0 40%;
-      padding-left: 80px;
+      padding-left: 72px;
       padding-right: 56px;
     }
     .j8-split__media--audio {
@@ -338,10 +358,10 @@
     /* ── S6 HIGHLIGHTS GRID ── */
     .j8-highlights {
       background: #0a0a0a;
-      padding: 120px 80px;
+      padding: 80px 80px;
     }
     .j8-highlights__header {
-      margin-bottom: 80px;
+      margin-bottom: 56px;
     }
     .j8-highlights__title {
       font-family: 'Space Grotesk', sans-serif;
@@ -385,7 +405,7 @@
     .j8-cta {
       background: #0a0a0a;
       border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 120px 80px;
+      padding: 80px 80px;
       text-align: center;
     }
     .j8-cta__title {
@@ -429,104 +449,55 @@
       .footer-v2__inner{grid-template-columns:1fr 1fr;gap:40px 32px;padding:0 32px 40px;}
       .footer-v2__social-row-inner{padding:28px 32px;gap:20px;}
 
-      /* Hero */
-      .j8-hero {
-        flex-direction: column;
-        min-height: auto;
-      }
-      .j8-hero__media {
-        flex: 0 0 auto;
-        height: 65vw;
-        min-height: 360px;
-        width: 100%;
-        order: -1;
-      }
-      .j8-hero__media img { object-position: center center; }
-      .j8-hero__content {
-        flex: 0 0 auto;
-        padding: 48px 32px 56px;
-      }
-      .j8-hero__copy { max-width: 100%; }
+      /* Hero — tetap full-width, cukup kurangi tinggi */
+      .j8-hero { height: clamp(460px, 75svh, 720px); }
+      .j8-hero__content { padding: 36px 40px 44px; }
 
       /* Split */
-      .j8-split, .j8-split--reverse {
-        flex-direction: column;
-      }
+      .j8-split, .j8-split--reverse { flex-direction: column; min-height: auto; }
       .j8-split__media {
         flex: 0 0 auto;
-        height: 60vw;
-        min-height: 320px;
+        height: 62vw;
+        min-height: 300px;
         width: 100%;
       }
       .j8-split--reverse .j8-split__media { order: -1; }
       .j8-split__content {
         flex: 0 0 auto;
-        padding: 48px 32px 56px;
+        padding: 40px 32px 48px;
       }
-      .j8-split--reverse .j8-split__content {
-        padding: 48px 32px 56px;
-      }
+      .j8-split--reverse .j8-split__content { padding: 40px 32px 48px; }
       .j8-split__copy { max-width: 100%; }
 
-      /* Sony audio — collapse to full-width single column */
-      .j8-split--audio {
-        flex-direction: column;
-        min-height: auto;
-      }
-      .j8-split__content--audio {
-        flex: 0 0 auto;
-        width: 100%;
-        padding-left: 32px;
-        padding-right: 32px;
-      }
-      .j8-split__media--audio {
-        flex: 0 0 auto;
-        width: 100%;
-        height: 60vw;
-        min-height: 320px;
-      }
+      /* Sony audio */
+      .j8-split--audio { flex-direction: column; min-height: auto; }
+      .j8-split__content--audio { flex: 0 0 auto; width: 100%; padding: 40px 32px 40px; }
+      .j8-split__media--audio { flex: 0 0 auto; width: 100%; height: 62vw; min-height: 300px; }
 
-      /* Editorial */
-
-      .j8-editorial {
-        flex-direction: column;
-        padding: 0;
-      }
-      .j8-editorial__inner {
-        flex-direction: column;
-        gap: 0;
-      }
+      /* Editorial — stack image above text */
+      .j8-editorial__inner { flex-direction: column; gap: 0; }
       .j8-editorial__media {
-        flex: 0 0 auto;
-        width: 100%;
-        height: 70vw;
-        min-height: 360px;
+        flex: 0 0 auto; width: 100%;
+        height: 66vw; min-height: 320px;
       }
-      .j8-editorial__content {
-        padding: 48px 32px 56px;
-      }
+      .j8-editorial__content { padding: 40px 32px 48px; }
       .j8-editorial__copy { max-width: 100%; }
 
       /* Immersive */
-      .j8-immersive {
-        height: 75vw;
-        min-height: 420px;
-      }
-      .j8-immersive__content {
-        padding: 32px 32px;
-      }
+      .j8-immersive { height: 70vw; min-height: 380px; }
+      .j8-immersive__content { padding: 28px 32px; }
 
       /* Highlights */
-      .j8-highlights { padding: 80px 32px; }
-      .j8-highlights__header { margin-bottom: 48px; }
+      .j8-highlights { padding: 64px 32px; }
+      .j8-highlights__header { margin-bottom: 40px; }
       .j8-spec-grid { grid-template-columns: repeat(2, 1fr); }
       .j8-spec-item:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.06); }
       .j8-spec-item:nth-child(2n) { border-right: none; }
-      .j8-spec-item { padding: 36px 28px; }
+      .j8-spec-item { padding: 32px 24px; }
       .j8-spec-value { font-size: 2rem; }
 
       /* CTA */
-      .j8-cta { padding: 80px 32px; }
+      .j8-cta { padding: 64px 32px; }
     }
 
     @media (max-width: 640px) {
@@ -539,29 +510,35 @@
       .footer-v2__social-links a{padding:10px 14px;min-height:44px;font-size:0.78rem;}
       .footer-v2__bottom{padding:16px 24px;}
 
-      .j8-hero__content { padding: 40px 24px 48px; }
-      .j8-hero__media { height: 70vw; }
+      /* Hero mobile */
+      .j8-hero { height: clamp(400px, 68svh, 580px); }
+      .j8-hero__media img { object-position: 40% 20%; }
+      .j8-hero__content { padding: 24px 24px 32px; }
+      .j8-hero__title { font-size: clamp(1.6rem, 6vw, 2rem); margin-bottom: 10px; }
+      .j8-hero__copy { font-size: 0.82rem; }
 
-      .j8-split__content { padding: 40px 24px 48px; }
-      .j8-split--reverse .j8-split__content { padding: 40px 24px 48px; }
-      .j8-split__content--audio { padding: 40px 24px 48px; }
-      .j8-split__media { height: 66vw; }
-      .j8-split__media--audio { height: 66vw; }
-      /* Cockpit: steering centered on mobile */
-      .j8-cockpit .j8-split__media img { object-position: 60% center; }
+      .j8-split__content { padding: 36px 24px 44px; }
+      .j8-split--reverse .j8-split__content { padding: 36px 24px 44px; }
+      .j8-split__content--audio { padding: 36px 24px 40px; }
+      .j8-split__media { height: 64vw; min-height: 260px; }
+      .j8-split__media--audio { height: 64vw; }
+      /* Cockpit: frame setir di tengah */
+      .j8-cockpit .j8-split__media img { object-position: 55% center; }
 
-      .j8-editorial__content { padding: 40px 24px 48px; }
-      .j8-editorial__media { height: 80vw; }
+      .j8-editorial__content { padding: 36px 24px 44px; }
+      .j8-editorial__media { height: 72vw; min-height: 280px; }
 
-      .j8-immersive { height: 88vw; min-height: 380px; }
-      .j8-immersive__content { padding: 24px 24px; }
-      .j8-immersive__title { font-size: 1.6rem; }
+      .j8-immersive { height: 82vw; min-height: 340px; }
+      .j8-immersive__content { padding: 20px 24px 28px; }
+      .j8-immersive__title { font-size: 1.5rem; }
+      .j8-immersive__copy { font-size: 0.83rem; }
 
-      .j8-highlights { padding: 64px 24px; }
-      .j8-spec-item { padding: 28px 20px; }
-      .j8-spec-value { font-size: 1.75rem; }
+      .j8-highlights { padding: 56px 24px; }
+      .j8-highlights__header { margin-bottom: 32px; }
+      .j8-spec-item { padding: 24px 16px; }
+      .j8-spec-value { font-size: 1.7rem; }
 
-      .j8-cta { padding: 64px 24px; }
+      .j8-cta { padding: 56px 24px; }
       .j8-cta__btn { min-height: 52px; width: 100%; }
     }
       /* Navbar offset — prevents fixed navbar (68px) from covering content */
@@ -582,19 +559,16 @@
   </style>
 <style>
 
-/* FINAL VISUAL FIT — interior photography */
-.j8-hero__media,.j8-split__media,.j8-editorial__media,.j8-immersive{background:#050505;}
-.j8-hero__media picture,.j8-hero__media img{object-fit:contain;object-position:center center;}
-.j8-split__media picture,.j8-split__media img{object-fit:contain;object-position:center center;}
-.j8-editorial__media picture,.j8-editorial__media img{object-fit:contain;object-position:center center;}
-.j8-immersive picture,.j8-immersive img{object-fit:contain;object-position:center center;}
-@media(max-width:768px){
-  .j8-hero__media,.j8-split__media{min-height:0;}
-  .j8-hero__media picture,.j8-hero__media img,.j8-split__media picture,.j8-split__media img{height:auto;max-height:72svh;object-fit:contain;}
-  .j8-editorial__media{height:auto;min-height:0;}
-  .j8-editorial__media picture,.j8-editorial__media img{height:auto;max-height:72svh;object-fit:contain;}
-  .j8-immersive{height:auto;min-height:0;}
-  .j8-immersive picture,.j8-immersive img{height:auto;max-height:78svh;object-fit:contain;}
+/* VISUAL FIT — interior photography, semua cover penuh */
+.j8-split__media,.j8-editorial__media{background:#080808;}
+.j8-split__media picture,.j8-split__media img{object-fit:cover;}
+.j8-editorial__media picture,.j8-editorial__media img{object-fit:cover;object-position:center center;}
+/* 7-seater diagram: contain agar tidak terpotong */
+.j8-seater-layout .j8-split__media picture,
+.j8-seater-layout .j8-split__media img{
+  object-fit:contain;
+  object-position:center center;
+  background:#111111;
 }
 
 </style>
@@ -633,22 +607,24 @@
 <main>
 <!-- ── S1 HERO ──────────────────────────────────── -->
 <section aria-label="Interior JAECOO J8" class="j8-int j8-hero">
+<div class="j8-hero__media">
+<picture>
+<source srcset="/assets/images/jaecoo-j8/exterior-rear.webp" type="image/webp"/>
+<img alt="Dashboard panoramik JAECOO J8 — dual screen lebar, kemudi premium, dan kabin depan mewah" fetchpriority="high" height="1920" loading="eager" src="/assets/images/jaecoo-j8/exterior-rear.jpeg" width="1440"/>
+</picture>
+</div>
+<div aria-hidden="true" class="j8-hero__overlay"></div>
 <div class="j8-hero__content">
 <span class="j8-hero__eyebrow">JAECOO J8 · Kabin</span>
 <h1 class="j8-hero__title">JAECOO J8 Interior</h1>
 <p class="j8-hero__copy">Kabin yang dirancang untuk mereka yang menghargai setiap detail — dari permukaan yang disentuh, hingga suara yang didengar.</p>
 </div>
-<div class="j8-hero__media">
-<picture>
-<img alt="Dashboard panoramik JAECOO J8 — dual screen lebar, kemudi premium, dan kabin depan mewah" fetchpriority="high" height="1920" loading="eager" src="/assets/images/jaecoo-j8/exterior-rear.jpeg" width="1440"/>
-</picture>
-</div>
 </section>
 <!-- ── S2 COCKPIT ────────────────────────────────── -->
-<section aria-label="Kokpit JAECOO J8" class="j8-int j8-split j8-split--reverse j8-cockpit" style="background:#111111;min-height:90vh;">
+<section aria-label="Kokpit JAECOO J8" class="j8-int j8-split j8-split--reverse j8-cockpit" style="background:#0e0e0e;">
 <div class="j8-split__media">
 <picture>
-<img alt="Kokpit pengemudi JAECOO J8 — setir multi-fungsi, layar digital, dan kabin premium dari sudut pandang pengemudi" height="1920" loading="lazy" src="/assets/images/jaecoo-j8.webp" width="1440"/>
+<img alt="Kokpit pengemudi JAECOO J8 — setir multi-fungsi, layar digital, dan kabin premium dari sudut pandang pengemudi" height="1920" loading="lazy" src="/assets/images/jaecoo-j8.webp" width="1440" style="object-position:55% center;"/>
 </picture>
 </div>
 <div class="j8-split__content">
@@ -658,12 +634,12 @@
 </div>
 </section>
 <!-- ── S3 COMMAND CENTER ─────────────────────────── -->
-<section aria-label="Kontrol JAECOO J8" class="j8-int j8-editorial">
+<section aria-label="Kontrol JAECOO J8" class="j8-int j8-editorial" style="background:#0a0a0a;">
 <div class="j8-editorial__inner">
 <div class="j8-editorial__media">
 <picture>
 <source srcset="/assets/images/jaecoo-j8/phev-badge.webp" type="image/webp"/>
-<img alt="Knob MODE JAECOO J8 — center console dengan selector EV, HEV, dan mode berkendara hybrid" height="1919" loading="lazy" src="/assets/images/jaecoo-j8/phev-badge.jpeg" width="1440"/>
+<img alt="Knob MODE JAECOO J8 — center console dengan selector EV, HEV, dan mode berkendara hybrid" height="1919" loading="lazy" src="/assets/images/jaecoo-j8/phev-badge.jpeg" width="1440" style="object-position:center 35%;"/>
 </picture>
 </div>
 <div class="j8-editorial__content">
@@ -687,7 +663,8 @@
 </div>
 <div class="j8-split__media j8-split__media--audio">
 <picture>
-<img alt="Interior kabin JAECOO J8 — layar infotainment, kokpit pengemudi, dan suasana kabin premium dari sisi penumpang" height="1920" loading="lazy" src="/assets/images/jaecoo-j8/exterior-hero.jpeg" width="1440"/>
+<source srcset="/assets/images/jaecoo-j8/exterior-hero.webp" type="image/webp"/>
+<img alt="Kabin pengemudi JAECOO J8 — setir, instrumen digital, dan door panel premium dari sudut dalam" height="1920" loading="lazy" src="/assets/images/jaecoo-j8/exterior-hero.jpeg" width="1440" style="object-position:center 20%;"/>
 </picture>
 </div>
 </section>
@@ -703,7 +680,7 @@
 </div>
 </section>
 <!-- ── S5b LAYOUT 7 KURSI ─────────────────────────── -->
-<section aria-label="Layout 7 kursi JAECOO J8" class="j8-int j8-split" style="background:#111111;min-height:70vh;">
+<section aria-label="Layout 7 kursi JAECOO J8" class="j8-int j8-split j8-seater-layout" style="background:#111111;min-height:60vh;">
 <div class="j8-split__media">
 <picture>
 <img alt="Layout kabin 7 kursi JAECOO J8 — tiga baris kursi dengan ruang lega untuk semua penumpang" height="1176" loading="lazy" src="/assets/images/jaecoo-j8/interior-7seater.png" width="1150"/>
