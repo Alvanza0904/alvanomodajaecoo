@@ -32,8 +32,18 @@
     .j8-subnav__model{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;opacity:0.35;padding:0 24px 0 0;display:flex;align-items:center;white-space:nowrap;border-right:1px solid rgba(255,255,255,0.1);margin-right:4px;flex-shrink:0;}
     .j8-subnav__link{display:flex;align-items:center;padding:16px 20px;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:inherit;text-decoration:none;opacity:0.5;white-space:nowrap;border-bottom:2px solid transparent;transition:opacity .18s,border-color .18s;flex-shrink:0;}
     .j8-subnav__link:hover{opacity:0.85;}
-    .j8-subnav__link--active{opacity:1;border-bottom-color:#fff;}
-    @media(max-width:640px){.j8-subnav__inner{padding:0 20px;}.j8-subnav__model{padding:0 16px 0 0;margin-right:0;}.j8-subnav__link{padding:14px 14px;font-size:0.68rem;}}
+    .j8-subnav__link--active{opacity:1;border-bottom-color:#fff;border-bottom-width:2px;}
+    @media(max-width:640px){
+      .j8-subnav__inner{padding:0 16px;}
+      .j8-subnav__model{padding:0 12px 0 0;margin-right:0;}
+      .j8-subnav__link{padding:14px 12px;font-size:0.67rem;}
+      /* Active tab lebih jelas di mobile */
+      .j8-subnav__link--active{
+        border-bottom-color:#fff;
+        border-bottom-width:2px;
+        opacity:1;
+      }
+    }
 
     /* ── FOOTER V2 GLOBAL ── */
     .footer-v2{border-top:1px solid rgba(255,255,255,0.08);padding:64px 0 0 0;font-size:0.82rem;}
@@ -69,10 +79,11 @@
     .design-intro .eyebrow{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;opacity:0.4;margin-bottom:16px;}
     .design-intro h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-0.02em;margin:0 0 20px;line-height:1.05;}
     .design-intro p{font-size:1rem;opacity:0.55;line-height:1.7;max-width:500px;margin:0 auto;}
-    @media(max-width:640px){.design-intro{padding:56px 0 0;}.design-intro h1{font-size:2rem;}}
+    @media(max-width:640px){.design-intro{padding:36px 0 0;}.design-intro h1{font-size:1.85rem;}.design-intro p{font-size:0.9rem;padding:0 24px;}}
 
     /* ── HERO SECTION ── */
-    .d-hero{position:relative;overflow:hidden;background:#000;}
+    .d-hero{position:relative;overflow:hidden;background:#000;margin-top:0;}
+    @media(max-width:640px){.design-intro .wrap{padding:0 24px 24px;}}
 
     /* Desktop hero: image-based, cinematic crop — 3/2 fits portrait source better */
     .d-hero__media{
@@ -101,7 +112,7 @@
     /* Gradient overlay at bottom for text readability */
     .d-hero__overlay{
       position:absolute;inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 40%,transparent 70%);
+      background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.08) 38%,transparent 65%);
       pointer-events:none;
     }
     .d-hero__caption{
@@ -130,8 +141,17 @@
         object-fit:cover;
         object-position:center 30%;
       }
-      .d-hero__caption{padding:28px 24px 36px;}
-      .d-hero__title{font-size:1.4rem;}
+      .d-hero__caption{padding:20px 24px 28px;}
+      .d-hero__title{font-size:1.35rem;}
+      /* Transisi hero → section berikutnya: gradient bleed ke bawah */
+      .d-hero::after{
+        content:'';
+        position:absolute;bottom:0;left:0;right:0;
+        height:60px;
+        background:linear-gradient(to bottom,transparent,rgba(5,5,5,0.85));
+        pointer-events:none;
+        z-index:1;
+      }
     }
 
     /* ── EDITORIAL FULL-BLEED IMAGE SECTION ── */
@@ -155,9 +175,9 @@
     .d-fullbleed__heading{font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:600;letter-spacing:-0.01em;line-height:1.2;margin:0 0 10px;}
     .d-fullbleed__body{font-size:0.88rem;opacity:0.55;line-height:1.65;margin:0;}
     @media(max-width:640px){
-      .d-fullbleed__img{aspect-ratio:4/5;object-position:center 25%;}
-      .d-fullbleed__content{padding:24px 24px 32px;}
-      .d-fullbleed__heading{font-size:1.3rem;}
+      /* Fullbleed di mobile: layout stacked (gambar atas, teks bawah) */
+      .d-fullbleed{display:flex;flex-direction:column;}
+      .d-fullbleed__heading{font-size:1.25rem;}
     }
 
     /* ── SPLIT SECTION — text + tall portrait image side by side ── */
@@ -382,14 +402,29 @@
   .d-split__img{max-height:560px;}
 }
 @media(max-width:640px){
-  .d-hero__media{height:auto;max-height:78svh;min-height:0;object-fit:contain;}
-  .d-hero__img-fallback{height:auto;max-height:78svh;aspect-ratio:auto;object-fit:contain;}
-  .d-fullbleed__img{height:auto;max-height:76svh;aspect-ratio:auto;object-fit:contain;}
+  /* Hero: batasi tinggi agar langsung terlihat tanpa gap kosong */
+  .d-hero__media{height:auto;max-height:62svh;min-height:0;object-fit:contain;
+    filter:brightness(1.12) contrast(0.97);}
+  .d-hero__video{max-height:62svh;}
+  .d-hero__img-fallback{height:auto;max-height:62svh;aspect-ratio:auto;object-fit:contain;
+    filter:brightness(1.12) contrast(0.97);}
+  /* Fullbleed: tingkatkan brightness agar detail mobil lebih terlihat, tetap premium */
+  .d-fullbleed__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
+    filter:brightness(1.1) contrast(0.96);}
+  /* Konten fullbleed jangan menempel di bawah gambar — beri breathing room */
+  .d-fullbleed__content{
+    position:relative;bottom:auto;left:auto;right:auto;
+    padding:20px 24px 28px;
+    background:linear-gradient(to bottom,rgba(5,5,5,0.92),rgba(5,5,5,1));
+  }
+  .d-fullbleed__overlay{display:none;} /* Ganti dengan bg solid di content */
   .d-split__img-wrap{padding:0 10px;}
-  .d-split__img{height:auto;max-height:520px;min-height:0;object-fit:contain;}
-  .d-cinematic__img{height:auto;max-height:78svh;aspect-ratio:auto;object-fit:contain;}
-  .d-detail__panel-img{height:auto;max-height:430px;aspect-ratio:auto;object-fit:contain;}
-  .d-profile__img{height:auto;max-height:78svh;aspect-ratio:auto;object-fit:contain;}
+  .d-split__img{height:auto;max-height:480px;min-height:0;object-fit:contain;}
+  .d-cinematic__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
+    filter:brightness(1.1);}
+  .d-detail__panel-img{height:auto;max-height:390px;aspect-ratio:auto;object-fit:contain;}
+  .d-profile__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
+    filter:brightness(1.08);}
 }
 
 </style>
@@ -700,6 +735,20 @@
 <span>WhatsApp Alvan</span>
 </a>
 <script src="/assets/js/main.js"></script>
+<!-- ── SUBNAV SCROLL TO ACTIVE — pastikan tab DESIGN terlihat di mobile ── -->
+<script>
+(function(){
+  var subnav = document.querySelector('.j8-subnav__inner');
+  var activeLink = document.querySelector('.j8-subnav__link--active');
+  if(!subnav || !activeLink) return;
+  // Scroll subnav agar tab aktif berada di area visible
+  var linkLeft = activeLink.offsetLeft;
+  var linkWidth = activeLink.offsetWidth;
+  var navWidth = subnav.offsetWidth;
+  var scrollTarget = linkLeft - (navWidth / 2) + (linkWidth / 2);
+  subnav.scrollLeft = Math.max(0, scrollTarget);
+})();
+</script>
 <!-- ── COLOR SELECTOR SCRIPT ── -->
 <script>
 (function(){
