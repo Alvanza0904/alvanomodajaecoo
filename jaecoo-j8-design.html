@@ -97,7 +97,7 @@
       object-position:center 30%;
     }
 
-    /* Mobile hero: video portrait plays naturally */
+    /* Mobile hero: video disembunyikan default */
     .d-hero__video{
       display:none;
       width:100%;
@@ -106,8 +106,23 @@
       object-position:center center;
     }
 
-    /* Fallback image: hidden everywhere by default, only shown on mobile via JS onerror */
+    /* Fallback image: hidden by default */
     .d-hero__img-fallback{display:none;}
+
+    /* Mobile: tampilkan fallback image langsung, jangan andalkan video .mov */
+    @media(max-width:640px){
+      .d-hero__video{display:none!important;}
+      .d-hero__img-fallback{
+        display:block;
+        width:100%;
+        height:auto;
+        max-height:62svh;
+        aspect-ratio:auto;
+        object-fit:cover;
+        object-position:center 30%;
+        filter:brightness(1.12) contrast(0.97);
+      }
+    }
 
     /* Gradient overlay at bottom for text readability */
     .d-hero__overlay{
@@ -174,6 +189,18 @@
     .d-fullbleed__kicker{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;opacity:0.45;margin-bottom:12px;}
     .d-fullbleed__heading{font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:600;letter-spacing:-0.01em;line-height:1.2;margin:0 0 10px;}
     .d-fullbleed__body{font-size:0.88rem;opacity:0.55;line-height:1.65;margin:0;}
+    /* Tablet: fullbleed stacked agar teks tidak tertindih gambar */
+    @media(min-width:641px) and (max-width:900px){
+      .d-fullbleed{display:flex;flex-direction:column;}
+      .d-fullbleed__img{aspect-ratio:16/9;object-fit:cover;height:auto;max-height:60svh;}
+      .d-fullbleed__overlay{display:none;}
+      .d-fullbleed__content{
+        position:static;bottom:auto;left:auto;right:auto;
+        max-width:100%;padding:28px 32px 36px;
+        background:#050505;
+      }
+      .d-fullbleed__heading{font-size:1.4rem;}
+    }
     @media(max-width:640px){
       /* Fullbleed di mobile: layout stacked (gambar atas, teks bawah) */
       .d-fullbleed{display:flex;flex-direction:column;}
@@ -199,9 +226,9 @@
     @media(max-width:900px){
       .d-split{grid-template-columns:1fr;min-height:auto;}
       .d-split--reverse{direction:ltr;}
-      .d-split__img-wrap{min-height:360px;}
-      .d-split__img{min-height:360px;}
-      .d-split__copy{padding:40px 32px;}
+      .d-split__img-wrap{min-height:0;height:52svh;max-height:480px;}
+      .d-split__img{min-height:0;height:100%;object-fit:cover;}
+      .d-split__copy{padding:36px 32px;}
     }
     @media(max-width:640px){
       .d-split__img-wrap{min-height:300px;}
@@ -229,6 +256,20 @@
     .d-cinematic__kicker{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;opacity:0.45;margin-bottom:14px;}
     .d-cinematic__heading{font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:600;letter-spacing:-0.02em;line-height:1.15;margin:0 0 12px;}
     .d-cinematic__body{font-size:0.85rem;opacity:0.5;line-height:1.65;margin:0;}
+    /* Tablet: cinematic stacked — overlay tidak terbaca di layar medium */
+    @media(min-width:641px) and (max-width:900px){
+      .d-cinematic{display:flex;flex-direction:column;}
+      .d-cinematic__img{aspect-ratio:16/9;object-fit:cover;height:auto;}
+      .d-cinematic__overlay{display:none;}
+      .d-cinematic__content{
+        position:static;top:auto;left:auto;right:auto;bottom:auto;
+        transform:none;max-width:100%;
+        padding:28px 32px 36px;
+        background:#0a0a0a;
+      }
+      .d-cinematic__heading{font-size:1.5rem;}
+      .d-cinematic__body{opacity:0.6;}
+    }
     @media(max-width:640px){
       /* Mobile: stacked layout agar teks tidak overlay di atas gambar terang */
       .d-cinematic{display:flex;flex-direction:column;}
@@ -260,6 +301,11 @@
     .d-detail__kicker{font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;opacity:0.38;margin-bottom:14px;}
     .d-detail__heading{font-size:clamp(1.3rem,2vw,1.8rem);font-weight:600;letter-spacing:-0.01em;line-height:1.2;margin:0 0 12px;}
     .d-detail__body{font-size:0.83rem;opacity:0.48;line-height:1.65;margin:0;}
+    @media(min-width:641px) and (max-width:900px){
+      /* Tablet: copy panel aspect-ratio auto agar teks tidak terpotong */
+      .d-detail__panel--copy{aspect-ratio:auto;padding:36px 32px;}
+      .d-detail__panel-img{aspect-ratio:1/1;}
+    }
     @media(max-width:640px){
       .d-detail{grid-template-columns:1fr;}
       .d-detail__panel--copy{aspect-ratio:auto;padding:32px 24px;}
@@ -288,10 +334,13 @@
     .d-profile__kicker{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;opacity:0.45;margin-bottom:12px;}
     .d-profile__heading{font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:600;letter-spacing:-0.01em;margin:0 0 8px;}
     .d-profile__body{font-size:0.85rem;opacity:0.5;line-height:1.65;margin:0;max-width:480px;}
+    @media(min-width:641px) and (max-width:900px){
+      .d-profile__img{aspect-ratio:4/3;}
+      .d-profile__content{padding:28px 32px 40px;}
+      .d-profile__heading{font-size:1.5rem;}
+    }
     @media(max-width:640px){
       .d-profile__img{
-        /* 4/3 on mobile keeps the full side profile width-friendly rather
-           than forcing portrait crop which would cut off front/rear */
         aspect-ratio:4/3;
         object-position:center 50%;
       }
@@ -356,6 +405,12 @@
     }
     .d-colors__swatch.is-active .d-colors__swatch-name{opacity:1;}
 
+    @media(min-width:641px) and (max-width:900px){
+      .d-colors{padding:64px 0;}
+      .d-colors__wrap{padding:0 32px;}
+      .d-colors__stage{min-height:260px;}
+      .d-colors__heading{margin-bottom:36px;}
+    }
     @media(max-width:640px){
       .d-colors{padding:56px 0;}
       .d-colors__wrap{padding:0 24px;}
@@ -372,6 +427,7 @@
     .d-cta .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:opacity .18s;min-height:48px;}
     .d-cta .btn.primary{background:#fff;color:#000;}
     .d-cta .btn.primary:hover{opacity:0.85;}
+    @media(min-width:641px) and (max-width:900px){.d-cta{padding:80px 32px;}}
     @media(max-width:640px){.d-cta{padding:64px 24px;}}
 
       /* Navbar offset — prevents fixed navbar (68px) from covering content */
@@ -406,9 +462,19 @@
 .d-detail__panel-img{height:auto;max-height:520px;aspect-ratio:auto;object-fit:contain;object-position:center center;}
 .d-profile{background:#050505;}
 .d-profile__img{height:min(76svh,780px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
+/* Tablet 641–900px: override contain → cover agar tidak ada whitespace */
+@media(min-width:641px) and (max-width:900px){
+  .d-hero__media{height:min(65svh,600px);object-fit:cover;object-position:center 30%;}
+  .d-fullbleed__img{height:auto;max-height:60svh;object-fit:cover;aspect-ratio:16/9;}
+  .d-split__img-wrap{padding:0;height:52svh;max-height:480px;}
+  .d-split__img{height:100%;object-fit:cover;max-height:none;}
+  .d-cinematic__img{height:auto;aspect-ratio:16/9;object-fit:cover;max-height:none;}
+  .d-detail__panel-img{height:auto;max-height:none;aspect-ratio:1/1;object-fit:cover;}
+  .d-profile__img{height:min(60svh,560px);object-fit:cover;aspect-ratio:4/3;}
+}
 @media(max-width:900px){
-  .d-split__img-wrap{min-height:0;padding:0 12px;}
-  .d-split__img{max-height:560px;}
+  .d-split__img-wrap{min-height:0;padding:0;}
+  .d-split__img{max-height:none;}
 }
 @media(max-width:640px){
   /* Hero: batasi tinggi agar langsung terlihat tanpa gap kosong */
