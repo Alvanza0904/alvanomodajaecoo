@@ -79,7 +79,7 @@
     .design-intro .eyebrow{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;opacity:0.4;margin-bottom:16px;}
     .design-intro h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-0.02em;margin:0 0 20px;line-height:1.05;}
     .design-intro p{font-size:1rem;opacity:0.55;line-height:1.7;max-width:500px;margin:0 auto;}
-    @media(max-width:640px){.design-intro{padding:36px 0 0;}.design-intro h1{font-size:1.85rem;}.design-intro p{font-size:0.9rem;padding:0 24px;}}
+    @media(max-width:640px){.design-intro{display:none;}}
 
     /* ── HERO SECTION ── */
     .d-hero{position:relative;overflow:hidden;background:#000;margin-top:0;}
@@ -230,9 +230,18 @@
     .d-cinematic__heading{font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:600;letter-spacing:-0.02em;line-height:1.15;margin:0 0 12px;}
     .d-cinematic__body{font-size:0.85rem;opacity:0.5;line-height:1.65;margin:0;}
     @media(max-width:640px){
-      .d-cinematic__img{aspect-ratio:3/4;}
-      .d-cinematic__content{left:24px;right:24px;top:auto;bottom:32px;transform:none;}
+      /* Mobile: stacked layout agar teks tidak overlay di atas gambar terang */
+      .d-cinematic{display:flex;flex-direction:column;}
+      .d-cinematic__img{aspect-ratio:4/3;object-fit:cover;}
+      .d-cinematic__overlay{display:none;}
+      .d-cinematic__content{
+        position:static;top:auto;left:auto;right:auto;bottom:auto;
+        transform:none;max-width:100%;
+        padding:24px 24px 32px;
+        background:#0a0a0a;
+      }
       .d-cinematic__heading{font-size:1.3rem;}
+      .d-cinematic__body{opacity:0.6;}
     }
 
     /* ── DETAIL CLOSE-UP — small accent visual ── */
@@ -420,8 +429,8 @@
   .d-fullbleed__overlay{display:none;} /* Ganti dengan bg solid di content */
   .d-split__img-wrap{padding:0 10px;}
   .d-split__img{height:auto;max-height:480px;min-height:0;object-fit:contain;}
-  .d-cinematic__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
-    filter:brightness(1.1);}
+  /* Cinematic: sudah stacked di mobile, pakai cover + aspect-ratio fixed */
+  .d-cinematic__img{height:auto;max-height:none;aspect-ratio:4/3;object-fit:cover;filter:none;}
   .d-detail__panel-img{height:auto;max-height:390px;aspect-ratio:auto;object-fit:contain;}
   .d-profile__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
     filter:brightness(1.08);}
