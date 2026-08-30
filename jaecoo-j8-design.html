@@ -82,49 +82,19 @@
     @media(max-width:640px){.design-intro{display:none;}}
 
     /* ── HERO SECTION ── */
-    .d-hero{position:relative;overflow:hidden;background:#000;margin-top:0;}
-    @media(max-width:640px){.design-intro .wrap{padding:0 24px 24px;}}
+    .d-hero{position:relative;overflow:hidden;background:#000;}
+    .d-hero__video{display:none;}
+    .d-hero__img-fallback{display:none;}
 
-    /* Desktop hero: image-based, cinematic crop — 3/2 fits portrait source better */
+    /* Hero image — desktop */
     .d-hero__media{
-      display:block;
-      width:100%;
-      /* Portrait source 1440×1920 — 3/2 gives more vertical room than 16/9
-         so the front fascia, roof, and key body lines stay visible.
-         object-position 30% centres the car vertically within the crop. */
+      display:block;width:100%;
       aspect-ratio:3/2;
       object-fit:cover;
       object-position:center 30%;
     }
 
-    /* Mobile hero: video disembunyikan default */
-    .d-hero__video{
-      display:none;
-      width:100%;
-      max-height:90svh;
-      object-fit:cover;
-      object-position:center center;
-    }
-
-    /* Fallback image: hidden by default */
-    .d-hero__img-fallback{display:none;}
-
-    /* Mobile: tampilkan fallback image langsung, jangan andalkan video .mov */
-    @media(max-width:640px){
-      .d-hero__video{display:none!important;}
-      .d-hero__img-fallback{
-        display:block;
-        width:100%;
-        height:auto;
-        max-height:62svh;
-        aspect-ratio:auto;
-        object-fit:cover;
-        object-position:center 30%;
-        filter:brightness(1.12) contrast(0.97);
-      }
-    }
-
-    /* Gradient overlay at bottom for text readability */
+    /* Gradient overlay */
     .d-hero__overlay{
       position:absolute;inset:0;
       background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.08) 38%,transparent 65%);
@@ -134,39 +104,18 @@
       position:absolute;bottom:0;left:0;right:0;
       padding:40px 56px 48px;
     }
-    .d-hero__label{
-      font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;
-      opacity:0.5;margin-bottom:10px;display:block;
-    }
-    .d-hero__title{
-      font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;
-      letter-spacing:-0.01em;line-height:1.15;
-      margin:0 0 8px;max-width:480px;
-    }
+    .d-hero__label{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;opacity:0.5;margin-bottom:10px;display:block;}
+    .d-hero__title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;letter-spacing:-0.01em;line-height:1.15;margin:0 0 8px;max-width:480px;}
     .d-hero__sub{font-size:0.85rem;opacity:0.5;margin:0;}
 
+    /* Mobile: gambar full width, aspect-ratio natural, caption overlay */
     @media(max-width:640px){
-      .d-hero__media{display:none;}
-      .d-hero__video{display:block;}
-      /* Fallback: if video fails, img-fallback shows (via JS onerror) */
-      .d-hero__img-fallback{
-        /* display:none set globally above; JS sets display:block on video error */
-        width:100%;
-        aspect-ratio:3/4;
-        object-fit:cover;
-        object-position:center 30%;
+      .d-hero__media{
+        aspect-ratio:4/3;
+        object-position:center 35%;
       }
       .d-hero__caption{padding:20px 24px 28px;}
       .d-hero__title{font-size:1.35rem;}
-      /* Transisi hero → section berikutnya: gradient bleed ke bawah */
-      .d-hero::after{
-        content:'';
-        position:absolute;bottom:0;left:0;right:0;
-        height:60px;
-        background:linear-gradient(to bottom,transparent,rgba(5,5,5,0.85));
-        pointer-events:none;
-        z-index:1;
-      }
     }
 
     /* ── EDITORIAL FULL-BLEED IMAGE SECTION ── */
@@ -448,58 +397,38 @@
   </style>
 <style>
 
-/* FINAL VISUAL FIT — portrait J8 photography */
+/* ── BACKGROUND COLORS ── */
 .d-hero{background:#050505;}
-.d-hero__media{height:min(78svh,820px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
 .d-fullbleed{background:#050505;}
-.d-fullbleed__img{height:min(76svh,780px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
 .d-split{min-height:0;background:#050505;}
-.d-split__img-wrap{display:flex;align-items:center;justify-content:center;min-height:0;}
-.d-split__img{width:100%;height:auto;max-height:720px;object-fit:contain;object-position:center center;}
 .d-cinematic{background:#050505;}
-.d-cinematic__img{height:min(72svh,760px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
-.d-detail__panel{background:#050505;display:flex;align-items:center;justify-content:center;}
-.d-detail__panel-img{height:auto;max-height:520px;aspect-ratio:auto;object-fit:contain;object-position:center center;}
 .d-profile{background:#050505;}
-.d-profile__img{height:min(76svh,780px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
-/* Tablet 641–900px: override contain → cover agar tidak ada whitespace */
+
+/* ── TABLET 641–900px ── */
 @media(min-width:641px) and (max-width:900px){
-  .d-hero__media{height:min(65svh,600px);object-fit:cover;object-position:center 30%;}
-  .d-fullbleed__img{height:auto;max-height:60svh;object-fit:cover;aspect-ratio:16/9;}
+  .d-hero__media{aspect-ratio:16/9;object-position:center 30%;}
   .d-split__img-wrap{padding:0;height:52svh;max-height:480px;}
   .d-split__img{height:100%;object-fit:cover;max-height:none;}
-  .d-cinematic__img{height:auto;aspect-ratio:16/9;object-fit:cover;max-height:none;}
-  .d-detail__panel-img{height:auto;max-height:none;aspect-ratio:1/1;object-fit:cover;}
-  .d-profile__img{height:min(60svh,560px);object-fit:cover;aspect-ratio:4/3;}
 }
 @media(max-width:900px){
   .d-split__img-wrap{min-height:0;padding:0;}
   .d-split__img{max-height:none;}
 }
+
+/* ── MOBILE ≤640px ── */
 @media(max-width:640px){
-  /* Hero: batasi tinggi agar langsung terlihat tanpa gap kosong */
-  .d-hero__media{height:auto;max-height:62svh;min-height:0;object-fit:contain;
-    filter:brightness(1.12) contrast(0.97);}
-  .d-hero__video{max-height:62svh;}
-  .d-hero__img-fallback{height:auto;max-height:62svh;aspect-ratio:auto;object-fit:contain;
-    filter:brightness(1.12) contrast(0.97);}
-  /* Fullbleed: tingkatkan brightness agar detail mobil lebih terlihat, tetap premium */
-  .d-fullbleed__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
-    filter:brightness(1.1) contrast(0.96);}
-  /* Konten fullbleed jangan menempel di bawah gambar — beri breathing room */
+  /* Fullbleed teks stacked */
   .d-fullbleed__content{
     position:relative;bottom:auto;left:auto;right:auto;
     padding:20px 24px 28px;
-    background:linear-gradient(to bottom,rgba(5,5,5,0.92),rgba(5,5,5,1));
+    background:#050505;
   }
-  .d-fullbleed__overlay{display:none;} /* Ganti dengan bg solid di content */
-  .d-split__img-wrap{padding:0 10px;}
-  .d-split__img{height:auto;max-height:480px;min-height:0;object-fit:contain;}
-  /* Cinematic: sudah stacked di mobile, pakai cover + aspect-ratio fixed */
-  .d-cinematic__img{height:auto;max-height:none;aspect-ratio:4/3;object-fit:cover;filter:none;}
-  .d-detail__panel-img{height:auto;max-height:390px;aspect-ratio:auto;object-fit:contain;}
-  .d-profile__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
-    filter:brightness(1.08);}
+  .d-fullbleed__overlay{display:none;}
+  /* Split */
+  .d-split__img-wrap{padding:0;}
+  .d-split__img{height:auto;max-height:none;min-height:0;object-fit:cover;}
+  /* Cinematic */
+  .d-cinematic__img{aspect-ratio:4/3;object-fit:cover;}
 }
 
 </style>
@@ -552,21 +481,9 @@
        HERO — Desktop: JPEG/WEBP · Mobile: Video portrait
   ═══════════════════════════════════════ -->
 <section aria-label="Eksterior utama JAECOO J8" class="d-hero">
-<!-- Desktop: hero image (portrait source, displayed landscape via object-position) -->
 <picture>
 <source srcset="/assets/images/jaecoo-j8/img07.webp" type="image/webp"/>
 <img alt="JAECOO J8 tampak depan tiga perempat — eksterior flagship SUV premium di lokasi outdoor" class="d-hero__media" decoding="async" fetchpriority="high" height="1920" loading="eager" src="/assets/images/jaecoo-j8/img07.jpeg" width="1440"/>
-</picture>
-<!-- Mobile: video portrait hero dengan fallback image -->
-<!-- NOTE (optimasi asset): Konversi hero.mov ke hero.mp4 (H.264) untuk
-         kompatibilitas browser terluas. Tambahkan <source> MP4 sebagai sumber utama. -->
-<video aria-label="Video eksterior JAECOO J8" autoplay="" class="d-hero__video" loop="" muted="" onerror="this.style.display='none';document.getElementById('heroFallback').style.display='block';" playsinline="" poster="/assets/images/jaecoo-j8/img07.jpeg" preload="metadata">
-<source src="/assets/video/jaecoo-j8/hero.mov" type="video/quicktime"/>
-</video>
-<!-- Mobile fallback: tampil hanya jika video gagal load -->
-<picture>
-<source srcset="/assets/images/jaecoo-j8/img07.webp" type="image/webp"/>
-<img alt="JAECOO J8 tampak depan tiga perempat — eksterior flagship SUV premium" class="d-hero__img-fallback" decoding="async" height="1920" id="heroFallback" loading="lazy" src="/assets/images/jaecoo-j8/img07.jpeg" width="1440"/>
 </picture>
 <div aria-hidden="true" class="d-hero__overlay"></div>
 <div class="d-hero__caption">
