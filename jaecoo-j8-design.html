@@ -74,48 +74,112 @@
        DESIGN PAGE — CUSTOM STYLES
     ═══════════════════════════════════════════ */
 
-    /* ── PAGE INTRO ── */
-    .design-intro{padding:80px 0 0;text-align:center;}
-    .design-intro .eyebrow{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;opacity:0.4;margin-bottom:16px;}
-    .design-intro h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-0.02em;margin:0 0 20px;line-height:1.05;}
-    .design-intro p{font-size:1rem;opacity:0.55;line-height:1.7;max-width:500px;margin:0 auto;}
-    @media(max-width:640px){.design-intro{display:none;}}
+    /* ── PAGE INTRO — hidden, replaced by hero overlay ── */
+    .design-intro{display:none;}
 
-    /* ── HERO SECTION ── */
-    .d-hero{position:relative;overflow:hidden;background:#000;}
-    .d-hero__video{display:none;}
-    .d-hero__img-fallback{display:none;}
-
-    /* Hero image — desktop */
-    .d-hero__media{
-      display:block;width:100%;
-      aspect-ratio:3/2;
-      object-fit:cover;
-      object-position:center 30%;
+    /* ── HERO SECTION — full-width cinematic photo hero ── */
+    .d-hero{
+      position:relative;
+      overflow:hidden;
+      background:#000;
+      width:100%;
+      /* Desktop: 16/9-ish cinematic, tall enough to be cinematic */
+      height:clamp(520px, 85svh, 920px);
     }
 
-    /* Gradient overlay */
+    /* Single image, always visible — no video */
+    .d-hero__media{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 28%;
+    }
+
+    /* Video + fallback: hidden entirely */
+    .d-hero__video{display:none!important;}
+    .d-hero__img-fallback{display:none!important;}
+
+    /* Deep cinematic gradient — bottom strong for text, top subtle */
     .d-hero__overlay{
       position:absolute;inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.08) 38%,transparent 65%);
+      background:
+        linear-gradient(to top,
+          rgba(0,0,0,0.82) 0%,
+          rgba(0,0,0,0.40) 28%,
+          rgba(0,0,0,0.10) 55%,
+          transparent 75%),
+        linear-gradient(to bottom,
+          rgba(0,0,0,0.30) 0%,
+          transparent 20%);
       pointer-events:none;
     }
-    .d-hero__caption{
-      position:absolute;bottom:0;left:0;right:0;
-      padding:40px 56px 48px;
-    }
-    .d-hero__label{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;opacity:0.5;margin-bottom:10px;display:block;}
-    .d-hero__title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;letter-spacing:-0.01em;line-height:1.15;margin:0 0 8px;max-width:480px;}
-    .d-hero__sub{font-size:0.85rem;opacity:0.5;margin:0;}
 
-    /* Mobile: gambar full width, aspect-ratio natural, caption overlay */
+    /* Caption sits at bottom, clean automotive layout */
+    .d-hero__caption{
+      position:absolute;
+      bottom:0;left:0;right:0;
+      padding:48px 64px 56px;
+      z-index:2;
+    }
+    .d-hero__label{
+      display:block;
+      font-size:0.58rem;
+      letter-spacing:0.32em;
+      text-transform:uppercase;
+      opacity:0.55;
+      margin-bottom:12px;
+      font-weight:500;
+    }
+    .d-hero__title{
+      font-size:clamp(2rem,4vw,3.2rem);
+      font-weight:700;
+      letter-spacing:-0.02em;
+      line-height:1.08;
+      margin:0 0 14px;
+      max-width:600px;
+    }
+    .d-hero__sub{
+      font-size:0.9rem;
+      opacity:0.52;
+      margin:0;
+      max-width:480px;
+      line-height:1.6;
+    }
+
+    /* Mobile: shorter hero, safe focal point */
     @media(max-width:640px){
-      .d-hero__media{
-        aspect-ratio:4/3;
-        object-position:center 35%;
+      .d-hero{
+        height:clamp(420px, 72svh, 620px);
       }
-      .d-hero__caption{padding:20px 24px 28px;}
-      .d-hero__title{font-size:1.35rem;}
+      .d-hero__media{
+        object-position:35% 28%;
+      }
+      .d-hero__overlay{
+        background:
+          linear-gradient(to top,
+            rgba(0,0,0,0.88) 0%,
+            rgba(0,0,0,0.50) 30%,
+            rgba(0,0,0,0.10) 60%,
+            transparent 80%);
+      }
+      .d-hero__caption{
+        padding:24px 24px 32px;
+      }
+      .d-hero__title{
+        font-size:clamp(1.6rem,6vw,2rem);
+        margin-bottom:10px;
+      }
+      .d-hero__sub{
+        font-size:0.82rem;
+        opacity:0.48;
+      }
+    }
+
+    /* Tablet */
+    @media(min-width:641px) and (max-width:900px){
+      .d-hero{height:clamp(460px,75svh,720px);}
+      .d-hero__caption{padding:36px 40px 44px;}
     }
 
     /* ── EDITORIAL FULL-BLEED IMAGE SECTION ── */
@@ -369,6 +433,16 @@
       .d-colors__swatch-name{font-size:0.58rem;}
     }
 
+    /* ── HERO → FULLBLEED TRANSITION ── */
+    /* Semua background sama gelap, tidak ada gap. Fullbleed langsung setelah hero. */
+    .d-hero + .d-fullbleed{margin-top:0;}
+    /* Mobile: fullbleed stacked — teks di bawah gambar, menyambung natural */
+    @media(max-width:640px){
+      .d-hero + .d-fullbleed .d-fullbleed__content{
+        padding-top:24px;
+      }
+    }
+
     /* ── CTA SECTION ── */
     .d-cta{padding:100px 40px;text-align:center;border-top:1px solid rgba(255,255,255,0.07);}
     .d-cta h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px;}
@@ -397,38 +471,49 @@
   </style>
 <style>
 
-/* ── BACKGROUND COLORS ── */
-.d-hero{background:#050505;}
+/* FINAL VISUAL FIT — portrait J8 photography */
 .d-fullbleed{background:#050505;}
+.d-fullbleed__img{height:min(76svh,780px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
 .d-split{min-height:0;background:#050505;}
+.d-split__img-wrap{display:flex;align-items:center;justify-content:center;min-height:0;}
+.d-split__img{width:100%;height:auto;max-height:720px;object-fit:contain;object-position:center center;}
 .d-cinematic{background:#050505;}
+.d-cinematic__img{height:min(72svh,760px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
+.d-detail__panel{background:#050505;display:flex;align-items:center;justify-content:center;}
+.d-detail__panel-img{height:auto;max-height:520px;aspect-ratio:auto;object-fit:contain;object-position:center center;}
 .d-profile{background:#050505;}
-
-/* ── TABLET 641–900px ── */
+.d-profile__img{height:min(76svh,780px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
+/* Tablet 641–900px: override contain → cover agar tidak ada whitespace */
 @media(min-width:641px) and (max-width:900px){
-  .d-hero__media{aspect-ratio:16/9;object-position:center 30%;}
+  .d-fullbleed__img{height:auto;max-height:60svh;object-fit:cover;aspect-ratio:16/9;}
   .d-split__img-wrap{padding:0;height:52svh;max-height:480px;}
   .d-split__img{height:100%;object-fit:cover;max-height:none;}
+  .d-cinematic__img{height:auto;aspect-ratio:16/9;object-fit:cover;max-height:none;}
+  .d-detail__panel-img{height:auto;max-height:none;aspect-ratio:1/1;object-fit:cover;}
+  .d-profile__img{height:min(60svh,560px);object-fit:cover;aspect-ratio:4/3;}
 }
 @media(max-width:900px){
   .d-split__img-wrap{min-height:0;padding:0;}
   .d-split__img{max-height:none;}
 }
-
-/* ── MOBILE ≤640px ── */
 @media(max-width:640px){
-  /* Fullbleed teks stacked */
+  /* Fullbleed: tingkatkan brightness agar detail mobil lebih terlihat, tetap premium */
+  .d-fullbleed__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
+    filter:brightness(1.1) contrast(0.96);}
+  /* Konten fullbleed jangan menempel di bawah gambar — beri breathing room */
   .d-fullbleed__content{
     position:relative;bottom:auto;left:auto;right:auto;
     padding:20px 24px 28px;
-    background:#050505;
+    background:linear-gradient(to bottom,rgba(5,5,5,0.92),rgba(5,5,5,1));
   }
-  .d-fullbleed__overlay{display:none;}
-  /* Split */
-  .d-split__img-wrap{padding:0;}
-  .d-split__img{height:auto;max-height:none;min-height:0;object-fit:cover;}
-  /* Cinematic */
-  .d-cinematic__img{aspect-ratio:4/3;object-fit:cover;}
+  .d-fullbleed__overlay{display:none;} /* Ganti dengan bg solid di content */
+  .d-split__img-wrap{padding:0 10px;}
+  .d-split__img{height:auto;max-height:480px;min-height:0;object-fit:contain;}
+  /* Cinematic: sudah stacked di mobile, pakai cover + aspect-ratio fixed */
+  .d-cinematic__img{height:auto;max-height:none;aspect-ratio:4/3;object-fit:cover;filter:none;}
+  .d-detail__panel-img{height:auto;max-height:390px;aspect-ratio:auto;object-fit:contain;}
+  .d-profile__img{height:auto;max-height:68svh;aspect-ratio:auto;object-fit:contain;
+    filter:brightness(1.08);}
 }
 
 </style>
@@ -468,28 +553,27 @@
 </nav>
 <main>
 <!-- ══════════════════════════════════════
-       PAGE INTRO
-  ═══════════════════════════════════════ -->
-<section class="design-intro">
-<div class="wrap">
-<div class="eyebrow">JAECOO J8 · Eksterior</div>
-<h1>JAECOO J8 Design</h1>
-<p>Setiap sudut dirancang dengan presisi — dari grille signature hingga garis bodi yang tegas dan pilihan warna flagship.</p>
-</div>
-</section>
-<!-- ══════════════════════════════════════
-       HERO — Desktop: JPEG/WEBP · Mobile: Video portrait
+       HERO — Full-width cinematic photo hero
   ═══════════════════════════════════════ -->
 <section aria-label="Eksterior utama JAECOO J8" class="d-hero">
 <picture>
 <source srcset="/assets/images/jaecoo-j8/img07.webp" type="image/webp"/>
-<img alt="JAECOO J8 tampak depan tiga perempat — eksterior flagship SUV premium di lokasi outdoor" class="d-hero__media" decoding="async" fetchpriority="high" height="1920" loading="eager" src="/assets/images/jaecoo-j8/img07.jpeg" width="1440"/>
+<img
+  alt="JAECOO J8 tampak depan tiga perempat — eksterior flagship SUV premium di lokasi outdoor"
+  class="d-hero__media"
+  decoding="async"
+  fetchpriority="high"
+  height="1920"
+  loading="eager"
+  src="/assets/images/jaecoo-j8/img07.jpeg"
+  width="1440"
+/>
 </picture>
 <div aria-hidden="true" class="d-hero__overlay"></div>
 <div class="d-hero__caption">
-<span class="d-hero__label">Flagship SUV · PHEV AWD</span>
-<h2 class="d-hero__title">Tampilan Flagship<br/>yang Berkarakter</h2>
-<p class="d-hero__sub">Desain eksterior JAECOO J8 ARDIS</p>
+<span class="d-hero__label">JAECOO J8 · Eksterior</span>
+<h1 class="d-hero__title">JAECOO J8 Design</h1>
+<p class="d-hero__sub">Setiap sudut dirancang dengan presisi —<br>dari grille signature hingga garis bodi<br>yang tegas dan pilihan warna flagship.</p>
 </div>
 </section>
 <!-- ══════════════════════════════════════
