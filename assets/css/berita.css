@@ -1,0 +1,626 @@
+/* =============================================================
+   BERITA.CSS — OMODA JAECOO Palembang
+   Light editorial theme, DNA website utama tetap terjaga.
+   dark navbar → light news area → dark CTA/footer
+============================================================= */
+
+/* ── Body override untuk halaman berita ── */
+.berita-page {
+  background: var(--color-bg);
+}
+
+/* =============================================================
+   HERO — dark, premium
+============================================================= */
+
+.berita-hero {
+  background: var(--color-bg);
+  padding: calc(var(--nav-height) + 64px) 0 56px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.berita-hero__inner {
+  max-width: 760px;
+}
+
+.berita-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+}
+
+.berita-hero__breadcrumb a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.berita-hero__breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+.berita-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--color-text);
+  margin: 12px 0 18px;
+}
+
+.berita-hero__desc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .berita-hero {
+    padding: calc(var(--nav-height-mobile) + 40px) 0 40px;
+  }
+  .berita-hero__title {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+  }
+}
+
+/* =============================================================
+   FILTER — light background, aksen brand
+============================================================= */
+
+.berita-filter-wrap {
+  background: #F7F7F5;
+  border-bottom: 1px solid #E4E4E0;
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 50;
+}
+
+.berita-filter {
+  display: flex;
+  gap: 8px;
+  padding: 14px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.berita-filter::-webkit-scrollbar { display: none; }
+
+.berita-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4A4A4A;
+  background: transparent;
+  border: 1px solid #D0D0CB;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.berita-filter__btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.berita-filter__btn.is-active {
+  background: var(--color-bg);
+  border-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+@media (max-width: 640px) {
+  .berita-filter-wrap {
+    top: var(--nav-height-mobile);
+  }
+}
+
+/* =============================================================
+   FEATURED ARTICLE — light editorial
+============================================================= */
+
+.berita-featured-wrap {
+  background: #F7F7F5;
+  padding: 56px 0;
+}
+
+.berita-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+  transition: box-shadow 0.3s var(--ease-premium);
+}
+
+.berita-featured:hover {
+  box-shadow: 0 6px 40px rgba(0,0,0,0.12);
+}
+
+.berita-featured__media {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.berita-featured__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-premium);
+}
+
+.berita-featured:hover .berita-featured__media img {
+  transform: scale(1.03);
+}
+
+.berita-featured__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-accent);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.berita-featured__body {
+  padding: 40px 40px 40px 0;
+}
+
+.berita-featured__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.berita-featured__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #0A0C0F;
+  margin: 0 0 14px;
+}
+
+.berita-featured__excerpt {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin: 0 0 28px;
+}
+
+.berita-featured__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .berita-featured {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .berita-featured__media {
+    aspect-ratio: 16/9;
+  }
+  .berita-featured__body {
+    padding: 28px 28px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .berita-featured-wrap {
+    padding: 32px 0;
+  }
+  .berita-featured__body {
+    padding: 22px 20px 26px;
+  }
+}
+
+/* =============================================================
+   KATEGORI BADGES
+============================================================= */
+
+.berita-cat {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+.berita-cat--harga {
+  background: rgba(201, 168, 103, 0.14);
+  color: #8B6D2A;
+  border: 1px solid rgba(201, 168, 103, 0.35);
+}
+
+.berita-cat--info {
+  background: rgba(59, 130, 246, 0.09);
+  color: #1D4ED8;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.berita-cat--perbandingan {
+  background: rgba(16, 185, 129, 0.09);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.berita-date {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 0.04em;
+}
+
+/* =============================================================
+   READ MORE BUTTON
+============================================================= */
+
+.berita-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  text-decoration: none;
+  padding: 12px 22px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.2s;
+  min-height: 44px;
+}
+
+.berita-read-more:hover {
+  background: #1a1d22;
+  transform: translateX(2px);
+}
+
+.berita-read-more--sm {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid rgba(201, 168, 103, 0.4);
+  padding: 9px 18px;
+  min-height: 38px;
+}
+
+.berita-read-more--sm:hover {
+  background: rgba(201, 168, 103, 0.08);
+  border-color: var(--color-accent);
+  transform: translateX(2px);
+}
+
+.berita-wa-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #16A34A;
+  text-decoration: none;
+  padding: 12px 20px;
+  border: 1px solid rgba(22, 163, 74, 0.3);
+  border-radius: 4px;
+  min-height: 44px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.berita-wa-inline:hover {
+  background: rgba(22, 163, 74, 0.07);
+  border-color: rgba(22, 163, 74, 0.6);
+}
+
+/* =============================================================
+   GRID ARTIKEL — light background
+============================================================= */
+
+.berita-grid-wrap {
+  background: #F7F7F5;
+  padding: 0 0 64px;
+}
+
+.berita-section-header {
+  padding: 48px 0 32px;
+  border-top: 1px solid #E4E4E0;
+}
+
+.berita-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0A0C0F;
+  margin: 10px 0 0;
+}
+
+.berita-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.berita-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s var(--ease-premium), transform 0.3s var(--ease-premium);
+  display: flex;
+  flex-direction: column;
+}
+
+.berita-card:hover {
+  box-shadow: 0 6px 32px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+}
+
+.berita-card__media-link {
+  display: block;
+  overflow: hidden;
+}
+
+.berita-card__media {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.berita-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-premium);
+}
+
+.berita-card:hover .berita-card__media img {
+  transform: scale(1.05);
+}
+
+.berita-card__body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.berita-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.berita-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: #0A0C0F;
+  margin: 0 0 10px;
+}
+
+.berita-card__title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.berita-card__title a:hover {
+  color: var(--color-accent);
+}
+
+.berita-card__excerpt {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #666;
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+.berita-card__footer {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .berita-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .berita-grid-wrap {
+    padding: 0 0 48px;
+  }
+  .berita-card__body {
+    padding: 18px;
+  }
+}
+
+/* =============================================================
+   CTA WHATSAPP — kembali ke dark
+============================================================= */
+
+.berita-cta-section {
+  background: var(--color-bg);
+  padding: 80px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.berita-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 48px 56px;
+  background: rgba(201, 168, 103, 0.04);
+  border: 1px solid rgba(201, 168, 103, 0.14);
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.berita-cta__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 12px;
+}
+
+.berita-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 10px;
+}
+
+.berita-cta__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  margin: 0;
+}
+
+.berita-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.berita-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 28px;
+  min-height: 48px;
+  min-width: 220px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  color: #fff;
+  background: #16A34A;
+  border: 1px solid #16A34A;
+}
+
+.berita-cta__btn:hover {
+  background: #15803D;
+  border-color: #15803D;
+}
+
+.berita-cta__btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(244,245,247,0.22);
+}
+
+.berita-cta__btn--ghost:hover {
+  background: rgba(244,245,247,0.06);
+  border-color: rgba(244,245,247,0.5);
+}
+
+@media (max-width: 900px) {
+  .berita-cta {
+    padding: 36px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .berita-cta__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .berita-cta__btn {
+    min-width: 0;
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .berita-cta-section {
+    padding: 56px 0;
+  }
+  .berita-cta {
+    padding: 28px 20px;
+    gap: 22px;
+  }
+  .berita-cta__actions {
+    flex-direction: column;
+  }
+  .berita-cta__btn {
+    width: 100%;
+  }
+}
+
+/* =============================================================
+   CARD TRANSITION untuk filter
+============================================================= */
+
+.berita-card,
+.berita-featured {
+  transition:
+    box-shadow 0.3s var(--ease-premium),
+    transform 0.3s var(--ease-premium),
+    opacity 0.2s ease;
+}
+
+/* =============================================================
+   WRAP utility — reuse dari style.css
+============================================================= */
+
+/* Pastikan .wrap tetap ada (sudah di style.css, ini fallback) */
