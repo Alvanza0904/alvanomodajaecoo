@@ -1,0 +1,40 @@
+name: Generate News
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "berita/**"
+      - "scripts/generate-news.js"
+      - "package.json"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate news HTML
+        run: node scripts/generate-news.js
+
+      - name: Commit generated HTML
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add berita/
+          git diff --cached --quiet || git commit -m "Generate news HTML"
+          git push
