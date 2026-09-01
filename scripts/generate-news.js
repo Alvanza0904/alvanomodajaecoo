@@ -4,6 +4,9 @@ const path = require("path");
 const ROOT = process.cwd();
 const NEWS_DIR = path.join(ROOT, "berita");
 const INDEX_FILE = path.join(NEWS_DIR, "index.html");
+const SITEMAP_FILE = path.join(ROOT, "sitemap.xml");
+const SITEMAP_START = "<!-- CMS:BERITA:START -->";
+const SITEMAP_END = "<!-- CMS:BERITA:END -->";
 
 const SITE_URL = "https://omodajaecoopalembang.web.id";
 
@@ -354,6 +357,55 @@ function cleanDeletedArticles(activeSlugs) {
   }
 }
 
+
+function updateSitemap(articles) {
+  if (!fs.existsSync(SITEMAP_FILE)) {
+    console.warn("sitemap.xml tidak ditemukan, skip update sitemap.");
+    return;
+  }
+
+  let xml = fs.readFileSync(SITEMAP_FILE, "utf8");
+
+  // Inject marker kalau belum ada
+  if (!xml.includes(SITEMAP_START)) {
+    xml = xml.replace(
+      "  <!-- Berita -->",
+      `  <!-- Berita -->\n  ${SITEMAP_START}\n  ${SITEMAP_END}`
+    );
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+
+  const sorted = [...articles].sort((a, b) =>
+    new Date(b.data.date || 0) - new Date(a.data.date || 0)
+  );
+
+  const urlEntries = sorted.map(a => {
+    const slug = a.slug;
+    const date = a.data.date
+      ? new Date(a.data.date).toISOString().slice(0, 10)
+      : today;
+    return `  <url>\n    <loc>${SITE_URL}/berita/${slug}/</loc>\n    <lastmod>${date}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+  }).join("\n");
+
+  const startIdx = xml.indexOf(SITEMAP_START);
+  const endIdx = xml.indexOf(SITEMAP_END);
+
+  if (startIdx === -1 || endIdx === -1) {
+    console.warn("Marker sitemap tidak ditemukan.");
+    return;
+  }
+
+  xml =
+    xml.slice(0, startIdx) +
+    SITEMAP_START + "\n" +
+    (urlEntries ? urlEntries + "\n  " : "  ") +
+    xml.slice(endIdx);
+
+  fs.writeFileSync(SITEMAP_FILE, xml, "utf8");
+  console.log(`Updated sitemap.xml dengan ${sorted.length} artikel berita.`);
+}
+
 function generate() {
   if (!fs.existsSync(NEWS_DIR)) {
     console.log("Folder berita tidak ditemukan.");
@@ -395,6 +447,9 @@ function generate() {
 
   // Update halaman daftar berita
   updateIndexHtml(articles);
+
+  // Update sitemap.xml
+  updateSitemap(articles);
 
   if (files.length === 0) {
     console.log("Belum ada file berita Markdown.");
