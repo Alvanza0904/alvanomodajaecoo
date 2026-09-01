@@ -1385,3 +1385,288 @@
     padding: 16px 18px;
   }
 }
+
+/* =============================================================
+   ARTIKEL CMS — Typography Premium + Animasi + Auto-bold SEO
+   Namespace: .berita-article__content
+============================================================= */
+
+/* ── Font Premium untuk konten artikel CMS ── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+.berita-article__content {
+  font-family: 'Inter', var(--font-body), sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.08rem);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  max-width: 720px;
+}
+
+/* Paragraf */
+.berita-article__content p {
+  margin: 0 0 1.7em;
+  font-size: inherit;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  animation: fadeSlideUp 0.5s ease both;
+}
+
+/* Heading H2 */
+.berita-article__content h2 {
+  font-family: 'DM Serif Display', var(--font-display), serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 2.8em 0 0.8em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid rgba(201, 168, 103, 0.2);
+  animation: fadeSlideUp 0.5s ease both;
+}
+
+.berita-article__content h2:first-child {
+  margin-top: 0;
+}
+
+/* Heading H3 */
+.berita-article__content h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 2.2em 0 0.7em;
+  animation: fadeSlideUp 0.5s ease both;
+}
+
+/* Lists */
+.berita-article__content ul {
+  margin: 0 0 1.8em;
+  padding-left: 0;
+  list-style: none;
+  color: var(--color-text-muted);
+}
+
+.berita-article__content ul li {
+  position: relative;
+  padding-left: 1.4em;
+  margin-bottom: 0.6em;
+  font-size: inherit;
+  line-height: 1.75;
+  animation: fadeSlideUp 0.5s ease both;
+}
+
+.berita-article__content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Strong / Bold — warna accent untuk SEO highlight */
+.berita-article__content strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Em / Italic */
+.berita-article__content em {
+  font-style: italic;
+  color: var(--color-text);
+}
+
+/* Link dalam artikel */
+.berita-article__content a {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 168, 103, 0.35);
+  transition: border-color 0.2s;
+}
+
+.berita-article__content a:hover {
+  border-color: var(--color-accent);
+}
+
+/* ── Animasi teks premium ── */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intersection Observer — elemen masuk viewport baru animasi */
+.berita-article__content p,
+.berita-article__content h2,
+.berita-article__content h3,
+.berita-article__content ul li {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.berita-article__content p.is-visible,
+.berita-article__content h2.is-visible,
+.berita-article__content h3.is-visible,
+.berita-article__content ul li.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Gambar artikel — optimasi responsif ── */
+.berita-article__image {
+  margin: 0 0 40px;
+}
+
+.berita-article__image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 6px;
+}
+
+/* ── Meta artikel ── */
+.berita-article__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.berita-article__meta time {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── CTA Inline Simulasi Kredit ── */
+.berita-cta-inline {
+  margin: 48px 0;
+  padding: 36px 40px;
+  background: rgba(201, 168, 103, 0.05);
+  border: 1px solid rgba(201, 168, 103, 0.2);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 6px;
+}
+
+.berita-cta-inline__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 10px;
+}
+
+.berita-cta-inline__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 0 0 10px;
+}
+
+.berita-cta-inline__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0 0 24px;
+}
+
+.berita-cta-inline__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.berita-cta-inline__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 24px;
+  min-height: 44px;
+  border-radius: 4px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  background: #16A34A;
+  color: #fff;
+  border: 1px solid #16A34A;
+  white-space: nowrap;
+}
+
+.berita-cta-inline__btn:hover {
+  background: #15803D;
+  border-color: #15803D;
+}
+
+.berita-cta-inline__btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(244, 245, 247, 0.22);
+}
+
+.berita-cta-inline__btn--ghost:hover {
+  background: rgba(244, 245, 247, 0.06);
+  border-color: rgba(244, 245, 247, 0.5);
+}
+
+@media (max-width: 640px) {
+  .berita-cta-inline {
+    padding: 24px 20px;
+    margin: 36px 0;
+  }
+  .berita-cta-inline__actions {
+    flex-direction: column;
+  }
+  .berita-cta-inline__btn {
+    width: 100%;
+  }
+}
+
+/* ── Section artikel CMS ── */
+.berita-article-content {
+  padding: 48px 0 0;
+}
+
+.berita-article-content.wrap {
+  max-width: 800px;
+}
+
+/* ── Hero artikel CMS ── */
+.berita-hero {
+  background: var(--color-bg);
+  padding: calc(var(--nav-height) + 56px) 0 48px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+@media (max-width: 640px) {
+  .berita-hero {
+    padding: calc(var(--nav-height-mobile) + 36px) 0 36px;
+  }
+  .berita-article-content.wrap {
+    max-width: 100%;
+  }
+}
