@@ -5,13 +5,12 @@ const ROOT = process.cwd();
 const NEWS_DIR = path.join(ROOT, "berita");
 const INDEX_FILE = path.join(NEWS_DIR, "index.html");
 const SITEMAP_FILE = path.join(ROOT, "sitemap.xml");
-const SITEMAP_START = "<!-- CMS:BERITA:START -->";
-const SITEMAP_END = "<!-- CMS:BERITA:END -->";
 
 const SITE_URL = "https://omodajaecoopalembang.web.id";
-
 const INJECT_START = "<!-- CMS:ARTIKEL:START -->";
 const INJECT_END = "<!-- CMS:ARTIKEL:END -->";
+const SITEMAP_START = "<!-- CMS:BERITA:START -->";
+const SITEMAP_END = "<!-- CMS:BERITA:END -->";
 
 function slugify(text) {
   return String(text)
@@ -35,22 +34,17 @@ function escapeHtml(value) {
 function parseFrontMatter(content) {
   const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
   if (!match) return { data: {}, body: content.trim() };
-
   const data = {};
   match[1].split(/\r?\n/).forEach(line => {
-    const separator = line.indexOf(":");
-    if (separator === -1) return;
-    const key = line.slice(0, separator).trim();
-    let value = line.slice(separator + 1).trim();
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
+    const sep = line.indexOf(":");
+    if (sep === -1) return;
+    const key = line.slice(0, sep).trim();
+    let value = line.slice(sep + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
       value = value.slice(1, -1);
     }
     data[key] = value;
   });
-
   return { data, body: match[2].trim() };
 }
 
@@ -65,7 +59,6 @@ function markdownToHtml(markdown) {
     output.push(`<p>${paragraph.join(" ")}</p>`);
     paragraph = [];
   }
-
   function flushList() {
     if (!listItems.length) return;
     output.push(`<ul>${listItems.map(i => `<li>${i}</li>`).join("")}</ul>`);
@@ -82,7 +75,6 @@ function markdownToHtml(markdown) {
     flushList();
     paragraph.push(inlineMarkdown(line));
   }
-
   flushParagraph();
   flushList();
   return output.join("\n");
@@ -100,9 +92,7 @@ function formatDate(dateString) {
   if (!dateString) return "";
   const date = new Date(dateString);
   if (Number.isNaN(date.getTime())) return dateString;
-  return new Intl.DateTimeFormat("id-ID", {
-    day: "numeric", month: "long", year: "numeric"
-  }).format(date);
+  return new Intl.DateTimeFormat("id-ID", { day: "numeric", month: "long", year: "numeric" }).format(date);
 }
 
 function getDescription(body) {
@@ -134,6 +124,23 @@ function categoryClass(category) {
   return map[categorySlug(category)] || "berita-cat--info";
 }
 
+function buildKreditCta() {
+  return `
+<div class="berita-cta-inline">
+  <p class="berita-cta-inline__label">Simulasi Kredit</p>
+  <h3 class="berita-cta-inline__title">Mau tahu cicilan pastinya untuk kondisi kamu?</h3>
+  <p class="berita-cta-inline__desc">Alvan bisa bantu hitung estimasi TDP dan angsuran bulanan sesuai budget kamu — langsung via WhatsApp, cepat dan gratis.</p>
+  <div class="berita-cta-inline__actions">
+    <a class="berita-cta-inline__btn" href="https://wa.me/6285183145926?text=Halo%20Alvan%2C%20saya%20mau%20simulasi%20kredit%20OMODA%20JAECOO%20Palembang." target="_blank" rel="noopener">
+      Simulasi Kredit via WhatsApp
+    </a>
+    <a class="berita-cta-inline__btn berita-cta-inline__btn--ghost" href="/sales-jaecoo-palembang#simulasi-kredit">
+      Lihat Profil Alvan &rarr;
+    </a>
+  </div>
+</div>`;
+}
+
 function createArticleHtml(data, body) {
   const title = data.title || "Berita OMODA JAECOO Palembang";
   const description = data.description || getDescription(body);
@@ -143,6 +150,8 @@ function createArticleHtml(data, body) {
   const slug = data.slug ? slugify(data.slug) : slugify(data.title);
   const articleUrl = `${SITE_URL}/berita/${slug}/`;
   const contentHtml = markdownToHtml(body);
+  const showKreditCta = data.show_kredit_cta === "true" || data.show_kredit_cta === true;
+  const kreditCtaHtml = showKreditCta ? buildKreditCta() : "";
 
   return `<!DOCTYPE html>
 <html lang="id">
@@ -231,6 +240,7 @@ ${JSON.stringify({
   <div class="berita-article__content" itemprop="articleBody">
     ${contentHtml}
   </div>
+  ${kreditCtaHtml}
   <section class="berita-cta-section" aria-label="Hubungi Sales Consultant">
     <div class="berita-cta">
       <div class="berita-cta__copy">
@@ -267,7 +277,6 @@ function createCardHtml(data, slug) {
   const category = data.category || "Info Terbaru";
   const image = data.image || "/assets/images/jaecoo-j5-hero.jpg";
   const href = `/berita/${slug}/`;
-
   return `
         <article class="berita-card" data-category="${categorySlug(category)}" itemscope itemtype="https://schema.org/NewsArticle">
           <a class="berita-card__media-link" href="${href}" tabindex="-1" aria-hidden="true">
@@ -292,170 +301,77 @@ function createCardHtml(data, slug) {
 }
 
 function updateIndexHtml(articles) {
-  if (!fs.existsSync(INDEX_FILE)) {
-    console.warn("berita/index.html tidak ditemukan, skip update index.");
-    return;
-  }
-
+  if (!fs.existsSync(INDEX_FILE)) { console.warn("berita/index.html tidak ditemukan."); return; }
   let html = fs.readFileSync(INDEX_FILE, "utf8");
-
-  // Inject marker kalau belum ada
   if (!html.includes(INJECT_START)) {
-    html = html.replace(
-      '<div class="berita-grid" id="beritaGrid">',
-      `<div class="berita-grid" id="beritaGrid">\n\n        ${INJECT_START}\n        ${INJECT_END}`
-    );
+    html = html.replace('<div class="berita-grid" id="beritaGrid">', `<div class="berita-grid" id="beritaGrid">\n\n        ${INJECT_START}\n        ${INJECT_END}`);
   }
-
-  // Sort terbaru dulu
-  const sorted = [...articles].sort((a, b) =>
-    new Date(b.data.date || 0) - new Date(a.data.date || 0)
-  );
-
-  const cardsHtml = sorted.length > 0
-    ? sorted.map(a => createCardHtml(a.data, a.slug)).join("\n")
-    : "";
-
+  const sorted = [...articles].sort((a, b) => new Date(b.data.date || 0) - new Date(a.data.date || 0));
+  const cardsHtml = sorted.map(a => createCardHtml(a.data, a.slug)).join("\n");
   const startIdx = html.indexOf(INJECT_START);
   const endIdx = html.indexOf(INJECT_END);
-
-  if (startIdx === -1 || endIdx === -1) {
-    console.warn("Marker inject tidak ditemukan di index.html.");
-    return;
-  }
-
-  html =
-    html.slice(0, startIdx) +
-    INJECT_START +
-    "\n" +
-    cardsHtml +
-    "\n        " +
-    html.slice(endIdx);
-
+  if (startIdx === -1 || endIdx === -1) { console.warn("Marker inject tidak ditemukan."); return; }
+  html = html.slice(0, startIdx) + INJECT_START + "\n" + cardsHtml + "\n        " + html.slice(endIdx);
   fs.writeFileSync(INDEX_FILE, html, "utf8");
-  console.log(`Updated berita/index.html dengan ${sorted.length} artikel CMS.`);
+  console.log(`Updated berita/index.html dengan ${sorted.length} artikel.`);
+}
+
+function updateSitemap(articles) {
+  if (!fs.existsSync(SITEMAP_FILE)) { console.warn("sitemap.xml tidak ditemukan."); return; }
+  let xml = fs.readFileSync(SITEMAP_FILE, "utf8");
+  if (!xml.includes(SITEMAP_START)) {
+    xml = xml.replace("  <!-- Berita -->", `  <!-- Berita -->\n  ${SITEMAP_START}\n  ${SITEMAP_END}`);
+  }
+  const today = new Date().toISOString().slice(0, 10);
+  const sorted = [...articles].sort((a, b) => new Date(b.data.date || 0) - new Date(a.data.date || 0));
+  const urlEntries = sorted.map(a => {
+    const date = a.data.date ? new Date(a.data.date).toISOString().slice(0, 10) : today;
+    return `  <url>\n    <loc>${SITE_URL}/berita/${a.slug}/</loc>\n    <lastmod>${date}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+  }).join("\n");
+  const startIdx = xml.indexOf(SITEMAP_START);
+  const endIdx = xml.indexOf(SITEMAP_END);
+  if (startIdx === -1 || endIdx === -1) { console.warn("Marker sitemap tidak ditemukan."); return; }
+  xml = xml.slice(0, startIdx) + SITEMAP_START + "\n" + (urlEntries ? urlEntries + "\n  " : "  ") + xml.slice(endIdx);
+  fs.writeFileSync(SITEMAP_FILE, xml, "utf8");
+  console.log(`Updated sitemap.xml dengan ${sorted.length} artikel.`);
 }
 
 function cleanDeletedArticles(activeSlugs) {
-  // Cari semua subfolder di berita/ yang punya index.html
   const entries = fs.readdirSync(NEWS_DIR, { withFileTypes: true });
-
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-
-    const slug = entry.name;
-
-    // Lewati folder yang bukan artikel CMS
-    const htmlFile = path.join(NEWS_DIR, slug, "index.html");
+    const htmlFile = path.join(NEWS_DIR, entry.name, "index.html");
     if (!fs.existsSync(htmlFile)) continue;
-
-    // Kalau slug tidak ada di daftar aktif, hapus foldernya
-    if (!activeSlugs.has(slug)) {
-      fs.rmSync(path.join(NEWS_DIR, slug), { recursive: true, force: true });
-      console.log(`Deleted berita/${slug}/ (artikel dihapus dari CMS)`);
+    if (!activeSlugs.has(entry.name)) {
+      fs.rmSync(path.join(NEWS_DIR, entry.name), { recursive: true, force: true });
+      console.log(`Deleted berita/${entry.name}/`);
     }
   }
 }
 
-
-function updateSitemap(articles) {
-  if (!fs.existsSync(SITEMAP_FILE)) {
-    console.warn("sitemap.xml tidak ditemukan, skip update sitemap.");
-    return;
-  }
-
-  let xml = fs.readFileSync(SITEMAP_FILE, "utf8");
-
-  // Inject marker kalau belum ada
-  if (!xml.includes(SITEMAP_START)) {
-    xml = xml.replace(
-      "  <!-- Berita -->",
-      `  <!-- Berita -->\n  ${SITEMAP_START}\n  ${SITEMAP_END}`
-    );
-  }
-
-  const today = new Date().toISOString().slice(0, 10);
-
-  const sorted = [...articles].sort((a, b) =>
-    new Date(b.data.date || 0) - new Date(a.data.date || 0)
-  );
-
-  const urlEntries = sorted.map(a => {
-    const slug = a.slug;
-    const date = a.data.date
-      ? new Date(a.data.date).toISOString().slice(0, 10)
-      : today;
-    return `  <url>\n    <loc>${SITE_URL}/berita/${slug}/</loc>\n    <lastmod>${date}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
-  }).join("\n");
-
-  const startIdx = xml.indexOf(SITEMAP_START);
-  const endIdx = xml.indexOf(SITEMAP_END);
-
-  if (startIdx === -1 || endIdx === -1) {
-    console.warn("Marker sitemap tidak ditemukan.");
-    return;
-  }
-
-  xml =
-    xml.slice(0, startIdx) +
-    SITEMAP_START + "\n" +
-    (urlEntries ? urlEntries + "\n  " : "  ") +
-    xml.slice(endIdx);
-
-  fs.writeFileSync(SITEMAP_FILE, xml, "utf8");
-  console.log(`Updated sitemap.xml dengan ${sorted.length} artikel berita.`);
-}
-
 function generate() {
-  if (!fs.existsSync(NEWS_DIR)) {
-    console.log("Folder berita tidak ditemukan.");
-    return;
-  }
-
-  const files = fs
-    .readdirSync(NEWS_DIR)
-    .filter(file => file.toLowerCase().endsWith(".md"));
-
+  if (!fs.existsSync(NEWS_DIR)) { console.log("Folder berita tidak ditemukan."); return; }
+  const files = fs.readdirSync(NEWS_DIR).filter(f => f.toLowerCase().endsWith(".md"));
   const articles = [];
   const activeSlugs = new Set();
 
   for (const file of files) {
-    const filePath = path.join(NEWS_DIR, file);
-    const source = fs.readFileSync(filePath, "utf8");
+    const source = fs.readFileSync(path.join(NEWS_DIR, file), "utf8");
     const { data, body } = parseFrontMatter(source);
-
-    if (!data.title) {
-      console.warn(`Lewati ${file}: field "title" tidak ditemukan.`);
-      continue;
-    }
-
+    if (!data.title) { console.warn(`Lewati ${file}: tidak ada title.`); continue; }
     const slug = data.slug ? slugify(data.slug) : slugify(data.title);
     activeSlugs.add(slug);
-
     const outputDir = path.join(NEWS_DIR, slug);
     fs.mkdirSync(outputDir, { recursive: true });
-
-    const html = createArticleHtml(data, body);
-    fs.writeFileSync(path.join(outputDir, "index.html"), html, "utf8");
-
+    fs.writeFileSync(path.join(outputDir, "index.html"), createArticleHtml(data, body), "utf8");
     console.log(`Generated berita/${slug}/index.html`);
     articles.push({ data, slug });
   }
 
-  // Hapus folder HTML artikel yang sudah tidak punya .md
   cleanDeletedArticles(activeSlugs);
-
-  // Update halaman daftar berita
   updateIndexHtml(articles);
-
-  // Update sitemap.xml
   updateSitemap(articles);
-
-  if (files.length === 0) {
-    console.log("Belum ada file berita Markdown.");
-  } else {
-    console.log("Semua berita berhasil diproses.");
-  }
+  console.log(files.length ? "Semua berita berhasil diproses." : "Belum ada file berita Markdown.");
 }
 
 generate();
