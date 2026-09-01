@@ -158,6 +158,8 @@
   </url>
 
   <!-- Berita -->
+  <!-- CMS:BERITA:START -->
+  <!-- CMS:BERITA:END -->
   <url>
     <loc>https://omodajaecoopalembang.web.id/berita/</loc>
     <lastmod>2026-08-30</lastmod>
