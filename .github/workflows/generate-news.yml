@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - "berita/**.md"
+      - "berita/**/*.md"
       - "scripts/generate-news.js"
 
 permissions:
@@ -20,19 +21,41 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check if berita changed
+        id: check
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'berita/*.md' 'scripts/generate-news.js' 2>/dev/null || echo "")
+          DELETED=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- 'berita/*.md' 2>/dev/null || echo "")
+          if [ -n "$CHANGED" ] || [ -n "$DELETED" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> $GITHUB_OUTPUT
+          else
+            echo "run=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Setup Node.js
+        if: steps.check.outputs.run == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Generate news HTML
+        if: steps.check.outputs.run == 'true'
         run: node scripts/generate-news.js
 
       - name: Commit generated HTML
+        if: steps.check.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add berita/
           git diff --cached --quiet || git commit -m "chore: generate news HTML [skip ci]"
           git push
+
+      - name: Trigger Cloudflare Pages deploy
+        if: steps.check.outputs.run == 'true'
+        run: |
+          curl -s -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/30df0197-3107-49bc-8621-7ed13f767bab"
+          echo "Cloudflare deploy triggered."
