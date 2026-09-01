@@ -45,12 +45,12 @@ jobs:
         if: steps.check.outputs.run == 'true'
         run: node scripts/generate-news.js
 
-      - name: Commit generated HTML
+      - name: Commit generated HTML and sitemap
         if: steps.check.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add berita/
+          git add berita/ sitemap.xml
           git diff --cached --quiet || git commit -m "chore: generate news HTML [skip ci]"
           git push
 
