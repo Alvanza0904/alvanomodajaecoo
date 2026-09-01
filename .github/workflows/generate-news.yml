@@ -1,6 +1,7 @@
 name: Generate News
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
