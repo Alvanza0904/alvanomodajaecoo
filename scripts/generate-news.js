@@ -667,6 +667,57 @@ function cleanDeletedArticles(activeSlugs) {
   }
 }
 
+const HOME_INDEX_FILE = path.join(ROOT, "index.html");
+const HOME_INJECT_START = "<!-- CMS:HOMEPAGE:START -->";
+const HOME_INJECT_END = "<!-- CMS:HOMEPAGE:END -->";
+
+function updateHomepageBerita(articles) {
+  if (!fs.existsSync(HOME_INDEX_FILE)) { console.warn("index.html tidak ditemukan."); return; }
+  if (!articles.length) { console.log("Belum ada artikel — homepage berita tidak diupdate."); return; }
+
+  const sorted = [...articles].sort((a, b) => new Date(b.data.date || 0) - new Date(a.data.date || 0));
+  const latest = sorted[0];
+  const { data, slug } = latest;
+
+  const title = data.title || "Berita OMODA JAECOO Palembang";
+  const description = data.description || "Info harga, peluncuran model, dan update terbaru dari OMODA JAECOO Palembang.";
+  const date = data.date || "";
+  const category = data.category || "Info Terbaru";
+  const image = data.image || "/assets/images/jaecoo-j5-hero.webp";
+  const href = `/berita/${slug}/`;
+
+  const dateDisplay = date ? (() => {
+    const d = new Date(date);
+    return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+  })() : "";
+
+  const featuredHtml = `
+    <div class="home-berita__featured reveal">
+      <a class="home-berita__card" href="${href}" aria-label="${escapeAttr(title)}">
+        <div class="home-berita__card-media">
+          <img src="${escapeAttr(image)}" alt="${escapeAttr(title)}" loading="lazy" decoding="async" width="900" height="500"/>
+        </div>
+        <div class="home-berita__card-body">
+          <div class="home-berita__card-meta">
+            <span class="home-berita__cat">${escapeHtml(category)}</span>${dateDisplay ? `<time class="home-berita__card-date" datetime="${escapeAttr(date)}">${escapeHtml(dateDisplay)}</time>` : ""}
+          </div>
+          <h3 class="home-berita__card-title">${escapeHtml(title)}</h3>
+          <p class="home-berita__card-desc">${escapeHtml(description)}</p>
+          <span class="home-berita__read-more">Baca Selengkapnya &rarr;</span>
+        </div>
+      </a>
+    </div>
+    `;
+
+  let html = fs.readFileSync(HOME_INDEX_FILE, "utf8");
+  const startIdx = html.indexOf(HOME_INJECT_START);
+  const endIdx = html.indexOf(HOME_INJECT_END);
+  if (startIdx === -1 || endIdx === -1) { console.warn("Marker CMS:HOMEPAGE tidak ditemukan di index.html."); return; }
+  html = html.slice(0, startIdx) + HOME_INJECT_START + "\n" + featuredHtml + "\n    " + html.slice(endIdx);
+  fs.writeFileSync(HOME_INDEX_FILE, html, "utf8");
+  console.log(`Updated index.html dengan artikel terbaru: "${title}"`);
+}
+
 function generate() {
   if (!fs.existsSync(NEWS_DIR)) { console.log("Folder berita tidak ditemukan."); return; }
   const files = fs.readdirSync(NEWS_DIR).filter(f => f.toLowerCase().endsWith(".md"));
@@ -691,6 +742,7 @@ function generate() {
 
   cleanDeletedArticles(activeSlugs);
   updateIndexHtml(articles);
+  updateHomepageBerita(articles);
   updateSitemap(articles);
   console.log(files.length ? "Semua berita berhasil diproses." : "Belum ada file berita Markdown.");
 }
