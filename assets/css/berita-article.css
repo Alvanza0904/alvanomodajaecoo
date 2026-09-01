@@ -15,18 +15,30 @@
   font-family: 'Manrope', var(--font-body), sans-serif;
 }
 
+/* Navbar tetap HITAM/DARK — konsisten dengan halaman website lain.
+   Jangan tambahkan override warna navbar di sini. */
 .berita-article-page .navbar {
-  background: rgba(255,255,255,.96) !important;
-  border-bottom-color: #e6e7e4 !important;
-  color: #17191d;
-  backdrop-filter: blur(18px);
+  background: var(--color-bg) !important;
+  border-bottom-color: var(--color-line) !important;
+  color: var(--color-text);
 }
 
 .berita-article-page .navbar__link,
-.berita-article-page .navbar__logo { color: #17191d; }
+.berita-article-page .navbar__logo { color: var(--color-text); }
 
 .berita-article-page .navbar__link--cta {
-  color: #fff !important;
+  color: var(--color-accent) !important;
+}
+
+/* Mobile menu overlay tetap dark */
+@media (max-width: 860px) {
+  .berita-article-page .navbar__menu {
+    background: #08090B;
+    color: var(--color-text);
+  }
+  .berita-article-page .navbar__toggle span {
+    background: var(--color-text);
+  }
 }
 
 .news-article { background: var(--article-bg); }
