@@ -691,15 +691,34 @@ function updateHomepageBerita(articles) {
     return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
   })() : "";
 
+  // Responsive image: gunakan srcset jika image adalah path lokal (bukan external URL)
+  const isExternalImage = /^https?:\/\//i.test(image);
+  const imgTag = isExternalImage
+    ? `<img src="${escapeAttr(image)}" alt="${escapeAttr(title)}" loading="lazy" decoding="async" width="900" height="506"/>`
+    : `<img
+            src="${escapeAttr(image)}"
+            srcset="${escapeAttr(image)} 900w"
+            sizes="(max-width: 640px) 100vw, (max-width: 900px) 100vw, 50vw"
+            alt="${escapeAttr(title)}"
+            loading="lazy"
+            decoding="async"
+            width="900"
+            height="506"
+          />`;
+
+  const metaHtml = dateDisplay
+    ? `<time class="home-berita__card-date" datetime="${escapeAttr(date)}">${escapeHtml(dateDisplay)}</time><span class="home-berita__meta-sep" aria-hidden="true"></span><span class="home-berita__cat">${escapeHtml(category)}</span>`
+    : `<span class="home-berita__cat">${escapeHtml(category)}</span>`;
+
   const featuredHtml = `
     <div class="home-berita__featured reveal">
       <a class="home-berita__card" href="${href}" aria-label="${escapeAttr(title)}">
         <div class="home-berita__card-media">
-          <img src="${escapeAttr(image)}" alt="${escapeAttr(title)}" loading="lazy" decoding="async" width="900" height="500"/>
+          ${imgTag}
         </div>
         <div class="home-berita__card-body">
           <div class="home-berita__card-meta">
-            <span class="home-berita__cat">${escapeHtml(category)}</span>${dateDisplay ? `<time class="home-berita__card-date" datetime="${escapeAttr(date)}">${escapeHtml(dateDisplay)}</time>` : ""}
+            ${metaHtml}
           </div>
           <h3 class="home-berita__card-title">${escapeHtml(title)}</h3>
           <p class="home-berita__card-desc">${escapeHtml(description)}</p>
