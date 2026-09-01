@@ -73,14 +73,12 @@ function markdownToHtml(markdown) {
 
   function flushParagraph() {
     if (!paragraph.length) return;
-
     output.push(`<p>${paragraph.join(" ")}</p>`);
     paragraph = [];
   }
 
   function flushList() {
     if (!listItems.length) return;
-
     output.push(`<ul>${listItems.map(item => `<li>${item}</li>`).join("")}</ul>`);
     listItems = [];
   }
@@ -97,48 +95,31 @@ function markdownToHtml(markdown) {
     if (/^###\s+/.test(line)) {
       flushParagraph();
       flushList();
-
-      output.push(
-        `<h3>${inlineMarkdown(line.replace(/^###\s+/, ""))}</h3>`
-      );
-
+      output.push(`<h3>${inlineMarkdown(line.replace(/^###\s+/, ""))}</h3>`);
       continue;
     }
 
     if (/^##\s+/.test(line)) {
       flushParagraph();
       flushList();
-
-      output.push(
-        `<h2>${inlineMarkdown(line.replace(/^##\s+/, ""))}</h2>`
-      );
-
+      output.push(`<h2>${inlineMarkdown(line.replace(/^##\s+/, ""))}</h2>`);
       continue;
     }
 
     if (/^#\s+/.test(line)) {
       flushParagraph();
       flushList();
-
-      output.push(
-        `<h1>${inlineMarkdown(line.replace(/^#\s+/, ""))}</h1>`
-      );
-
+      output.push(`<h1>${inlineMarkdown(line.replace(/^#\s+/, ""))}</h1>`);
       continue;
     }
 
     if (/^[-*]\s+/.test(line)) {
       flushParagraph();
-
-      listItems.push(
-        inlineMarkdown(line.replace(/^[-*]\s+/, ""))
-      );
-
+      listItems.push(inlineMarkdown(line.replace(/^[-*]\s+/, "")));
       continue;
     }
 
     flushList();
-
     paragraph.push(inlineMarkdown(line));
   }
 
@@ -186,9 +167,10 @@ function formatDate(dateString) {
 }
 
 function getDescription(body) {
+  // Strip markdown: links, headings, bold, italic, code
   const text = body
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/[#>*_`]/g, "")
-    .replace(/$begin:math:display$\(\[\^$end:math:display$]+)\]$begin:math:text$\[\^\)\]\+$end:math:text$/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -210,8 +192,9 @@ function createArticleHtml(data, body) {
     "/assets/images/jaecoo-j5-hero.jpg";
 
   const slug =
-    data.slug ||
-    slugify(title);
+    data.slug
+      ? slugify(data.slug)
+      : slugify(data.title);
 
   const articleUrl =
     `${SITE_URL}/berita/${slug}/`;
@@ -412,7 +395,7 @@ ${JSON.stringify({
       </a>
 
       <span aria-hidden="true">
-        ·
+        &middot;
       </span>
 
       <a href="/berita/">
@@ -420,7 +403,7 @@ ${JSON.stringify({
       </a>
 
       <span aria-hidden="true">
-        ·
+        &middot;
       </span>
 
       <span>
@@ -502,7 +485,7 @@ ${JSON.stringify({
       <div class="berita-cta__copy">
 
         <p class="berita-cta__label">
-          Sales Consultant · Palembang
+          Sales Consultant &middot; Palembang
         </p>
 
         <h2 class="berita-cta__title">
@@ -534,7 +517,7 @@ ${JSON.stringify({
           class="berita-cta__btn berita-cta__btn--ghost"
           href="/berita/"
         >
-          ← Kembali ke Berita
+          &larr; Kembali ke Berita
         </a>
 
       </div>
@@ -555,7 +538,7 @@ ${JSON.stringify({
   <div class="footer-v2__bottom">
 
     <p>
-      © 2026 OMODA JAECOO Palembang ·
+      &copy; 2026 OMODA JAECOO Palembang &middot;
       All Rights Reserved
     </p>
 
@@ -640,11 +623,11 @@ function generate() {
     );
 
     console.log(
-      `✓ Generated berita/${slug}/index.html`
+      `Generated berita/${slug}/index.html`
     );
   }
 
-  console.log("✓ Semua berita berhasil dibuat.");
+  console.log("Semua berita berhasil dibuat.");
 }
 
 generate();
