@@ -141,6 +141,27 @@ function buildKreditCta() {
 </div>`;
 }
 
+
+
+function autoBoldSeoKeywords(html) {
+  const keywords = [
+    'harga otr', 'harga terbaru', 'simulasi kredit', 'test drive',
+    'dealer resmi', 'inden', 'garansi baterai', 'cicilan mulai',
+    'palembang', 'jaecoo j5', 'jaecoo j7', 'jaecoo j8', 'omoda o4',
+  ];
+  return html.replace(/(<p>|<li>)([\s\S]*?)(<\/p>|<\/li>)/g, function(m, open, body, close) {
+    let result = body;
+    keywords.forEach(function(kw) {
+      const re = new RegExp('(' + kw + ')', 'gi');
+      result = result.replace(re, function(word) {
+        if (body.indexOf('<strong>' + word) !== -1) return word;
+        return '<strong>' + word + '<\/strong>';
+      });
+    });
+    return open + result + close;
+  });
+}
+
 function createArticleHtml(data, body) {
   const title = data.title || "Berita OMODA JAECOO Palembang";
   const description = data.description || getDescription(body);
@@ -149,7 +170,8 @@ function createArticleHtml(data, body) {
   const image = data.image || "/assets/images/jaecoo-j5-hero.jpg";
   const slug = data.slug ? slugify(data.slug) : slugify(data.title);
   const articleUrl = `${SITE_URL}/berita/${slug}/`;
-  const contentHtml = markdownToHtml(body);
+  const rawHtml = markdownToHtml(body);
+  const contentHtml = autoBoldSeoKeywords(rawHtml);
   const showKreditCta = data.show_kredit_cta === "true" || data.show_kredit_cta === true;
   const kreditCtaHtml = showKreditCta ? buildKreditCta() : "";
 
@@ -266,6 +288,26 @@ ${JSON.stringify({
   <span>WhatsApp Alvan</span>
 </a>
 <script src="/assets/js/main.js"></script>
+<script>
+(function() {
+  var els = document.querySelectorAll(
+    '.berita-article__content p, .berita-article__content h2, .berita-article__content h3, .berita-article__content li'
+  );
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>`;
 }
