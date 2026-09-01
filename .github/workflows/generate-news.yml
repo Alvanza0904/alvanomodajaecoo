@@ -30,7 +30,15 @@ jobs:
         run: npm install
 
       - name: Generate news HTML
-        run: node scripts/generate-news.js
+  run: |
+    echo "=== Node ==="
+    node --version
+    echo "=== Files ==="
+    ls -la
+    echo "=== Berita ==="
+    find berita -maxdepth 2 -type f -print || true
+    echo "=== Script ==="
+    node scripts/generate-news.js
 
       - name: Commit generated HTML
         run: |
