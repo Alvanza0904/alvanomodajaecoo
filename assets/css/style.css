@@ -3178,3 +3178,149 @@ a.stat-card:hover .stat-card__value {
   .recognized__item{flex:0 0 78vw}
   .recognized__caption{padding:22px 18px 20px}
 }
+
+/* =============================================================
+   HOMEPAGE BERITA SECTION
+   Minimalis, premium — hanya untuk section berita di homepage.
+============================================================= */
+
+.home-berita { background: var(--color-bg); }
+
+.home-berita__header { margin-bottom: 40px; }
+
+.home-berita__lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--color-text-muted);
+  max-width: 560px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Featured card */
+.home-berita__featured { margin-bottom: 36px; }
+
+.home-berita__card {
+  display: flex;
+  gap: 0;
+  text-decoration: none;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-line);
+  overflow: hidden;
+  transition: border-color .35s var(--ease-premium);
+}
+
+.home-berita__card:hover { border-color: var(--color-line-strong); }
+
+.home-berita__card-media {
+  flex: 0 0 52%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.home-berita__card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s var(--ease-premium);
+}
+
+.home-berita__card:hover .home-berita__card-media img { transform: scale(1.04); }
+
+.home-berita__card-body {
+  flex: 1;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.home-berita__card-meta { display: flex; align-items: center; gap: 12px; }
+
+.home-berita__cat {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.home-berita__card-date {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+}
+
+.home-berita__card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.home-berita__card-desc {
+  font-family: var(--font-body);
+  font-size: .96rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-berita__read-more {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: var(--tracking-mid);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 4px;
+  transition: opacity .25s;
+}
+
+.home-berita__card:hover .home-berita__read-more { opacity: .75; }
+
+/* Footer CTA */
+.home-berita__footer { display: flex; }
+
+.home-berita__all {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 4px;
+  transition: color .25s, border-color .25s;
+}
+
+.home-berita__all:hover {
+  color: var(--color-text);
+  border-color: var(--color-line-strong);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .home-berita__card { flex-direction: column; }
+  .home-berita__card-media { flex: none; aspect-ratio: 16/8; }
+  .home-berita__card-body { padding: 24px 28px 28px; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .home-berita__card-media { aspect-ratio: 16/9; }
+  .home-berita__card-body { padding: 20px 20px 24px; gap: 10px; }
+  .home-berita__card-desc { -webkit-line-clamp: 2; }
+  .home-berita__header { margin-bottom: 28px; }
+  .home-berita__featured { margin-bottom: 24px; }
+}
