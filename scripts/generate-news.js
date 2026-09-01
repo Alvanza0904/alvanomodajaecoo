@@ -7,7 +7,6 @@ const INDEX_FILE = path.join(NEWS_DIR, "index.html");
 
 const SITE_URL = "https://omodajaecoopalembang.web.id";
 
-// Marker untuk inject artikel CMS ke berita/index.html
 const INJECT_START = "<!-- CMS:ARTIKEL:START -->";
 const INJECT_END = "<!-- CMS:ARTIKEL:END -->";
 
@@ -32,27 +31,20 @@ function escapeHtml(value) {
 
 function parseFrontMatter(content) {
   const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
-
-  if (!match) {
-    return { data: {}, body: content.trim() };
-  }
+  if (!match) return { data: {}, body: content.trim() };
 
   const data = {};
-
   match[1].split(/\r?\n/).forEach(line => {
     const separator = line.indexOf(":");
     if (separator === -1) return;
-
     const key = line.slice(0, separator).trim();
     let value = line.slice(separator + 1).trim();
-
     if (
       (value.startsWith('"') && value.endsWith('"')) ||
       (value.startsWith("'") && value.endsWith("'"))
     ) {
       value = value.slice(1, -1);
     }
-
     data[key] = value;
   });
 
@@ -73,36 +65,17 @@ function markdownToHtml(markdown) {
 
   function flushList() {
     if (!listItems.length) return;
-    output.push(`<ul>${listItems.map(item => `<li>${item}</li>`).join("")}</ul>`);
+    output.push(`<ul>${listItems.map(i => `<li>${i}</li>`).join("")}</ul>`);
     listItems = [];
   }
 
   for (let line of lines) {
     line = line.trim();
-
     if (!line) { flushParagraph(); flushList(); continue; }
-
-    if (/^###\s+/.test(line)) {
-      flushParagraph(); flushList();
-      output.push(`<h3>${inlineMarkdown(line.replace(/^###\s+/, ""))}</h3>`);
-      continue;
-    }
-    if (/^##\s+/.test(line)) {
-      flushParagraph(); flushList();
-      output.push(`<h2>${inlineMarkdown(line.replace(/^##\s+/, ""))}</h2>`);
-      continue;
-    }
-    if (/^#\s+/.test(line)) {
-      flushParagraph(); flushList();
-      output.push(`<h1>${inlineMarkdown(line.replace(/^#\s+/, ""))}</h1>`);
-      continue;
-    }
-    if (/^[-*]\s+/.test(line)) {
-      flushParagraph();
-      listItems.push(inlineMarkdown(line.replace(/^[-*]\s+/, "")));
-      continue;
-    }
-
+    if (/^###\s+/.test(line)) { flushParagraph(); flushList(); output.push(`<h3>${inlineMarkdown(line.replace(/^###\s+/, ""))}</h3>`); continue; }
+    if (/^##\s+/.test(line)) { flushParagraph(); flushList(); output.push(`<h2>${inlineMarkdown(line.replace(/^##\s+/, ""))}</h2>`); continue; }
+    if (/^#\s+/.test(line)) { flushParagraph(); flushList(); output.push(`<h1>${inlineMarkdown(line.replace(/^#\s+/, ""))}</h1>`); continue; }
+    if (/^[-*]\s+/.test(line)) { flushParagraph(); listItems.push(inlineMarkdown(line.replace(/^[-*]\s+/, ""))); continue; }
     flushList();
     paragraph.push(inlineMarkdown(line));
   }
@@ -113,11 +86,11 @@ function markdownToHtml(markdown) {
 }
 
 function inlineMarkdown(text) {
-  let value = escapeHtml(text);
-  value = value.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-  value = value.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  value = value.replace(/\*(.+?)\*/g, "<em>$1</em>");
-  return value;
+  let v = escapeHtml(text);
+  v = v.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  v = v.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  v = v.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  return v;
 }
 
 function formatDate(dateString) {
@@ -125,9 +98,7 @@ function formatDate(dateString) {
   const date = new Date(dateString);
   if (Number.isNaN(date.getTime())) return dateString;
   return new Intl.DateTimeFormat("id-ID", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
+    day: "numeric", month: "long", year: "numeric"
   }).format(date);
 }
 
@@ -152,13 +123,12 @@ function categorySlug(category) {
 }
 
 function categoryClass(category) {
-  const slug = categorySlug(category);
   const map = {
     "info-terbaru": "berita-cat--info",
     "harga-launching": "berita-cat--harga",
     "perbandingan": "berita-cat--perbandingan",
   };
-  return map[slug] || "berita-cat--info";
+  return map[categorySlug(category)] || "berita-cat--info";
 }
 
 function createArticleHtml(data, body) {
@@ -173,25 +143,13 @@ function createArticleHtml(data, body) {
 
   return `<!DOCTYPE html>
 <html lang="id">
-
 <head>
-
 <meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(title)} | OMODA JAECOO Palembang</title>
-
-<meta name="description"
-      content="${escapeHtml(description)}">
-
-<link rel="canonical"
-      href="${articleUrl}">
-
-<meta name="robots"
-      content="index, follow, max-image-preview:large">
-
+<meta name="description" content="${escapeHtml(description)}">
+<link rel="canonical" href="${articleUrl}">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="id_ID">
 <meta property="og:title" content="${escapeHtml(title)}">
@@ -199,17 +157,14 @@ function createArticleHtml(data, body) {
 <meta property="og:url" content="${articleUrl}">
 <meta property="og:site_name" content="OMODA JAECOO Palembang">
 <meta property="og:image" content="${SITE_URL}${image}">
-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeHtml(title)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
 <meta name="twitter:image" content="${SITE_URL}${image}">
-
 <link rel="preload" href="/assets/css/style.css" as="style">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="preload" href="/assets/css/berita.css" as="style">
 <link rel="stylesheet" href="/assets/css/berita.css">
-
 <script type="application/ld+json">
 ${JSON.stringify({
   "@context": "https://schema.org",
@@ -221,19 +176,12 @@ ${JSON.stringify({
   "dateModified": date,
   "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
   "author": { "@type": "Person", "name": "Alvan" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "OMODA JAECOO Palembang",
-    "url": SITE_URL
-  },
+  "publisher": { "@type": "Organization", "name": "OMODA JAECOO Palembang", "url": SITE_URL },
   "inLanguage": "id-ID"
 }, null, 2)}
 </script>
-
 </head>
-
 <body class="berita-page">
-
 <header class="navbar" id="navbar">
   <div class="navbar__inner">
     <a aria-label="OMODA JAECOO Palembang" class="navbar__logo" href="/">
@@ -253,11 +201,8 @@ ${JSON.stringify({
     </button>
   </div>
 </header>
-
 <main>
-
 <article class="berita-article" itemscope itemtype="https://schema.org/NewsArticle">
-
 <section class="berita-hero">
   <div class="berita-hero__inner wrap">
     <div class="berita-hero__breadcrumb">
@@ -272,22 +217,17 @@ ${JSON.stringify({
     <p class="berita-hero__desc">${escapeHtml(description)}</p>
   </div>
 </section>
-
 <section class="berita-article-content wrap">
-
   <div class="berita-article__meta">
     <span class="berita-cat">${escapeHtml(category)}</span>
     <time datetime="${escapeHtml(date)}" itemprop="datePublished">${escapeHtml(formatDate(date))}</time>
   </div>
-
   <figure class="berita-article__image">
     <img src="${escapeHtml(image)}" alt="${escapeHtml(title)}" width="1200" height="675" loading="eager" decoding="async" itemprop="image">
   </figure>
-
   <div class="berita-article__content" itemprop="articleBody">
     ${contentHtml}
   </div>
-
   <section class="berita-cta-section" aria-label="Hubungi Sales Consultant">
     <div class="berita-cta">
       <div class="berita-cta__copy">
@@ -301,25 +241,18 @@ ${JSON.stringify({
       </div>
     </div>
   </section>
-
 </section>
-
 </article>
-
 </main>
-
 <footer class="footer-v2">
   <div class="footer-v2__bottom">
     <p>&copy; 2026 OMODA JAECOO Palembang &middot; All Rights Reserved</p>
   </div>
 </footer>
-
 <a class="wa-float" aria-label="Chat WhatsApp Alvan" href="https://wa.me/6285183145926?text=Halo%20Alvan%2C%20saya%20mau%20tanya%20soal%20OMODA%20JAECOO%20Palembang." target="_blank" rel="noopener">
   <span>WhatsApp Alvan</span>
 </a>
-
 <script src="/assets/js/main.js"></script>
-
 </body>
 </html>`;
 }
@@ -331,39 +264,25 @@ function createCardHtml(data, slug) {
   const category = data.category || "Info Terbaru";
   const image = data.image || "/assets/images/jaecoo-j5-hero.jpg";
   const href = `/berita/${slug}/`;
-  const catSlug = categorySlug(category);
-  const catClass = categoryClass(category);
 
   return `
-        <article class="berita-card" data-category="${catSlug}" itemscope itemtype="https://schema.org/NewsArticle">
+        <article class="berita-card" data-category="${categorySlug(category)}" itemscope itemtype="https://schema.org/NewsArticle">
           <a class="berita-card__media-link" href="${href}" tabindex="-1" aria-hidden="true">
             <div class="berita-card__media">
-              <img
-                src="${escapeHtml(image)}"
-                alt="${escapeHtml(title)}"
-                loading="lazy"
-                decoding="async"
-                width="600"
-                height="400"
-                itemprop="image"
-              />
+              <img src="${escapeHtml(image)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async" width="600" height="400" itemprop="image"/>
             </div>
           </a>
           <div class="berita-card__body">
             <div class="berita-card__meta">
-              <span class="berita-cat ${catClass}">${escapeHtml(category)}</span>
+              <span class="berita-cat ${categoryClass(category)}">${escapeHtml(category)}</span>
               <time class="berita-date" datetime="${escapeHtml(date)}" itemprop="datePublished">${escapeHtml(formatDate(date))}</time>
             </div>
             <h3 class="berita-card__title" itemprop="headline">
               <a href="${href}">${escapeHtml(title)}</a>
             </h3>
-            <p class="berita-card__excerpt" itemprop="description">
-              ${escapeHtml(description)}
-            </p>
+            <p class="berita-card__excerpt" itemprop="description">${escapeHtml(description)}</p>
             <div class="berita-card__footer">
-              <a class="berita-read-more berita-read-more--sm" href="${href}">
-                Baca &rarr;
-              </a>
+              <a class="berita-read-more berita-read-more--sm" href="${href}">Baca &rarr;</a>
             </div>
           </div>
         </article>`;
@@ -377,7 +296,7 @@ function updateIndexHtml(articles) {
 
   let html = fs.readFileSync(INDEX_FILE, "utf8");
 
-  // Pastikan marker ada — kalau belum, inject marker ke dalam berita-grid
+  // Inject marker kalau belum ada
   if (!html.includes(INJECT_START)) {
     html = html.replace(
       '<div class="berita-grid" id="beritaGrid">',
@@ -385,14 +304,15 @@ function updateIndexHtml(articles) {
     );
   }
 
-  // Sort artikel terbaru dulu
-  const sorted = [...articles].sort((a, b) => {
-    return new Date(b.data.date || 0) - new Date(a.data.date || 0);
-  });
+  // Sort terbaru dulu
+  const sorted = [...articles].sort((a, b) =>
+    new Date(b.data.date || 0) - new Date(a.data.date || 0)
+  );
 
-  const cardsHtml = sorted.map(a => createCardHtml(a.data, a.slug)).join("\n");
+  const cardsHtml = sorted.length > 0
+    ? sorted.map(a => createCardHtml(a.data, a.slug)).join("\n")
+    : "";
 
-  // Ganti konten antara marker
   const startIdx = html.indexOf(INJECT_START);
   const endIdx = html.indexOf(INJECT_END);
 
@@ -413,6 +333,27 @@ function updateIndexHtml(articles) {
   console.log(`Updated berita/index.html dengan ${sorted.length} artikel CMS.`);
 }
 
+function cleanDeletedArticles(activeSlugs) {
+  // Cari semua subfolder di berita/ yang punya index.html
+  const entries = fs.readdirSync(NEWS_DIR, { withFileTypes: true });
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+
+    const slug = entry.name;
+
+    // Lewati folder yang bukan artikel CMS
+    const htmlFile = path.join(NEWS_DIR, slug, "index.html");
+    if (!fs.existsSync(htmlFile)) continue;
+
+    // Kalau slug tidak ada di daftar aktif, hapus foldernya
+    if (!activeSlugs.has(slug)) {
+      fs.rmSync(path.join(NEWS_DIR, slug), { recursive: true, force: true });
+      console.log(`Deleted berita/${slug}/ (artikel dihapus dari CMS)`);
+    }
+  }
+}
+
 function generate() {
   if (!fs.existsSync(NEWS_DIR)) {
     console.log("Folder berita tidak ditemukan.");
@@ -423,12 +364,8 @@ function generate() {
     .readdirSync(NEWS_DIR)
     .filter(file => file.toLowerCase().endsWith(".md"));
 
-  if (!files.length) {
-    console.log("Belum ada file berita Markdown.");
-    return;
-  }
-
   const articles = [];
+  const activeSlugs = new Set();
 
   for (const file of files) {
     const filePath = path.join(NEWS_DIR, file);
@@ -441,22 +378,29 @@ function generate() {
     }
 
     const slug = data.slug ? slugify(data.slug) : slugify(data.title);
-    const outputDir = path.join(NEWS_DIR, slug);
+    activeSlugs.add(slug);
 
+    const outputDir = path.join(NEWS_DIR, slug);
     fs.mkdirSync(outputDir, { recursive: true });
 
     const html = createArticleHtml(data, body);
     fs.writeFileSync(path.join(outputDir, "index.html"), html, "utf8");
 
     console.log(`Generated berita/${slug}/index.html`);
-
     articles.push({ data, slug });
   }
 
-  // Update berita/index.html dengan kartu artikel CMS
+  // Hapus folder HTML artikel yang sudah tidak punya .md
+  cleanDeletedArticles(activeSlugs);
+
+  // Update halaman daftar berita
   updateIndexHtml(articles);
 
-  console.log("Semua berita berhasil dibuat.");
+  if (files.length === 0) {
+    console.log("Belum ada file berita Markdown.");
+  } else {
+    console.log("Semua berita berhasil diproses.");
+  }
 }
 
 generate();
