@@ -19,4 +19,5 @@ collections:
       - { label: Kategori, name: category, widget: select, options: ["Info Terbaru", "Harga & Launching", "Perbandingan Model"], default: "Info Terbaru" }
       - { label: Deskripsi Singkat, name: description, widget: string, hint: "Maks 160 karakter. Tampil di Google dan preview artikel.", required: false }
       - { label: Gambar Utama, name: image, widget: image, hint: "Upload gambar artikel. Ukuran ideal 1200x675px.", required: false }
+      - { label: Tampilkan CTA Simulasi Kredit, name: show_kredit_cta, widget: boolean, default: false, hint: "Aktifkan untuk menampilkan tombol simulasi kredit di artikel." }
       - { label: Konten, name: body, widget: markdown }
