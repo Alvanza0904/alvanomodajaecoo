@@ -1,5 +1,5 @@
 ---
-title: Harga JAECOO J5 EV Resmi Naik per 1 September 2026 — Ini Angka Terbarunya
+title: "##Harga JAECOO J5 EV Resmi Naik per 1 September 2026 — Ini Angka Terbarunya"
 date: 2026-09-01T09:54:00.000+07:00
 category: Harga & Launching
 description: Harga JAECOO J5 EV di Palembang resmi naik mulai 1 September 2026
