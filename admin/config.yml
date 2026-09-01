@@ -6,6 +6,7 @@ backend:
   auth_endpoint: /auth
 
 media_folder: assets/images
+public_folder: /assets/images
 
 collections:
   - name: berita
@@ -15,4 +16,7 @@ collections:
     fields:
       - { label: Judul, name: title, widget: string }
       - { label: Tanggal, name: date, widget: datetime }
+      - { label: Kategori, name: category, widget: select, options: ["Info Terbaru", "Harga & Launching", "Perbandingan Model"], default: "Info Terbaru" }
+      - { label: Deskripsi Singkat, name: description, widget: string, hint: "Maks 160 karakter. Tampil di Google dan preview artikel.", required: false }
+      - { label: Gambar Utama, name: image, widget: image, hint: "Upload gambar artikel. Ukuran ideal 1200x675px.", required: false }
       - { label: Konten, name: body, widget: markdown }
