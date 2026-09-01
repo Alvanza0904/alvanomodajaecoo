@@ -7,9 +7,8 @@ on:
     branches:
       - main
     paths:
-      - "berita/**"
+      - "berita/**.md"
       - "scripts/generate-news.js"
-      - "package.json"
 
 permissions:
   contents: write
@@ -20,31 +19,20 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
-          node-version: 24
-
-      - name: Install dependencies
-        run: npm install
+          node-version: 22
 
       - name: Generate news HTML
-        run: |
-          echo "=== Node ==="
-          node --version
-          echo "=== Files ==="
-          ls -la
-          echo "=== Berita ==="
-          find berita -maxdepth 2 -type f -print || true
-          echo "=== Script ==="
-          node scripts/generate-news.js
+        run: node scripts/generate-news.js
 
       - name: Commit generated HTML
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add berita/
-          git diff --cached --quiet || git commit -m "Generate news HTML"
+          git diff --cached --quiet || git commit -m "chore: generate news HTML [skip ci]"
           git push
