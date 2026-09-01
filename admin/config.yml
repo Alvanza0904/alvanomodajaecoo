@@ -17,7 +17,10 @@ collections:
       - { label: Judul, name: title, widget: string }
       - { label: Tanggal, name: date, widget: datetime }
       - { label: Kategori, name: category, widget: select, options: ["Info Terbaru", "Harga & Launching", "Perbandingan Model"], default: "Info Terbaru" }
-      - { label: Deskripsi Singkat, name: description, widget: string, hint: "Maks 160 karakter. Tampil di Google dan preview artikel.", required: false }
+      - { label: Deskripsi Singkat, name: description, widget: string, hint: "Maks 160 karakter. Jika dikosongkan, generator membuat deskripsi otomatis dari isi artikel.", required: false }
+      - { label: Focus Keyword, name: focus_keyword, widget: string, hint: "Opsional. Contoh: harga JAECOO J5 Palembang. Generator hanya menebalkan 1 kemunculan yang relevan.", required: false }
+      - { label: Alt Text Gambar, name: image_alt, widget: string, hint: "Opsional. Jika kosong, dibuat otomatis dari judul artikel.", required: false }
+      - { label: Caption Gambar, name: image_caption, widget: string, required: false }
       - { label: Gambar Utama, name: image, widget: image, hint: "Upload gambar artikel. Ukuran ideal 1200x675px.", required: false }
       - { label: Tampilkan CTA Simulasi Kredit, name: show_kredit_cta, widget: boolean, default: false, hint: "Aktifkan untuk menampilkan tombol simulasi kredit di artikel." }
       - { label: Konten, name: body, widget: markdown }
