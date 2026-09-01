@@ -4,7 +4,7 @@ date: 2026-09-01T14:14:00.000+07:00
 category: Harga & Launching
 description: Harga JAECOO J5 EV di Palembang resmi naik mulai 1 September 2026.
   Cek harga OTR terbaru dan simulasi kredit sebelum kamu memutuskan.
-image: /assets/images/r07qxo-r⤓download.jpeg
+image: https://github.com/Alvanza0904/alvanomodajaecoo/blob/d09e2f3e541d66897620604fbc10f806257643c8/assets/images/jaecoo-j5/int-dashboard.webp
 ---
 Kabar ini sudah banyak yang nanyain sejak beberapa minggu lalu — dan sekarang resmi dikonfirmasi. Harga JAECOO J5 EV mengalami penyesuaian harga mulai hari ini, 1 September 2026.
 
