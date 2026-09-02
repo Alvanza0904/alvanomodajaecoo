@@ -1,7 +1,7 @@
 ---
 title: Bukan Cuma J5, Harga JAECOO J7 SHS dan J8 SHS Ardis Juga Naik per
   September 2026
-date: 2026-09-01T18:41:00.000+07:00
+date: 2026-09-02T18:41:00.000+07:00
 category: Info Terbaru
 description: Bukan hanya JAECOO J5 yang mengalami penyesuaian harga. Mulai 1
   September 2026, dua model JAECOO lainnya, yaitu JAECOO J7 SHS dan JAECOO J8
