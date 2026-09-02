@@ -160,6 +160,12 @@
   <!-- Berita -->
   <!-- CMS:BERITA:START -->
   <url>
+    <loc>https://omodajaecoopalembang.web.id/berita/bukan-cuma-j5-harga-jaecoo-j7-shs-dan-j8-shs-ardis-juga-naik-per-september-2026/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://omodajaecoopalembang.web.id/berita/harga-jaecoo-j5-ev-resmi-naik-per-1-september-2026-ini-angka-terbarunya/</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
