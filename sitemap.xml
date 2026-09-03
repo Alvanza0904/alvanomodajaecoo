@@ -160,6 +160,12 @@
   <!-- Berita -->
   <!-- CMS:BERITA:START -->
   <url>
+    <loc>https://omodajaecoopalembang.web.id/berita/jaecoo-j5-ev-bisa-parkir-paralel-tapi-baterainya-aman-nggak-kalau-ditinggal-lama/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://omodajaecoopalembang.web.id/berita/omoda-o4-resmi-hadir-bersama-jaecoo-indonesia-jadi-lokasi-debut-global/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
