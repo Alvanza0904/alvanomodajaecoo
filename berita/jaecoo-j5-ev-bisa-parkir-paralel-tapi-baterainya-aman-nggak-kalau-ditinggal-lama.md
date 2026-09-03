@@ -6,8 +6,9 @@ category: Info Terbaru
 description: Parkir paralel dengan mobil listrik masih bikin banyak orang ragu.
   Takut aki 12V tekor, takut mobil tidak bisa didorong, atau malah khawatir
   mobil tidak bisa ditinggal berhari-hari.
-focus_keyword: parkir paralel JAECOO J5 EV, JAECOO J5 EV Palembang, JAECOO
-  Palembang, JAECOO J5 EV, mobil listrik Palembang, parkir paralel mobil
+focus_keyword: “Kalau mobil ditinggal dalam posisi parkir paralel, apakah ada
+  batas waktu tertentu?” parkir paralel JAECOO J5 EV, JAECOO J5 EV Palembang,
+  JAECOO Palembang, JAECOO J5 EV, mobil listrik Palembang, parkir paralel mobil
   listrik, Easy Move Mode JAECOO J5, aki JAECOO J5 EV, baterai JAECOO J5 EV,
   sales JAECOO Palembang.
 image_caption: Jaecoo J5 Premium
