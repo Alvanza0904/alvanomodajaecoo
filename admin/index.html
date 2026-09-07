@@ -1,96 +1,22 @@
 <!doctype html>
-<html>
+<html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>CMS — OMODA JAECOO Palembang</title>
-  <link rel="stylesheet" href="cms-mobile.css" />
-  <style>
-    /* ============================================================
-       BASE RESET — Cegah horizontal overflow
-       ============================================================ */
-    *, *::before, *::after {
-      box-sizing: border-box !important;
-    }
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <meta name="theme-color" content="#111111" />
+  <title>Admin — OMODA JAECOO Palembang</title>
 
-    html {
-      overflow-x: hidden !important;
-      -webkit-text-size-adjust: 100%;
-    }
-
-    body {
-      margin: 0 !important;
-      padding: 0 !important;
-      overflow-x: hidden !important;
-      max-width: 100vw !important;
-      font-size: 14px !important;
-    }
-
-    img, video, iframe, canvas, svg {
-      max-width: 100% !important;
-    }
-
-    /* ============================================================
-       NC-ROOT — Root container Decap CMS
-       ============================================================ */
-    #nc-root {
-      overflow-x: hidden !important;
-      max-width: 100vw !important;
-    }
-
-    #nc-root > div {
-      overflow-x: hidden !important;
-      max-width: 100vw !important;
-    }
-
-    /* ============================================================
-       SPLIT PANE — Sembunyikan preview pane, paksa editor full-width
-       ============================================================ */
-    .SplitPane {
-      position: relative !important;
-      height: auto !important;
-      overflow: visible !important;
-      display: block !important;
-    }
-
-    .SplitPane > .Pane1 {
-      width: 100% !important;
-      height: auto !important;
-      position: relative !important;
-      overflow: visible !important;
-    }
-
-    .SplitPane > .Resizer {
-      display: none !important;
-    }
-
-    .SplitPane > .Pane2 {
-      display: none !important;
-    }
-  </style>
+  <!--
+    Custom CMS skin.
+    Important: this stylesheet is loaded after Decap's own styles are injected,
+    so it can refine the UI without rewriting Decap's internal layout.
+  -->
+  <link rel="stylesheet" href="./cms-mobile.css" />
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
-  <script>
-    // Auto-dismiss preview toggle pada halaman editor
-    var lastUrl = '';
-    setInterval(function() {
-      var url = location.href;
-      if (url !== lastUrl) {
-        lastUrl = url;
-        if (url.includes('/edit/') || url.includes('/new')) {
-          setTimeout(function() {
-            // Coba sembunyikan preview pane jika muncul
-            var pane2 = document.querySelector('.Pane2');
-            if (pane2) pane2.style.display = 'none';
-            var resizer = document.querySelector('.Resizer');
-            if (resizer) resizer.style.display = 'none';
-            var pane1 = document.querySelector('.Pane1');
-            if (pane1) { pane1.style.width = '100%'; pane1.style.flex = 'none'; }
-          }, 500);
-        }
-      }
-    }, 300);
-  </script>
 </body>
 </html>
