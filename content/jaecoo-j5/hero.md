@@ -1,5 +1,5 @@
 ---
-title: "Hero — Tampilan Utama"
-image: "/assets/images/jaecoo-j5/ext-showroom-hero.webp"
-alt: "JAECOO J5 EV tampak samping di showroom Palembang"
+title: Hero — Tampilan Utama
+image: /assets/images/r07qxo-r⤓download.jpeg
+alt: JAECOO J5 EV tampak di lapangan
 ---
