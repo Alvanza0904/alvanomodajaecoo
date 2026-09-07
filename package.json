@@ -1,5 +1,10 @@
 {
   "scripts": {
-    "build": "node scripts/generate-news.js"
+    "build": "node scripts/generate-news.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "optimize-images:all": "OPTIMIZE_MODE=all node scripts/optimize-images.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.0"
   }
 }
