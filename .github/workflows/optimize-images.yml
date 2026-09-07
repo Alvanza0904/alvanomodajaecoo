@@ -1,0 +1,82 @@
+name: Optimize Images
+
+# ──────────────────────────────────────────────────────────────
+# Trigger: setiap push yang menyentuh file gambar di assets/images/
+# Termasuk gambar yang diupload via Decap CMS
+# ──────────────────────────────────────────────────────────────
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "assets/images/**/*.jpg"
+      - "assets/images/**/*.jpeg"
+      - "assets/images/**/*.png"
+      - "assets/images/**/*.webp"
+      - "assets/images/**/*.gif"
+
+  # Jalankan manual dari GitHub Actions UI jika diperlukan
+  workflow_dispatch:
+    inputs:
+      force_all:
+        description: "Optimize semua gambar (bukan hanya yang baru)"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    name: Optimize & Convert Images
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install image optimization packages
+        run: |
+          npm install --no-save sharp
+
+      - name: Detect changed images
+        id: detect
+        run: |
+          if [ "${{ github.event.inputs.force_all }}" = "true" ]; then
+            echo "mode=all" >> $GITHUB_OUTPUT
+          else
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'assets/images/**' 2>/dev/null | \
+              grep -E '\.(jpg|jpeg|png|gif)$' | head -50 || echo "")
+            if [ -n "$CHANGED" ]; then
+              echo "mode=changed" >> $GITHUB_OUTPUT
+              echo "files<<EOF" >> $GITHUB_OUTPUT
+              echo "$CHANGED" >> $GITHUB_OUTPUT
+              echo "EOF" >> $GITHUB_OUTPUT
+            else
+              echo "mode=none" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Run image optimization
+        if: steps.detect.outputs.mode != 'none'
+        env:
+          OPTIMIZE_MODE: ${{ steps.detect.outputs.mode }}
+          CHANGED_FILES: ${{ steps.detect.outputs.files }}
+        run: node scripts/optimize-images.js
+
+      - name: Commit optimized images
+        if: steps.detect.outputs.mode != 'none'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/
+          git diff --cached --quiet || git commit -m "chore: optimize images [skip ci]"
+          git push
