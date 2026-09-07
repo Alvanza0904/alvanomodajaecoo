@@ -1,121 +1,236 @@
 <!doctype html>
-<html>
+<html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>CMS — OMODA JAECOO Palembang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Admin — OMODA JAECOO Palembang</title>
+
+  <!-- Google Fonts: Inter (compact, modern, automotive-friendly) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* Force semua elemen masuk layar */
-    html, body {
-      width: 100% !important;
-      max-width: 100vw !important;
-      overflow-x: hidden !important;
-      margin: 0 !important;
-      padding: 0 !important;
+    /* ─────────────────────────────────────────────
+       LAYER 0 — Reset & base typography
+       Semua sizing berbasis rem dari 14px root.
+       Mobile-first: ukuran ini berlaku untuk 360–414px.
+    ───────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
-    /* Root CMS */
-    #nc-root, #nc-root > div {
-      width: 100% !important;
-      max-width: 100vw !important;
-      overflow-x: hidden !important;
+    html {
+      font-size: 14px;             /* 1rem = 14px */
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
     }
 
-    /* Semua div, section, main */
-    * {
-      max-width: 100vw !important;
-      box-sizing: border-box !important;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Split pane fix */
-    .Pane2, .Resizer { display: none !important; }
-    .Pane1 { width: 100% !important; position: static !important; }
-    .SplitPane { position: static !important; height: auto !important; overflow: visible !important; }
-
-    /* Toolbar & header — no fixed width */
-    [class*="Toolbar"],
-    [class*="AppBar"],
-    [class*="Header"],
-    [class*="Nav"] {
-      width: 100% !important;
-      max-width: 100vw !important;
-      overflow: hidden !important;
+    /* ─────────────────────────────────────────────
+       LAYER 1 — Custom admin shell
+       Berjalan di ATAS Decap CMS.
+       Ditampilkan sebelum Decap mount.
+    ───────────────────────────────────────────── */
+    #cms-shell {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      background: #0a0a0a;
+      z-index: 9999;
+      transition: opacity 0.25s ease;
     }
 
-    /* Media library */
-    [class*="MediaLibrary"],
-    [class*="mediaLibrary"],
-    [class*="Modal"],
-    [class*="Overlay"] {
-      width: 100vw !important;
-      max-width: 100vw !important;
-      left: 0 !important;
-      right: 0 !important;
-      padding: 8px !important;
-      overflow-x: hidden !important;
+    #cms-shell.hidden {
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
     }
 
-    /* Grid gambar di media library — 2 kolom */
-    [class*="CardGrid"],
-    [class*="cardGrid"],
-    [class*="Grid"] {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 8px !important;
-      width: 100% !important;
-      padding: 8px !important;
+    .shell-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+      height: 48px;
+      background: #0a0a0a;
+      border-bottom: 1px solid #1e1e1e;
+      flex-shrink: 0;
     }
 
-    /* Card gambar */
-    [class*="CardImage"],
-    [class*="Card"] {
-      width: 100% !important;
-      max-width: 100% !important;
+    .shell-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
     }
 
-    [class*="CardImage"] img,
-    [class*="Card"] img {
-      width: 100% !important;
-      height: 120px !important;
-      object-fit: cover !important;
+    .shell-logo {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #c9a84c 0%, #e8c97a 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0a0a0a;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
     }
 
-    /* Form fields */
-    input, textarea, select {
-      font-size: 16px !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      min-height: 44px !important;
-      padding: 10px 12px !important;
-      -webkit-appearance: none !important;
+    .shell-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f0f0f0;
+      letter-spacing: -0.01em;
     }
 
-    textarea { min-height: 100px !important; }
-
-    button {
-      min-height: 44px !important;
-      font-size: 15px !important;
+    .shell-subtitle {
+      font-size: 11px;
+      color: #666;
+      font-weight: 400;
     }
+
+    .shell-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      padding: 24px 20px;
+    }
+
+    .shell-spinner {
+      width: 32px;
+      height: 32px;
+      border: 2px solid #1e1e1e;
+      border-top-color: #c9a84c;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .shell-status {
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+    }
+
+    /* ─────────────────────────────────────────────
+       LAYER 2 — Decap CMS Override CSS
+       Semua override di sini menggunakan file terpisah
+       yang diload setelah Decap selesai mount.
+    ───────────────────────────────────────────── */
   </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
-  <script>
+
+<!-- Shell loading overlay -->
+<div id="cms-shell">
+  <div class="shell-bar">
+    <div class="shell-brand">
+      <div class="shell-logo">OJ</div>
+      <div>
+        <div class="shell-title">OMODA JAECOO Palembang</div>
+        <div class="shell-subtitle">Admin Panel</div>
+      </div>
+    </div>
+  </div>
+  <div class="shell-body">
+    <div class="shell-spinner"></div>
+    <div class="shell-status">Memuat CMS…</div>
+  </div>
+</div>
+
+<!-- Decap CMS -->
+<script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
+
+<script>
+  (function() {
+    'use strict';
+
+    // ── 1. Inject CSS override setelah DOM ready ──────────────
+    function injectCSS() {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/admin/cms-mobile.css?v=2025';
+      document.head.appendChild(link);
+    }
+    injectCSS();
+
+    // ── 2. Sembunyikan shell setelah Decap mount ──────────────
+    // Decap mengisi #nc-root. Kita poll sampai ada konten di dalamnya.
+    var shellHideAttempts = 0;
+    var shellInterval = setInterval(function() {
+      shellHideAttempts++;
+      var root = document.getElementById('nc-root');
+      if (root && root.children.length > 0) {
+        clearInterval(shellInterval);
+        var shell = document.getElementById('cms-shell');
+        if (shell) shell.classList.add('hidden');
+      }
+      // Fallback: hide setelah 8 detik
+      if (shellHideAttempts > 160) {
+        clearInterval(shellInterval);
+        var shell = document.getElementById('cms-shell');
+        if (shell) shell.classList.add('hidden');
+      }
+    }, 50);
+
+    // ── 3. Auto-hide preview pane di mobile ──────────────────
+    // Decap menampilkan SplitPane dengan tombol toggle.
+    // Kita klik tombol toggle supaya editor tampil full width.
     var lastUrl = '';
+    var toggleAttempted = false;
+
     setInterval(function() {
       var url = location.href;
       if (url !== lastUrl) {
         lastUrl = url;
-        if (url.includes('/edit/') || url.includes('/new')) {
-          setTimeout(function() {
-            document.querySelectorAll('button').forEach(function(b) {
-              var label = b.getAttribute('aria-label') || '';
-              if (label.toLowerCase().includes('toggle')) b.click();
-            });
-          }, 800);
-        }
+        toggleAttempted = false;
+      }
+
+      if (!toggleAttempted && (url.includes('/edit/') || url.includes('/new'))) {
+        // Tunggu sebentar agar editor mount
+        setTimeout(function() {
+          // Cari tombol toggle preview
+          var btns = document.querySelectorAll('button');
+          btns.forEach(function(b) {
+            var label = (b.getAttribute('aria-label') || b.title || '').toLowerCase();
+            if (label.includes('toggle') || label.includes('preview')) {
+              // Hanya klik jika pane preview masih visible
+              var pane2 = document.querySelector('.Pane2');
+              if (pane2 && getComputedStyle(pane2).display !== 'none') {
+                b.click();
+              }
+            }
+          });
+          toggleAttempted = true;
+        }, 600);
       }
     }, 300);
-  </script>
+
+  })();
+</script>
+
 </body>
 </html>
