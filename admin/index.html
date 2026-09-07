@@ -5,96 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CMS — OMODA JAECOO Palembang</title>
   <style>
-    /* Inline critical CSS — paksa editor tampil */
-    * { box-sizing: border-box; }
-
-    /* Sembunyikan preview pane */
+    /* Hide preview, force editor */
     [class*="PreviewPane"],
-    [class*="Pane2"] {
+    [class*="StyledPreviewContent"],
+    [class*="EditorPreviewPane"],
+    [class*="PreviewContainer"] {
       display: none !important;
     }
-
-    /* Editor full width */
     [class*="ControlPane"],
-    [class*="Pane1"] {
+    [class*="EditorControlPane"] {
       width: 100% !important;
       min-width: 100% !important;
-      transform: none !important;
+      left: 0 !important;
+      position: relative !important;
     }
-
-    /* SplitPane override */
+    .Pane2 { display: none !important; }
+    .Pane1 {
+      width: 100% !important;
+      position: relative !important;
+      height: auto !important;
+    }
     .SplitPane {
-      position: static !important;
+      position: relative !important;
       height: auto !important;
       overflow: visible !important;
     }
-    .SplitPane .Pane1 {
-      width: 100% !important;
-      position: static !important;
-    }
-    .SplitPane .Resizer,
-    .SplitPane .Pane2 {
-      display: none !important;
-    }
-
-    /* Semua widget visible */
-    [class*="Widget"],
-    [class*="Field"],
-    [class*="Control"] {
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-
-    /* Input touch friendly */
+    .Resizer { display: none !important; }
     input, textarea, select {
       font-size: 16px !important;
-      min-height: 44px !important;
     }
-
-    /* Tombol */
-    button { min-height: 44px !important; }
   </style>
 </head>
 <body>
-  <script>
-    // Patch SplitPane sebelum CMS load
-    window.__cms_disable_split_pane__ = true;
-    
-    // Override ResizeObserver untuk cegah collapse
-    const _ResizeObserver = window.ResizeObserver;
-    window.ResizeObserver = class extends _ResizeObserver {
-      constructor(cb) {
-        super(cb);
-      }
-    };
-  </script>
-  <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
-  <script>
-    // Force show editor setelah CMS load
-    function forceShowEditor() {
-      // Cari semua Pane1 dan paksa tampil
-      document.querySelectorAll('.Pane1, [class*="Pane1"]').forEach(el => {
-        el.style.cssText = 'width:100%!important;position:static!important;height:auto!important;';
-      });
-      // Sembunyikan Pane2
-      document.querySelectorAll('.Pane2, [class*="Pane2"], [class*="PreviewPane"]').forEach(el => {
-        el.style.cssText = 'display:none!important;width:0!important;';
-      });
-      // Sembunyikan Resizer
-      document.querySelectorAll('.Resizer').forEach(el => {
-        el.style.display = 'none';
-      });
-    }
-
-    // Jalankan berkali-kali setelah load
-    setTimeout(forceShowEditor, 500);
-    setTimeout(forceShowEditor, 1000);
-    setTimeout(forceShowEditor, 2000);
-    setTimeout(forceShowEditor, 3000);
-
-    // Observer untuk deteksi perubahan DOM
-    const observer = new MutationObserver(forceShowEditor);
-    observer.observe(document.body, { childList: true, subtree: true });
-  </script>
+  <script src="https://unpkg.com/decap-cms@2.10.192/dist/decap-cms.js"></script>
 </body>
 </html>
