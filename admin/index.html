@@ -8,11 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/admin/cms-mobile.css?v=3" />
+  <link rel="stylesheet" href="/admin/cms-mobile.css?v=4" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    html { font-size: 14px; -webkit-text-size-adjust: 100%; }
-    body { margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
+
+    /* Shell loading */
     #cms-shell {
       position: fixed; inset: 0; background: #0a0a0a;
       display: flex; flex-direction: column; z-index: 9999;
@@ -21,13 +22,13 @@
     #cms-shell.hidden { opacity: 0; pointer-events: none; z-index: -1; }
     .shell-bar {
       height: 48px; background: #0a0a0a; border-bottom: 1px solid #1e1e1e;
-      display: flex; align-items: center; gap: 10px; padding: 0 16px;
+      display: flex; align-items: center; gap: 10px; padding: 0 16px; flex-shrink: 0;
     }
     .shell-logo {
       width: 24px; height: 24px; border-radius: 5px;
       background: linear-gradient(135deg,#c9a84c,#e8c97a);
       display: flex; align-items: center; justify-content: center;
-      font-size: 10px; font-weight: 800; color: #0a0a0a;
+      font-size: 10px; font-weight: 800; color: #0a0a0a; flex-shrink: 0;
     }
     .shell-name { font-size: 13px; font-weight: 600; color: #f0f0f0; }
     .shell-sub  { font-size: 11px; color: #555; }
@@ -63,160 +64,220 @@
 <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
 
 <script>
-(function() {
+(function () {
   'use strict';
 
-  var MOBILE = window.matchMedia('(max-width: 1023px)');
+  var IS_MOBILE = window.innerWidth < 1024;
 
-  // ── 1. Sembunyikan shell setelah Decap mount ──────────────
-  var attempts = 0;
-  var shellTimer = setInterval(function() {
-    attempts++;
+  /* ── 1. Hide shell ─────────────────────────────────────── */
+  var shellTries = 0;
+  var shellTimer = setInterval(function () {
+    shellTries++;
     var root = document.getElementById('nc-root');
-    if ((root && root.children.length > 0) || attempts > 160) {
+    if ((root && root.children.length > 0) || shellTries > 160) {
       clearInterval(shellTimer);
-      var shell = document.getElementById('cms-shell');
-      if (shell) shell.classList.add('hidden');
+      var s = document.getElementById('cms-shell');
+      if (s) s.classList.add('hidden');
     }
   }, 50);
 
-  // ── 2. Inject <style> mobile fix ─────────────────────────
-  // Lebih kuat dari CSS file karena dijalankan setelah Decap mount
-  // dan menggunakan !important pada selector yang lebih spesifik.
-  function injectMobileFix() {
-    if (!MOBILE.matches) return;
+  if (!IS_MOBILE) return; // Desktop: tidak perlu fix
 
-    var st = document.getElementById('cms-mobile-js-fix');
-    if (!st) {
-      st = document.createElement('style');
-      st.id = 'cms-mobile-js-fix';
-      document.head.appendChild(st);
+  /* ── 2. Core fixer — scan seluruh DOM, perbaiki layout ── */
+  /*
+   * Strategi:
+   * Decap merender struktur kira-kira:
+   *   #nc-root
+   *     div (app root)
+   *       header
+   *       div (main wrapper) ← ini yang flex-row, lebar sidebar ~220-280px
+   *         nav/div (sidebar)
+   *         div (content)
+   *
+   * Kita tidak tahu class-nya, jadi kita:
+   * 1. Cari elemen yang punya dua anak dengan lebar < 60% viewport (= side by side)
+   * 2. Paksa parent jadi flex-column
+   * 3. Paksa kedua anak jadi width: 100%
+   * 4. Hapus/override semua inline width yang bukan 100%
+   */
+
+  var VW = window.innerWidth;
+
+  function fixEl(el) {
+    if (!el || el.nodeType !== 1) return;
+
+    var cs = window.getComputedStyle(el);
+    var w  = el.offsetWidth;
+
+    // Elemen yang lebarnya < 70% viewport kemungkinan sidebar atau panel
+    // Paksa jadi full width
+    if (w > 0 && w < VW * 0.85) {
+      el.style.setProperty('width',     '100%',      'important');
+      el.style.setProperty('max-width', '100vw',     'important');
+      el.style.setProperty('min-width', '0',         'important');
+      el.style.setProperty('flex',      '1 1 100%',  'important');
     }
 
-    st.textContent = [
-
-      /* ── Global ── */
-      'html,body{overflow-x:hidden!important;width:100%!important;max-width:100vw!important;}',
-      '#nc-root,#nc-root>div{overflow-x:hidden!important;max-width:100vw!important;width:100%!important;}',
-
-      /* ── App layout: paksa column (sidebar di atas, konten di bawah) ── */
-      /* Decap biasanya pakai flex row untuk sidebar+main. Kita balik jadi column. */
-      '#nc-root>div>div{display:flex!important;flex-direction:column!important;width:100%!important;min-height:100vh!important;}',
-
-      /* ── Semua div langsung di bawah nc-root: lebar penuh ── */
-      '#nc-root *{max-width:100vw!important;min-width:0!important;}',
-
-      /* ── Sidebar / nav ── */
-      /* Kita beri max-height agar tidak makan seluruh layar */
-      '[class*="Sidebar"],[class*="sidebar"]{' +
-        'width:100%!important;max-width:100vw!important;' +
-        'flex-direction:row!important;flex-wrap:wrap!important;' +
-        'max-height:none!important;}',
-
-      /* Nav list — tampilkan horizontal scroll jika banyak item */
-      '[class*="Nav"],[class*="NavList"],[class*="navList"]{' +
-        'display:flex!important;flex-direction:row!important;' +
-        'overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;' +
-        'width:100%!important;gap:0!important;padding:0!important;' +
-        'scrollbar-width:none!important;}',
-      '[class*="Nav"]::-webkit-scrollbar{display:none!important;}',
-
-      /* Nav item — compact pill */
-      '[class*="NavLink"],[class*="navLink"],[class*="Nav"] a{' +
-        'white-space:nowrap!important;flex-shrink:0!important;' +
-        'padding:8px 14px!important;font-size:13px!important;' +
-        'min-height:42px!important;display:flex!important;align-items:center!important;}',
-
-      /* ── Main content area ── */
-      '[class*="Page"],[class*="CollectionPage"],[class*="EditorContainer"],' +
-      '[class*="MainView"],[class*="Content"]{' +
-        'width:100%!important;max-width:100vw!important;' +
-        'min-width:0!important;overflow-x:hidden!important;flex:1!important;}',
-
-      /* ── Split pane (editor) ── */
-      '.SplitPane{position:relative!important;height:auto!important;' +
-        'display:flex!important;flex-direction:column!important;}',
-      '.SplitPane>.Pane1{width:100%!important;height:auto!important;flex:1!important;}',
-      '.SplitPane>.Pane2{display:none!important;width:0!important;overflow:hidden!important;}',
-      '.SplitPane>.Resizer{display:none!important;}',
-      '[class*="PreviewPane"],[class*="previewPane"]{display:none!important;width:0!important;}',
-      '[class*="ControlPane"],[class*="controlPane"]{width:100%!important;max-width:100%!important;}',
-
-      /* ── Form ── */
-      'input,textarea,select{font-size:14px!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;}',
-
-      /* ── Image preview ── */
-      '[class*="ImagePreview"],[class*="imagePreview"],[class*="ImageWrapper"],[class*="imageWrapper"]{' +
-        'max-height:200px!important;width:100%!important;display:flex!important;' +
-        'align-items:center!important;justify-content:center!important;' +
-        'overflow:hidden!important;background:#f0f0f0!important;}',
-      '[class*="ImagePreview"] img,[class*="imagePreview"] img,' +
-      '[class*="ImageWrapper"] img,[class*="imageWrapper"] img{' +
-        'max-height:200px!important;width:auto!important;max-width:100%!important;' +
-        'object-fit:contain!important;}',
-
-      /* ── Modal ── */
-      '[class*="Modal"],[class*="modal"]{' +
-        'width:100vw!important;max-width:100vw!important;' +
-        'left:0!important;right:0!important;box-sizing:border-box!important;}',
-
-    ].join('\n');
-  }
-
-  injectMobileFix();
-  setTimeout(injectMobileFix, 500);
-  setTimeout(injectMobileFix, 1500);
-  setTimeout(injectMobileFix, 3000);
-
-  // ── 3. Observer: patch inline style dari Decap/SplitPane ──
-  function patchNode(node) {
-    if (!MOBILE.matches || !node || node.nodeType !== 1) return;
-    var cl = node.classList;
-    if (!cl) return;
-
-    if (cl.contains('Pane1')) {
-      node.style.setProperty('width',  '100%',  'important');
-      node.style.setProperty('height', 'auto',   'important');
-      node.style.setProperty('flex',   '1',       'important');
-    }
-    if (cl.contains('Pane2') || cl.contains('Resizer')) {
-      node.style.setProperty('display', 'none', 'important');
-      node.style.setProperty('width',   '0',    'important');
-    }
-    if (cl.contains('SplitPane')) {
-      node.style.setProperty('position', 'relative', 'important');
-      node.style.setProperty('height',   'auto',      'important');
-    }
-  }
-
-  var observer = new MutationObserver(function(mutations) {
-    if (!MOBILE.matches) return;
-    mutations.forEach(function(m) {
-      m.addedNodes.forEach(function(n) {
-        patchNode(n);
-        if (n.querySelectorAll) {
-          n.querySelectorAll('.Pane1,.Pane2,.Resizer,.SplitPane').forEach(patchNode);
-        }
+    // Elemen yang display flex/grid dengan row direction → paksa column
+    var display = cs.display;
+    var flexDir = cs.flexDirection;
+    if ((display === 'flex' || display === 'inline-flex') &&
+        flexDir !== 'column' && flexDir !== 'column-reverse') {
+      // Cek apakah anak-anaknya side by side (keduanya < VW)
+      var children = Array.prototype.slice.call(el.children);
+      var sideBySide = children.length >= 2 && children.every(function(c) {
+        return c.offsetWidth > 0 && c.offsetWidth < VW * 0.9;
       });
-      if (m.type === 'attributes') patchNode(m.target);
-    });
+      if (sideBySide) {
+        el.style.setProperty('flex-direction', 'column', 'important');
+        el.style.setProperty('width',          '100%',   'important');
+        children.forEach(function(c) {
+          c.style.setProperty('width',     '100%',     'important');
+          c.style.setProperty('max-width', '100vw',    'important');
+          c.style.setProperty('min-width', '0',        'important');
+          c.style.setProperty('flex',      '1 1 100%', 'important');
+          c.style.setProperty('position',  'relative', 'important');
+          c.style.setProperty('height',    'auto',     'important');
+        });
+      }
+    }
+
+    // Grid display → paksa 1 kolom
+    if (display === 'grid') {
+      var cols = cs.gridTemplateColumns;
+      // Jika lebih dari 1 kolom dan bukan kolom tunggal
+      if (cols && cols.split(' ').filter(function(x){return x.trim();}).length > 1) {
+        // Hanya fix jika ini bukan media grid (gambar-gambar kecil)
+        // Media grid biasanya punya banyak kolom sama ukuran
+        var firstChild = el.firstElementChild;
+        if (firstChild && firstChild.offsetWidth > VW * 0.3) {
+          el.style.setProperty('grid-template-columns', '1fr', 'important');
+        }
+      }
+    }
+
+    // Inline width yang tidak 100% → override
+    var inlineW = el.style.width;
+    if (inlineW && inlineW !== '100%' && inlineW !== 'auto' &&
+        inlineW !== '' && !inlineW.endsWith('px') === false) {
+      // Hanya override jika bukan pixel kecil (tombol, icon)
+      var px = parseInt(inlineW);
+      if (!isNaN(px) && px > 100) {
+        el.style.setProperty('width', '100%', 'important');
+      }
+    }
+    // Inline width dalam % yang bukan 100%
+    if (inlineW && inlineW.endsWith('%') && inlineW !== '100%') {
+      el.style.setProperty('width', '100%', 'important');
+    }
+  }
+
+  function fixSplitPane() {
+    // SplitPane spesifik — pakai class name yang diketahui
+    var pane1 = document.querySelector('.Pane1');
+    var pane2 = document.querySelector('.Pane2');
+    var resizer = document.querySelector('.Resizer');
+    var split = document.querySelector('.SplitPane');
+
+    if (split) {
+      split.style.setProperty('position', 'relative', 'important');
+      split.style.setProperty('height', 'auto', 'important');
+      split.style.setProperty('display', 'flex', 'important');
+      split.style.setProperty('flex-direction', 'column', 'important');
+    }
+    if (pane1) {
+      pane1.style.setProperty('width', '100%', 'important');
+      pane1.style.setProperty('height', 'auto', 'important');
+      pane1.style.setProperty('position', 'relative', 'important');
+    }
+    if (pane2) {
+      pane2.style.setProperty('display', 'none', 'important');
+      pane2.style.setProperty('width', '0', 'important');
+    }
+    if (resizer) {
+      resizer.style.setProperty('display', 'none', 'important');
+    }
+  }
+
+  function runFix() {
+    if (!IS_MOBILE) return;
+
+    // Fix nc-root dan keturunan langsung dulu
+    var root = document.getElementById('nc-root');
+    if (!root) return;
+
+    // Scan semua elemen di DOM
+    var all = root.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      fixEl(all[i]);
+    }
+
+    // SplitPane khusus
+    fixSplitPane();
+
+    // Override umum: pastikan tidak ada elemen yang lebih lebar dari viewport
+    var tooWide = root.querySelectorAll('*');
+    for (var j = 0; j < tooWide.length; j++) {
+      var el = tooWide[j];
+      if (el.scrollWidth > VW + 5) {
+        el.style.setProperty('max-width', '100vw', 'important');
+        el.style.setProperty('overflow-x', 'hidden', 'important');
+      }
+    }
+  }
+
+  // Jalankan beberapa kali setelah Decap mount
+  setTimeout(runFix, 600);
+  setTimeout(runFix, 1200);
+  setTimeout(runFix, 2500);
+
+  // ── 3. Observer untuk perubahan DOM ──────────────────────
+  var fixDebounce = null;
+  var observer = new MutationObserver(function (mutations) {
+    if (!IS_MOBILE) return;
+    clearTimeout(fixDebounce);
+    fixDebounce = setTimeout(function () {
+      fixSplitPane();
+      // Fix elemen yang baru ditambahkan saja (lebih efisien)
+      mutations.forEach(function (m) {
+        m.addedNodes.forEach(function (n) {
+          if (n.nodeType === 1) {
+            fixEl(n);
+            if (n.querySelectorAll) {
+              var kids = n.querySelectorAll('*');
+              for (var k = 0; k < kids.length; k++) fixEl(kids[k]);
+            }
+          }
+        });
+        if (m.type === 'attributes') fixEl(m.target);
+      });
+    }, 100);
   });
 
-  document.addEventListener('DOMContentLoaded', function() {
-    observer.observe(document.body || document.documentElement, {
-      childList: true, subtree: true,
-      attributes: true, attributeFilter: ['style','class']
-    });
+  var waitForBody = setInterval(function () {
+    if (document.body) {
+      clearInterval(waitForBody);
+      observer.observe(document.body, {
+        childList: true, subtree: true,
+        attributes: true, attributeFilter: ['style', 'class']
+      });
+    }
+  }, 100);
+
+  // ── 4. Re-run saat navigasi (hash change) ────────────────
+  window.addEventListener('hashchange', function () {
+    setTimeout(runFix, 400);
+    setTimeout(runFix, 900);
   });
 
-  // ── 4. Toggle preview saat buka editor ───────────────────
+  // ── 5. Toggle preview pane saat masuk editor ─────────────
   var lastUrl = '', toggled = false;
-  setInterval(function() {
+  setInterval(function () {
     var url = location.href;
     if (url !== lastUrl) { lastUrl = url; toggled = false; }
-    if (!toggled && MOBILE.matches && (url.includes('/edit/') || url.includes('/new'))) {
-      setTimeout(function() {
-        document.querySelectorAll('button').forEach(function(b) {
+    if (!toggled && (url.includes('/edit/') || url.includes('/new'))) {
+      setTimeout(function () {
+        document.querySelectorAll('button').forEach(function (b) {
           var lbl = (b.getAttribute('aria-label') || b.title || '').toLowerCase();
           if (lbl.includes('toggle') || lbl.includes('preview')) {
             var p2 = document.querySelector('.Pane2');
@@ -224,6 +285,7 @@
           }
         });
         toggled = true;
+        setTimeout(runFix, 300);
       }, 700);
     }
   }, 300);
