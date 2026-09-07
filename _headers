@@ -1,0 +1,17 @@
+# Cloudflare Pages _headers
+# Pastikan file admin di-serve dengan MIME type yang benar
+
+/admin/config.yml
+  Content-Type: text/yaml; charset=utf-8
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/admin/index.html
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/admin/cms-mobile.css
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/admin/*
+  Cache-Control: no-cache, no-store, must-revalidate

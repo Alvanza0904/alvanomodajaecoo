@@ -1,0 +1,5 @@
+# Redirect www → non-www
+https://www.omodajaecoopalembang.web.id/* https://omodajaecoopalembang.web.id/:splat 301!
+
+# Pastikan /admin → /admin/index.html (bukan SPA fallback)
+/admin /admin/index.html 200
