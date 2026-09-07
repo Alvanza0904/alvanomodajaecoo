@@ -10,7 +10,6 @@ public_folder: /assets/images
 
 collections:
 
-  # ── BERITA (existing, tidak berubah) ──────────────────────────
   - name: berita
     label: "📰 Berita"
     folder: berita
@@ -27,50 +26,45 @@ collections:
       - { label: Tampilkan CTA Simulasi Kredit, name: show_kredit_cta, widget: boolean, default: false }
       - { label: Konten, name: body, widget: markdown }
 
-  # ── HOMEPAGE ─────────────────────────────────────────────────
   - name: foto_homepage
     label: "🏠 Homepage"
-    folder: content/images/homepage
+    folder: content/homepage
     create: false
     fields:
       - { label: Nama Section, name: title, widget: string }
       - { label: Gambar, name: image, widget: image }
       - { label: Alt Text, name: alt, widget: string }
 
-  # ── JAECOO J5 ────────────────────────────────────────────────
   - name: foto_j5
     label: "🚗 JAECOO J5"
-    folder: content/images/jaecoo-j5
+    folder: content/jaecoo-j5
     create: false
     fields:
       - { label: Nama Section, name: title, widget: string }
       - { label: Gambar, name: image, widget: image }
       - { label: Alt Text, name: alt, widget: string }
 
-  # ── JAECOO J7 ────────────────────────────────────────────────
   - name: foto_j7
     label: "🚙 JAECOO J7"
-    folder: content/images/jaecoo-j7
+    folder: content/jaecoo-j7
     create: false
     fields:
       - { label: Nama Section, name: title, widget: string }
       - { label: Gambar, name: image, widget: image }
       - { label: Alt Text, name: alt, widget: string }
 
-  # ── JAECOO J8 ────────────────────────────────────────────────
   - name: foto_j8
     label: "🏔️ JAECOO J8"
-    folder: content/images/jaecoo-j8
+    folder: content/jaecoo-j8
     create: false
     fields:
       - { label: Nama Section, name: title, widget: string }
       - { label: Gambar, name: image, widget: image }
       - { label: Alt Text, name: alt, widget: string }
 
-  # ── OMODA O4 ─────────────────────────────────────────────────
   - name: foto_o4
     label: "⚡ OMODA O4"
-    folder: content/images/omoda-o4
+    folder: content/omoda-o4
     create: false
     fields:
       - { label: Nama Section, name: title, widget: string }
