@@ -5,38 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CMS — OMODA JAECOO Palembang</title>
   <style>
-    /* Hide preview, force editor */
-    [class*="PreviewPane"],
-    [class*="StyledPreviewContent"],
-    [class*="EditorPreviewPane"],
-    [class*="PreviewContainer"] {
-      display: none !important;
-    }
-    [class*="ControlPane"],
-    [class*="EditorControlPane"] {
-      width: 100% !important;
-      min-width: 100% !important;
-      left: 0 !important;
-      position: relative !important;
-    }
-    .Pane2 { display: none !important; }
-    .Pane1 {
-      width: 100% !important;
-      position: relative !important;
-      height: auto !important;
-    }
-    .SplitPane {
-      position: relative !important;
-      height: auto !important;
-      overflow: visible !important;
-    }
-    .Resizer { display: none !important; }
-    input, textarea, select {
-      font-size: 16px !important;
-    }
+    .Pane2, .Resizer { display: none !important; }
+    .Pane1 { width: 100% !important; }
+    .SplitPane { position: relative !important; height: auto !important; }
+    input, textarea, select { font-size: 16px !important; }
   </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@2.10.192/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
+  <script>
+    // Klik tombol toggle editor otomatis saat masuk halaman edit
+    function clickEditorToggle() {
+      // Tombol mata = toggle ke editor
+      var btns = document.querySelectorAll('button[aria-label="Toggle editor"]');
+      if (!btns.length) btns = document.querySelectorAll('button svg[class*="eye"], button svg[class*="Eye"]');
+      if (!btns.length) {
+        // Cari semua button kecil bulat di kanan
+        var allBtns = document.querySelectorAll('button');
+        allBtns.forEach(function(b) {
+          var style = window.getComputedStyle(b);
+          if (b.offsetWidth < 60 && b.offsetHeight < 60) b.click();
+        });
+      }
+      btns.forEach(function(b) { b.click(); });
+    }
+
+    // Jalankan setelah navigasi ke halaman edit
+    var lastUrl = '';
+    setInterval(function() {
+      var url = location.href;
+      if (url !== lastUrl) {
+        lastUrl = url;
+        if (url.includes('/edit/') || url.includes('/new')) {
+          setTimeout(clickEditorToggle, 800);
+          setTimeout(clickEditorToggle, 1500);
+        }
+      }
+    }, 300);
+  </script>
 </body>
 </html>
