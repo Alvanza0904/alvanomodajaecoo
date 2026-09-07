@@ -1,299 +1,96 @@
 <!doctype html>
-<html lang="id">
+<html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <title>Admin — OMODA JAECOO Palembang</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>CMS — OMODA JAECOO Palembang</title>
+  <link rel="stylesheet" href="cms-mobile.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body {
-      margin: 0; padding: 0;
-      overflow-x: hidden;
-      width: 100%; max-width: 100vw;
-      font-family: 'Inter', system-ui, sans-serif;
+    /* ============================================================
+       BASE RESET — Cegah horizontal overflow
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box !important;
     }
 
-    /* ── Shell loading ─────────────────────────────────── */
-    #cms-shell {
-      position: fixed; inset: 0; background: #0a0a0a;
-      display: flex; flex-direction: column; z-index: 9999;
-      transition: opacity 0.3s ease;
+    html {
+      overflow-x: hidden !important;
+      -webkit-text-size-adjust: 100%;
     }
-    #cms-shell.hidden { opacity: 0; pointer-events: none; z-index: -1; }
-    .shell-bar {
-      height: 48px; background: #0a0a0a; border-bottom: 1px solid #1e1e1e;
-      display: flex; align-items: center; gap: 10px; padding: 0 16px; flex-shrink: 0;
-    }
-    .shell-logo {
-      width: 24px; height: 24px; border-radius: 5px;
-      background: linear-gradient(135deg,#c9a84c,#e8c97a);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 10px; font-weight: 800; color: #0a0a0a; flex-shrink: 0;
-    }
-    .shell-name { font-size: 13px; font-weight: 600; color: #f0f0f0; }
-    .shell-sub  { font-size: 11px; color: #555; }
-    .shell-body {
-      flex: 1; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 14px;
-    }
-    .shell-spinner {
-      width: 30px; height: 30px; border: 2px solid #1e1e1e;
-      border-top-color: #c9a84c; border-radius: 50%;
-      animation: spin .7s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .shell-status { font-size: 12px; color: #444; }
 
-    /* ── MOBILE OVERRIDE — hanya untuk layar < 1024px ─── */
-    @media (max-width: 1023px) {
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      font-size: 14px !important;
+    }
 
-      /* Reset semua width yang mungkin di-set */
-      #nc-root, #nc-root * {
-        max-width: 100vw !important;
-      }
+    img, video, iframe, canvas, svg {
+      max-width: 100% !important;
+    }
 
-      /* SplitPane — class ini stabil di semua versi Decap */
-      .SplitPane {
-        position: relative !important;
-        height: auto !important;
-      }
-      .Pane1 {
-        width: 100% !important;
-        height: auto !important;
-        position: relative !important;
-      }
-      .Pane2, .Resizer {
-        display: none !important;
-      }
+    /* ============================================================
+       NC-ROOT — Root container Decap CMS
+       ============================================================ */
+    #nc-root {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
 
-      /*
-       * Layout utama Decap v3:
-       * Decap pakai inline style "width: 220px" pada nav
-       * dan "width: calc(100% - 220px)" pada content.
-       * CSS tidak bisa override inline style kecuali pakai !important
-       * DAN selector yang lebih spesifik.
-       *
-       * Tapi ada cara lain: gunakan CSS transform pada PARENT
-       * untuk paksa layout jadi column tanpa menyentuh child.
-       *
-       * Atau: gunakan position absolute/fixed workaround.
-       *
-       * Paling efektif: override via <style> tag yang diinject
-       * dengan id unik SETELAH styled-components Decap.
-       */
+    #nc-root > div {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
+
+    /* ============================================================
+       SPLIT PANE — Sembunyikan preview pane, paksa editor full-width
+       ============================================================ */
+    .SplitPane {
+      position: relative !important;
+      height: auto !important;
+      overflow: visible !important;
+      display: block !important;
+    }
+
+    .SplitPane > .Pane1 {
+      width: 100% !important;
+      height: auto !important;
+      position: relative !important;
+      overflow: visible !important;
+    }
+
+    .SplitPane > .Resizer {
+      display: none !important;
+    }
+
+    .SplitPane > .Pane2 {
+      display: none !important;
     }
   </style>
 </head>
 <body>
-
-<div id="cms-shell">
-  <div class="shell-bar">
-    <div class="shell-logo">OJ</div>
-    <div>
-      <div class="shell-name">OMODA JAECOO Palembang</div>
-      <div class="shell-sub">Admin Panel</div>
-    </div>
-  </div>
-  <div class="shell-body">
-    <div class="shell-spinner"></div>
-    <div class="shell-status">Memuat CMS…</div>
-  </div>
-</div>
-
-<script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
-
-<script>
-(function () {
-  'use strict';
-
-  var MOBILE = window.innerWidth < 1024;
-
-  /* ── 1. Hide shell ──────────────────────────────────── */
-  var shellTries = 0;
-  var shellTimer = setInterval(function () {
-    shellTries++;
-    var root = document.getElementById('nc-root');
-    if ((root && root.children.length > 0) || shellTries > 200) {
-      clearInterval(shellTimer);
-      var s = document.getElementById('cms-shell');
-      if (s) s.classList.add('hidden');
-      if (MOBILE) startFixer();
-    }
-  }, 50);
-
-  if (!MOBILE) return;
-
-  /* ── 2. Targeted fixer ──────────────────────────────── */
-  /*
-   * Pendekatan bersih:
-   * - HANYA sentuh elemen dengan inline style width yang bukan 100%
-   * - JANGAN sentuh elemen lain sama sekali
-   * - Identifikasi sidebar dari lebar fixed (biasanya 220px atau 240px)
-   * - Identifikasi content wrapper dari calc() atau persentase
-   */
-
-  function fixLayout() {
-    var root = document.getElementById('nc-root');
-    if (!root) return;
-
-    var VW = window.innerWidth;
-
-    // Scan semua elemen, cari yang punya inline width bukan auto/100%
-    var all = root.querySelectorAll('*');
-    for (var i = 0; i < all.length; i++) {
-      var el = all[i];
-      var sw = el.style.width;
-      if (!sw || sw === '' || sw === 'auto' || sw === '100%') continue;
-
-      // Sidebar: inline width pixel antara 150-350px
-      if (sw.endsWith('px')) {
-        var px = parseInt(sw);
-        if (px >= 150 && px <= 350 && el.offsetHeight > 200) {
-          // Ini kemungkinan sidebar — jadikan full width
-          el.style.setProperty('width', '100%', 'important');
-          el.style.setProperty('max-width', '100vw', 'important');
-          el.style.setProperty('position', 'relative', 'important');
-          el.style.setProperty('height', 'auto', 'important');
-
-          // Fix parent juga: pastikan flex-direction column
-          var parent = el.parentElement;
-          if (parent) {
-            parent.style.setProperty('flex-direction', 'column', 'important');
-            parent.style.setProperty('width', '100%', 'important');
-            parent.style.setProperty('overflow-x', 'hidden', 'important');
-
-            // Fix semua saudara (sibling) di parent yang sama
-            var siblings = parent.children;
-            for (var s = 0; s < siblings.length; s++) {
-              siblings[s].style.setProperty('width', '100%', 'important');
-              siblings[s].style.setProperty('max-width', '100vw', 'important');
-              siblings[s].style.setProperty('min-width', '0', 'important');
-              siblings[s].style.setProperty('position', 'relative', 'important');
-              siblings[s].style.setProperty('height', 'auto', 'important');
-              siblings[s].style.setProperty('flex', '1 1 auto', 'important');
-            }
-          }
+  <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
+  <script>
+    // Auto-dismiss preview toggle pada halaman editor
+    var lastUrl = '';
+    setInterval(function() {
+      var url = location.href;
+      if (url !== lastUrl) {
+        lastUrl = url;
+        if (url.includes('/edit/') || url.includes('/new')) {
+          setTimeout(function() {
+            // Coba sembunyikan preview pane jika muncul
+            var pane2 = document.querySelector('.Pane2');
+            if (pane2) pane2.style.display = 'none';
+            var resizer = document.querySelector('.Resizer');
+            if (resizer) resizer.style.display = 'none';
+            var pane1 = document.querySelector('.Pane1');
+            if (pane1) { pane1.style.width = '100%'; pane1.style.flex = 'none'; }
+          }, 500);
         }
       }
-
-      // Content wrapper: calc(100% - Xpx)
-      if (sw.startsWith('calc(')) {
-        el.style.setProperty('width', '100%', 'important');
-        el.style.setProperty('max-width', '100vw', 'important');
-        el.style.setProperty('min-width', '0', 'important');
-      }
-
-      // Persentase bukan 100%
-      if (sw.endsWith('%') && sw !== '100%') {
-        var pct = parseFloat(sw);
-        if (pct > 20) { // Skip yang kecil (mungkin padding/progress)
-          el.style.setProperty('width', '100%', 'important');
-        }
-      }
-    }
-
-    // SplitPane fix
-    var p1 = document.querySelector('.Pane1');
-    var p2 = document.querySelector('.Pane2');
-    var rs = document.querySelector('.Resizer');
-    var sp = document.querySelector('.SplitPane');
-    if (sp) {
-      sp.style.setProperty('position', 'relative', 'important');
-      sp.style.setProperty('height', 'auto', 'important');
-    }
-    if (p1) {
-      p1.style.setProperty('width', '100%', 'important');
-      p1.style.setProperty('height', 'auto', 'important');
-    }
-    if (p2) p2.style.setProperty('display', 'none', 'important');
-    if (rs) rs.style.setProperty('display', 'none', 'important');
-  }
-
-  function startFixer() {
-    // Jalankan fix dengan delay bertahap
-    setTimeout(fixLayout, 300);
-    setTimeout(fixLayout, 800);
-    setTimeout(fixLayout, 1800);
-
-    // Observer: hanya watch perubahan attribute style
-    var debounce = null;
-    var obs = new MutationObserver(function (muts) {
-      clearTimeout(debounce);
-      debounce = setTimeout(function () {
-        // Hanya fix elemen yang baru berubah style-nya
-        muts.forEach(function (m) {
-          if (m.type === 'attributes' && m.attributeName === 'style') {
-            var el = m.target;
-            var sw = el.style.width;
-            if (sw && sw !== '' && sw !== 'auto' && sw !== '100%') {
-              if (sw.endsWith('px')) {
-                var px = parseInt(sw);
-                if (px >= 150 && px <= 350) {
-                  el.style.setProperty('width', '100%', 'important');
-                  var parent = el.parentElement;
-                  if (parent) {
-                    parent.style.setProperty('flex-direction', 'column', 'important');
-                    var sibs = parent.children;
-                    for (var s = 0; s < sibs.length; s++) {
-                      sibs[s].style.setProperty('width', '100%', 'important');
-                      sibs[s].style.setProperty('min-width', '0', 'important');
-                    }
-                  }
-                }
-              }
-              if (sw.startsWith('calc(') || (sw.endsWith('%') && sw !== '100%')) {
-                el.style.setProperty('width', '100%', 'important');
-              }
-            }
-          }
-        });
-        // Tetap fix SplitPane
-        var p1 = document.querySelector('.Pane1');
-        var p2 = document.querySelector('.Pane2');
-        if (p1) p1.style.setProperty('width', '100%', 'important');
-        if (p2) p2.style.setProperty('display', 'none', 'important');
-      }, 80);
-    });
-
-    obs.observe(document.body, {
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['style']
-    });
-  }
-
-  // Re-run saat navigasi
-  window.addEventListener('hashchange', function () {
-    setTimeout(fixLayout, 400);
-    setTimeout(fixLayout, 1000);
-  });
-
-  // Toggle preview pane saat editor
-  var lastUrl = '', toggled = false;
-  setInterval(function () {
-    var url = location.href;
-    if (url !== lastUrl) { lastUrl = url; toggled = false; }
-    if (!toggled && (url.includes('/edit/') || url.includes('/new'))) {
-      setTimeout(function () {
-        document.querySelectorAll('button').forEach(function (b) {
-          var lbl = (b.getAttribute('aria-label') || b.title || '').toLowerCase();
-          if (lbl.includes('toggle') || lbl.includes('preview')) {
-            var p2 = document.querySelector('.Pane2');
-            if (p2 && getComputedStyle(p2).display !== 'none') b.click();
-          }
-        });
-        toggled = true;
-      }, 700);
-    }
-  }, 300);
-
-})();
-</script>
-
+    }, 300);
+  </script>
 </body>
 </html>

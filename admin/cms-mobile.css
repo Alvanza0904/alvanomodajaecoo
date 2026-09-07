@@ -1,1039 +1,832 @@
 /*
- * cms-mobile.css — OMODA JAECOO Palembang Admin
- * Mobile-first UI override untuk Decap CMS v3
- *
- * Prinsip:
- *  - Tidak ada zoom, scale, atau transform global
- *  - Setiap komponen punya ukuran yang benar-benar mobile
- *  - Touch target minimum 44px
- *  - Compact ≠ terlalu kecil
- *  - Desktop tetap berfungsi baik
- *
- * Root font: 14px (di index.html)
- * Breakpoints:
- *   mobile: default (sampai 767px)
- *   tablet: 768–1023px
- *   desktop: 1024px+
+ * cms-mobile.css
+ * Mobile Portrait CSS untuk Decap CMS — OMODA JAECOO Palembang
+ * Versi: 2.0
+ * Target: 360–414px portrait, satu kolom, no horizontal scroll
  */
 
-/* ═══════════════════════════════════════════════════════════════
-   TOKEN SYSTEM
-   ═══════════════════════════════════════════════════════════════ */
+/* ============================================================
+   SECTION 1: GLOBAL RESET — Berlaku di semua ukuran layar
+   ============================================================ */
 
-:root {
-  /* Brand colors */
-  --gold:         #c9a84c;
-  --gold-light:   #e8c97a;
-  --gold-dim:     #7a6330;
-
-  /* Dark palette (sidebar, header) */
-  --dark-900:     #0a0a0a;
-  --dark-800:     #111111;
-  --dark-700:     #1a1a1a;
-  --dark-600:     #222222;
-  --dark-500:     #2e2e2e;
-  --dark-400:     #3d3d3d;
-  --dark-300:     #555555;
-
-  /* Light palette (content area) */
-  --bg:           #f5f5f5;
-  --surface:      #ffffff;
-  --border:       #e2e2e2;
-  --border-dark:  #d0d0d0;
-
-  /* Text */
-  --text-primary:   #1a1a1a;
-  --text-secondary: #555555;
-  --text-muted:     #888888;
-  --text-on-dark:   #f0f0f0;
-  --text-on-dark-2: #aaaaaa;
-
-  /* Feedback */
-  --success:  #22863a;
-  --warning:  #d97706;
-  --error:    #dc2626;
-
-  /* Spacing — compact scale */
-  --sp-1: 4px;
-  --sp-2: 8px;
-  --sp-3: 12px;
-  --sp-4: 16px;
-  --sp-5: 20px;
-  --sp-6: 24px;
-
-  /* Input/button height */
-  --input-h:  44px;
-  --btn-h:    44px;
-
-  /* Radius */
-  --radius-sm: 4px;
-  --radius:    6px;
-  --radius-lg: 10px;
-
-  /* Shadow */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow:    0 2px 8px rgba(0,0,0,0.10);
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   GLOBAL RESETS — Cegah overflow & elemen nge-zoom
-   ═══════════════════════════════════════════════════════════════ */
-
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-  width: 100% !important;
-  max-width: 100vw !important;
-}
-
-/* Cegah semua elemen meluber */
-#nc-root,
-#nc-root * {
+*, *::before, *::after {
   box-sizing: border-box !important;
 }
 
-#nc-root {
+html, body {
   overflow-x: hidden !important;
   max-width: 100vw !important;
 }
 
-
-/* ═══════════════════════════════════════════════════════════════
-   APP CONTAINER
-   ═══════════════════════════════════════════════════════════════ */
-
-[class*="App__Container"],
-[class*="AppContainer"],
-[class*="nc-app"] {
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: 100vh !important;
-  overflow-x: hidden !important;
+img {
+  max-width: 100% !important;
+  height: auto;
 }
 
-
-/* ═══════════════════════════════════════════════════════════════
-   TOP NAVIGATION — App header & sidebar nav
-   ═══════════════════════════════════════════════════════════════ */
-
-/* Header bar utama Decap */
-[class*="AppHeader"],
-[class*="appHeader"],
-header[class*="Header"] {
-  background: var(--dark-900) !important;
-  border-bottom: 1px solid var(--dark-600) !important;
-  padding: 0 var(--sp-4) !important;
-  height: 48px !important;
-  min-height: 48px !important;
-  display: flex !important;
-  align-items: center !important;
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 100 !important;
-  width: 100% !important;
-  max-width: 100vw !important;
+/* Cegah input/textarea/select meluber */
+input, textarea, select, button {
+  max-width: 100% !important;
 }
 
-/* Tombol hamburger / menu di header */
-[class*="AppHeader"] button,
-[class*="appHeader"] button,
-header[class*="Header"] button {
-  color: var(--text-on-dark-2) !important;
-  background: transparent !important;
-  border: none !important;
-  min-height: 36px !important;
-  min-width: 36px !important;
-  padding: var(--sp-2) !important;
-  border-radius: var(--radius-sm) !important;
-}
+/* ============================================================
+   SECTION 2: SPLIT PANE — Force editor full width
+   ============================================================ */
 
-[class*="AppHeader"] button:hover,
-header[class*="Header"] button:hover {
-  color: var(--text-on-dark) !important;
-  background: var(--dark-700) !important;
-}
-
-/* Sidebar / nav panel */
-[class*="Nav"],
-[class*="Sidebar"],
-[class*="sidebar"],
-nav[class*="Nav"] {
-  background: var(--dark-800) !important;
-  border-right: 1px solid var(--dark-600) !important;
-  width: 220px !important;
-  min-width: 220px !important;
-}
-
-/* Nav items — collection list */
-[class*="Nav"] a,
-[class*="Nav"] [role="button"],
-[class*="NavLink"],
-[class*="navLink"] {
-  display: flex !important;
-  align-items: center !important;
-  gap: var(--sp-2) !important;
-  padding: 9px var(--sp-4) !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  color: var(--text-on-dark-2) !important;
-  text-decoration: none !important;
-  border-radius: 0 !important;
-  min-height: 40px !important;
-  transition: background 0.15s, color 0.15s !important;
-  border-left: 2px solid transparent !important;
-}
-
-[class*="Nav"] a:hover,
-[class*="NavLink"]:hover {
-  background: var(--dark-700) !important;
-  color: var(--text-on-dark) !important;
-}
-
-[class*="Nav"] a[class*="active"],
-[class*="NavLink"][class*="active"],
-[class*="Nav"] a[aria-current="page"] {
-  background: var(--dark-700) !important;
-  color: var(--gold) !important;
-  border-left-color: var(--gold) !important;
-  font-weight: 600 !important;
-}
-
-/* Section title di nav (COLLECTIONS) */
-[class*="SectionTitle"],
-[class*="sectionTitle"],
-[class*="Nav"] > div > p,
-[class*="Nav"] > section > p {
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
-  color: var(--dark-300) !important;
-  text-transform: uppercase !important;
-  padding: var(--sp-4) var(--sp-4) var(--sp-1) !important;
-  margin: 0 !important;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   MAIN CONTENT AREA
-   ═══════════════════════════════════════════════════════════════ */
-
-[class*="Page"],
-[class*="MainView"],
-main {
-  background: var(--bg) !important;
-  flex: 1 !important;
-  overflow-x: hidden !important;
-  min-width: 0 !important;
-}
-
-/* Page header (judul collection) */
-[class*="CollectionHeader"],
-[class*="collectionHeader"],
-[class*="PageTitle"],
-[class*="pageTitle"] {
-  padding: var(--sp-4) var(--sp-4) var(--sp-3) !important;
-  background: var(--surface) !important;
-  border-bottom: 1px solid var(--border) !important;
-  margin-bottom: var(--sp-4) !important;
-}
-
-[class*="CollectionHeader"] h1,
-[class*="CollectionHeader"] h2,
-[class*="PageTitle"] h1,
-[class*="PageTitle"] h2 {
-  font-size: 17px !important;
-  font-weight: 700 !important;
-  color: var(--text-primary) !important;
-  margin: 0 !important;
-  line-height: 1.3 !important;
-  letter-spacing: -0.02em !important;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   COLLECTION LIST — Daftar entry (foto section, berita)
-   ═══════════════════════════════════════════════════════════════ */
-
-[class*="CollectionPage"],
-[class*="collectionPage"] {
-  padding: var(--sp-3) !important;
-}
-
-/* Tombol "Buat Baru" */
-[class*="NewEntryButton"],
-[class*="newEntryButton"],
-a[class*="NewEntry"] {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: var(--sp-2) !important;
-  background: var(--dark-900) !important;
-  color: var(--gold) !important;
-  border: 1px solid var(--dark-500) !important;
-  border-radius: var(--radius) !important;
-  padding: 0 var(--sp-4) !important;
-  height: var(--btn-h) !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
-  letter-spacing: -0.01em !important;
-}
-
-/* Entry cards — list view */
-[class*="EntryCard"],
-[class*="entryCard"] {
-  background: var(--surface) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: var(--radius) !important;
-  overflow: hidden !important;
-  margin-bottom: var(--sp-2) !important;
-  box-shadow: var(--shadow-sm) !important;
-  transition: box-shadow 0.15s !important;
-}
-
-[class*="EntryCard"]:hover,
-[class*="entryCard"]:hover {
-  box-shadow: var(--shadow) !important;
-}
-
-[class*="CardBody"],
-[class*="cardBody"],
-[class*="EntryCard"] > div {
-  padding: var(--sp-3) var(--sp-3) !important;
-}
-
-/* Judul entry di kartu */
-[class*="CardHeading"],
-[class*="cardHeading"],
-[class*="EntryCard"] h3,
-[class*="EntryCard"] [class*="title"] {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: var(--text-primary) !important;
-  margin: 0 0 var(--sp-1) !important;
-  line-height: 1.4 !important;
-}
-
-[class*="EntryCard"] [class*="subTitle"],
-[class*="EntryCard"] [class*="subtitle"],
-[class*="EntryCard"] p {
-  font-size: 12px !important;
-  color: var(--text-muted) !important;
-  margin: 0 !important;
-  line-height: 1.4 !important;
-}
-
-/* Thumbnail di kartu (list view) */
-[class*="CardImage"],
-[class*="cardImage"],
-[class*="EntryCard"] img {
-  width: 100% !important;
-  height: 140px !important;
-  object-fit: cover !important;
-  display: block !important;
-  background: var(--bg) !important;
-}
-
-/* Grid daftar entry */
-[class*="CardGrid"],
-[class*="cardGrid"] {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: var(--sp-2) !important;
-  padding: 0 !important;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   EDITOR — Split pane override
-   ═══════════════════════════════════════════════════════════════ */
-
-/* SplitPane container */
+/* Override inline style dari react-split-pane */
 .SplitPane,
 [class*="SplitPane"] {
   position: relative !important;
   height: auto !important;
-  min-height: 0 !important;
   overflow: visible !important;
-}
-
-/* Pane 1 = Editor control pane */
-.Pane1,
-[class*="Pane1"] {
+  display: block !important;
   width: 100% !important;
-  height: auto !important;
-  overflow: visible !important;
-  position: relative !important;
 }
 
-/* Pane 2 & Resizer — sembunyikan */
-.Pane2,
-[class*="Pane2"],
-.Resizer,
-[class*="Resizer"] {
-  display: none !important;
-  width: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Preview pane — sembunyikan */
-[class*="PreviewPane"],
-[class*="previewPane"],
-[class*="EditorPreviewPane"],
-[class*="StyledPreviewContent"] {
-  display: none !important;
-  width: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Control pane — full width */
-[class*="ControlPane"],
-[class*="controlPane"],
-[class*="EditorControlPane"] {
+.SplitPane > .Pane,
+.SplitPane > [class*="Pane1"],
+[class*="EditorControlPane"],
+[class*="ControlPane"] {
   width: 100% !important;
   min-width: 0 !important;
   max-width: 100% !important;
   height: auto !important;
   overflow: visible !important;
+  position: relative !important;
+  flex: 1 1 100% !important;
 }
 
-/* Editor container */
-[class*="EditorContainer"],
-[class*="editorContainer"] {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  overflow: visible !important;
-  background: var(--bg) !important;
+.SplitPane > .Resizer,
+[class*="Resizer"] {
+  display: none !important;
+  width: 0 !important;
 }
 
-
-/* ═══════════════════════════════════════════════════════════════
-   EDITOR TOOLBAR (judul + tombol Publish)
-   ═══════════════════════════════════════════════════════════════ */
-
-[class*="EditorToolbar"],
-[class*="editorToolbar"],
-[class*="Toolbar"][class*="Editor"] {
-  background: var(--surface) !important;
-  border-bottom: 1px solid var(--border) !important;
-  padding: var(--sp-2) var(--sp-3) !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: var(--sp-2) !important;
-  position: sticky !important;
-  top: 48px !important;
-  z-index: 90 !important;
-  width: 100% !important;
-  min-height: 52px !important;
+.SplitPane > .Pane2,
+[class*="PreviewPane"],
+[class*="EditorPreviewPane"],
+[class*="StyledPreviewContent"],
+[class*="preview-pane"] {
+  display: none !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  flex: 0 !important;
 }
 
-/* Tombol back (kembali ke list) */
-[class*="EditorToolbar"] a[href],
-[class*="editorToolbar"] a[href] {
-  color: var(--text-secondary) !important;
-  font-size: 13px !important;
-  text-decoration: none !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: var(--sp-1) !important;
-  min-height: var(--btn-h) !important;
-  padding: 0 var(--sp-2) !important;
-}
+/* ============================================================
+   SECTION 3: APP ROOT — Container utama CMS
+   ============================================================ */
 
-/* Status badge (Draft / Published) */
-[class*="StatusButton"],
-[class*="statusButton"],
-[class*="PublishedToolbarButton"],
-[class*="WorkflowStatus"] {
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  padding: 4px 10px !important;
-  border-radius: 20px !important;
-  border: 1px solid currentColor !important;
-  min-height: 28px !important;
-}
-
-/* Tombol Publish utama */
-[class*="PublishButton"],
-[class*="publishButton"],
-button[class*="Publish"],
-button[data-testid="publish-button"] {
-  background: var(--dark-900) !important;
-  color: var(--gold) !important;
-  border: 1px solid var(--gold-dim) !important;
-  border-radius: var(--radius) !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  padding: 0 var(--sp-4) !important;
-  height: 40px !important;
-  min-height: 40px !important;
-  white-space: nowrap !important;
-  letter-spacing: -0.01em !important;
-}
-
-[class*="PublishButton"]:hover,
-button[data-testid="publish-button"]:hover {
-  background: var(--dark-700) !important;
-}
-
-/* Tombol lain di toolbar (Save, Delete) */
-[class*="ToolbarButton"],
-[class*="toolbarButton"] {
-  font-size: 13px !important;
-  min-height: 36px !important;
-  padding: 0 var(--sp-3) !important;
-  border-radius: var(--radius) !important;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   FORM FIELDS — Label, input, textarea, select
-   ═══════════════════════════════════════════════════════════════ */
-
-/* Field wrapper */
-[class*="EditorControl"],
-[class*="editorControl"],
-[class*="FieldWrapper"],
-[class*="fieldWrapper"],
-[class*="FormField"] {
-  display: block !important;
-  width: 100% !important;
-  margin-bottom: var(--sp-4) !important;
-  padding: 0 var(--sp-3) !important;
-}
-
-/* Panel field scroll area */
-[class*="ControlPaneContainer"],
-[class*="FieldsBox"],
-[class*="EditorControls"] {
-  display: block !important;
-  width: 100% !important;
-  padding: var(--sp-4) 0 var(--sp-6) !important;
+#nc-root,
+#nc-root > div,
+[class*="AppContainer"],
+[class*="App__Container"] {
   overflow-x: hidden !important;
+  max-width: 100vw !important;
 }
 
-/* Label */
-[class*="ControlLabel"],
-[class*="controlLabel"],
-label {
-  display: block !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  color: var(--text-secondary) !important;
-  margin-bottom: var(--sp-1) !important;
-  letter-spacing: 0.01em !important;
-}
+/* ============================================================
+   SECTION 4: IMAGE WIDGET — Tidak terpotong, proporsional
+   ============================================================ */
 
-/* Hint text */
-[class*="HintText"],
-[class*="hintText"],
-[class*="Hint"] {
-  font-size: 11px !important;
-  color: var(--text-muted) !important;
-  line-height: 1.4 !important;
-  margin-top: var(--sp-1) !important;
-}
-
-/* Input */
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="search"],
-input[type="number"],
-select {
-  display: block !important;
-  width: 100% !important;
-  height: var(--input-h) !important;
-  padding: 0 var(--sp-3) !important;
-  font-size: 14px !important;  /* 14px mencegah auto-zoom di iOS */
-  font-family: inherit !important;
-  color: var(--text-primary) !important;
-  background: var(--surface) !important;
-  border: 1px solid var(--border-dark) !important;
-  border-radius: var(--radius) !important;
-  outline: none !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  box-shadow: none !important;
-  transition: border-color 0.15s !important;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--gold-dim) !important;
-  box-shadow: 0 0 0 2px rgba(201,168,76,0.15) !important;
-}
-
-/* Textarea */
-textarea {
-  display: block !important;
-  width: 100% !important;
-  min-height: 100px !important;
-  padding: var(--sp-3) !important;
-  font-size: 14px !important;
-  font-family: inherit !important;
-  color: var(--text-primary) !important;
-  background: var(--surface) !important;
-  border: 1px solid var(--border-dark) !important;
-  border-radius: var(--radius) !important;
-  resize: vertical !important;
-  outline: none !important;
-  line-height: 1.5 !important;
-  -webkit-appearance: none !important;
-}
-
-/* Select dropdown arrow */
-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M5 6L0 0h10z' fill='%23666'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 12px center !important;
-  padding-right: 36px !important;
-}
-
-/* Boolean / toggle */
-input[type="checkbox"] {
-  width: 20px !important;
-  height: 20px !important;
-  min-height: 20px !important;
-  cursor: pointer !important;
-  accent-color: var(--gold-dim) !important;
-}
-
-[class*="ToggleButton"],
-[class*="toggleButton"] {
-  min-height: 44px !important;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   BUTTON — Global
-   ═══════════════════════════════════════════════════════════════ */
-
-button,
-[role="button"],
-[class*="Button"]:not([class*="StatusButton"]):not([class*="ToolbarButton"]) {
-  font-family: inherit !important;
-  cursor: pointer !important;
-  min-height: var(--btn-h) !important;
-  font-size: 13px !important;
-  border-radius: var(--radius) !important;
-  padding: 0 var(--sp-4) !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: var(--sp-2) !important;
-}
-
-/* Small buttons (icon-only) */
-button[class*="icon"],
-button[aria-label][class*="remove"],
-button[aria-label][class*="delete"],
-button[aria-label][class*="clear"] {
-  min-height: 32px !important;
-  min-width: 32px !important;
-  padding: var(--sp-1) !important;
-}
-
-/* Upload / choose button */
-[class*="ChooseButton"],
-[class*="chooseButton"],
-[class*="FileUpload"],
-[class*="fileUpload"],
-[class*="UploadButton"],
-[class*="uploadButton"] {
-  width: 100% !important;
-  min-height: 48px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  background: var(--surface) !important;
-  border: 1.5px dashed var(--border-dark) !important;
-  border-radius: var(--radius) !important;
-  color: var(--text-secondary) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: var(--sp-2) !important;
-}
-
-[class*="ChooseButton"]:hover,
-[class*="FileUpload"]:hover {
-  border-color: var(--gold-dim) !important;
-  color: var(--gold-dim) !important;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   IMAGE WIDGET — Preview foto (paling kritis)
-   ═══════════════════════════════════════════════════════════════ */
-
-/* Wrapper utama widget image */
+/* Container widget gambar */
 [class*="ImageWidget"],
 [class*="imageWidget"],
-[class*="ImageControl"],
-[class*="imageControl"] {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
-
-/* Container preview */
-[class*="ImagePreview"],
-[class*="image-preview"],
-[class*="ImageCard"],
-[class*="imageCard"],
 [class*="ImageWrapper"],
 [class*="imageWrapper"],
-[data-testid="image-preview"] {
-  position: relative !important;
+[class*="ImagePreview"],
+[class*="imagePreview"] {
   width: 100% !important;
   max-width: 100% !important;
-  background: #f0f0f0 !important;
-  border: 1px solid var(--border) !important;
-  border-radius: var(--radius) !important;
   overflow: hidden !important;
-  margin-bottom: var(--sp-2) !important;
-  /* Tinggi compact: cukup untuk preview tapi tidak makan banyak scroll */
-  max-height: 220px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
 }
 
-/* Gambar di dalam preview */
-[class*="ImagePreview"] img,
-[class*="image-preview"] img,
-[class*="ImageCard"] img,
-[class*="imageCard"] img,
+/* Preview gambar — tidak crop, maintain aspect ratio */
+[class*="ImageWidget"] img,
+[class*="imageWidget"] img,
 [class*="ImageWrapper"] img,
 [class*="imageWrapper"] img,
-[data-testid="image-preview"] img {
+[class*="ImagePreview"] img,
+[class*="imagePreview"] img,
+[class*="ImageCard"] img,
+[class*="imageCard"] img {
   display: block !important;
-  width: auto !important;
-  height: auto !important;
-  max-width: 100% !important;
-  max-height: 220px !important;
-  object-fit: contain !important;   /* Jaga aspect ratio, tidak crop */
-  border-radius: 0 !important;
-}
-
-/* Tombol hapus gambar — posisi di atas preview */
-[class*="ImagePreview"] button,
-[class*="imageCard"] button,
-[class*="ImageWrapper"] button {
-  position: absolute !important;
-  top: var(--sp-2) !important;
-  right: var(--sp-2) !important;
-  z-index: 10 !important;
-  min-height: 28px !important;
-  min-width: 28px !important;
-  padding: 4px !important;
-  background: rgba(0,0,0,0.55) !important;
-  color: #fff !important;
-  border: none !important;
-  border-radius: var(--radius-sm) !important;
-}
-
-/* Preview area di live preview pane (sudah hidden, tapi safety) */
-[class*="PreviewPane"] img {
   width: 100% !important;
   height: auto !important;
-  max-height: 200px !important;
+  max-height: 50vh !important;
   object-fit: contain !important;
+  border-radius: 6px;
+  background: #f5f5f5;
 }
 
+/* ============================================================
+   SECTION 5: MOBILE PORTRAIT — Breakpoint utama
+   ============================================================ */
 
-/* ═══════════════════════════════════════════════════════════════
-   MARKDOWN EDITOR
-   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
 
-[class*="MarkdownControl"],
-[class*="markdownControl"],
-[class*="RawEditor"],
-[class*="rawEditor"],
-.CodeMirror,
-[class*="SimpleMDE"],
-[class*="EasyMDE"] {
-  display: block !important;
-  width: 100% !important;
-  min-height: 180px !important;
-  font-size: 14px !important;
-  line-height: 1.6 !important;
-  border: 1px solid var(--border-dark) !important;
-  border-radius: var(--radius) !important;
-  overflow: visible !important;
-}
+  /* ----------------------------------------------------------
+     5.1 BODY & ROOT
+     ---------------------------------------------------------- */
 
-/* Toolbar markdown */
-.editor-toolbar,
-[class*="MarkdownToolbar"],
-[class*="markdownToolbar"] {
-  border-radius: var(--radius) var(--radius) 0 0 !important;
-  border-bottom: 1px solid var(--border) !important;
-  padding: var(--sp-1) var(--sp-2) !important;
-  flex-wrap: wrap !important;
-  gap: 2px !important;
-  background: var(--bg) !important;
-  overflow-x: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-}
+  body {
+    font-size: 14px !important;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden !important;
+  }
 
-.editor-toolbar a,
-.editor-toolbar button,
-[class*="MarkdownToolbar"] button {
-  min-width: 30px !important;
-  min-height: 30px !important;
-  padding: 4px 6px !important;
-  font-size: 13px !important;
-  border-radius: var(--radius-sm) !important;
-}
+  /* ----------------------------------------------------------
+     5.2 NAVIGATION / HEADER
+     ---------------------------------------------------------- */
 
-.CodeMirror {
-  font-size: 14px !important;
-  min-height: 150px !important;
-  padding: var(--sp-3) !important;
-}
+  /* App header — compact */
+  [class*="AppHeader"],
+  [class*="appHeader"],
+  [class*="Header"] > header,
+  header[class*="Header"] {
+    padding: 8px 12px !important;
+    height: auto !important;
+    min-height: 48px !important;
+  }
 
+  /* Nama brand / judul di header */
+  [class*="AppHeader"] [class*="SiteName"],
+  [class*="AppHeader"] h1,
+  [class*="AppHeader"] span[class*="title"],
+  [class*="AppHeader"] [class*="navLinkText"] {
+    font-size: 15px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 120px) !important;
+  }
 
-/* ═══════════════════════════════════════════════════════════════
-   MEDIA LIBRARY — Modal pilih gambar
-   ═══════════════════════════════════════════════════════════════ */
+  /* Nav links di header */
+  [class*="AppHeader"] nav,
+  [class*="AppHeader"] [class*="Nav"] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-[class*="MediaLibrary"],
-[class*="mediaLibrary"],
-[class*="Modal"],
-[class*="modal"] {
-  padding: var(--sp-3) !important;
-  width: 100vw !important;
-  max-width: 100vw !important;
-  box-sizing: border-box !important;
-  left: 0 !important;
-  right: 0 !important;
-  overflow-x: hidden !important;
-}
+  /* Collection nav / sidebar */
+  [class*="CollectionNav"],
+  [class*="collectionNav"],
+  [class*="Sidebar"],
+  [class*="sidebar"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
 
-/* Header modal */
-[class*="Modal"] [class*="Header"],
-[class*="modal"] [class*="header"] {
-  padding: var(--sp-3) var(--sp-4) !important;
-  border-bottom: 1px solid var(--border) !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-}
+  /* Nav drawer — pastikan tidak overflow */
+  [class*="NavDrawer"],
+  [class*="navDrawer"],
+  [class*="LeftNav"],
+  [class*="leftNav"] {
+    width: calc(100vw - 48px) !important;
+    max-width: 320px !important;
+    overflow-x: hidden !important;
+  }
 
-/* Grid gambar di media library — 2 kolom di mobile */
-[class*="MediaLibrary"] [class*="Grid"],
-[class*="mediaLibrary"] [class*="Grid"],
-[class*="MediaLibrary"] [class*="grid"],
-[class*="CardGrid"],
-[class*="cardGrid"] {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: var(--sp-2) !important;
-  padding: var(--sp-2) !important;
-}
+  /* ----------------------------------------------------------
+     5.3 COLLECTION LIST — Daftar artikel
+     ---------------------------------------------------------- */
 
-/* Gambar di media library grid */
-[class*="MediaLibrary"] img,
-[class*="mediaLibrary"] img {
-  width: 100% !important;
-  height: 100px !important;
-  object-fit: cover !important;
-  border-radius: var(--radius-sm) !important;
-  display: block !important;
-}
+  /* Grid list — 1 kolom */
+  [class*="CardGrid"],
+  [class*="cardGrid"],
+  [class*="EntryListing"],
+  [class*="entryListing"],
+  [class*="CollectionList"],
+  [class*="collectionList"] {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+    padding: 8px !important;
+  }
 
-/* Input search di media library */
-[class*="MediaLibrary"] input[type="search"],
-[class*="MediaLibrary"] input[type="text"] {
-  height: 40px !important;
-  font-size: 14px !important;
-  padding: 0 var(--sp-3) !important;
-}
+  /* Card artikel */
+  [class*="EntryCard"],
+  [class*="entryCard"],
+  [class*="CardBody"],
+  [class*="cardBody"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px !important;
+    margin-bottom: 10px !important;
+  }
 
-/* Tombol upload di media library */
-[class*="MediaLibrary"] button,
-[class*="mediaLibrary"] button {
-  min-height: 40px !important;
-  font-size: 13px !important;
-}
+  /* Thumbnail di card */
+  [class*="EntryCard"] img,
+  [class*="entryCard"] img,
+  [class*="CardImage"],
+  [class*="cardImage"] {
+    width: 100% !important;
+    height: 140px !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+  }
 
-/* Tombol Insert / pilih gambar */
-[class*="MediaLibrary"] [class*="InsertButton"],
-[class*="InsertButton"],
-[class*="insertButton"] {
-  background: var(--dark-900) !important;
-  color: var(--gold) !important;
-  border: 1px solid var(--gold-dim) !important;
-  font-weight: 700 !important;
-}
+  /* ----------------------------------------------------------
+     5.4 EDITOR — Container utama
+     ---------------------------------------------------------- */
 
+  [class*="EditorContainer"],
+  [class*="editorContainer"],
+  [class*="Editor__Container"],
+  [class*="EditorWrapper"] {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    padding: 0 !important;
+  }
 
-/* ═══════════════════════════════════════════════════════════════
-   BERITA COLLECTION — Article specific
-   ═══════════════════════════════════════════════════════════════ */
+  /* Control pane — field editor */
+  [class*="ControlPane"],
+  [class*="controlPane"],
+  [class*="EditorControlPane"],
+  [class*="ControlPaneContainer"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 10px 12px !important;
+    overflow-x: hidden !important;
+  }
 
-/* Tanggal */
-[class*="DateWidget"],
-[class*="dateWidget"] input {
-  height: var(--input-h) !important;
-  font-size: 14px !important;
-}
+  /* Field container */
+  [class*="FieldsBox"],
+  [class*="fieldsBox"],
+  [class*="EditorControl"],
+  [class*="editorControl"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
 
-/* Kategori select */
-[class*="SelectWidget"],
-[class*="selectWidget"] select {
-  height: var(--input-h) !important;
-  font-size: 14px !important;
-}
+  /* ----------------------------------------------------------
+     5.5 TOOLBAR EDITOR — Publish / Save / Delete
+     ---------------------------------------------------------- */
 
+  [class*="EditorToolbar"],
+  [class*="editorToolbar"],
+  [class*="Toolbar"],
+  [class*="toolbar"] {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    padding: 8px 10px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
 
-/* ═══════════════════════════════════════════════════════════════
-   SEARCH & FILTER
-   ═══════════════════════════════════════════════════════════════ */
+  /* Tombol Publish / Delete / Save di toolbar */
+  [class*="EditorToolbar"] button,
+  [class*="editorToolbar"] button,
+  [class*="ToolbarButton"],
+  [class*="toolbarButton"] {
+    min-height: 40px !important;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    white-space: nowrap;
+  }
 
-[class*="SearchInput"],
-[class*="searchInput"],
-[class*="FilterInput"],
-input[placeholder*="Cari"],
-input[placeholder*="Search"] {
-  height: 40px !important;
-  font-size: 14px !important;
-  padding: 0 var(--sp-3) 0 36px !important;
-  background: var(--surface) !important;
-  border: 1px solid var(--border-dark) !important;
-  border-radius: 20px !important;
-  width: 100% !important;
-}
+  /* Dropdown status (Draft / Published) */
+  [class*="StatusDropdown"],
+  [class*="statusDropdown"],
+  [class*="WorkflowSelect"] {
+    max-width: 140px !important;
+  }
 
+  /* ----------------------------------------------------------
+     5.6 MARKDOWN EDITOR TOOLBAR — Formatting buttons
+     ---------------------------------------------------------- */
 
-/* ═══════════════════════════════════════════════════════════════
-   TOAST / NOTIFICATION
-   ═══════════════════════════════════════════════════════════════ */
+  /* Toolbar markdown */
+  [class*="ToolbarContainer"],
+  [class*="EditorToolbar"] > [class*="Toolbar"],
+  .editor-toolbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 2px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding: 4px 0 !important;
+  }
 
-[class*="Toast"],
-[class*="toast"],
-[class*="Notification"],
-[class*="notification"] {
-  border-radius: var(--radius) !important;
-  font-size: 13px !important;
-  padding: var(--sp-3) var(--sp-4) !important;
-  max-width: calc(100vw - 24px) !important;
-  bottom: var(--sp-4) !important;
-  left: var(--sp-3) !important;
-  right: var(--sp-3) !important;
-}
+  /* Tombol-tombol toolbar markdown */
+  .editor-toolbar a,
+  .editor-toolbar button,
+  [class*="ToolbarButton"],
+  [class*="toolbarButton"] {
+    min-width: 34px !important;
+    min-height: 34px !important;
+    padding: 4px 6px !important;
+    font-size: 13px !important;
+  }
 
+  /* ----------------------------------------------------------
+     5.7 FORM FIELDS — Input, textarea, select, label
+     ---------------------------------------------------------- */
 
-/* ═══════════════════════════════════════════════════════════════
-   SCROLL — Cegah horizontal overflow
-   ═══════════════════════════════════════════════════════════════ */
+  /* Label */
+  label,
+  [class*="ControlLabel"],
+  [class*="controlLabel"],
+  [class*="Label"] {
+    display: block !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    margin-bottom: 6px !important;
+    color: inherit;
+  }
 
-body,
-#nc-root,
-[class*="App"],
-[class*="Page"],
-[class*="ControlPane"],
-[class*="EditorContainer"] {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-}
+  /* Hint text */
+  [class*="HintText"],
+  [class*="hintText"],
+  [class*="Hint"],
+  [class*="hint"] {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    margin-top: 4px !important;
+    display: block;
+  }
 
+  /* Text input */
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="number"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 10px 12px !important;
+    font-size: 16px !important; /* Cegah auto-zoom iOS */
+    border-radius: 6px !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
 
-/* ═══════════════════════════════════════════════════════════════
-   TABLET (768–1023px) — Ringan saja
-   ═══════════════════════════════════════════════════════════════ */
+  /* Textarea */
+  textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 120px !important;
+    padding: 10px 12px !important;
+    font-size: 16px !important;
+    border-radius: 6px !important;
+    resize: vertical !important;
+    -webkit-appearance: none !important;
+  }
 
-@media (min-width: 768px) {
+  /* Select */
+  select {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 10px 12px !important;
+    font-size: 16px !important;
+    border-radius: 6px !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M6 8L0 0h12z' fill='%23666'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    padding-right: 36px !important;
+  }
+
+  /* Widget field margin */
+  [class*="Widget"],
+  [class*="widget"],
+  [class*="EditorControl__Field"],
+  [class*="ControlContainer"] {
+    margin-bottom: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.8 BUTTONS
+     ---------------------------------------------------------- */
+
+  button,
+  [role="button"],
+  [class*="Button"],
+  [class*="button"] {
+    min-height: 44px !important;
+    font-size: 14px !important;
+    padding: 10px 16px !important;
+    max-width: 100% !important;
+    cursor: pointer;
+  }
+
+  /* Tombol Upload / Choose image */
+  [class*="FileUploadButton"],
+  [class*="fileUploadButton"],
+  [class*="ChooseButton"],
+  [class*="chooseButton"],
+  [class*="UploadButton"],
+  [class*="uploadButton"] {
+    width: 100% !important;
+    min-height: 52px !important;
+    font-size: 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    text-align: center !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.9 IMAGE PREVIEW — Compact, tidak terpotong
+     ---------------------------------------------------------- */
+
+  /* Wrapper image upload */
+  [class*="ImageWidget"],
+  [class*="imageWidget"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Container image setelah upload */
+  [class*="ImageWrapper"],
+  [class*="imageWrapper"],
+  [class*="ImageCard"],
+  [class*="imageCard"],
+  [class*="ImagePreview"],
+  [class*="imagePreview"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 280px !important;
+    overflow: hidden !important;
+    background: #f0f0f0 !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Gambar preview — tidak crop */
+  [class*="ImageWrapper"] img,
+  [class*="imageWrapper"] img,
+  [class*="ImageCard"] img,
+  [class*="imageCard"] img,
+  [class*="ImagePreview"] img,
+  [class*="imagePreview"] img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 280px !important;
+    object-fit: contain !important;
+    display: block !important;
+    border-radius: 6px !important;
+    background: #f8f8f8 !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.10 MODAL & OVERLAY
+     ---------------------------------------------------------- */
+
+  [class*="ModalBody"],
+  [class*="modalBody"],
+  [class*="Modal"],
+  [class*="modal"],
+  [class*="Overlay"],
+  [class*="overlay"] {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    left: 12px !important;
+    right: 12px !important;
+    padding: 16px !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.11 MEDIA LIBRARY MODAL
+     ---------------------------------------------------------- */
+
+  [class*="MediaLibrary"],
+  [class*="mediaLibrary"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Header media library */
+  [class*="MediaLibrary"] [class*="Header"],
+  [class*="mediaLibrary"] [class*="header"],
+  [class*="MediaLibraryHeader"] {
+    padding: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  /* Search input di media library */
+  [class*="MediaLibrary"] input[type="text"],
+  [class*="mediaLibrary"] input[type="search"],
+  [class*="MediaSearch"] {
+    width: 100% !important;
+    min-height: 40px !important;
+  }
+
+  /* Grid gambar — 2 kolom di mobile */
+  [class*="MediaLibrary"] [class*="Grid"],
+  [class*="mediaLibrary"] [class*="grid"],
+  [class*="MediaGrid"],
+  [class*="mediaGrid"],
   [class*="CardGrid"],
   [class*="cardGrid"] {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: var(--sp-3) !important;
+    gap: 8px !important;
+    padding: 10px !important;
+    width: 100% !important;
   }
 
-  [class*="MediaLibrary"] [class*="Grid"] {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-
-  [class*="MediaLibrary"] img {
-    height: 120px !important;
-  }
-
-  [class*="ImagePreview"],
-  [class*="ImageWrapper"] {
-    max-height: 280px !important;
-  }
-
-  [class*="ImagePreview"] img,
-  [class*="ImageWrapper"] img {
-    max-height: 280px !important;
-  }
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   DESKTOP (1024px+) — Kembalikan perilaku normal
-   ═══════════════════════════════════════════════════════════════ */
-
-@media (min-width: 1024px) {
-
-  /* SplitPane — boleh tampil di desktop */
-  .Pane2,
-  [class*="Pane2"],
-  .Resizer,
-  [class*="Resizer"] {
+  /* Thumbnail gambar di media library */
+  [class*="MediaLibrary"] img,
+  [class*="mediaLibrary"] img {
+    width: 100% !important;
+    height: 110px !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
     display: block !important;
-    width: auto !important;
+  }
+
+  /* Card di media library */
+  [class*="MediaLibrary"] [class*="Card"],
+  [class*="mediaLibrary"] [class*="card"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Footer media library — tombol Insert/Cancel */
+  [class*="MediaLibrary"] [class*="Footer"],
+  [class*="MediaLibraryFooter"] {
+    padding: 12px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  [class*="MediaLibrary"] [class*="Footer"] button {
+    flex: 1 !important;
+    min-width: 100px !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.12 MARKDOWN EDITOR (CodeMirror / SimpleMDE)
+     ---------------------------------------------------------- */
+
+  .CodeMirror,
+  [class*="CodeMirror"],
+  [class*="RawEditor"],
+  [class*="rawEditor"],
+  [class*="MarkdownEditor"],
+  [class*="markdownEditor"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 200px !important;
+    font-size: 15px !important;
+    overflow-x: hidden !important;
+    word-break: break-word !important;
+  }
+
+  .CodeMirror-scroll {
+    overflow-x: hidden !important;
+  }
+
+  .CodeMirror-wrap pre {
+    word-break: break-word !important;
+    white-space: pre-wrap !important;
+  }
+
+  /* Editor toolbar markdown — wrap */
+  .editor-toolbar {
+    flex-wrap: wrap !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.13 BOOLEAN / TOGGLE WIDGET
+     ---------------------------------------------------------- */
+
+  input[type="checkbox"] {
+    width: 22px !important;
+    height: 22px !important;
+    min-height: 22px !important;
+    max-width: 22px !important;
+    cursor: pointer !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.14 COLLECTION PAGE HEADER
+     ---------------------------------------------------------- */
+
+  [class*="CollectionHeader"],
+  [class*="collectionHeader"],
+  [class*="PageTitle"],
+  [class*="pageTitle"] {
+    padding: 12px !important;
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
+
+  [class*="CollectionHeader"] h1,
+  [class*="collectionHeader"] h1 {
+    font-size: 18px !important;
+    margin: 0 !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.15 TABLE — Stack jadi card di mobile
+     ---------------------------------------------------------- */
+
+  table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  thead { display: none !important; }
+
+  tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  tr {
+    display: block !important;
+    width: 100% !important;
+    border-bottom: 1px solid #eee !important;
+    padding: 10px 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  td {
+    display: block !important;
+    width: 100% !important;
+    padding: 4px 0 !important;
+    text-align: left !important;
+    font-size: 13px !important;
+    word-break: break-word !important;
+  }
+
+  td::before {
+    font-weight: 600;
+    display: block;
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ----------------------------------------------------------
+     5.16 COLLECTION TYPE GRID (list of collections)
+     ---------------------------------------------------------- */
+
+  [class*="GridCard"],
+  [class*="gridCard"],
+  [class*="TypeCard"],
+  [class*="typeCard"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.17 DATE/TIME WIDGET
+     ---------------------------------------------------------- */
+
+  [class*="DateTimeWidget"],
+  [class*="dateTimeWidget"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  [class*="DateTimeWidget"] input,
+  [class*="dateTimeWidget"] input {
+    width: 100% !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.18 SELECT DROPDOWN OPTION LIST
+     ---------------------------------------------------------- */
+
+  [class*="Dropdown"],
+  [class*="dropdown"],
+  [class*="Select__menu"],
+  [class*="selectMenu"] {
+    width: 100% !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.19 TOAST / NOTIFICATION
+     ---------------------------------------------------------- */
+
+  [class*="Toast"],
+  [class*="toast"],
+  [class*="Notification"],
+  [class*="notification"] {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+
+  /* ----------------------------------------------------------
+     5.20 SPACING — Compact tapi tetap nyaman
+     ---------------------------------------------------------- */
+
+  [class*="Spacing"],
+  [class*="Section"] {
+    padding: 10px !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+} /* end @media (max-width: 767px) */
+
+/* ============================================================
+   SECTION 6: TABLET — 768px–1023px
+   ============================================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  [class*="ControlPane"],
+  [class*="controlPane"] {
+    width: 60% !important;
+    padding: 16px !important;
   }
 
   [class*="PreviewPane"],
-  [class*="previewPane"],
-  [class*="EditorPreviewPane"] {
+  [class*="previewPane"] {
+    width: 40% !important;
     display: block !important;
-    width: auto !important;
   }
 
-  /* Card grid 3 kolom */
-  [class*="CardGrid"],
-  [class*="cardGrid"] {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: var(--sp-4) !important;
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  textarea,
+  select {
+    font-size: 15px !important;
+    min-height: 44px !important;
   }
 
-  /* Media library 4 kolom */
-  [class*="MediaLibrary"] [class*="Grid"] {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: var(--sp-3) !important;
-  }
+}
 
-  [class*="MediaLibrary"] img {
-    height: 140px !important;
-  }
+/* ============================================================
+   SECTION 7: IMAGE WIDGET — Global (semua ukuran)
+   Pastikan tidak pernah overflow
+   ============================================================ */
 
-  /* Image preview lebih besar di desktop */
-  [class*="ImagePreview"],
-  [class*="ImageWrapper"] {
-    max-height: 360px !important;
-  }
+[class*="ImageWidget"],
+[class*="imageWidget"] {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
 
-  [class*="ImagePreview"] img,
-  [class*="ImageWrapper"] img {
-    max-height: 360px !important;
-  }
+[class*="ImageWidget"] img,
+[class*="imageWidget"] img {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
 
-  /* Undo hide preview pane di desktop */
-  [class*="SplitPane"] {
-    position: absolute !important;
-    height: 100% !important;
-  }
-
-  .Pane1,
-  [class*="Pane1"] {
-    width: auto !important;
-    height: 100% !important;
-  }
+/* Upload button area */
+[class*="FileLink"],
+[class*="fileLink"],
+[class*="ImageChooseButton"],
+[class*="imageChooseButton"] {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
