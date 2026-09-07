@@ -363,3 +363,107 @@
     margin-bottom: 20px !important;
   }
 }
+
+/* ──────────────────────────────────────────────
+   6. CRITICAL FIX — Editor tidak tampil di mobile
+   Force show editor panel, sembunyikan preview
+   ────────────────────────────────────────────── */
+
+/* Force seluruh app visible */
+#nc-root,
+#nc-root > div,
+[class*="App__Container"],
+[class*="AppContainer"] {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+
+/* Editor wrapper — paksa tampil penuh */
+[class*="EditorContainer"],
+[class*="Editor__Container"],
+[class*="EditorWrapper"],
+[class*="SplitPane"],
+[class*="Pane1"],
+[class*="Resizer"] ~ div {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 200px !important;
+  overflow: visible !important;
+  position: relative !important;
+  transform: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Sembunyikan preview pane secara agresif */
+[class*="PreviewPane"],
+[class*="Pane2"],
+[class*="StyledPreviewContent"],
+[class*="EditorPreviewPane"] {
+  display: none !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Control pane — paksa full width */
+[class*="ControlPane"],
+[class*="EditorControlPane"],
+[class*="Pane1"] {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+}
+
+/* Form fields container */
+[class*="ControlPaneContainer"],
+[class*="FieldsBox"],
+[class*="EditorControl"] {
+  display: block !important;
+  width: 100% !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Setiap field widget */
+[class*="WidgetFor"],
+[class*="Widget__"],
+[class*="ObjectWidgetTopBar"],
+[class*="EditorControl__ControlContainer"] {
+  display: block !important;
+  width: 100% !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* SplitPane — override inline style yang diset oleh library */
+.SplitPane {
+  position: relative !important;
+  height: auto !important;
+}
+
+.SplitPane > .Pane1 {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.SplitPane > .Resizer,
+.SplitPane > .Pane2 {
+  display: none !important;
+}
+
+/* Markdown editor */
+[class*="RawEditor"],
+[class*="MarkdownControl"],
+[class*="SimpleMDE"],
+.CodeMirror {
+  display: block !important;
+  width: 100% !important;
+  min-height: 150px !important;
+  visibility: visible !important;
+}
