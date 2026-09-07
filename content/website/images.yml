@@ -1,1 +1,523 @@
+# ============================================================
+# KONFIGURASI GAMBAR WEBSITE OMODA JAECOO PALEMBANG
+# Kelola semua gambar website melalui Decap CMS
+# File ini adalah sumber konfigurasi tunggal (single source of truth)
+# ============================================================
 
+# ──────────────────────────────────────────────────────────────
+# HOMEPAGE
+# ──────────────────────────────────────────────────────────────
+homepage:
+
+  # Hero Slider — Slide 1
+  hero_slide_1:
+    image: /assets/images/omoda-o4-hero.webp
+    alt: OMODA O4 EV — Electric SUV Pertama di Palembang
+    video: /assets/video/omoda-o4-hero-slider.mp4
+    title: "OMODA O4 EV · PALEMBANG"
+    heading: "First AI<br/>For Everyone."
+    description: "Electric mobility dengan desain Cyber Mecha dan jarak tempuh hingga 553 km NEDC."
+    cta_primary_label: Lihat OMODA O4
+    cta_primary_url: /omoda-o4/
+
+  # Hero Slider — Slide 2
+  hero_slide_2:
+    image: /assets/images/jaecoo-j5-hero.webp
+    alt: JAECOO J5 EV — Premium Electric SUV Palembang
+    video: /assets/video/jaecoo-j5-hero-slider.mp4
+    title: "JAECOO J5 EV · PALEMBANG"
+    heading: "Premium Electric<br/>SUV."
+    description: "EV terlaris No. 1 di Indonesia. Jarak tempuh 510 km, pengisian cepat 30 menit."
+    cta_primary_label: Lihat JAECOO J5
+    cta_primary_url: /jaecoo-j5.html
+
+  # Section Lineup — Gambar kartu model
+  lineup_omoda_o4:
+    image: /assets/images/lineup/lineup-omoda-o4.webp
+    alt: OMODA O4 EV Palembang
+
+  lineup_jaecoo_j5:
+    image: /assets/images/lineup/lineup-jaecoo-j5.webp
+    alt: JAECOO J5 EV Palembang
+
+  lineup_jaecoo_j7_shs:
+    image: /assets/images/lineup/lineup-jaecoo-j7-sivp.webp
+    alt: JAECOO J7 SHS-P Palembang
+
+  lineup_jaecoo_j7_sivp:
+    image: /assets/images/lineup/lineup-jaecoo-j7.webp
+    alt: JAECOO J7 SHS SIVP Palembang
+
+  lineup_jaecoo_j8:
+    image: /assets/images/lineup/lineup-jaecoo-j8.webp
+    alt: JAECOO J8 SHS-P ARDIS Palembang
+
+  # Section Recognized
+  recognized_j5:
+    image: /assets/images/recognized/recognized-j5-no1-ev.webp
+    alt: JAECOO J5 EV — EV terlaris No. 1 di Indonesia
+
+  recognized_j7_uk:
+    image: /assets/images/recognized/recognized-j7-uk-topselling.webp
+    alt: JAECOO J7 SHS — Mobil terlaris di Inggris
+
+  recognized_j8_muri:
+    image: /assets/images/recognized/recognized-j8-muri.webp
+    alt: JAECOO J8 ARDIS SHS — Pemegang rekor MURI 1.660 KM
+
+  recognized_o4_ai:
+    image: /assets/images/recognized/recognized-o4-ai.webp
+    alt: OMODA O4 EV — Mobil AI pertama di Indonesia
+
+  recognized_j7_sivp:
+    image: /assets/images/recognized/recognized-j7-sivp.webp
+    alt: JAECOO J7 SHS SIVP — Teknologi Smart Intelligent Valet Parking
+
+  # Section Customer Delivery
+  delivery_01:
+    image: /assets/images/delivery-j5-1.jpg
+    alt: Customer delivery JAECOO J5 Premium Palembang
+
+  delivery_02:
+    image: /assets/images/delivery-j5-2.jpg
+    alt: Serah terima JAECOO J5 Premium Palembang
+
+  delivery_03:
+    image: /assets/images/delivery-j5-3.jpg
+    alt: Customer delivery JAECOO J5 Premium Palembang
+
+  delivery_04:
+    image: /assets/images/delivery-j5-4.jpg
+    alt: Serah terima JAECOO J5 Premium Palembang
+
+  delivery_05:
+    image: /assets/images/delivery-j5-5.webp
+    alt: Customer delivery JAECOO J5 Premium Palembang
+
+  delivery_06:
+    image: /assets/images/delivery-j5-6.webp
+    alt: Serah terima JAECOO J7 bersama keluarga customer Palembang
+
+# ──────────────────────────────────────────────────────────────
+# JAECOO J5
+# ──────────────────────────────────────────────────────────────
+jaecoo_j5:
+
+  # Hero (halaman utama J5)
+  hero:
+    image: /assets/images/jaecoo-j5/ext-showroom-hero.webp
+    alt: JAECOO J5 EV tampak samping di showroom Palembang
+
+  # Interior Section
+  interior_cockpit:
+    image: /assets/images/jaecoo-j5/int-cockpit.webp
+    alt: Cockpit interior JAECOO J5 EV
+
+  interior_dashboard:
+    image: /assets/images/jaecoo-j5/int-dashboard.webp
+    alt: Dashboard interior JAECOO J5 EV
+
+  interior_front_seats:
+    image: /assets/images/jaecoo-j5/int-front-seats.webp
+    alt: Kursi depan interior JAECOO J5 EV
+
+  interior_rear_seats:
+    image: /assets/images/jaecoo-j5/int-rear-seats.webp
+    alt: Kursi belakang interior JAECOO J5 EV
+
+  interior_door:
+    image: /assets/images/jaecoo-j5/int-door.webp
+    alt: Panel pintu interior JAECOO J5 EV
+
+  interior_sunroof:
+    image: /assets/images/jaecoo-j5/int-sunroof.webp
+    alt: Sunroof panoramik JAECOO J5 EV
+
+  interior_trunk:
+    image: /assets/images/jaecoo-j5/int-trunk.webp
+    alt: Bagasi JAECOO J5 EV
+
+  interior_camera:
+    image: /assets/images/jaecoo-j5/int-camera.webp
+    alt: Kamera 360 JAECOO J5 EV
+
+  interior_charging:
+    image: /assets/images/jaecoo-j5/int-charging.webp
+    alt: Port pengisian JAECOO J5 EV
+
+  interior_center_console:
+    image: /assets/images/jaecoo-j5/int-center-console.webp
+    alt: Center console JAECOO J5 EV
+
+  # Exterior Section
+  exterior_showroom_front:
+    image: /assets/images/jaecoo-j5/ext-showroom-front.webp
+    alt: JAECOO J5 EV tampak depan di showroom
+
+  exterior_side_wheel:
+    image: /assets/images/jaecoo-j5/ext-side-wheel.webp
+    alt: JAECOO J5 EV tampak samping — detail velg
+
+  exterior_front_detail:
+    image: /assets/images/jaecoo-j5/ext-front-detail.webp
+    alt: Detail lampu depan JAECOO J5 EV
+
+  exterior_taillight:
+    image: /assets/images/jaecoo-j5/ext-taillight.webp
+    alt: Lampu belakang JAECOO J5 EV
+
+  exterior_rear:
+    image: /assets/images/jaecoo-j5/ext-rear.webp
+    alt: JAECOO J5 EV tampak belakang
+
+  exterior_mirror:
+    image: /assets/images/jaecoo-j5/ext-mirror.webp
+    alt: Spion JAECOO J5 EV
+
+  exterior_body_detail:
+    image: /assets/images/jaecoo-j5/ext-body-detail.webp
+    alt: Detail bodi JAECOO J5 EV
+
+  # Color Options
+  color_champagne_silver:
+    image: /assets/images/jaecoo-j5/colors/j5-champagne-silver.png
+    alt: JAECOO J5 EV warna Champagne Silver
+
+  color_aqua_teal:
+    image: /assets/images/jaecoo-j5/colors/j5-aqua-teal.png
+    alt: JAECOO J5 EV warna Aqua Teal
+
+  color_glacier_white:
+    image: /assets/images/jaecoo-j5/colors/j5-glacier-white.png
+    alt: JAECOO J5 EV warna Glacier White
+
+  color_graphite_black:
+    image: /assets/images/jaecoo-j5/colors/j5-graphite-black.png
+    alt: JAECOO J5 EV warna Graphite Black
+
+# ──────────────────────────────────────────────────────────────
+# JAECOO J7
+# ──────────────────────────────────────────────────────────────
+jaecoo_j7:
+
+  # Hero (halaman utama J7)
+  hero:
+    image: /assets/images/jaecoo-j7/ext-profile.jpeg
+    alt: JAECOO J7 SHS-P tampak samping — profile shot
+    video: /assets/video/jaecoo-j7/j7-hero.mp4
+
+  # Exterior Section
+  exterior_studio:
+    image: /assets/images/jaecoo-j7/ext-studio.jpeg
+    alt: JAECOO J7 SHS-P tampak studio
+
+  exterior_front:
+    image: /assets/images/jaecoo-j7/ext-front.jpeg
+    alt: JAECOO J7 SHS-P tampak depan
+
+  exterior_side_2:
+    image: /assets/images/jaecoo-j7/ext-side-2.jpeg
+    alt: JAECOO J7 SHS-P tampak samping
+
+  exterior_quarter:
+    image: /assets/images/jaecoo-j7/ext-quarter.jpeg
+    alt: JAECOO J7 SHS-P tampak tiga perempat
+
+  exterior_detail:
+    image: /assets/images/jaecoo-j7/ext-detail.jpeg
+    alt: Detail eksterior JAECOO J7 SHS-P
+
+  exterior_rear:
+    image: /assets/images/jaecoo-j7/ext-rear.jpeg
+    alt: JAECOO J7 SHS-P tampak belakang
+
+  exterior_urban:
+    image: /assets/images/jaecoo-j7/ext-urban.jpeg
+    alt: JAECOO J7 SHS-P dalam suasana urban
+
+  exterior_wide:
+    image: /assets/images/jaecoo-j7/ext-wide.jpeg
+    alt: JAECOO J7 SHS-P wide shot
+
+  exterior_hero:
+    image: /assets/images/jaecoo-j7/ext-hero.jpeg
+    alt: JAECOO J7 SHS-P — hero shot eksterior
+
+  exterior_dynamic:
+    image: /assets/images/jaecoo-j7/ext-dynamic.jpeg
+    alt: JAECOO J7 SHS-P — dynamic shot
+
+  exterior_corner:
+    image: /assets/images/jaecoo-j7/ext-corner.jpeg
+    alt: JAECOO J7 SHS-P tampak sudut depan
+
+  exterior_front_low:
+    image: /assets/images/jaecoo-j7/ext-front-low.jpeg
+    alt: JAECOO J7 SHS-P tampak depan sudut rendah
+
+  exterior_side:
+    image: /assets/images/jaecoo-j7/ext-side.jpeg
+    alt: JAECOO J7 SHS-P tampak samping penuh
+
+  exterior_driving:
+    image: /assets/images/jaecoo-j7/driving.jpeg
+    alt: JAECOO J7 SHS-P sedang berjalan
+
+  # Interior Section
+  interior_cabin:
+    image: /assets/images/jaecoo-j7/int-cabin.jpeg
+    alt: Kabin interior JAECOO J7 SHS-P
+
+  interior_dashboard:
+    image: /assets/images/jaecoo-j7/int-dashboard.jpeg
+    alt: Dashboard JAECOO J7 SHS-P
+
+  interior_screen:
+    image: /assets/images/jaecoo-j7/int-screen.jpeg
+    alt: Layar infotainment JAECOO J7 SHS-P
+
+  interior_cockpit:
+    image: /assets/images/jaecoo-j7/int-cockpit.jpeg
+    alt: Cockpit JAECOO J7 SHS-P
+
+  # Color Options
+  color_1:
+    image: /assets/images/jaecoo-j7/colors/j7-color-1.png
+    alt: JAECOO J7 SHS-P pilihan warna 1
+
+  color_2:
+    image: /assets/images/jaecoo-j7/colors/j7-color-2.png
+    alt: JAECOO J7 SHS-P pilihan warna 2
+
+  color_3:
+    image: /assets/images/jaecoo-j7/colors/j7-color-3.png
+    alt: JAECOO J7 SHS-P pilihan warna 3
+
+  color_4:
+    image: /assets/images/jaecoo-j7/colors/j7-color-4.png
+    alt: JAECOO J7 SHS-P pilihan warna 4
+
+  color_5:
+    image: /assets/images/jaecoo-j7/colors/j7-color-5.png
+    alt: JAECOO J7 SHS-P pilihan warna 5
+
+# ──────────────────────────────────────────────────────────────
+# JAECOO J8
+# ──────────────────────────────────────────────────────────────
+jaecoo_j8:
+
+  # Hero (halaman utama J8)
+  hero:
+    image: /assets/images/jaecoo-j8/img06.jpeg
+    alt: JAECOO J8 — Flagship SUV Eksterior
+    video: /assets/video/jaecoo-j8/hero.mov
+
+  # Exterior Section
+  exterior_front:
+    image: /assets/images/jaecoo-j8/exterior-front.jpeg
+    alt: JAECOO J8 tampak depan
+
+  exterior_front_day:
+    image: /assets/images/jaecoo-j8/exterior-front-day.jpeg
+    alt: JAECOO J8 tampak depan siang hari
+
+  exterior_rear:
+    image: /assets/images/jaecoo-j8/exterior-rear.jpeg
+    alt: JAECOO J8 tampak belakang
+
+  exterior_hero:
+    image: /assets/images/jaecoo-j8/exterior-hero.jpeg
+    alt: JAECOO J8 — hero shot eksterior
+
+  exterior_rear_light:
+    image: /assets/images/jaecoo-j8/rear-light.jpeg
+    alt: Lampu belakang JAECOO J8
+
+  exterior_wheel_detail:
+    image: /assets/images/jaecoo-j8/wheel-detail.jpeg
+    alt: Detail velg JAECOO J8
+
+  exterior_side_profile:
+    image: /assets/images/jaecoo-j8/side-profile.jpeg
+    alt: JAECOO J8 tampak samping profile
+
+  exterior_img07:
+    image: /assets/images/jaecoo-j8/img07.jpeg
+    alt: JAECOO J8 eksterior detail
+
+  exterior_img08:
+    image: /assets/images/jaecoo-j8/img08.jpeg
+    alt: JAECOO J8 eksterior
+
+  exterior_img09:
+    image: /assets/images/jaecoo-j8/img09.jpeg
+    alt: JAECOO J8 eksterior
+
+  # Interior Section
+  interior_7seater:
+    image: /assets/images/jaecoo-j8/interior-7seater.png
+    alt: Kabin Interior JAECOO J8 7-Seater Premium
+
+  interior_img16:
+    image: /assets/images/jaecoo-j8/img16.jpeg
+    alt: Interior JAECOO J8
+
+  interior_phev_badge:
+    image: /assets/images/jaecoo-j8/phev-badge.jpeg
+    alt: PHEV badge JAECOO J8 SHS-P
+
+  # Technology Section
+  tech_hero:
+    image: /assets/images/jaecoo-j8/tech-hero.jpeg
+    alt: JAECOO J8 — Teknologi Cerdas dalam Balutan Desain Flagship Premium
+
+  tech_ardis:
+    image: /assets/images/jaecoo-j8/tech-ardis.png
+    alt: JAECOO J8 ARDIS All-Road Drive Intelligent System
+
+  tech_ardis_modes:
+    image: /assets/images/jaecoo-j8/tech-ardis-modes.jpeg
+    alt: Mode berkendara JAECOO J8 ARDIS
+
+  tech_battery:
+    image: /assets/images/jaecoo-j8/tech-battery.png
+    alt: Baterai JAECOO J8 SHS-P
+
+  tech_engine:
+    image: /assets/images/jaecoo-j8/tech-engine.png
+    alt: Mesin JAECOO J8 SHS-P
+
+  tech_suspension:
+    image: /assets/images/jaecoo-j8/tech-suspension.png
+    alt: Sistem suspensi JAECOO J8
+
+  tech_cta_bg:
+    image: /assets/images/jaecoo-j8/tech-cta-bg.jpeg
+    alt: JAECOO J8 — Flagship SUV Eksterior Malam Hari
+
+  # Color Options
+  color_slate_grey:
+    image: /assets/images/jaecoo-j8/warna/color-slate-grey.png
+    alt: JAECOO J8 warna Slate Grey
+
+  color_pearl_white:
+    image: /assets/images/jaecoo-j8/warna/color-pearl-white.png
+    alt: JAECOO J8 warna Pearl White
+
+  color_silver:
+    image: /assets/images/jaecoo-j8/warna/color-silver.png
+    alt: JAECOO J8 warna Silver
+
+  color_black:
+    image: /assets/images/jaecoo-j8/warna/color-black.png
+    alt: JAECOO J8 warna Black
+
+# ──────────────────────────────────────────────────────────────
+# OMODA O4
+# ──────────────────────────────────────────────────────────────
+omoda_o4:
+
+  # Hero
+  hero:
+    image: /assets/images/omoda-o4/hero.webp
+    alt: OMODA O4 EV — Mobil AI Pertama di Indonesia
+    video: /assets/video/omoda-o4-hero.mp4
+
+  # Showcase
+  showcase:
+    image: /assets/images/omoda-o4/showcase.webp
+    alt: OMODA O4 EV tampak keseluruhan
+
+  # Exterior Section
+  exterior_hero:
+    image: /assets/images/omoda-o4/exterior-hero.webp
+    alt: OMODA O4 EV eksterior hero shot
+
+  exterior_side:
+    image: /assets/images/omoda-o4/exterior-side.webp
+    alt: OMODA O4 EV tampak samping
+
+  exterior_headlight:
+    image: /assets/images/omoda-o4/exterior-headlight.webp
+    alt: Lampu depan OMODA O4 EV
+
+  exterior_wheel:
+    image: /assets/images/omoda-o4/exterior-wheel.webp
+    alt: Velg OMODA O4 EV
+
+  exterior_badge:
+    image: /assets/images/omoda-o4/exterior-badge.webp
+    alt: Badge OMODA O4 EV
+
+  exterior_cgi_rear:
+    image: /assets/images/omoda-o4/cgi-rear.webp
+    alt: OMODA O4 EV tampak belakang CGI
+
+  # Interior Section
+  interior_hero:
+    image: /assets/images/omoda-o4/interior-hero.webp
+    alt: Interior OMODA O4 EV
+
+  interior_sunroof:
+    image: /assets/images/omoda-o4/interior-sunroof.webp
+    alt: Panoramic sunroof OMODA O4 EV
+
+  interior_seats:
+    image: /assets/images/omoda-o4/interior-seats.webp
+    alt: Kursi interior OMODA O4 EV
+
+  interior_detail:
+    image: /assets/images/omoda-o4/interior-detail.webp
+    alt: Detail interior OMODA O4 EV
+
+  # Technology Section
+  tech_cockpit:
+    image: /assets/images/omoda-o4/tech-cockpit.webp
+    alt: Cockpit AI OMODA O4 EV
+
+  tech_highway:
+    image: /assets/images/omoda-o4/tech-highway.webp
+    alt: OMODA O4 EV — teknologi highway
+
+  technology:
+    image: /assets/images/omoda-o4/technology.webp
+    alt: Teknologi OMODA O4 EV
+
+  # Specification Section
+  spec_overview:
+    image: /assets/images/omoda-o4/spec-overview.webp
+    alt: Spesifikasi OMODA O4 EV
+
+  spec_dimensions:
+    image: /assets/images/omoda-o4/spec-dimensions.webp
+    alt: Dimensi OMODA O4 EV
+
+  safety:
+    image: /assets/images/omoda-o4/safety.webp
+    alt: Fitur keselamatan OMODA O4 EV
+
+  # Gallery
+  gallery_01:
+    image: /assets/images/omoda-o4/gallery-01.webp
+    alt: OMODA O4 EV galeri foto 1
+
+  gallery_02:
+    image: /assets/images/omoda-o4/gallery-02.webp
+    alt: OMODA O4 EV galeri foto 2
+
+  gallery_03:
+    image: /assets/images/omoda-o4/gallery-03.webp
+    alt: OMODA O4 EV galeri foto 3
+
+  # Color Options
+  color_blue_ocean:
+    image: /assets/images/omoda-o4/colors/o4-blue-ocean.webp
+    alt: OMODA O4 EV warna Blue Ocean
+
+  color_midnight_black:
+    image: /assets/images/omoda-o4/colors/o4-midnight-black.webp
+    alt: OMODA O4 EV warna Midnight Black
+
+  color_polar_white:
+    image: /assets/images/omoda-o4/colors/o4-polar-white.webp
+    alt: OMODA O4 EV warna Polar White
