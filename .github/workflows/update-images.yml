@@ -4,14 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - "content/**/*.md"   # Hanya jalan kalau ada file MD yang berubah
+      - "content/**/*.md"
 
 jobs:
   update-images:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write   # Butuh izin push balik ke repo
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -36,5 +36,6 @@ jobs:
             echo "Tidak ada perubahan HTML, skip commit."
           else
             git commit -m "chore: auto-update gambar dari CMS [skip ci]"
+            git pull --rebase origin main
             git push
           fi
