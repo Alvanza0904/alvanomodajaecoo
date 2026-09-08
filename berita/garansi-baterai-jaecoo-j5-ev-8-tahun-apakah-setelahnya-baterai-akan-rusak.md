@@ -88,5 +88,3 @@ Tapi memahami **apa yang sebenarnya dijamin.**
 **8 tahun adalah masa perlindungan garansi.**
 
 Dan kalau masih penasaran soal JAECOO J5 EV, justru bagian yang paling menarik adalah bagaimana mobil ini dirancang untuk menemani penggunaan sehari-hari, bukan sekadar menawarkan angka di atas kertas.
-
-[![Jaecoo J5 Premium](/assets/images/jaecoo-j5-original.webp "Lihat selengkapnya tentang jaecoo J5 ")](omodajaecoopalembang.web.id/jaecoo-j5)
