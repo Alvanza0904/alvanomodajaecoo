@@ -27,6 +27,7 @@
 # BEGIN Cloudflare Managed content
 
 User-agent: *
+
 Allow: /
 
 User-agent: Amazonbot
@@ -58,6 +59,3 @@ Disallow: /
 
 # END Cloudflare Managed Content
 
-User-agent: *
-Allow: /
-Sitemap: https://omodajaecoopalembang.web.id/sitemap.xml
