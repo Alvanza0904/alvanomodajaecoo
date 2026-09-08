@@ -1,0 +1,95 @@
+name: IndexNow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Submit changed HTML URLs to IndexNow
+        shell: bash
+        run: |
+          set -e
+
+          HOST="omodajaecoopalembang.web.id"
+          KEY="d1a1beae528ed41d559a97eec6ab7a16"
+          BASE="https://${HOST}"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            URLS=$(find . -type f -name "*.html" ! -path "./.git/*" | while read -r file; do
+              path="${file#./}"
+              if [ "$path" = "index.html" ]; then
+                echo "${BASE}/"
+              elif [[ "$path" == */index.html ]]; then
+                dir="${path%/index.html}"
+                echo "${BASE}/${dir}/"
+              else
+                echo "${BASE}/${path}"
+              fi
+            done)
+          else
+            URLS=$(git diff --name-only HEAD~1 HEAD -- '*.html' | while read -r file; do
+              [ -n "$file" ] || continue
+              if [ "$file" = "index.html" ]; then
+                echo "${BASE}/"
+              elif [[ "$file" == */index.html ]]; then
+                dir="${file%/index.html}"
+                echo "${BASE}/${dir}/"
+              else
+                echo "${BASE}/${file}"
+              fi
+            done)
+          fi
+
+          if [ -z "$URLS" ]; then
+            echo "Tidak ada file HTML yang berubah. Tidak ada URL yang dikirim."
+            exit 0
+          fi
+
+          echo "URL yang dikirim:"
+          echo "$URLS"
+
+          export URLS
+          python - <<'PY'
+          import json, os, urllib.request
+
+          host = os.environ["HOST"]
+          key = os.environ["KEY"]
+          urls = [u.strip() for u in os.environ["URLS"].splitlines() if u.strip()]
+
+          payload = {
+              "host": host,
+              "key": key,
+              "keyLocation": f"https://{host}/{key}.txt",
+              "urlList": urls
+          }
+
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=json.dumps(payload).encode(),
+              headers={"Content-Type": "application/json; charset=utf-8"},
+              method="POST"
+          )
+
+          try:
+              with urllib.request.urlopen(req) as response:
+                  print("IndexNow response:", response.status)
+                  print(response.read().decode())
+          except urllib.error.HTTPError as e:
+              print("IndexNow HTTP error:", e.code)
+              print(e.read().decode())
+              raise
+          PY
+        env:
+          HOST: omodajaecoopalembang.web.id
+          KEY: d1a1beae528ed41d559a97eec6ab7a16
+          URLS: ${{ steps.urls.outputs.urls }}
