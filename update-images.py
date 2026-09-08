@@ -58,7 +58,7 @@ def parse_md_files():
 STATIC_MAP = {
     # ── Homepage ──
     "homepage/hero-slide-1":        "/assets/images/omoda-o4/tech-highway.webp",
-    "homepage/hero-slide-2":        "/assets/images/r07qxo-r⤓download.jpeg",
+    "homepage/hero-slide-2":        "/assets/images/@r07qxo",
     "homepage/delivery-01":         "assets/images/delivery-j5-1.jpg",
     "homepage/delivery-02":         "assets/images/delivery-j5-2.jpg",
     "homepage/delivery-03":         "assets/images/delivery-j5-3.jpg",
@@ -77,7 +77,7 @@ STATIC_MAP = {
     "homepage/recognized-j7-sivp":  "assets/images/recognized/recognized-j7-sivp.webp",
 
     # ── JAECOO J5 ──
-    "jaecoo-j5/hero":                    "/assets/images/r07qxo-r⤓download.jpeg",
+    "jaecoo-j5/hero":                    "/assets/images/@r07qxo",
     "jaecoo-j5/interior-cockpit":        "/assets/images/jaecoo-j5/int-cockpit.webp",
     "jaecoo-j5/interior-front-seats":    "/assets/images/jaecoo-j5/int-front-seats.webp",
     "jaecoo-j5/exterior-body-detail":    "/assets/images/jaecoo-j5/ext-body-detail.webp",
