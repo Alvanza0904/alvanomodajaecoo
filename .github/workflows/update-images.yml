@@ -1,8 +1,40 @@
 name: Update Images from CMS
+
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "content/**/*.md"   # Hanya jalan kalau ada file MD yang berubah
+
 jobs:
-  placeholder:
+  update-images:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # Butuh izin push balik ke repo
+
     steps:
-      - run: echo "Workflow ini dinonaktifkan"
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Jalankan script update gambar
+        run: python update-images.py
+
+      - name: Commit & push perubahan HTML
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Tidak ada perubahan HTML, skip commit."
+          else
+            git commit -m "chore: auto-update gambar dari CMS [skip ci]"
+            git push
+          fi
