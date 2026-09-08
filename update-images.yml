@@ -1,71 +1,40 @@
 name: Update Images from CMS
 
-# ──────────────────────────────────────────────────────────────
-# Trigger: ketika content/website/images.yml diubah via Decap CMS
-# Workflow ini membaca images.yml dan mengupdate src/alt di HTML pages
-# ──────────────────────────────────────────────────────────────
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - "content/website/images.yml"
-
-  # Manual trigger jika perlu sync ulang
-  workflow_dispatch:
-
-permissions:
-  contents: write
+      - "content/**/*.md"   # Hanya jalan kalau ada file MD yang berubah
 
 jobs:
   update-images:
     runs-on: ubuntu-latest
-    name: Sync Images Config to HTML
+
+    permissions:
+      contents: write   # Butuh izin push balik ke repo
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          fetch-depth: 0
 
-      - name: Run update-images script
-        run: node scripts/update-images.js
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-      - name: Commit updated HTML files
+      - name: Jalankan script update gambar
+        run: python update-images.py
+
+      - name: Commit & push perubahan HTML
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            index.html \
-            jaecoo-j5.html \
-            jaecoo-j5/interior/index.html \
-            jaecoo-j5/design/index.html \
-            jaecoo-j5/technology/index.html \
-            jaecoo-j5/specifications/index.html \
-            jaecoo-j7.html \
-            jaecoo-j7/design.html \
-            jaecoo-j7/interior.html \
-            jaecoo-j7/technology.html \
-            jaecoo-j7/performance.html \
-            jaecoo-j7/safety.html \
-            jaecoo-j8.html \
-            jaecoo-j8-design.html \
-            jaecoo-j8-interior.html \
-            jaecoo-j8-technology.html \
-            jaecoo-j8-performance.html \
-            jaecoo-j8-specifications.html \
-            omoda-o4/index.html \
-            omoda-o4/design/index.html \
-            omoda-o4/interior/index.html \
-            omoda-o4/technology/index.html \
-            omoda-o4/performance/index.html
-          git diff --cached --quiet || git commit -m "chore: update images from CMS config [skip ci]"
-          git push
-
-      - name: Trigger Cloudflare Pages deploy
-        run: |
-          curl -s -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/30df0197-3107-49bc-8621-7ed13f767bab"
-          echo "Cloudflare deploy triggered."
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Tidak ada perubahan HTML, skip commit."
+          else
+            git commit -m "chore: auto-update gambar dari CMS [skip ci]"
+            git push
+          fi
