@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 
 """
 update-images.py
 Membaca semua file content MD dan mengupdate src/style gambar di HTML.
