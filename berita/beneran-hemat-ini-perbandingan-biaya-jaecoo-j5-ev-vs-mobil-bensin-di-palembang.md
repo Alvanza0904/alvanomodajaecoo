@@ -65,5 +65,3 @@ Apalagi untuk mobilitas harian di Palembang — dengan kondisi lalu lintas yang 
 ***
 
 Mau tahu lebih lanjut atau coba test drive langsung? Kunjungi showroom OMODA JAECOO Palembang atau hubungi tim kami sekarang.
-
-[![Jaecoo J5 Premium](/assets/images/@r07qxo%20-%20R⤓Download.jpeg "Jaecoo J5 premium")](omodajaecoopalembang.web.id/jaecoo-j5)
