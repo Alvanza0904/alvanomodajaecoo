@@ -75,13 +75,23 @@ function inlineMarkdown(text) {
     return token;
   };
 
-  // Images first so their alt text is not treated as normal inline text.
+  // Linked images first: [![alt](src "title")](href)
+  v = v.replace(/\[!\[([^\]]*)\]\(([^\s)]+)(?:\s+"([^"]*)")?\)\]\(([^)]+)\)/g, (_, alt, src, title, href) => {
+    const isExternal = /^https?:\/\//i.test(href);
+    const target = isExternal ? ' target="_blank" rel="noopener"' : "";
+    return stash(`<figure class="art-inline-image"><a href="${escapeAttr(href)}"${target}><img src="${escapeAttr(src)}" alt="${escapeAttr(alt)}" loading="lazy" decoding="async"></a><figcaption>${escapeHtml(title || alt)}</figcaption></figure>`);
+  });
+
+  // Plain images: ![alt](src "title")
   v = v.replace(/!\[([^\]]*)\]\(([^\s)]+)(?:\s+"([^"]*)")?\)/g, (_, alt, src, title) => {
     return stash(`<figure class="art-inline-image"><img src="${escapeAttr(src)}" alt="${escapeAttr(alt)}" loading="lazy" decoding="async"><figcaption>${escapeHtml(title || alt)}</figcaption></figure>`);
   });
 
+  // Plain links: [label](href)
   v = v.replace(/\[([^\]]+)\]\(([^\s)]+)(?:\s+"([^"]*)")?\)/g, (_, label, href) => {
-    return stash(`<a href="${escapeAttr(href)}">${label}</a>`);
+    const isExternal = /^https?:\/\//i.test(href);
+    const target = isExternal ? ' target="_blank" rel="noopener"' : "";
+    return stash(`<a href="${escapeAttr(href)}"${target}>${label}</a>`);
   });
 
   v = v.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
@@ -105,8 +115,35 @@ function looksLikeHeading(line) {
   return /^(berapa|kenapa|mengapa|apa|bagaimana|kapan|masih|mau|harga|desain|eksterior|interior|performa|teknologi|fitur|spesifikasi|keamanan|kenyamanan|alasan|kelebihan|kekurangan|kesimpulan|jadi|apakah|ingin|cara|cek|pilih|bandingkan|jangan)\b/i.test(text);
 }
 
+function buildCtaShortcode(url, text, label) {
+  const safeUrl  = escapeAttr(url  || "#");
+  const safeText = escapeHtml(text || "Selengkapnya");
+  const safeLabel = escapeHtml(label || "");
+  const isExternal = /^https?:\/\//i.test(url);
+  const rel    = isExternal ? ' rel="noopener noreferrer"' : "";
+  const target = isExternal ? ' target="_blank"'          : "";
+  return `<div class="art-cta-wrap reveal-on-scroll">${safeLabel ? `<p class="art-cta-wrap__label">${safeLabel}</p>` : ""}<a class="art-cta-btn" href="${safeUrl}"${target}${rel}>${safeText} &rarr;</a></div>`;
+}
+
+function processShortcodes(markdown) {
+  // {{cta url="..." text="..." label="..."}}
+  // label adalah teks kecil di atas tombol (opsional)
+  return String(markdown || "").replace(
+    /\{\{cta\s+([^}]+)\}\}/gi,
+    (_, attrs) => {
+      const get = key => {
+        const m = attrs.match(new RegExp(`${key}=["']([^"']+)["']`));
+        return m ? m[1] : "";
+      };
+      return `@@CTA:${encodeURIComponent(buildCtaShortcode(get("url"), get("text"), get("label")))}@@`;
+    }
+  );
+}
+
 function markdownToHtml(markdown) {
-  const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
+  // Proses shortcode dulu sebelum parsing markdown
+  const processedMarkdown = processShortcodes(markdown);
+  const lines = String(processedMarkdown || "").replace(/\r\n/g, "\n").split("\n");
   const output = [];
   let paragraph = [];
   let listItems = [];
@@ -176,6 +213,13 @@ function markdownToHtml(markdown) {
       output.push("<hr>");
       continue;
     }
+
+    // Standalone linked image: [![alt](src)](href) — whole line is an image
+    if (/^\[!\[/.test(line) || /^!\[/.test(line)) {
+      flushAll();
+      output.push(`<div>${inlineMarkdown(line)}</div>`);
+      continue;
+    }
     if (/^#{3}\s+/.test(line)) {
       flushAll(); output.push(`<h3>${inlineMarkdown(line.replace(/^###\s+/, ""))}</h3>`); continue;
     }
@@ -211,7 +255,8 @@ function markdownToHtml(markdown) {
 
   if (inCode) flushCode();
   flushAll();
-  return output.join("\n");
+  // Decode CTA shortcode tokens back to HTML
+  return output.join("\n").replace(/@@CTA:([^@]+)@@/g, (_, encoded) => decodeURIComponent(encoded));
 }
 
 function formatDate(dateString) {
