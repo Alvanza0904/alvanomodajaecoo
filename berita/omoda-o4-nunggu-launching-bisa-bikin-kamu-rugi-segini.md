@@ -10,7 +10,7 @@ image: /assets/images/D5921EB2-F96B-4554-BBAB-769A6D02EBD9.png
 show_kredit_cta: false
 ---
 
-**Wajar kalau kamu masih nunggu.** Harga belum resmi keluar, dan rasanya lebih aman pesan setelah semuanya jelas. 
+**Wajar kalau kamu masih nunggu.** Harga belum resmi keluar, dan rasanya lebih aman pesan setelah semuanya jelas.  
 
 **Tapi ada satu hal yang perlu kamu tahu sebelum memutuskan untuk menunda.**
 
