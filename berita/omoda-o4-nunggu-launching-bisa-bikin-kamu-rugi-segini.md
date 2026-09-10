@@ -58,6 +58,6 @@ Keputusan tetap ada di tangan kamu. Tapi sekarang kamu udah tahu risikonya kalau
 
 Kalau mau tanya lebih lanjut soal spesifikasi lengkap, harga, atau proses pemesanan, langsung hubungi:
 
-{{cta url="https://wa.me/6285183145926" text="Chat Alvan Sekarang"}}
+{{cta url="https://wa.me/6285183145926" text="Alvan Omoda Jaecoo Palembang"}}
 
 Nggak ada paksaan. Tapi informasinya gratis — dan mungkin itu yang kamu butuhkan sebelum memutuskan.
