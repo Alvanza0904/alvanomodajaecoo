@@ -6,7 +6,7 @@ description: Banyak yang masih nunggu harga resmi launching OMODA O4. Padahal ad
 focus_keyword: pre-book OMODA O4 Palembang
 image_alt: OMODA O4 EV pre-book Palembang - selisih benefit hingga Rp35 juta
 image_caption: Benefit Pree-Book Omoda O4
-image: ''
+image: /assets/images/D5921EB2-F96B-4554-BBAB-769A6D02EBD9.png
 show_kredit_cta: false
 ---
 
