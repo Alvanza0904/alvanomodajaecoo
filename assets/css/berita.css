@@ -280,6 +280,12 @@
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
+.berita-cat--promo {
+  background: rgba(201, 168, 103, 0.18);
+  color: #7a5c20;
+  border: 1px solid rgba(201, 168, 103, 0.4);
+}
+
 .berita-date {
   font-size: 11px;
   color: #999;
