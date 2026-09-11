@@ -160,12 +160,6 @@
   <!-- Berita -->
   <!-- CMS:BERITA:START -->
   <url>
-    <loc>https://omodajaecoopalembang.web.id/berita/omoda-o4-nunggu-launching-bisa-bikin-kamu-rugi-segini/</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://omodajaecoopalembang.web.id/berita/garansi-baterai-jaecoo-j5-ev-8-tahun-apakah-setelahnya-baterai-akan-rusak/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -208,6 +202,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Promo -->
+  <!-- CMS:PROMO:SITEMAP:START -->
+  <url>
+    <loc>https://omodajaecoopalembang.web.id/promo/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- CMS:PROMO:SITEMAP:END -->
 
   <!-- Sales -->
   <url>
