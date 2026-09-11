@@ -10,6 +10,58 @@ public_folder: /assets/images
 
 collections:
 
+  - name: promo
+    label: "🎁 Promo"
+    folder: promo
+    create: true
+    slug: "{{slug}}"
+    fields:
+
+      # ── DETAIL PROMO ──
+      - { label: "Judul Promo", name: title, widget: string, hint: "Contoh: Promo Lebaran JAECOO J5 EV" }
+      - { label: "Slug (URL)", name: slug, widget: string, hint: "Contoh: promo-lebaran-jaecoo-j5-ev (huruf kecil, pakai tanda hubung)" }
+      - { label: "Ringkasan", name: excerpt, widget: text, required: false, hint: "Kalimat singkat tentang promo ini (maks 160 karakter)" }
+
+      # ── MODEL ──
+      - label: "Model"
+        name: model
+        widget: select
+        options: ["JAECOO J5 EV", "JAECOO J7 SHS", "JAECOO J7 SHS SIVP", "JAECOO J8 ARDIS SHS", "OMODA O4", "Semua Model"]
+        required: false
+        hint: "Model kendaraan yang dipromo"
+      - { label: "Nama Program Promo", name: promo_name, widget: string, required: false, hint: "Contoh: Promo Lebaran 2026, End of Year Sale" }
+
+      # ── PERIODE ──
+      - { label: "Tanggal Mulai", name: start_date, widget: datetime, required: false, hint: "Kapan promo mulai berlaku" }
+      - { label: "Tanggal Berakhir", name: end_date, widget: datetime, required: false, hint: "Kapan promo berakhir. Kosongkan jika tidak ada batas waktu." }
+
+      # ── PENAWARAN ──
+      - { label: "Harga Normal", name: price, widget: string, required: false, hint: "Contoh: Rp 354.900.000" }
+      - { label: "Harga Promo", name: promo_price, widget: string, required: false, hint: "Contoh: Rp 339.900.000 (isi jika ada diskon harga)" }
+      - { label: "Benefit / Keuntungan", name: benefit, widget: text, required: false, hint: "Satu baris per item akan otomatis menjadi checklist" }
+      - { label: "Bonus", name: bonus, widget: text, required: false, hint: "Bonus aksesori atau gift. Satu baris per item." }
+      - { label: "DP Mulai", name: dp, widget: string, required: false, hint: "Contoh: Rp 35.000.000" }
+      - { label: "Cicilan Per Bulan", name: installment, widget: string, required: false, hint: "Contoh: Rp 5.900.000/bulan" }
+      - { label: "Tenor", name: tenor, widget: string, required: false, hint: "Contoh: 48 bulan, 60 bulan" }
+
+      # ── MEDIA ──
+      - { label: "Gambar Promo", name: featured_image, widget: image, required: false }
+      - { label: "Alt Text Gambar", name: image_alt, widget: string, required: false, hint: "Deskripsi gambar untuk SEO dan aksesibilitas" }
+
+      # ── SYARAT ──
+      - { label: "Syarat & Ketentuan", name: terms, widget: text, required: false, hint: "Syarat dan ketentuan promo. Satu baris per syarat." }
+
+      # ── WHATSAPP ──
+      - { label: "Pesan WhatsApp Custom", name: whatsapp_message, widget: text, required: false, hint: "Kosongkan untuk menggunakan pesan otomatis sesuai model & nama promo" }
+
+      # ── SEO ──
+      - { label: "SEO Title", name: seo_title, widget: string, required: false, hint: "Judul halaman untuk mesin pencari. Maks 60 karakter." }
+      - { label: "SEO Description", name: seo_description, widget: text, required: false, hint: "Deskripsi untuk mesin pencari. Maks 160 karakter." }
+
+      # ── PUBLISHING ──
+      - { label: "Publish", name: published, widget: boolean, default: true, hint: "Aktifkan untuk mempublish promo ini" }
+      - { label: "Tampilkan di Homepage", name: featured, widget: boolean, default: false, hint: "Aktifkan agar promo muncul di section Promo Aktif homepage" }
+
   - name: berita
     label: "📰 Berita"
     folder: berita
