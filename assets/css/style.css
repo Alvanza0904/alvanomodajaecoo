@@ -2066,8 +2066,8 @@ a.stat-card:hover .stat-card__value {
 .btn.primary,.btn.dark{background:var(--color-text);color:var(--color-bg);border-color:var(--color-text)}
 .btn.ghost{background:rgba(244,245,247,.05);color:var(--color-text);border-color:rgba(244,245,247,.28)}
 .btn:hover{transform:translateY(-2px);border-color:var(--color-accent)}
-.hero-slide-control{position:absolute;z-index:4;bottom:36px;width:42px;height:42px;border:1px solid var(--color-line-strong);background:rgba(10,12,15,.4);color:var(--color-text);font-size:24px;cursor:pointer}
-.hero-slide-prev{right:106px}.hero-slide-next{right:54px}
+.hero-slide-control{position:absolute;z-index:4;top:50%;transform:translateY(-50%);width:42px;height:42px;border:1px solid var(--color-line-strong);background:rgba(10,12,15,.4);color:var(--color-text);font-size:24px;cursor:pointer}
+.hero-slide-prev{left:16px}.hero-slide-next{right:16px}
 .hero-dots{position:absolute;z-index:4;left:var(--container-pad);bottom:48px;display:flex;gap:8px}
 .hero-dot{width:28px;height:2px;border:0;background:rgba(244,245,247,.35);padding:0;cursor:pointer}
 .hero-dot.active{background:var(--color-accent)}
@@ -2168,7 +2168,7 @@ a.stat-card:hover .stat-card__value {
   .hero p{max-width:34ch}
   .hero .actions{margin-top:16px}
   .hero-slider[data-active-slide="1"] .hero-copy{padding-bottom:clamp(84px,15vh,112px)}
-  .hero-slide-prev{right:82px}.hero-slide-next{right:30px}
+  .hero-slide-prev{left:10px}.hero-slide-next{right:10px}
   .hero-dots{left:var(--container-pad);bottom:34px}
   .section{padding:96px 0}
   .model-grid{grid-template-columns:1fr}
