@@ -118,7 +118,7 @@ STATIC_MAP = {
     "jaecoo-j8/exterior-front":         "/assets/images/jaecoo-j8/exterior-front.jpeg",
     "jaecoo-j8/exterior-hero":          "/assets/images/jaecoo-j8/exterior-hero.jpeg",
     "jaecoo-j8/exterior-rear-light":    "/assets/images/jaecoo-j8/rear-light.jpeg",
-    "jaecoo-j8/exterior-rear":          "/assets/images/jaecoo-j8/exterior-rear.jpeg",
+    "jaecoo-j8/exterior-rear":          "/assets/images/jaecoo-j8/img07.jpeg",
     "jaecoo-j8/exterior-wheel-detail":  "/assets/images/jaecoo-j8/wheel-detail.jpeg",
     "jaecoo-j8/interior-7seater":       "/assets/images/jaecoo-j8/interior-7seater.png",
     "jaecoo-j8/interior-img16":         "/assets/images/jaecoo-j8/img16.jpeg",
