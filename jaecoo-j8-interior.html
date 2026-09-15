@@ -543,6 +543,64 @@
     }
       /* Navbar offset — prevents fixed navbar (68px) from covering content */
     body{padding-top:68px;}
+
+    /* ── DESKTOP ENHANCEMENT 1280px+ ── */
+    @media (min-width: 1280px) {
+      .j8-hero { height: clamp(720px, 92svh, 1000px); }
+      .j8-hero__content { padding: 60px 100px 80px; max-width: 1400px; margin: 0 auto; left: 0; right: 0; }
+      .j8-hero__title { font-size: clamp(3rem, 5vw, 5rem); max-width: 800px; letter-spacing: -0.03em; }
+      .j8-hero__copy { font-size: 1.05rem; max-width: 580px; line-height: 1.8; }
+      .j8-hero__eyebrow { font-size: 0.7rem; letter-spacing: 0.32em; }
+
+      .j8-split { min-height: min(78svh, 820px); }
+      .j8-split__media { flex: 0 0 58%; }
+      .j8-split__content { flex: 0 0 42%; padding: 80px 80px 80px 72px; }
+      .j8-split--reverse .j8-split__content { padding: 80px 72px 80px 80px; }
+      .j8-split__title { font-size: clamp(2rem, 3vw, 3rem); letter-spacing: -0.025em; margin-bottom: 24px; }
+      .j8-split__copy { font-size: 1rem; line-height: 1.82; max-width: 420px; }
+
+      .j8-split--audio { min-height: min(65svh, 680px); }
+      .j8-split__content--audio { padding: 80px; }
+
+      .j8-immersive { height: min(75svh, 780px); }
+      .j8-immersive__content { padding: 60px 100px; max-width: 1400px; margin: 0 auto; left: 0; right: 0; }
+      .j8-immersive__title { font-size: clamp(2.4rem, 4vw, 4rem); letter-spacing: -0.03em; }
+      .j8-immersive__copy { font-size: 1.05rem; max-width: 520px; }
+
+      .j8-highlights { padding: 120px 100px; max-width: 1400px; margin: 0 auto; }
+      .j8-highlights__title { font-size: clamp(2.2rem, 3.5vw, 3.5rem); }
+      .j8-spec-grid { grid-template-columns: repeat(4, 1fr); }
+      .j8-spec-item:nth-child(2n) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .j8-spec-item:nth-child(4n) { border-right: none; }
+      .j8-spec-item { padding: 40px 32px; }
+      .j8-spec-value { font-size: clamp(2.2rem, 3vw, 3.2rem); }
+
+      .j8-editorial__inner { min-height: min(65svh, 680px); }
+      .j8-editorial__media { flex: 0 0 52%; }
+      .j8-editorial__content { flex: 0 0 48%; padding: 80px; }
+      .j8-editorial__title { font-size: clamp(2rem, 3vw, 3rem); letter-spacing: -0.025em; }
+      .j8-editorial__copy { font-size: 1rem; line-height: 1.82; max-width: 440px; }
+
+      .j8-cta { padding: 140px 100px; max-width: 1400px; margin: 0 auto; }
+      .j8-cta__title { font-size: clamp(2.4rem, 4vw, 4rem); }
+    }
+
+    @media (min-width: 1440px) {
+      .j8-hero__content { padding: 60px 120px 100px; max-width: 1600px; }
+      .j8-hero__title { font-size: clamp(3.6rem, 6vw, 6rem); }
+      .j8-split__content { padding: 100px 100px 100px 90px; }
+      .j8-highlights { padding: 140px 120px; max-width: 1600px; }
+      .j8-immersive__content { padding: 80px 120px; max-width: 1600px; }
+      .j8-editorial__content { padding: 100px; }
+      .j8-cta { padding: 160px 120px; max-width: 1600px; }
+    }
+
+    @media (min-width: 1920px) {
+      .j8-hero__content { padding: 80px 140px 120px; max-width: 1800px; }
+      .j8-highlights { padding: 160px 140px; max-width: 1800px; }
+      .j8-immersive__content { padding: 100px 140px; max-width: 1800px; }
+      .j8-cta { padding: 180px 140px; max-width: 1800px; }
+    }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"JAECOO J8 Interior","description":"Jelajahi interior JAECOO J8: kabin premium 6 dan 7 seater, Sony Premium Sound, panoramic sunroof, kenyamanan tiga baris, dan konektivitas.","url":"https://omodajaecoopalembang.web.id/jaecoo-j8-interior.html","isPartOf":{"@id":"https://omodajaecoopalembang.web.id/jaecoo-j8.html"},"primaryImageOfPage":{"@type":"ImageObject","contentUrl":"https://omodajaecoopalembang.web.id/assets/images/jaecoo-j8/exterior-rear.jpeg"},"about":{"@type":"Car","name":"JAECOO J8","url":"https://omodajaecoopalembang.web.id/jaecoo-j8.html"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://omodajaecoopalembang.web.id/"},{"@type":"ListItem","position":2,"name":"JAECOO J8","item":"https://omodajaecoopalembang.web.id/jaecoo-j8.html"},{"@type":"ListItem","position":3,"name":"Interior","item":"https://omodajaecoopalembang.web.id/jaecoo-j8-interior.html"}],"description":"Jelajahi interior JAECOO J8: kabin premium 6 dan 7 seater, Sony Premium Sound, panoramic sunroof, kenyamanan tiga baris, dan konektivitas."}]}</script>
 <style>

@@ -759,6 +759,98 @@
       .footer-v2__social-links a { padding: 10px 14px; min-height: 44px; font-size: 0.78rem; }
       .footer-v2__bottom { padding: 16px 24px; }
     }
+
+    /* ════════════════════════════════════════
+       DESKTOP ENHANCEMENT — 1280px+
+       Dirancang khusus untuk layar besar,
+       bukan sekadar mobile diperbesar
+    ════════════════════════════════════════ */
+    @media (min-width: 1280px) {
+      /* Hero — cinematic, full impact */
+      .j8-hero { min-height: 100svh; }
+      .j8-hero__content {
+        padding: 0 80px 100px;
+        max-width: 1400px;
+      }
+      .j8-hero__eyebrow { font-size: 0.72rem; letter-spacing: 0.32em; margin-bottom: 28px; }
+      .j8-hero__title { font-size: clamp(5rem, 10vw, 8.5rem); letter-spacing: -0.04em; }
+      .j8-hero__sub { font-size: clamp(1.1rem, 2vw, 1.6rem); margin-bottom: 36px; }
+      .j8-hero__desc { font-size: 1.1rem; max-width: 600px; margin-bottom: 52px; line-height: 1.8; }
+      .j8-btn-primary { padding: 18px 40px; font-size: 0.78rem; letter-spacing: 0.18em; }
+      .j8-btn-ghost { padding: 17px 38px; font-size: 0.78rem; letter-spacing: 0.18em; }
+
+      /* Glance — stats bar di desktop lebih lega */
+      .j8-glance { padding: 72px 0; }
+      .j8-glance__inner { padding: 0 80px; max-width: 1400px; margin: 0 auto; }
+      .j8-glance__label { font-size: 0.72rem; letter-spacing: 0.26em; margin-bottom: 52px; }
+      .j8-glance__grid { gap: 0; }
+      .j8-glance__stat { padding: 0 60px 0 0; }
+      .j8-glance__num { font-size: clamp(3rem, 4.5vw, 5rem); }
+      .j8-glance__unit { font-size: 1.1rem; }
+      .j8-glance__desc { font-size: 0.8rem; letter-spacing: 0.1em; }
+
+      /* Section spacing — lebih bernapas di desktop */
+      .j8-section { padding: 140px 0; }
+      .j8-wrap { padding: 0 80px; max-width: 1400px; margin: 0 auto; }
+
+      /* Flagship — typography scale-up */
+      .j8-flagship { max-width: 900px; }
+      .j8-flagship__title {
+        font-size: clamp(3.8rem, 6vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+      }
+      .j8-flagship__body { font-size: 1.1rem; line-height: 1.85; max-width: 680px; }
+
+      /* Editorial grid — proporsi desktop yang lebih baik */
+      .j8-editorial {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 100px;
+        align-items: center;
+      }
+      .j8-editorial--reverse { direction: rtl; }
+      .j8-editorial--reverse > * { direction: ltr; }
+      .j8-editorial__kicker { font-size: 0.72rem; letter-spacing: 0.28em; margin-bottom: 24px; }
+      .j8-editorial__title {
+        font-size: clamp(2.6rem, 4vw, 4rem);
+        letter-spacing: -0.03em;
+        margin-bottom: 24px;
+      }
+      .j8-editorial__body { font-size: 1.05rem; line-height: 1.85; margin-bottom: 36px; }
+      .j8-editorial__visual img { border-radius: 1px; }
+
+      /* Variants grid */
+      .j8-variants { gap: 28px; }
+      .j8-variant { padding: 52px 44px; }
+      .j8-variant__name { font-size: 1.8rem; }
+      .j8-variant__tagline { font-size: 0.95rem; line-height: 1.65; }
+
+      /* Choose Your J8 */
+      .j8-choose { gap: 28px; }
+      .j8-choose__card { padding: 52px 44px; }
+
+      /* Final CTA */
+      .j8-final-cta { padding: 180px 0; }
+    }
+
+    @media (min-width: 1440px) {
+      .j8-hero__content { padding: 0 100px 120px; max-width: 1600px; }
+      .j8-glance__inner { padding: 0 100px; max-width: 1600px; }
+      .j8-wrap { padding: 0 100px; max-width: 1600px; }
+      .j8-section { padding: 160px 0; }
+      .j8-glance { padding: 80px 0; }
+      .j8-editorial { gap: 120px; }
+      .j8-flagship__title { font-size: clamp(4.5rem, 7vw, 7rem); }
+    }
+
+    @media (min-width: 1920px) {
+      .j8-hero__content { padding: 0 120px 140px; max-width: 1800px; }
+      .j8-glance__inner { padding: 0 120px; max-width: 1800px; }
+      .j8-wrap { padding: 0 120px; max-width: 1800px; }
+      .j8-section { padding: 180px 0; }
+      .j8-editorial { gap: 140px; }
+      .j8-glance__stat { padding: 0 80px 0 0; }
+    }
   </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Product","Car"],"name":"JAECOO J8","brand":{"@type":"Brand","name":"JAECOO"},"description":"JAECOO J8 ARDIS dan J8 SHS-P ARDIS di Palembang dengan AWD ARDIS, performa, teknologi hybrid, dan fitur premium.","url":"https://omodajaecoopalembang.web.id/jaecoo-j8.html","image":"https://omodajaecoopalembang.web.id/assets/images/jaecoo-j8/img06.jpeg","category":"Automotive","model":"JAECOO J8","fuelType":"PlugInHybrid","offers":[{"@type":"Offer","name":"JAECOO J8 ARDIS","url":"https://omodajaecoopalembang.web.id/jaecoo-j8.html","priceCurrency":"IDR","price":"719900000","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"},{"@type":"Offer","name":"JAECOO J8 SHS-P ARDIS","url":"https://omodajaecoopalembang.web.id/jaecoo-j8.html","priceCurrency":"IDR","price":"865000000","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}],"areaServed":"Palembang"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://omodajaecoopalembang.web.id/"},{"@type":"ListItem","position":2,"name":"JAECOO J8","item":"https://omodajaecoopalembang.web.id/jaecoo-j8.html"}],"description":"JAECOO J8 di Palembang dengan varian ARDIS dan SHS-P ARDIS. Flagship SUV dengan AWD ARDIS, performa hybrid, teknologi cerdas, dan harga OTR Palembang."}]}</script>
 <meta content="JAECOO J8 Palembang" property="og:image:alt"/><meta content="JAECOO J8 Palembang" name="twitter:image:alt"/><meta content="OMODA JAECOO Palembang" name="author"/></head>

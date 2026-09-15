@@ -483,6 +483,76 @@
 .d-detail__panel-img{height:auto;max-height:520px;aspect-ratio:auto;object-fit:contain;object-position:center center;}
 .d-profile{background:#050505;}
 .d-profile__img{height:min(76svh,780px);aspect-ratio:auto;object-fit:contain;object-position:center center;}
+
+/* ── DESKTOP ENHANCEMENT 1280px+ ── */
+@media(min-width:1280px){
+  /* Hero section */
+  .d-hero__wrap{padding:0 80px;max-width:1400px;margin:0 auto;}
+  .d-hero__title{font-size:clamp(4rem,7vw,7rem);letter-spacing:-0.04em;}
+  .d-hero__sub{font-size:clamp(1rem,1.6vw,1.4rem);}
+
+  /* Fullbleed — taller, more cinematic on large screens */
+  .d-fullbleed__img{height:min(88svh,900px);}
+  .d-fullbleed__content{padding:0 80px 80px;max-width:1400px;margin:0 auto;left:0;right:0;bottom:0;position:absolute;}
+  .d-fullbleed__heading{font-size:clamp(2.4rem,4vw,4rem);letter-spacing:-0.03em;}
+  .d-fullbleed__body{font-size:1.05rem;max-width:560px;line-height:1.8;}
+
+  /* Split sections — generous columns */
+  .d-split{display:grid;grid-template-columns:1fr 1fr;min-height:min(75svh,800px);align-items:stretch;}
+  .d-split--reverse{direction:rtl;}
+  .d-split--reverse > *{direction:ltr;}
+  .d-split__copy{display:flex;flex-direction:column;justify-content:center;padding:80px 80px 80px 80px;}
+  .d-split__img-wrap{min-height:min(75svh,800px);max-height:none;padding:0;}
+  .d-split__img{height:100%;max-height:none;object-fit:cover;object-position:center center;}
+  .d-split__kicker{font-size:0.72rem;letter-spacing:0.28em;}
+  .d-split__heading{font-size:clamp(2rem,3.2vw,3.2rem);letter-spacing:-0.03em;margin:16px 0 20px;}
+  .d-split__body{font-size:1.05rem;line-height:1.8;}
+
+  /* Profile — side portrait, large display */
+  .d-profile__img{height:min(85svh,860px);}
+
+  /* Cinematic section */
+  .d-cinematic__img{height:min(80svh,820px);}
+  .d-cinematic__copy{padding:72px 80px;max-width:1400px;margin:0 auto;}
+  .d-cinematic__heading{font-size:clamp(2rem,3.2vw,3.2rem);}
+
+  /* Detail panels */
+  .d-detail{padding:120px 80px;max-width:1400px;margin:0 auto;}
+  .d-detail__panels{gap:32px;}
+  .d-detail__panel-img{max-height:600px;}
+  .d-detail__panel-heading{font-size:1.2rem;}
+
+  /* Dimensions */
+  .d-dims{padding:100px 0;}
+  .d-dims__wrap{padding:0 80px;max-width:1400px;margin:0 auto;}
+  .d-dims__title{font-size:clamp(2rem,3vw,3rem);}
+
+  /* Colors */
+  .d-colors{padding:120px 80px;max-width:1400px;margin:0 auto;}
+  .d-colors__vehicle{max-height:440px;}
+}
+
+@media(min-width:1440px){
+  .d-hero__wrap{padding:0 100px;max-width:1600px;}
+  .d-fullbleed__img{height:min(90svh,960px);}
+  .d-fullbleed__content{padding:0 100px 100px;}
+  .d-split__copy{padding:100px;}
+  .d-split__img-wrap{min-height:min(80svh,860px);}
+  .d-profile__img{height:min(88svh,920px);}
+  .d-cinematic__img{height:min(84svh,880px);}
+  .d-detail{padding:140px 100px;}
+  .d-dims__wrap{padding:0 100px;max-width:1600px;}
+  .d-colors{padding:140px 100px;max-width:1600px;}
+}
+
+@media(min-width:1920px){
+  .d-hero__wrap{padding:0 120px;max-width:1800px;}
+  .d-fullbleed__content{padding:0 120px 120px;}
+  .d-split__copy{padding:120px;}
+  .d-dims__wrap{padding:0 120px;max-width:1800px;}
+  .d-colors{padding:160px 120px;max-width:1800px;}
+  .d-detail{padding:160px 120px;max-width:1800px;}
+}
 /* Tablet 641–900px: override contain → cover agar tidak ada whitespace */
 @media(min-width:641px) and (max-width:900px){
   .d-fullbleed__img{height:auto;max-height:60svh;object-fit:cover;aspect-ratio:16/9;}
@@ -581,8 +651,8 @@
   ═══════════════════════════════════════ -->
 <section aria-label="Eksterior belakang JAECOO J8" class="d-fullbleed">
 <picture>
-<source srcset="/assets/images/jaecoo-j8/exterior-front.webp" type="image/webp"/>
-<img alt="JAECOO J8 tampak belakang tiga perempat — lampu LED menyala di malam hari, desain belakang premium" class="d-fullbleed__img" decoding="async" height="1920" loading="lazy" src="/assets/images/jaecoo-j8/exterior-front.jpeg" style="object-position:center 30%;" width="1440"/>
+<source srcset="/assets/images/jaecoo-j8/exterior-rear.webp" type="image/webp"/>
+<img alt="JAECOO J8 tampak belakang tiga perempat — lampu LED menyala di malam hari, desain belakang premium" class="d-fullbleed__img" decoding="async" height="1920" loading="lazy" src="/assets/images/jaecoo-j8/exterior-rear.jpeg" style="object-position:center 40%;" width="1440"/>
 </picture>
 <div aria-hidden="true" class="d-fullbleed__overlay"></div>
 <div class="d-fullbleed__content">
