@@ -395,7 +395,38 @@
     /* ════════════════════════════════════════
        SECTION 3 — THE NEW FLAGSHIP (centered)
     ════════════════════════════════════════ */
+    .j8-flagship-wrap {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70svh;
+      padding: 80px 24px;
+    }
+    .j8-flagship-wrap__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      opacity: 0.35;
+      display: block;
+    }
+    .j8-flagship-wrap__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        #0a0a0a 0%,
+        rgba(10,10,10,0.3) 40%,
+        rgba(10,10,10,0.3) 60%,
+        #0a0a0a 100%
+      );
+    }
     .j8-flagship {
+      position: relative;
+      z-index: 2;
       text-align: center;
       max-width: 760px;
       margin: 0 auto;
@@ -962,8 +993,13 @@
 <!-- ══════════════════════════════════════════
        3. THE NEW FLAGSHIP OF JAECOO
   ══════════════════════════════════════════ -->
-<section class="j8-section j8-section--dark">
-<div class="j8-wrap">
+<section class="j8-section--dark" style="padding:0;">
+<div class="j8-flagship-wrap">
+<picture>
+<source srcset="/assets/images/jaecoo-j8/exterior-hero.webp" type="image/webp"/>
+<img alt="" aria-hidden="true" class="j8-flagship-wrap__bg" decoding="async" fetchpriority="low" height="1920" loading="lazy" src="/assets/images/jaecoo-j8/exterior-hero.jpeg" width="1440"/>
+</picture>
+<div class="j8-flagship-wrap__overlay"></div>
 <div class="j8-flagship">
 <span class="j8-editorial__kicker">The New Flagship of JAECOO</span>
 <div class="j8-rule"></div>
