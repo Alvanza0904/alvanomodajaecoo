@@ -400,3 +400,17 @@
   .j8-page .j8-hero__content .j8-lead{margin-left:0;margin-right:0;}
 }
 .j8-page .j8-section--next-page{border-top:1px solid rgba(255,255,255,.08);padding-top:60px;padding-bottom:60px}.j8-page .j8-next-page{max-width:560px}.j8-page .j8-next-page .j8-kicker{margin-bottom:12px;opacity:.6}.j8-page .j8-next-page .j8-title{margin-bottom:16px}.j8-page .j8-next-page .j8-lead{margin-bottom:32px;opacity:.75}.j8-page .j8-next-page .j8-btn{display:inline-flex}
+
+/* ---- VARIANT PRICE CARDS ---- */
+.j8-page .j8-variant-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto}
+.j8-page .j8-variant-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:32px 28px;display:flex;flex-direction:column;gap:0}
+.j8-page .j8-variant-card--featured{border-color:var(--j8-accent);background:rgba(180,145,75,.06)}
+.j8-page .j8-variant-badge{font-family:var(--j8-display);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--j8-accent);margin:0 0 10px}
+.j8-page .j8-variant-name{font-family:var(--j8-display);font-size:clamp(1rem,2.5vw,1.25rem);font-weight:700;letter-spacing:-.01em;color:var(--j8-text);margin:0 0 8px}
+.j8-page .j8-variant-price{font-family:var(--j8-display);font-size:clamp(1.3rem,3vw,1.75rem);font-weight:800;letter-spacing:-.03em;color:var(--j8-text);margin:0 0 24px}
+.j8-page .j8-variant-specs{list-style:none;padding:0;margin:0 0 28px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:0}
+.j8-page .j8-variant-specs li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:12.5px}
+.j8-page .j8-variant-specs li span{color:var(--j8-muted)}
+.j8-page .j8-variant-specs li strong{color:var(--j8-text);font-weight:600;text-align:right}
+.j8-page .j8-variant-cta{width:100%;text-align:center;margin-top:auto}
+@media(max-width:600px){.j8-page .j8-variant-grid{grid-template-columns:1fr}.j8-page .j8-variant-card--featured{order:-1}}
