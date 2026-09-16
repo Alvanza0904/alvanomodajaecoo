@@ -399,3 +399,4 @@
   .j8-page .j8-hero__content{padding:0 20px 40px;text-align:left;}
   .j8-page .j8-hero__content .j8-lead{margin-left:0;margin-right:0;}
 }
+.j8-page .j8-section--next-page{border-top:1px solid rgba(255,255,255,.08);padding-top:60px;padding-bottom:60px}.j8-page .j8-next-page{max-width:560px}.j8-page .j8-next-page .j8-kicker{margin-bottom:12px;opacity:.6}.j8-page .j8-next-page .j8-title{margin-bottom:16px}.j8-page .j8-next-page .j8-lead{margin-bottom:32px;opacity:.75}.j8-page .j8-next-page .j8-btn{display:inline-flex}
