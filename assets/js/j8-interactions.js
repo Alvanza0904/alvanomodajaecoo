@@ -32,7 +32,7 @@
 
     /* J8 colour selector. */
     var vehicle = root.querySelector('[data-j8-color-image]');
-    var name = root.querySelector('[data-j8-color-name]');
+    var name = root.querySelector('.j8-color-name [data-j8-color-name]');
     root.querySelectorAll('[data-j8-color-src]').forEach(function (swatch) {
       swatch.addEventListener('click', function () {
         var src = swatch.getAttribute('data-j8-color-src');
