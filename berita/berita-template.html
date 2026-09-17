@@ -48,6 +48,8 @@
 <link href="/assets/css/style.css" rel="stylesheet"/>
 <link rel="preload" href="/assets/css/berita.css" as="style"/>
 <link href="/assets/css/berita.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/css/berita-article.css" as="style"/>
+<link href="/assets/css/berita-article.css" rel="stylesheet"/>
 
 <!-- ── Structured Data / JSON-LD ── -->
 <!-- CMS: semua nilai di sini diisi secara dinamis dari field artikel -->
@@ -97,7 +99,7 @@
 </script>
 </head>
 
-<body class="berita-page">
+<body class="berita-page berita-article-page">
 
 <!-- ═══════════════════════════════
      NAVBAR — komponen existing, tidak diubah
@@ -500,25 +502,7 @@
 </a>
 
 <script src="/assets/js/main.js"></script>
-<script>
-// ── Reveal on scroll untuk blok CTA berita ──
-(function() {
-  var els = document.querySelectorAll('.reveal');
-  if (!els.length || !window.IntersectionObserver) {
-    els.forEach(function(el) { el.classList.add('is-inview'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-inview');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  els.forEach(function(el) { io.observe(el); });
-})();
-</script>
+<script src="/assets/js/berita-article-anim.js" defer></script>
 
 </body>
 </html>
