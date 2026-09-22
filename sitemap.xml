@@ -133,25 +133,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://omodajaecoopalembang.web.id/jaecoo-j8-interior</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://omodajaecoopalembang.web.id/jaecoo-j8-performance</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://omodajaecoopalembang.web.id/jaecoo-j8-technology</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://omodajaecoopalembang.web.id/jaecoo-j8-specifications</loc>
     <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -211,12 +193,6 @@
 
   <!-- Promo -->
   <!-- CMS:PROMO:SITEMAP:START -->
-  <url>
-    <loc>https://omodajaecoopalembang.web.id/promo/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
   <!-- CMS:PROMO:SITEMAP:END -->
 
   <!-- Sales -->

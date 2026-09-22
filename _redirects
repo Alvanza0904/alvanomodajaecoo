@@ -9,9 +9,12 @@
 /omoda-o4 /omoda-o4/ 301
 
 # J8 legacy pages consolidated into the new 3-page flagship flow
-/jaecoo-j8-performance.html /jaecoo-j8-technology.html 301
-/jaecoo-j8-specifications.html /jaecoo-j8-technology.html 301
-/jaecoo-j8-interior.html /jaecoo-j8-design.html 301
+/jaecoo-j8-performance.html /jaecoo-j8-technology 301
+/jaecoo-j8-performance /jaecoo-j8-technology 301
+/jaecoo-j8-specifications.html /jaecoo-j8-technology 301
+/jaecoo-j8-specifications /jaecoo-j8-technology 301
+/jaecoo-j8-interior.html /jaecoo-j8-design 301
+/jaecoo-j8-interior /jaecoo-j8-design 301
 
 # Sales page legacy URL
 /sales-jaecoo-palembang.html /sales-jaecoo-palembang 301
