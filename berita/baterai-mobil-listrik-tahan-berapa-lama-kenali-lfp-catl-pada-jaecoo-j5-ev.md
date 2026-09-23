@@ -58,7 +58,7 @@ Selain itu, kondisi penggunaan di dunia nyata berbeda dengan pengujian laborator
 
 Jadi, angka 3.000 siklus sebaiknya dipahami sebagai **gambaran ketahanan siklus baterai**, bukan janji bahwa sebuah battery pack akan bertahan selama jumlah tahun tertentu.
 
-![](/assets/images/IMG_9044.webp "CATL POWER")
+![](/assets/images/IMG_9044.jpeg "CATL POWER")
 
 **Kenapa JAECOO J5 EV Menggunakan Baterai LFP?**
 
