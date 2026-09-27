@@ -1,6 +1,5 @@
-# www → apex. Site is on Cloudflare Pages, which ignores netlify.toml.
-# Bing will not index a host that is only a duplicate of the canonical.
-https://www.omodajaecoopalembang.web.id/* https://omodajaecoopalembang.web.id/:splat 301
+# www → apex is handled by functions/_middleware.js
+# Cloudflare Pages _redirects cannot redirect one hostname to another.
 
 # Admin
 /admin /admin/index.html 200
