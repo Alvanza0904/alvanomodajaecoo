@@ -82,7 +82,7 @@
   if(heroBgs.length){
     var slides=[
       {eyebrow:'OMODA O4 EV · PALEMBANG',title:'First AI<br>For Everyone.',description:'Electric mobility dengan desain Cyber Mecha dan jarak tempuh hingga 553 km NEDC.',href:'/omoda-o4/',cta:'Lihat OMODA O4'},
-      {eyebrow:'JAECOO J5 EV · PALEMBANG',title:'This Is The<br>Real SUV.',description:'SUV listrik premium dengan baterai CATL LFP, motor 130 kW, dan karakter berkendara yang praktis untuk mobilitas harian.',href:'/jaecoo-j5.html',cta:'Lihat JAECOO J5'}
+      {eyebrow:'JAECOO J5 EV · PALEMBANG',title:'This Is The<br>Real SUV.',description:'SUV listrik premium dengan baterai CATL LFP, motor 130 kW, dan karakter berkendara yang praktis untuk mobilitas harian.',href:'/jaecoo-j5',cta:'Lihat JAECOO J5'}
     ];
     var heroReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var videos=heroBgs.map(function(bg){return bg.querySelector('.hero-bg-video__el');});
