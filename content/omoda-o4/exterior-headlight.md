@@ -1,5 +1,6 @@
 ---
 title: "Eksterior — Lampu Depan"
+section: "Eksterior"
 image: "/assets/images/omoda-o4/exterior-headlight.webp"
-alt: "Lampu depan OMODA O4 EV"
+alt: ""
 ---

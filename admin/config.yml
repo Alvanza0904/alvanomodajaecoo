@@ -82,43 +82,113 @@ collections:
     label: "🏠 Homepage"
     folder: content/homepage
     create: false
+    summary: "{{section}} · {{title}}"
+    identifier_field: title
+    media_folder: assets/images/cms/homepage
+    public_folder: /assets/images/cms/homepage
+    sortable_fields: [section, title]
+    view_filters:
+      - { label: "Hero Slide", field: section, pattern: "^Hero$" }
+      - { label: "Delivery", field: section, pattern: "^Delivery$" }
+      - { label: "Model Lineup", field: section, pattern: "^Lineup$" }
+      - { label: "Recognition", field: section, pattern: "^Recognition$" }
+      - { label: "Sales / Dealer", field: section, pattern: "^Dealer$" }
     fields:
       - { label: Nama Section, name: title, widget: string }
-      - { label: Gambar, name: image, widget: image }
-      - { label: Alt Text, name: alt, widget: string }
+      - { label: Kelompok, name: section, widget: select, options: ["Hero", "Delivery", "Lineup", "Recognition", "Dealer"] }
+      - { label: Gambar, name: image, widget: image, hint: "Ganti foto lalu Save. HTML diperbarui otomatis. Jangan ubah nama file Markdown." }
+      - { label: Alt Text, name: alt, widget: string, required: false }
 
   - name: foto_j5
     label: "🚗 JAECOO J5"
     folder: content/jaecoo-j5
     create: false
+    summary: "{{section}} · {{title}}"
+    identifier_field: title
+    media_folder: assets/images/cms/jaecoo-j5
+    public_folder: /assets/images/cms/jaecoo-j5
+    sortable_fields: [section, title]
+    view_filters:
+      - { label: "Hero", field: section, pattern: "^Hero$" }
+      - { label: "Eksterior", field: section, pattern: "^Eksterior$" }
+      - { label: "Interior", field: section, pattern: "^Interior$" }
+      - { label: "Warna", field: section, pattern: "^Warna$" }
+      - { label: "Teknologi", field: section, pattern: "^Teknologi$" }
+      - { label: "Galeri", field: section, pattern: "^Galeri$" }
     fields:
       - { label: Nama Section, name: title, widget: string }
-      - { label: Gambar, name: image, widget: image }
-      - { label: Alt Text, name: alt, widget: string }
+      - { label: Kelompok, name: section, widget: select, options: ["Hero", "Eksterior", "Interior", "Warna", "Teknologi", "Galeri"] }
+      - { label: Gambar, name: image, widget: image, hint: "Kunci CMS tetap (nama file .md). Yang berubah hanya path gambar." }
+      - { label: Alt Text, name: alt, widget: string, required: false }
 
   - name: foto_j7
     label: "🚙 JAECOO J7"
     folder: content/jaecoo-j7
     create: false
+    summary: "{{section}} · {{title}}"
+    identifier_field: title
+    media_folder: assets/images/cms/jaecoo-j7
+    public_folder: /assets/images/cms/jaecoo-j7
+    sortable_fields: [section, title]
+    view_filters:
+      - { label: "Hero", field: section, pattern: "^Hero$" }
+      - { label: "Eksterior", field: section, pattern: "^Eksterior$" }
+      - { label: "Interior", field: section, pattern: "^Interior$" }
+      - { label: "Warna", field: section, pattern: "^Warna$" }
+      - { label: "Teknologi", field: section, pattern: "^Teknologi$" }
+      - { label: "Keselamatan", field: section, pattern: "^Keselamatan$" }
+      - { label: "Galeri", field: section, pattern: "^Galeri$" }
+      - { label: "SIVP", field: section, pattern: "^SIVP$" }
     fields:
       - { label: Nama Section, name: title, widget: string }
-      - { label: Gambar, name: image, widget: image }
-      - { label: Alt Text, name: alt, widget: string }
+      - { label: Kelompok, name: section, widget: select, options: ["Hero", "Eksterior", "Interior", "Warna", "Teknologi", "Keselamatan", "Galeri", "SIVP"] }
+      - { label: Gambar, name: image, widget: image, hint: "Kunci CMS tetap (nama file .md). Yang berubah hanya path gambar." }
+      - { label: Alt Text, name: alt, widget: string, required: false }
 
   - name: foto_j8
     label: "🏔️ JAECOO J8"
     folder: content/jaecoo-j8
     create: false
+    summary: "{{section}} · {{title}}"
+    identifier_field: title
+    media_folder: assets/images/cms/jaecoo-j8
+    public_folder: /assets/images/cms/jaecoo-j8
+    sortable_fields: [section, title]
+    view_filters:
+      - { label: "Hero", field: section, pattern: "^Hero$" }
+      - { label: "Eksterior", field: section, pattern: "^Eksterior$" }
+      - { label: "Interior", field: section, pattern: "^Interior$" }
+      - { label: "Teknologi", field: section, pattern: "^Teknologi$" }
+      - { label: "ARDIS", field: section, pattern: "^ARDIS$" }
+      - { label: "Warna", field: section, pattern: "^Warna$" }
+      - { label: "Galeri", field: section, pattern: "^Galeri$" }
     fields:
       - { label: Nama Section, name: title, widget: string }
-      - { label: Gambar, name: image, widget: image }
-      - { label: Alt Text, name: alt, widget: string }
+      - { label: Kelompok, name: section, widget: select, options: ["Hero", "Eksterior", "Interior", "Teknologi", "ARDIS", "Warna", "Galeri"] }
+      - { label: Gambar, name: image, widget: image, hint: "Kunci CMS tetap (nama file .md). Yang berubah hanya path gambar." }
+      - { label: Alt Text, name: alt, widget: string, required: false }
 
   - name: foto_o4
     label: "⚡ OMODA O4"
     folder: content/omoda-o4
     create: false
+    summary: "{{section}} · {{title}}"
+    identifier_field: title
+    media_folder: assets/images/cms/omoda-o4
+    public_folder: /assets/images/cms/omoda-o4
+    sortable_fields: [section, title]
+    view_filters:
+      - { label: "Hero", field: section, pattern: "^Hero$" }
+      - { label: "Eksterior", field: section, pattern: "^Eksterior$" }
+      - { label: "Interior", field: section, pattern: "^Interior$" }
+      - { label: "Teknologi", field: section, pattern: "^Teknologi$" }
+      - { label: "Keselamatan", field: section, pattern: "^Keselamatan$" }
+      - { label: "Warna", field: section, pattern: "^Warna$" }
+      - { label: "Galeri", field: section, pattern: "^Galeri$" }
+      - { label: "Performa", field: section, pattern: "^Performa$" }
     fields:
       - { label: Nama Section, name: title, widget: string }
-      - { label: Gambar, name: image, widget: image }
-      - { label: Alt Text, name: alt, widget: string }
+      - { label: Kelompok, name: section, widget: select, options: ["Hero", "Eksterior", "Interior", "Teknologi", "Keselamatan", "Warna", "Galeri", "Performa"] }
+      - { label: Gambar, name: image, widget: image, hint: "Kunci CMS tetap (nama file .md). Yang berubah hanya path gambar." }
+      - { label: Alt Text, name: alt, widget: string, required: false }
+

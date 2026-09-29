@@ -1,5 +1,6 @@
 ---
-title: "Interior — Port Pengisian"
+title: "Teknologi — Port Pengisian"
+section: "Teknologi"
 image: "/assets/images/jaecoo-j5/int-charging.webp"
-alt: "Port pengisian JAECOO J5 EV"
+alt: "Tampilan charging JAECOO J5 EV"
 ---

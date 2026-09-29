@@ -1,5 +1,6 @@
 ---
-title: "Eksterior — Lampu Belakang"
-image: "/assets/images/jaecoo-j8/rear-light.jpeg"
-alt: "Lampu belakang JAECOO J8"
+title: "Eksterior — Detail Belakang"
+section: "Eksterior"
+image: "/assets/images/jaecoo-j8/gallery/exterior-rear-detail.jpeg"
+alt: "Detail desain belakang JAECOO J8"
 ---

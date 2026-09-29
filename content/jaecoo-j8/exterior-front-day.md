@@ -1,5 +1,6 @@
 ---
-title: "Eksterior — Tampak Depan Siang"
-image: "/assets/images/jaecoo-j8/exterior-front-day.jpeg"
-alt: "JAECOO J8 tampak depan siang hari"
+title: "Eksterior — Tampak Samping"
+section: "Eksterior"
+image: "/assets/images/jaecoo-j8/gallery/exterior-profile.jpeg"
+alt: "Profil samping JAECOO J8"
 ---

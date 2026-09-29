@@ -1,5 +1,6 @@
 ---
-title: "Teknologi — CTA Background"
-image: "/assets/images/jaecoo-j8/tech-cta-bg.jpeg"
-alt: "JAECOO J8 Flagship SUV malam hari"
+title: "Teknologi — Offroad Cinematic"
+section: "Teknologi"
+image: "/assets/images/jaecoo-j8/gallery/offroad-cinematic.webp"
+alt: ""
 ---

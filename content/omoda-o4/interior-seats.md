@@ -1,5 +1,6 @@
 ---
 title: "Interior — Kursi"
+section: "Interior"
 image: "/assets/images/omoda-o4/interior-seats.webp"
-alt: "Kursi interior OMODA O4 EV"
+alt: "Jok kulit OMODA O4 EV, baris depan dan belakang, jahitan merah"
 ---

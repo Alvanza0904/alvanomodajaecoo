@@ -1,5 +1,6 @@
 ---
-title: "Teknologi — Hero Shot"
-image: "/assets/images/jaecoo-j8/tech-hero.jpeg"
-alt: "JAECOO J8 teknologi flagship"
+title: "Teknologi — Driving Modes"
+section: "Teknologi"
+image: "/assets/images/jaecoo-j8/gallery/driving-modes-7.webp"
+alt: "Tujuh mode berkendara JAECOO J8"
 ---

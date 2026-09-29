@@ -1,5 +1,6 @@
 ---
 title: "Hero — Tampilan Utama"
-image: "/assets/images/jaecoo-j8/img06.jpeg"
-alt: "JAECOO J8 — Flagship SUV Eksterior"
+section: "Hero"
+image: "/assets/images/jaecoo-j8/gallery/hero-exterior-front-3q.jpeg"
+alt: ""
 ---

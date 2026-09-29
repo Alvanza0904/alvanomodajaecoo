@@ -1,5 +1,6 @@
 ---
-title: Hero — Tampilan Utama
-image: /assets/images/@r07qxo - R⤓Download.jpeg
-alt: JAECOO J5 EV tampak di lapangan
+title: "Hero — Tampilan Utama"
+section: "Hero"
+image: "/assets/images/jaecoo-j5-hero.jpg"
+alt: "JAECOO J5 EV Palembang"
 ---

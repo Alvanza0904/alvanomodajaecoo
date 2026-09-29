@@ -1,5 +1,6 @@
 ---
 title: "Eksterior — Velg"
+section: "Eksterior"
 image: "/assets/images/omoda-o4/exterior-wheel.webp"
-alt: "Velg OMODA O4 EV"
+alt: "Detail desain pelek OMODA O4 EV"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Eksterior — Sudut Depan"
+section: "Eksterior"
 image: "/assets/images/jaecoo-j7/ext-corner.jpeg"
-alt: "JAECOO J7 SHS-P tampak sudut depan"
+alt: ""
 ---

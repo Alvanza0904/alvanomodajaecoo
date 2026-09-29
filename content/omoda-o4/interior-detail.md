@@ -1,5 +1,6 @@
 ---
 title: "Interior — Detail"
+section: "Interior"
 image: "/assets/images/omoda-o4/interior-detail.webp"
-alt: "Detail interior OMODA O4 EV"
+alt: "Detail speaker OJ dan jahitan pintu OMODA O4 EV"
 ---

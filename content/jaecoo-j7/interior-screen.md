@@ -1,5 +1,6 @@
 ---
 title: "Interior — Layar Infotainment"
+section: "Interior"
 image: "/assets/images/jaecoo-j7/int-screen.jpeg"
-alt: "Layar infotainment JAECOO J7 SHS-P"
+alt: ""
 ---

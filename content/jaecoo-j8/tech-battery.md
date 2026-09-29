@@ -1,5 +1,6 @@
 ---
-title: "Teknologi — Baterai"
-image: "/assets/images/jaecoo-j8/tech-battery.png"
-alt: "Baterai JAECOO J8 SHS-P"
+title: "Teknologi — Tenaga"
+section: "Teknologi"
+image: "/assets/images/jaecoo-j8/gallery/capability-power.webp"
+alt: "Detail belakang JAECOO J8"
 ---

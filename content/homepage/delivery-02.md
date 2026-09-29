@@ -1,5 +1,6 @@
 ---
-title: "Customer Delivery — Foto 02"
-image: "/assets/images/delivery-j5-2.jpg"
+title: "Delivery — Foto 02"
+section: "Delivery"
+image: "/assets/images/delivery-j5-2-opt.webp"
 alt: "Serah terima JAECOO J5 Premium Palembang"
 ---

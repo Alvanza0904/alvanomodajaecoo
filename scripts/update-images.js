@@ -1,3 +1,11 @@
+/*
+ * DEPRECATED — jangan dijalankan.
+ * Sistem aktif: update-images.py (dipanggil .github/workflows/update-images.yml).
+ * File ini dibiarkan hanya agar riwayat lama tidak hilang.
+ */
+console.error("scripts/update-images.js tidak dipakai. Jalankan: python update-images.py");
+process.exit(0);
+
 /**
  * update-images.js
  * Sync gambar dari content/website/images.yml ke HTML pages
