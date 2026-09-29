@@ -740,6 +740,9 @@ function updateHomepagePromo(promos) {
   // Kalau tidak ada promo aktif featured — section tidak tampil (promoBlock = "")
 
   html = html.slice(0, startIdx) + HOME_PROMO_START + "\n" + promoBlock + "\n    " + html.slice(endIdx);
+  if (featured.length > 0 && !html.includes("/assets/css/promo.css")) {
+    html = html.replace("</head>", '<link rel="stylesheet" href="/assets/css/promo.css">\n</head>');
+  }
   fs.writeFileSync(HOME_FILE, html, "utf8");
   console.log(`Updated index.html — ${featured.length} promo featured aktif.`);
 }

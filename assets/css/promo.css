@@ -1,11 +1,5 @@
-/* =============================================================
-   PROMO.CSS — OMODA JAECOO Palembang
-   Clean, premium, editorial. Konsisten dengan brand website.
-   Scoped ke .promo-page untuk halaman detail promo.
-   Section homepage .home-promo terpisah di bawah.
-============================================================= */
 
-/* ── Body override halaman detail promo ── */
+
 .promo-page {
   --promo-bg: #f6f6f3;
   --promo-surface: #ffffff;
@@ -19,7 +13,6 @@
   font-family: 'Manrope', var(--font-body), sans-serif;
 }
 
-/* Navbar tetap DARK */
 .promo-page .navbar {
   background: var(--color-bg) !important;
   border-bottom-color: var(--color-line) !important;
@@ -35,10 +28,6 @@
   }
   .promo-page .navbar__toggle span { background: var(--color-text); }
 }
-
-/* =============================================================
-   PROMO HERO
-============================================================= */
 
 .promo-hero {
   padding: calc(var(--nav-height) + 52px) 0 0;
@@ -133,19 +122,11 @@
   display: block;
 }
 
-/* =============================================================
-   LAYOUT KONTEN PROMO
-============================================================= */
-
 .promo-layout {
   width: min(900px, calc(100% - 48px));
   margin: 0 auto;
   padding: 48px 0 80px;
 }
-
-/* =============================================================
-   EXPIRED NOTICE
-============================================================= */
 
 .promo-expired-notice {
   background: #FFF8F0;
@@ -165,10 +146,6 @@
   flex-shrink: 0;
 }
 
-/* =============================================================
-   SECTION LABEL
-============================================================= */
-
 .promo-section-label {
   font-size: 10px;
   font-weight: 800;
@@ -177,10 +154,6 @@
   color: var(--promo-accent);
   margin: 0 0 14px;
 }
-
-/* =============================================================
-   DETAIL PENAWARAN
-============================================================= */
 
 .promo-offer {
   background: var(--promo-surface);
@@ -253,10 +226,6 @@
   color: #17191d;
 }
 
-/* =============================================================
-   BENEFIT & BONUS
-============================================================= */
-
 .promo-benefit {
   background: var(--promo-surface);
   border: 1px solid var(--promo-line);
@@ -308,10 +277,6 @@
   margin-top: 1px;
 }
 
-/* =============================================================
-   SYARAT & KETENTUAN
-============================================================= */
-
 .promo-terms {
   background: #F7F7F5;
   border: 1px solid var(--promo-line);
@@ -335,10 +300,6 @@
   color: var(--promo-muted);
   white-space: pre-line;
 }
-
-/* =============================================================
-   CTA WHATSAPP
-============================================================= */
 
 .promo-cta {
   background: linear-gradient(135deg, #0f2007 0%, #1a3a0e 100%);
@@ -391,10 +352,6 @@
   background: #1ebe5b;
   transform: translateY(-2px);
 }
-
-/* =============================================================
-   RELATED — artikel/promo terkait
-============================================================= */
 
 .promo-related {
   margin-top: 16px;
@@ -484,10 +441,6 @@
   color: var(--promo-muted);
 }
 
-/* =============================================================
-   FOOTER — CTA FINAL
-============================================================= */
-
 .promo-final-cta {
   display: flex;
   align-items: center;
@@ -565,10 +518,6 @@
   }
 }
 
-/* =============================================================
-   MOBILE
-============================================================= */
-
 @media (max-width: 640px) {
   .promo-hero {
     padding: calc(var(--nav-height-mobile) + 36px) 0 0;
@@ -592,11 +541,6 @@
     grid-template-columns: 1fr;
   }
 }
-
-/* =============================================================
-   HOME PROMO SECTION
-   Digunakan di index.html — dark background seperti brand utama
-============================================================= */
 
 .home-promo {
   background: var(--color-bg-alt);
@@ -749,10 +693,6 @@
   align-items: center;
   gap: 6px;
 }
-
-/* =============================================================
-   PROMO LISTING PAGE (/promo/)
-============================================================= */
 
 .promo-list-page {
   background: var(--color-bg);

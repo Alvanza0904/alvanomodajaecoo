@@ -85,13 +85,15 @@
       {eyebrow:'JAECOO J5 EV · PALEMBANG',title:'This Is The<br>Real SUV.',description:'SUV listrik premium dengan baterai CATL LFP, motor 130 kW, dan karakter berkendara yang praktis untuk mobilitas harian.',href:'/jaecoo-j5',cta:'Lihat JAECOO J5'}
     ];
     var heroReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var saveData=!!(navigator.connection&&navigator.connection.saveData);
+    var desktopHero=window.matchMedia('(min-width: 1000px)').matches;
     var videos=heroBgs.map(function(bg){return bg.querySelector('.hero-bg-video__el');});
-    var i=0,fallbackTimer,heroPaused=false;
+    var i=0,fallbackTimer,heroPaused=false,heroMediaOn=false;
 
     function clearFallback(){clearTimeout(fallbackTimer);}
 
     /* Fallback timer only used when a slide's video can't drive timing itself
-       (reduced motion, or the video failed to load/play). */
+       (reduced motion, mobile poster-only, or the video failed to load/play). */
     function scheduleFallback(){
       clearFallback();
       fallbackTimer=setTimeout(function(){advance();},6500);
@@ -102,10 +104,24 @@
       try{v.pause();v.currentTime=0;}catch(e){}
     }
 
+    function ensureSource(v){
+      if(!v||v.getAttribute('data-loaded')==='1')return;
+      var src=v.getAttribute('data-src');
+      if(!src)return;
+      v.setAttribute('data-loaded','1');
+      v.preload='auto';
+      var source=document.createElement('source');
+      source.src=src;
+      source.type='video/mp4';
+      v.appendChild(source);
+      try{v.load();}catch(e){}
+    }
+
     function playActiveVideo(){
       var v=videos[i];
-      if(!v||heroReducedMotion){scheduleFallback();return;}
+      if(!heroMediaOn||!v||heroReducedMotion||saveData){scheduleFallback();return;}
       if(v.classList.contains('is-error')){scheduleFallback();return;}
+      ensureSource(v);
       clearFallback();
       try{v.currentTime=0;}catch(e){}
       var p=v.play();
@@ -115,6 +131,15 @@
       }else{
         v.classList.add('is-ready');
       }
+    }
+
+    /* Mobile keeps the poster. Video bytes start on interaction, or on
+       desktop after load so they don't compete with LCP. */
+    function armHeroVideo(){
+      if(heroMediaOn||heroReducedMotion||saveData)return;
+      heroMediaOn=true;
+      clearFallback();
+      playActiveVideo();
     }
 
     var heroEl=document.querySelector('.hero-slider');
@@ -162,6 +187,17 @@
         heroPaused=false;playActiveVideo();
       }
     });
+
+    ['pointerdown','keydown','touchstart'].forEach(function(evt){
+      window.addEventListener(evt,armHeroVideo,{once:true,passive:true});
+    });
+    if(desktopHero){
+      window.addEventListener('load',function(){
+        var run=function(){armHeroVideo();};
+        if('requestIdleCallback' in window) requestIdleCallback(run,{timeout:1800});
+        else setTimeout(run,600);
+      });
+    }
 
     show(0);
   }

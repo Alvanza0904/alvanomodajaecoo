@@ -1,0 +1,17 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:omodajaecoopalembang.web.id:dealer:guide",
+      "displayName": "OMODA JAECOO Palembang",
+      "type": "application/agent-card+json",
+      "url": "https://omodajaecoopalembang.web.id/agents/dealer-guide.json",
+      "representativeQueries": [
+        "Harga JAECOO di Palembang",
+        "Test drive OMODA O4 EV Palembang",
+        "Promo JAECOO J5 EV",
+        "Hubungi sales Alvan"
+      ]
+    }
+  ]
+}

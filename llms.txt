@@ -1,0 +1,17 @@
+# OMODA JAECOO Palembang
+
+> Dealer resmi OMODA dan JAECOO di Palembang. Ringkasan model, harga, promo, dan test drive bersama sales consultant Alvan.
+
+Situs ini membantu calon pembeli membandingkan OMODA O4 EV, JAECOO J5 EV, J7 SHS-P, J7 SIVP, dan J8 SHS-P ARDIS, lalu menghubungi sales untuk simulasi kredit atau jadwal test drive.
+
+## Halaman utama
+
+- [Beranda](https://omodajaecoopalembang.web.id/): Lineup lengkap dan kontak sales Palembang.
+- [OMODA O4 EV](https://omodajaecoopalembang.web.id/omoda-o4/): Mobil listrik desain Cyber Mecha, jarak tempuh hingga 553 km NEDC.
+- [JAECOO J5 EV](https://omodajaecoopalembang.web.id/jaecoo-j5): SUV listrik baterai CATL LFP, motor 130 kW.
+- [JAECOO J7 SHS-P](https://omodajaecoopalembang.web.id/jaecoo-j7): SUV hybrid super.
+- [JAECOO J7 SIVP](https://omodajaecoopalembang.web.id/jaecoo-j7-sivp/): Intelligent valet parking.
+- [JAECOO J8 SHS-P ARDIS](https://omodajaecoopalembang.web.id/jaecoo-j8): SUV flagship.
+- [Berita](https://omodajaecoopalembang.web.id/berita/): Artikel harga, baterai, dan perbandingan biaya.
+- [Profil sales Alvan](https://omodajaecoopalembang.web.id/sales-jaecoo-palembang): Sales consultant OMODA JAECOO Palembang.
+- [WhatsApp Alvan](https://wa.me/6285183145926): Konsultasi harga, promo, dan test drive.

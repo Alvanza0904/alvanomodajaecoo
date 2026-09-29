@@ -1,0 +1,24 @@
+{
+  "name": "OMODA JAECOO Palembang",
+  "description": "Panduan dealer resmi OMODA dan JAECOO di Palembang: model, harga, promo, dan test drive.",
+  "url": "https://omodajaecoopalembang.web.id/",
+  "provider": {
+    "organization": "OMODA JAECOO Palembang",
+    "url": "https://omodajaecoopalembang.web.id/"
+  },
+  "contact": {
+    "sales": "Alvan",
+    "whatsapp": "https://wa.me/6285183145926",
+    "phone": "+6285183145926"
+  },
+  "resources": [
+    {"name": "Beranda", "url": "https://omodajaecoopalembang.web.id/"},
+    {"name": "OMODA O4 EV", "url": "https://omodajaecoopalembang.web.id/omoda-o4/"},
+    {"name": "JAECOO J5 EV", "url": "https://omodajaecoopalembang.web.id/jaecoo-j5"},
+    {"name": "JAECOO J7 SHS-P", "url": "https://omodajaecoopalembang.web.id/jaecoo-j7"},
+    {"name": "JAECOO J7 SIVP", "url": "https://omodajaecoopalembang.web.id/jaecoo-j7-sivp/"},
+    {"name": "JAECOO J8", "url": "https://omodajaecoopalembang.web.id/jaecoo-j8"},
+    {"name": "Berita", "url": "https://omodajaecoopalembang.web.id/berita/"},
+    {"name": "Sales", "url": "https://omodajaecoopalembang.web.id/sales-jaecoo-palembang"}
+  ]
+}

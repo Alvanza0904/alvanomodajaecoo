@@ -1,32 +1,25 @@
-/* =============================================================
-   OMODA PALEMBANG — DESIGN TOKENS
-   =============================================================
-   Palet gelap, cinematic, terinspirasi warna cat mobil (biru metalik)
-   namun aksennya sengaja memakai "titanium brass" hangat agar teks
-   & CTA tidak berebut perhatian dengan warna video, dan terasa premium
-   — bukan tema "biru teknologi" generik.
-============================================================= */
+
 
 :root {
-  /* Warna */
-  --color-bg: #0A0C0F;              /* charcoal kebiruan, bukan hitam pekat */
+  
+  --color-bg: #0A0C0F;              
   --color-bg-alt: #12151A;
-  --color-text: #F4F5F7;            /* off-white sejuk */
+  --color-text: #F4F5F7;            
   --color-text-muted: #9AA0A8;
-  --color-accent: #C9A867;          /* titanium brass — aksen premium */
+  --color-accent: #C9A867;          
   --color-accent-soft: rgba(201, 168, 103, 0.14);
   --color-line: rgba(244, 245, 247, 0.14);
   --color-line-strong: rgba(244, 245, 247, 0.28);
 
-  /* Tipografi */
+  
   --font-display: 'Sora', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 
-  /* Tracking */
+  
   --tracking-wide: 0.18em;
   --tracking-mid: 0.08em;
 
-  /* Layout */
+  
   --nav-height: 84px;
   --nav-height-mobile: 64px;
   --container-pad: 64px;
@@ -40,10 +33,6 @@
 @media (max-width: 640px) {
   :root { --container-pad: 24px; }
 }
-
-/* =============================================================
-   RESET
-============================================================= */
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -66,7 +55,6 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 img { max-width: 100%; display: block; }
 
-/* Utility aksesibilitas: sembunyikan visual, tetap terbaca screen reader */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -88,10 +76,6 @@ img { max-width: 100%; display: block; }
   }
   .hero-bg-video__el { display: none; }
 }
-
-/* =============================================================
-   NAVBAR
-============================================================= */
 
 .navbar {
   position: fixed;
@@ -167,7 +151,6 @@ img { max-width: 100%; display: block; }
   width: 100%;
 }
 
-/* Hamburger toggle — hidden on desktop */
 .navbar__toggle {
   display: none;
   flex-direction: column;
@@ -206,18 +189,14 @@ img { max-width: 100%; display: block; }
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* =============================================================
-   HERO
-============================================================= */
-
 .hero {
   position: relative;
   width: 100%;
   height: 100vh;
-  height: 100dvh; /* mencegah lompatan viewport akibat address bar mobile */
+  height: 100dvh; 
   min-height: 560px;
   overflow: hidden;
-  background: var(--color-bg); /* dasar gelap agar tidak ada flash putih saat loading */
+  background: var(--color-bg); 
 }
 
 .hero__media {
@@ -234,8 +213,7 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* object-position dapat disetel per-breakpoint di bawah untuk menjaga
-     mobil tetap dalam frame saat rasio video (16:9) di-crop viewport lain */
+  
   object-position: 50% 45%;
 }
 
@@ -244,7 +222,6 @@ img { max-width: 100%; display: block; }
   transition: opacity 1s var(--ease-premium);
 }
 
-/* Ditambahkan via JS begitu video siap diputar, mencegah frame kosong/hitam */
 .hero.is-video-ready .hero__video {
   opacity: 1;
 }
@@ -254,9 +231,6 @@ img { max-width: 100%; display: block; }
   transition: opacity 0.6s var(--ease-premium);
 }
 
-/* Saat video sudah jalan, fallback image disembunyikan.
-   Jika video gagal diputar (mis. data saver / autoplay diblokir),
-   .hero mendapat class is-video-error dari main.js dan fallback tetap tampil. */
 .hero.is-video-ready .hero__fallback-image {
   opacity: 0;
 }
@@ -265,8 +239,6 @@ img { max-width: 100%; display: block; }
   display: none;
 }
 
-/* Overlay: gradient HANYA di bawah (area teks) + sedikit di atas (area navbar)
-   supaya mobil di tengah/atas frame tetap bersih tanpa gelap tambahan */
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -331,8 +303,6 @@ img { max-width: 100%; display: block; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tombol — motif "bracket" sudut, echo dari bentuk lampu OMODA yang tajam
-   dan notasi [ EXPLORE O4 ] pada brief. Ini elemen signature halaman. */
 .btn {
   position: relative;
   display: inline-flex;
@@ -410,7 +380,6 @@ img { max-width: 100%; display: block; }
   background: rgba(244, 245, 247, 0.09);
 }
 
-/* Scroll hint */
 .hero__scroll-hint {
   position: absolute;
   z-index: 3;
@@ -442,22 +411,11 @@ img { max-width: 100%; display: block; }
   .hero__scroll-hint { display: none; }
 }
 
-/* =============================================================
-   RESPONSIVE — TABLET
-============================================================= */
-
 @media (max-width: 1024px) {
   .navbar__menu { gap: 26px; }
   .navbar__link { font-size: 11.5px; }
   .hero__content { padding-bottom: 84px; }
 }
-
-/* =============================================================
-   RESPONSIVE — MOBILE
-   Navbar → hamburger, hero tetap full-screen, video tetap fokus utama,
-   object-position disetel agar mobil (biasanya di area tengah-bawah
-   frame 16:9) tidak terpotong habis saat di-crop ke rasio portrait.
-============================================================= */
 
 @media (max-width: 860px) {
   .navbar { height: var(--nav-height-mobile); }
@@ -500,8 +458,7 @@ img { max-width: 100%; display: block; }
 
   .hero__video,
   .hero__fallback-image {
-    /* geser fokus horizontal ke tengah & sedikit turun agar bodi mobil
-       (bukan langit/latar kosong) yang tetap terlihat saat crop portrait */
+    
     object-position: 50% 58%;
   }
 
@@ -539,11 +496,6 @@ img { max-width: 100%; display: block; }
   .hero p{max-width:29ch}
 }
 
-/* =============================================================
-   SHARED — eyebrow label & text link
-   (dipakai ulang di luar hero agar sistem tipografi konsisten)
-============================================================= */
-
 .section-eyebrow {
   margin: 0 0 20px;
   font-family: var(--font-display);
@@ -574,7 +526,6 @@ img { max-width: 100%; display: block; }
   border-color: var(--color-accent);
 }
 
-/* Reveal-on-scroll generik (di-drive oleh IntersectionObserver di main.js) */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -585,12 +536,6 @@ img { max-width: 100%; display: block; }
   opacity: 1;
   transform: translateY(0);
 }
-
-/* =============================================================
-   OVERVIEW SECTION
-   Layout editorial asimetris (bukan teks tengah) — judul besar di kiri,
-   paragraf pendek + link di kanan, menyambung ritme hero yang rata-kiri.
-============================================================= */
 
 .overview {
   background: var(--color-bg);
@@ -637,13 +582,6 @@ img { max-width: 100%; display: block; }
   }
   .overview__heading { max-width: none; }
 }
-
-/* =============================================================
-   PILLARS SECTION
-   Grid 3 kolom dengan garis pembatas tipis (hairline) — dipakai di sini
-   secara sengaja karena kontennya memang 3 spesifikasi sejajar,
-   selaras dengan gaya "spec sheet" automotive, bukan hiasan kosong.
-============================================================= */
 
 .pillars {
   background: var(--color-bg-alt);
@@ -737,13 +675,6 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* =============================================================
-   PRODUCT SHOWCASE
-   Editorial full-bleed: pernyataan singkat (rata kiri, konsisten
-   dengan ritme Overview/Hero) diikuti visual besar yang mendominasi.
-   Bukan card, bukan carousel — satu gambar besar, disengaja.
-============================================================= */
-
 .showcase {
   background: var(--color-bg);
   padding-top: 140px;
@@ -794,13 +725,6 @@ img { max-width: 100%; display: block; }
   .showcase__media { aspect-ratio: 4 / 5; }
   .showcase__media img { object-position: 24% 50%; }
 }
-
-/* =============================================================
-   SPLIT — komponen editorial dua-kolom yang dipakai ulang oleh
-   Design, Technology, dan Interior. `--reverse` membalik urutan
-   visual/teks untuk variasi ritme antar-section.
-   Di mobile, gambar SELALU tampil lebih dulu (gambar tetap dominan).
-============================================================= */
 
 .split {
   max-width: 1400px;
@@ -853,9 +777,6 @@ img { max-width: 100%; display: block; }
   max-width: 46ch;
 }
 
-/* Inset layered image — dipakai HANYA pada Design section sebagai
-   satu titik detail editorial, sengaja tidak diulang di section lain
-   agar tetap terasa istimewa, bukan pola berulang. */
 .split__media-inset {
   position: absolute;
   right: -36px;
@@ -896,13 +817,6 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* =============================================================
-   PLACEHOLDER VISUAL — dipakai saat aset foto/video asli belum
-   tersedia (Interior). Sengaja BUKAN gambar generik/stock: memakai
-   motif bracket sudut yang sama dengan tombol & tag pillar, supaya
-   tetap terasa premium dan disengaja, bukan seperti gambar rusak.
-============================================================= */
-
 .split__media--placeholder {
   background: linear-gradient(150deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
 }
@@ -940,10 +854,6 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
-
-/* =============================================================
-   FOOTER
-============================================================= */
 
 .footer {
   background: var(--color-bg);
@@ -1013,13 +923,6 @@ img { max-width: 100%; display: block; }
   .footer__bottom { flex-direction: column; gap: 6px; }
 }
 
-/* =============================================================
-   PRODUCT HERO (/omoda-o4/)
-   Varian statis dari .hero homepage — full-bleed image, bukan video.
-   Overlay, konten, tipografi, dan tombol MEMAKAI ULANG class hero__*
-   & btn yang sudah ada, supaya benar-benar satu sistem desain yang sama.
-============================================================= */
-
 .product-hero {
   position: relative;
   width: 100%;
@@ -1047,10 +950,6 @@ img { max-width: 100%; display: block; }
 @media (max-width: 860px) {
   .product-hero__media img { object-position: 50% 55%; }
 }
-
-/* =============================================================
-   DUO MEDIA — dua gambar besar berdampingan (dipakai di Exterior).
-============================================================= */
 
 .duo-media {
   max-width: 1400px;
@@ -1098,14 +997,6 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* =============================================================
-   MEDIA STRIP — satu visual pendukung full-width terkontainer
-   (dipakai di Interior detail, Comfort, Safety). Aspect ratio
-   sama dengan Showcase agar ritme visual konsisten, tapi tetap
-   dalam container (bukan edge-to-edge) supaya momen full-bleed
-   Product Showcase di homepage tetap terasa istimewa/unik.
-============================================================= */
-
 .media-strip {
   max-width: 1400px;
   margin: 0 auto;
@@ -1134,12 +1025,6 @@ img { max-width: 100%; display: block; }
   .media-strip { padding-bottom: 96px; }
   .media-strip__frame { aspect-ratio: 4 / 5; }
 }
-
-/* =============================================================
-   FEATURE SLOTS — grid siap-isi untuk Safety, memakai motif
-   bracket tag [ 0N ] yang sama dengan Pillars, ditandai "TBC"
-   sampai data resmi tersedia.
-============================================================= */
 
 .feature-slots {
   max-width: 1400px;
@@ -1193,12 +1078,6 @@ img { max-width: 100%; display: block; }
   .feature-slots { grid-template-columns: 1fr; }
 }
 
-/* =============================================================
-   SPECIFICATIONS TABLE
-   Tabel semantik asli (bukan div) — hairline row dividers,
-   tanpa border tebal, tanpa styling berlebihan.
-============================================================= */
-
 .spec-intro {
   max-width: 1400px;
   margin: 0 auto;
@@ -1248,11 +1127,6 @@ img { max-width: 100%; display: block; }
   .spec-table th, .spec-table td { padding: 16px 4px; font-size: 13px; }
 }
 
-/* =============================================================
-   GALLERY — grid editorial asimetris (1 besar + 2 kecil),
-   bukan grid kotak seragam bergaya katalog.
-============================================================= */
-
 .gallery__grid {
   max-width: 1400px;
   margin: 0 auto;
@@ -1297,12 +1171,6 @@ img { max-width: 100%; display: block; }
   .gallery__item { aspect-ratio: 4 / 3; }
   .gallery__item--large { grid-row: auto; aspect-ratio: 4 / 3; }
 }
-
-/* =============================================================
-   CTA SECTION — dipakai untuk Price/Enquire & Test Drive.
-   `--alt` memberi latar sedikit lebih terang untuk membedakan
-   ritme dari section di sekitarnya.
-============================================================= */
 
 .cta-section {
   padding: 140px var(--container-pad);
@@ -1355,7 +1223,6 @@ img { max-width: 100%; display: block; }
   .cta-section__actions .btn { width: 100%; }
 }
 
-/* Safe-area untuk notch/home-indicator iPhone */
 @supports (padding: max(0px)) {
   .navbar__inner {
     padding-left: max(var(--container-pad), env(safe-area-inset-left));
@@ -1367,14 +1234,6 @@ img { max-width: 100%; display: block; }
     padding-bottom: max(96px, calc(env(safe-area-inset-bottom) + 64px));
   }
 }
-
-
-/* =============================================================
-   GALLERY PAGE — featured editorial pair slider
-   Pair 01 is a true panoramic split; Pair 02 is a cinematic
-   editorial spread. Desktop keeps the pair side-by-side;
-   mobile stacks each pair vertically for portrait source media.
-============================================================= */
 
 .gallery-page-hero {
   padding: calc(var(--nav-height) + 96px) var(--container-pad) 88px;
@@ -1785,11 +1644,6 @@ img { max-width: 100%; display: block; }
   .gallery-dot.is-active { width: 34px; }
 }
 
-
-/* =============================================================
-   GALLERY TEASER — product page bridge to standalone gallery
-============================================================= */
-
 .gallery-teaser {
   padding: 128px var(--container-pad);
   background: var(--color-bg-alt);
@@ -1818,11 +1672,6 @@ img { max-width: 100%; display: block; }
     gap: 32px;
   }
 }
-
-/* =============================================================
-   STAT STRIP — angka kunci (baterai, tenaga, jarak tempuh, dst)
-   dipakai di hub /omoda-o4/ dan halaman spesifikasi.
-============================================================= */
 
 .stat-strip {
   max-width: 1400px;
@@ -1867,12 +1716,6 @@ img { max-width: 100%; display: block; }
   .stat-card { padding: 22px 18px; }
 }
 
-/* =============================================================
-   SPEC FIGURE — gambar infografis dengan teks yang sudah menempel
-   (mis. slide dimensi/spesifikasi resmi). object-fit: contain
-   supaya teksnya tidak pernah terpotong oleh cropping.
-============================================================= */
-
 .spec-figure {
   max-width: 1000px;
   margin: 0 auto;
@@ -1900,12 +1743,6 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 
-/* =============================================================
-   SUBPAGE INTRO — eyebrow + heading pendek di awal setiap
-   sub-halaman (Design/Interior/Technology/Specifications),
-   dipakai setelah product-hero sebelum konten utama.
-============================================================= */
-
 .subpage-intro {
   max-width: 1400px;
   margin: 0 auto;
@@ -1923,11 +1760,6 @@ img { max-width: 100%; display: block; }
 @media (max-width: 900px) {
   .subpage-intro { padding: 72px var(--container-pad) 16px; }
 }
-
-/* =============================================================
-   STAT CARD sebagai link (revisi homepage) — value + label asli
-   dipertahankan, ditambah baris CTA kecil beraksen + hover state.
-============================================================= */
 
 a.stat-card {
   display: block;
@@ -1953,12 +1785,6 @@ a.stat-card:hover .stat-card__value {
   letter-spacing: var(--tracking-mid);
   color: var(--color-accent);
 }
-
-/* =============================================================
-   FLOATING WHATSAPP CTA
-   Selalu terlihat (opacity:1 permanen) sejak halaman dimuat —
-   tidak bergantung scroll/JS sama sekali untuk visibility dasarnya.
-============================================================= */
 
 .wa-float {
   position: fixed;
@@ -2017,14 +1843,6 @@ a.stat-card:hover .stat-card__value {
   }
 }
 
-
-/* =============================================================
-   OMODA JAECOO PALEMBANG — GLOBAL REDESIGN COMPATIBILITY
-   Visual system adapted from the current OMODA Palembang project.
-   Existing product data/classes are preserved.
-============================================================= */
-
-/* ---------- Global header ---------- */
 .top{
   position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-height);
   display:flex;align-items:center;background:rgba(10,12,15,.82);
@@ -2040,7 +1858,6 @@ a.stat-card:hover .stat-card__value {
 .model-menu{display:none}
 .model-menu-panel{display:none}
 
-/* ---------- Hero / homepage ---------- */
 .hero{height:100vh;height:100dvh;min-height:600px;background:var(--color-bg);position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s var(--ease-premium);transform:scale(1.01)}
 .hero-bg.is-active{opacity:1}
@@ -2056,8 +1873,6 @@ a.stat-card:hover .stat-card__value {
 .hero .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .hero .btn{min-height:40px;padding:0 16px;font-size:10px}
 
-/* Slide-specific positioning — each video has a different composition, so
-   the two slides are not forced into identical placement. */
 .hero-slider[data-active-slide="0"] .hero-copy{align-items:flex-start;text-align:left}
 .hero-slider[data-active-slide="1"] .hero-copy{align-items:flex-start;text-align:left;max-width:440px;padding-bottom:clamp(64px,10vh,104px)}
 
@@ -2072,7 +1887,6 @@ a.stat-card:hover .stat-card__value {
 .hero-dot{width:28px;height:2px;border:0;background:rgba(244,245,247,.35);padding:0;cursor:pointer}
 .hero-dot.active{background:var(--color-accent)}
 
-/* ---------- Sections / model cards ---------- */
 .section{padding:130px 0;background:var(--color-bg)}
 .section.alt{background:var(--color-bg-alt)}
 .wrap{width:min(1400px,calc(100% - (var(--container-pad) * 2)));margin:0 auto}
@@ -2094,7 +1908,6 @@ a.stat-card:hover .stat-card__value {
 .model-link:hover{color:var(--color-accent);border-color:var(--color-accent)}
 .wa-inline{background:transparent!important;border:0!important;padding:0!important;color:var(--color-accent)!important}
 
-/* ---------- Product pages ---------- */
 .product-hero{
   position:relative;width:100%;min-height:100vh;padding:0;overflow:hidden;background:var(--color-bg);
 }
@@ -2112,7 +1925,6 @@ a.stat-card:hover .stat-card__value {
 .model-nav a{font-family:var(--font-display);font-size:10px;letter-spacing:var(--tracking-mid);text-transform:uppercase;color:var(--color-text-muted);padding:4px 0;border:0;border-radius:0;font-weight:600}
 .model-nav a:hover,.model-nav a.active{color:var(--color-accent);background:none}
 
-/* Specs */
 .spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--color-line);border-left:1px solid var(--color-line);margin-top:45px}
 .spec{border-right:1px solid var(--color-line);border-bottom:1px solid var(--color-line);border-radius:0;background:transparent;padding:28px 24px;min-height:120px}
 .spec span{display:block;font-family:var(--font-display);font-size:10px;letter-spacing:var(--tracking-mid);text-transform:uppercase;color:var(--color-text-muted);margin-bottom:12px}
@@ -2124,7 +1936,6 @@ a.stat-card:hover .stat-card__value {
 .spec-table td{color:var(--color-text-muted)}
 .spec-table tr:last-child th,.spec-table tr:last-child td{border-bottom:0}
 
-/* Feature and SIVP */
 .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--color-line);border-left:1px solid var(--color-line);margin-top:40px}
 .feature{border-right:1px solid var(--color-line);border-bottom:1px solid var(--color-line);border-radius:0;padding:28px;background:transparent}
 .feature .num{font-family:var(--font-display);font-size:10px;letter-spacing:var(--tracking-mid);color:var(--color-accent)}
@@ -2134,7 +1945,6 @@ a.stat-card:hover .stat-card__value {
 .sivp .kicker{color:var(--color-accent)}
 .sivp h2{margin-top:8px}
 
-/* Contact / CTA */
 .contact-strip{display:flex;justify-content:space-between;align-items:center;gap:30px;border-top:1px solid var(--color-line);border-bottom:1px solid var(--color-line);padding:32px 0}
 .contact-strip strong{font-family:var(--font-display);font-size:20px;color:var(--color-text)}
 .contact-strip p{margin:8px 0 0;color:var(--color-text-muted);font-size:13px;line-height:1.6}
@@ -2143,13 +1953,11 @@ a.stat-card:hover .stat-card__value {
 .cta h2{font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.05;letter-spacing:-.04em;color:var(--color-text);font-weight:600;margin:0 0 18px}
 .cta p{color:var(--color-text-muted);font-size:14px;line-height:1.7}
 
-/* Footer / floating WhatsApp */
 .footer{padding:60px var(--container-pad) 34px;background:var(--color-bg);color:var(--color-text-muted);font-size:11px;line-height:1.6;border-top:1px solid var(--color-line)}
 .footer>.wrap{width:100%;max-width:1400px}
 .wa-float{position:fixed;z-index:999;right:20px;bottom:20px;display:flex;align-items:center;gap:10px;padding:14px 22px 14px 16px;background:var(--color-bg);border:1px solid var(--color-line-strong);border-radius:999px;box-shadow:0 8px 28px rgba(0,0,0,.4);color:var(--color-text)}
 .wa-float:hover{border-color:var(--color-accent);background:var(--color-bg-alt)}
 
-/* ---------- Mobile ---------- */
 @media(max-width:900px){
   :root{--container-pad:24px;--nav-height:72px}
   .top{height:var(--nav-height)}
@@ -2198,9 +2006,6 @@ a.stat-card:hover .stat-card__value {
   .wa-float span{display:none}
 }
 
-/* =============================================================
-   O4 VIDEO HERO + PERFORMANCE PAGE
-============================================================= */
 .product-hero__media video,
 .o4-hero video{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;
@@ -2229,16 +2034,13 @@ a.stat-card:hover .stat-card__value {
 .product-hero:has(.hero__content) .product-head h1,.product-hero:has(.hero__content) .product-head p,.product-hero:has(.hero__content) .product-head .price,
 .product-hero:has(.hero__content) .product-head .eyebrow,.product-hero:has(.hero__content) .product-head .actions{position:relative;z-index:4}
 
-/* Make O4 source hero content sit over the video */
 .product-hero .hero__content{position:absolute;inset:0;z-index:4;height:100%;max-width:1000px;justify-content:flex-end;padding:0 var(--container-pad) clamp(72px,9vh,112px);pointer-events:none} .product-hero .hero__content .hero__actions{pointer-events:auto}
 .product-hero .hero__content .hero__title{font-family:var(--font-display);font-size:clamp(3rem,7vw,7rem);line-height:.9;letter-spacing:-.055em;color:var(--color-text)}
 .product-hero .hero__content .hero__eyebrow{font-family:var(--font-display);color:var(--color-accent);letter-spacing:var(--tracking-wide)}
 .product-hero .hero__actions{display:flex;gap:12px;flex-wrap:wrap}
 
-/* O4 pages use the editorial source structure; ensure content is readable */
 .overview,.showcase,.pillars,.split,.duo-media,.media-strip,.feature-slots,.subpage-intro,.spec-intro,.spec-table-wrap{position:relative;z-index:1}
 
-/* Performance hero */
 .o4-hero{
   position:relative;min-height:100vh;height:100dvh;overflow:hidden;background:var(--color-bg);
   display:flex;align-items:flex-end;
@@ -2288,18 +2090,10 @@ a.stat-card:hover .stat-card__value {
   .product-hero:has(.hero__content) .product-head{padding-top:45svh}
 }
 
-
-/* Revision: model selector row removed in favor of the primary hamburger/navigation. */
 .model-nav{display:none !important;}
 
-/* Revision: clearer floating WhatsApp control. */
 @media (max-width:640px){.wa-float svg{width:24px;height:24px;flex-basis:24px}.wa-float{padding:15px;}}
 
-
-/* =============================================================
-   OMODA O4 — FUTURISTIC TYPOGRAPHY, PRECISE HERO & RHYTHM
-   Scoped only to O4 so JAECOO pages retain their existing data/UI.
-============================================================= */
 .o4-site {
   --font-display: 'Sora', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -2379,7 +2173,6 @@ a.stat-card:hover .stat-card__value {
 .o4-site .o4-hero h1 { font-size: clamp(2.7rem, 6.4vw, 6.2rem); }
 .o4-site .o4-hero p { max-width: 58ch; }
 
-/* Large final WhatsApp CTA — intentionally elegant, not a floating obstruction. */
 .o4-final-cta {
   position: relative;
   padding: clamp(68px, 8vw, 108px) var(--container-pad);
@@ -2428,7 +2221,6 @@ a.stat-card:hover .stat-card__value {
 .o4-final-cta__button:hover { transform: translateY(-2px); background: transparent; color: var(--color-text); }
 .o4-final-cta__button span { font-size: 16px; }
 
-/* Floating WhatsApp: visible on every O4 page without dominating the frame. */
 .o4-site .wa-float {
   z-index: 200;
   right: 22px;
@@ -2486,7 +2278,6 @@ a.stat-card:hover .stat-card__value {
   .o4-site .wa-float span { display: inline; }
 }
 
-/* Premium delivery gallery: editorial framing, original ratios preserved, zero cropping. */
 .delivery-gallery-v321 {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -2549,11 +2340,6 @@ a.stat-card:hover .stat-card__value {
   .delivery-card figcaption { margin-top: 8px; font-size: 8.5px; }
 }
 
-
-/* =============================================================
-   JAECOO J5 — YOUTHFUL PREMIUM LAYER
-   Scoped to .j5-site so existing OMODA O4/J7/J8 styles stay intact.
-============================================================= */
 .j5-site{
   --j5-bg:#090b0e;
   --j5-bg-2:#10141a;
@@ -2634,7 +2420,7 @@ a.stat-card:hover .stat-card__value {
 .j5-photo-card{position:relative;display:block;min-height:500px;overflow:hidden;background:#07090c}
 .j5-photo-card:nth-child(2){min-height:500px}
 .j5-photo-card img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease-premium),filter .7s var(--ease-premium)}
-/* J5 photo-card — int-front-seats is 16:9 in a near-1:1 narrow column; shift crop left to keep seat in frame */
+
 .j5-photo-card img[src*="int-front-seats"]{object-position:25% center}
 .j5-photo-card:hover img{transform:scale(1.035);filter:saturate(1.06)}
 .j5-photo-card span{position:absolute;left:24px;bottom:22px;color:#fff;font:600 10px/1 var(--j5-display);letter-spacing:.16em;text-shadow:0 2px 12px rgba(0,0,0,.6)}
@@ -2691,7 +2477,7 @@ a.stat-card:hover .stat-card__value {
 .j5-image-story__grid{display:grid;grid-template-columns:1fr .82fr;gap:70px;align-items:start}
 .j5-image-story__grid>div{color:var(--j5-muted);font:500 10px/1.4 var(--j5-display);letter-spacing:.1em;text-transform:uppercase}
 .j5-image-story__grid img{width:100%;height:auto;aspect-ratio:auto;object-fit:cover;margin-bottom:17px}
-/* J5 image story: preserve each source image's natural ratio to avoid extreme vertical cards/cropping. */
+
 .j5-image-story__grid img[src*="ext-front-detail"],.j5-image-story__grid img[src*="ext-taillight"],.j5-image-story__grid img[src*="ext-body-detail"],.j5-image-story__grid img[src*="ext-mirror"]{height:auto;aspect-ratio:auto;object-fit:cover;object-position:center}
 .j5-image-story__grid img[src*="int-front-seats"],.j5-image-story__grid img[src*="int-rear-seats"]{height:auto;aspect-ratio:auto;object-fit:cover}
 .j5-image-story__offset{padding-top:150px}
@@ -2709,7 +2495,7 @@ a.stat-card:hover .stat-card__value {
 .j5-interior-grid__items{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .j5-interior-grid figure{margin:0;background:#0d1116}
 .j5-interior-grid figure img{width:100%;height:auto;aspect-ratio:auto;object-fit:cover;object-position:center}
-/* J5 interior detail cards: preserve the native landscape composition instead of forcing square/portrait crops. */
+
 .j5-interior-grid figure img[src*="int-door"],.j5-interior-grid figure img[src*="int-sunroof"],.j5-interior-grid figure img[src*="int-trunk"]{height:auto;aspect-ratio:auto;object-fit:cover}
 .j5-interior-grid figcaption{padding:16px 18px 20px;color:var(--j5-muted);font:500 10px/1 var(--j5-display);letter-spacing:.12em;text-transform:uppercase}
 
@@ -2806,7 +2592,7 @@ a.stat-card:hover .stat-card__value {
   .j5-page-hero__content h1{font-size:clamp(3rem,15.5vw,5rem)}
   .j5-page-hero__content>p:not(.j5-kicker){font-size:13.5px;margin-top:20px}
   .j5-wide-media img{height:92vw}
-  /* J5 mobile image-story: cap portrait detail cards so one photo never dominates multiple screen heights. */
+  
   .j5-image-story__grid img{width:100%;height:auto;max-height:125vw;aspect-ratio:auto;object-fit:cover;object-position:center}
   .j5-interior-grid figure img{width:100%;height:auto;max-height:68vw;aspect-ratio:auto;object-fit:cover;object-position:center}
   .j5-interior-grid__items{grid-template-columns:1fr}
@@ -2823,8 +2609,6 @@ a.stat-card:hover .stat-card__value {
   .j5-cta{width:100%}
 }
 
-
-/* OMODA O4 PRE-BOOK HIGHLIGHT — additive only */
 .o4-prebook{
   background:linear-gradient(120deg,#0e1319,#0a0c0f 68%);
   border-top:1px solid var(--color-line);
@@ -2845,12 +2629,9 @@ a.stat-card:hover .stat-card__value {
   .o4-prebook__inner{grid-template-columns:1fr;gap:28px;padding:48px 24px}
 }
 
-
 .j5-site .j5-subnav{margin-top:var(--nav-height)}
 @media(max-width:860px){.j5-site .j5-subnav{margin-top:var(--nav-height-mobile)}}
 
-
-/* Sequential page navigation — J5 */
 .j5-next-page{padding:clamp(76px,9vw,130px) 0;background:#0d1116;border-top:1px solid var(--j5-line);border-bottom:1px solid var(--j5-line)}
 .j5-next-page__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,0.8fr);gap:70px;align-items:end}
 .j5-next-page__grid h2{margin:0;color:var(--j5-text);font:600 clamp(2.6rem,5vw,5.4rem)/.94 var(--j5-display);letter-spacing:-.06em}
@@ -2860,29 +2641,18 @@ a.stat-card:hover .stat-card__value {
 .o4-next-page .cta-section__actions{justify-content:flex-start}
 @media(max-width:760px){.j5-next-page__grid{grid-template-columns:1fr;gap:28px}.j5-next-page{padding:78px 0}.j5-next-page__grid h2{font-size:clamp(2.4rem,11vw,4rem)}.j5-next-page__link{width:100%;justify-content:center}}
 
-
-/* =============================================================
-   COLOR CONFIGURATOR — OMODA O4 & JAECOO J5
-   Namespace: .color-config  (O4 inherits :root tokens)
-              .j5-color-config (J5 inherits --j5-* tokens)
-   Shared layout, separated themes.
-============================================================= */
-
-/* ---- Shared Base ---- */
 .color-config,
 .j5-color-config {
   position: relative;
   overflow: hidden;
 }
 
-/* Section wrapper */
 .cc-inner {
   max-width: 1400px;
   margin: 0 auto;
   padding: clamp(96px, 11vw, 160px) var(--container-pad);
 }
 
-/* Header */
 .cc-header {
   margin-bottom: clamp(52px, 7vw, 96px);
 }
@@ -2915,7 +2685,6 @@ a.stat-card:hover .stat-card__value {
   color: var(--color-text-muted);
 }
 
-/* Vehicle image stage */
 .cc-stage {
   position: relative;
   width: 100%;
@@ -2942,7 +2711,6 @@ a.stat-card:hover .stat-card__value {
   opacity: 1;
 }
 
-/* Controls row */
 .cc-controls {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -2950,7 +2718,6 @@ a.stat-card:hover .stat-card__value {
   align-items: end;
 }
 
-/* Color info */
 .cc-info {
   min-height: 80px;
 }
@@ -2974,7 +2741,6 @@ a.stat-card:hover .stat-card__value {
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Swatch group */
 .cc-swatches {
   display: flex;
   gap: 12px;
@@ -2982,7 +2748,6 @@ a.stat-card:hover .stat-card__value {
   flex-shrink: 0;
 }
 
-/* Individual swatch button */
 .cc-swatch {
   position: relative;
   width: 36px;
@@ -3014,7 +2779,6 @@ a.stat-card:hover .stat-card__value {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Active state ring */
 .cc-swatch[aria-selected="true"] {
   border-color: var(--color-accent);
   transform: scale(1.08);
@@ -3024,19 +2788,16 @@ a.stat-card:hover .stat-card__value {
   transform: scale(0.82);
 }
 
-/* Fade text during transition */
 .cc-info.is-transitioning .cc-color-name,
 .cc-info.is-transitioning .cc-color-desc {
   opacity: 0;
 }
 
-/* ---- O4 theme adjustments ---- */
 .color-config {
   background: linear-gradient(180deg, #0e1218 0%, var(--color-bg) 100%);
   border-top: 1px solid var(--color-line);
 }
 
-/* ---- J5 theme overrides ---- */
 .j5-color-config {
   background: linear-gradient(180deg, #0c0f15 0%, var(--j5-bg) 100%);
   border-top: 1px solid var(--j5-line);
@@ -3072,7 +2833,6 @@ a.stat-card:hover .stat-card__value {
   border-color: var(--j5-accent);
 }
 
-/* ---- Responsive ---- */
 @media (max-width: 860px) {
   .cc-controls {
     grid-template-columns: 1fr;
@@ -3118,9 +2878,6 @@ a.stat-card:hover .stat-card__value {
     font-size: 1.5rem;
   }
 }
-
-/* ===== Homepage redesign: OUR MODELS lineup + RECOGNIZED FOR MORE ===== */
-/* Scoped to .lineup / .recognized only — does not modify existing .model-grid/.model-card rules used elsewhere. */
 
 .lineup{margin-top:64px;display:flex;flex-direction:column}
 .lineup__item{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:56px;padding:64px 0;border-bottom:1px solid var(--color-line)}
@@ -3179,16 +2936,8 @@ a.stat-card:hover .stat-card__value {
   .recognized__caption{padding:22px 18px 20px}
 }
 
-/* =============================================================
-   HOMEPAGE BERITA SECTION
-   Minimalis, premium — hanya untuk section berita di homepage.
-============================================================= */
-
-/* ── HOME BERITA — Editorial Featured Layout ── */
-
 .home-berita { background: var(--color-bg); }
 
-/* Header: eyebrow kiri, link kanan — satu baris */
 .home-berita__header {
   display: flex;
   align-items: flex-end;
@@ -3224,7 +2973,6 @@ a.stat-card:hover .stat-card__value {
   line-height: 1.15;
 }
 
-/* "Lihat Semua →" inline di header */
 .home-berita__all-inline {
   font-family: var(--font-display);
   font-size: 11px;
@@ -3246,10 +2994,8 @@ a.stat-card:hover .stat-card__value {
   border-color: var(--color-line-strong);
 }
 
-/* Featured wrap */
 .home-berita__featured { margin-bottom: 0; }
 
-/* 2-kolom: link pembungkus seluruh card */
 .home-berita__card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3264,7 +3010,6 @@ a.stat-card:hover .stat-card__value {
 
 .home-berita__card:hover { border-color: var(--color-line-strong); }
 
-/* Kolom kiri — image */
 .home-berita__card-media {
   overflow: hidden;
   position: relative;
@@ -3283,7 +3028,6 @@ a.stat-card:hover .stat-card__value {
 
 .home-berita__card:hover .home-berita__card-media img { transform: scale(1.03); }
 
-/* Kolom kanan — konten */
 .home-berita__card-body {
   padding: 44px 48px;
   display: flex;
@@ -3294,7 +3038,6 @@ a.stat-card:hover .stat-card__value {
   border-left: 1px solid var(--color-line);
 }
 
-/* Meta: tanggal · kategori */
 .home-berita__card-meta {
   display: flex;
   align-items: center;
@@ -3327,7 +3070,6 @@ a.stat-card:hover .stat-card__value {
   color: var(--color-accent);
 }
 
-/* Judul — elemen visual utama */
 .home-berita__card-title {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
@@ -3338,7 +3080,6 @@ a.stat-card:hover .stat-card__value {
   margin: 0;
 }
 
-/* Excerpt */
 .home-berita__card-desc {
   font-family: var(--font-body);
   font-size: .93rem;
@@ -3351,7 +3092,6 @@ a.stat-card:hover .stat-card__value {
   overflow: hidden;
 }
 
-/* CTA teks */
 .home-berita__read-more {
   font-family: var(--font-display);
   font-size: 11px;
@@ -3365,10 +3105,8 @@ a.stat-card:hover .stat-card__value {
 
 .home-berita__card:hover .home-berita__read-more { opacity: .6; }
 
-/* Footer bawah — sembunyikan di desktop karena sudah ada di header */
 .home-berita__footer { display: none; }
 
-/* ── TABLET (≤900px) — 1 kolom ── */
 @media (max-width: 900px) {
   .home-berita__card {
     grid-template-columns: 1fr;
@@ -3388,7 +3126,6 @@ a.stat-card:hover .stat-card__value {
   }
 }
 
-/* ── MOBILE (≤640px) ── */
 @media (max-width: 640px) {
   .home-berita__header {
     flex-direction: row;
@@ -3419,25 +3156,17 @@ a.stat-card:hover .stat-card__value {
   }
 }
 
-/* =============================================================
-   SECTION: DEALER RESMI OMODA JAECOO PALEMBANG
-   Full-width cinematic location showcase
-   Local SEO + GEO entity — premium minimalist
-============================================================= */
-
-/* ---- Container ---- */
 .dealer-lokasi {
   position: relative;
   padding: 0 !important;
   overflow: hidden;
   background: var(--color-bg);
-  /* min-height ensures full cinematic presence */
+  
   min-height: 72vh;
   display: flex;
   align-items: flex-end;
 }
 
-/* ---- Background image layer ---- */
 .dealer-lokasi__bg {
   position: absolute;
   inset: 0;
@@ -3448,16 +3177,15 @@ a.stat-card:hover .stat-card__value {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Desktop: crop 1920×1476, building facade + JAECOO signage + cars */
+  
   object-position: center center;
   display: block;
 }
 
-/* ---- Gradient overlay — elegant, not crushing ---- */
 .dealer-lokasi__overlay {
   position: absolute;
   inset: 0;
-  /* Directional: dark at bottom where text sits, opens at top */
+  
   background:
     linear-gradient(
       to top,
@@ -3468,7 +3196,6 @@ a.stat-card:hover .stat-card__value {
     );
 }
 
-/* ---- Content layer ---- */
 .dealer-lokasi__content {
   position: relative;
   z-index: 2;
@@ -3480,12 +3207,10 @@ a.stat-card:hover .stat-card__value {
   max-width: 640px;
 }
 
-/* ---- Kicker ---- */
 .dealer-lokasi__kicker {
   margin: 0 0 20px;
 }
 
-/* ---- Heading ---- */
 .dealer-lokasi__heading {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 4.2rem);
@@ -3496,7 +3221,6 @@ a.stat-card:hover .stat-card__value {
   margin: 0 0 20px;
 }
 
-/* ---- Tagline ---- */
 .dealer-lokasi__tagline {
   font-family: var(--font-body);
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
@@ -3506,7 +3230,6 @@ a.stat-card:hover .stat-card__value {
   max-width: 52ch;
 }
 
-/* ---- Address ---- */
 .dealer-lokasi__address {
   display: flex;
   align-items: flex-start;
@@ -3529,11 +3252,9 @@ a.stat-card:hover .stat-card__value {
   margin-top: 3px;
 }
 
-/* ---- Responsive line break helpers ---- */
 .dealer-lokasi__br-desktop { display: block; }
 .dealer-lokasi__br-mobile  { display: none; }
 
-/* ---- Tablet (1024px and below) ---- */
 @media (max-width: 1024px) {
   .dealer-lokasi {
     min-height: 65vh;
@@ -3548,7 +3269,6 @@ a.stat-card:hover .stat-card__value {
   }
 }
 
-/* ---- Mobile (640px and below) ---- */
 @media (max-width: 640px) {
   .dealer-lokasi {
     min-height: 88vh;
@@ -3556,7 +3276,7 @@ a.stat-card:hover .stat-card__value {
   }
 
   .dealer-lokasi__bg-img {
-    /* Portrait crop 800×1000: JAECOO signage + cars, balanced */
+    
     object-position: center 20%;
   }
 

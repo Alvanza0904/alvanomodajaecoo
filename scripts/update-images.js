@@ -272,12 +272,12 @@ function getMappings(cfg) {
 
   // Delivery images
   const deliveryMap = {
-    delivery_01: "assets/images/delivery-j5-1.jpg",
-    delivery_02: "assets/images/delivery-j5-2.jpg",
-    delivery_03: "assets/images/delivery-j5-3.jpg",
-    delivery_04: "assets/images/delivery-j5-4.jpg",
-    delivery_05: "assets/images/delivery-j5-5.webp",
-    delivery_06: "assets/images/delivery-j5-6.webp",
+    delivery_01: "assets/images/delivery-j5-1-opt.webp",
+    delivery_02: "assets/images/delivery-j5-2-opt.webp",
+    delivery_03: "assets/images/delivery-j5-3-opt.webp",
+    delivery_04: "assets/images/delivery-j5-4-opt.webp",
+    delivery_05: "assets/images/delivery-j5-5-opt.webp",
+    delivery_06: "assets/images/delivery-j5-6-opt.webp",
   };
   for (const [key, oldSrc] of Object.entries(deliveryMap)) {
     const entry = hp[key];
