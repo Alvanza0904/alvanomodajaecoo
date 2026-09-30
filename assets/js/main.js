@@ -86,14 +86,13 @@
     ];
     var heroReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var saveData=!!(navigator.connection&&navigator.connection.saveData);
-    var desktopHero=window.matchMedia('(min-width: 1000px)').matches;
     var videos=heroBgs.map(function(bg){return bg.querySelector('.hero-bg-video__el');});
-    var i=0,fallbackTimer,heroPaused=false,heroMediaOn=false;
+    var i=0,fallbackTimer,heroPaused=false,heroNeedsGesture=false;
 
     function clearFallback(){clearTimeout(fallbackTimer);}
 
     /* Fallback timer only used when a slide's video can't drive timing itself
-       (reduced motion, mobile poster-only, or the video failed to load/play). */
+       (reduced motion, data-saver, or the video failed to load/play). */
     function scheduleFallback(){
       clearFallback();
       fallbackTimer=setTimeout(function(){advance();},6500);
@@ -101,45 +100,54 @@
 
     function stopVideo(v){
       if(!v)return;
-      try{v.pause();v.currentTime=0;}catch(e){}
+      try{v.pause();}catch(e){}
+      v.classList.remove('is-ready');
+      try{if(v.readyState>=1)v.currentTime=0;}catch(e){}
     }
 
-    function ensureSource(v){
-      if(!v||v.getAttribute('data-loaded')==='1')return;
-      var src=v.getAttribute('data-src');
+    function primeVideo(v){
+      if(!v)return;
+      v.muted=true;
+      v.defaultMuted=true;
+      v.playsInline=true;
+      v.setAttribute('muted','');
+      v.setAttribute('playsinline','');
+      v.setAttribute('webkit-playsinline','');
+      if(v.getAttribute('data-loaded')==='1')return;
+      var src=v.getAttribute('data-src')||v.getAttribute('src');
       if(!src)return;
-      v.setAttribute('data-loaded','1');
       v.preload='auto';
-      var source=document.createElement('source');
-      source.src=src;
-      source.type='video/mp4';
-      v.appendChild(source);
-      try{v.load();}catch(e){}
+      v.src=src;
+      v.setAttribute('data-loaded','1');
+    }
+
+    function markReady(v){
+      v.classList.add('is-ready');
+      v.classList.remove('is-error');
+      heroNeedsGesture=false;
     }
 
     function playActiveVideo(){
       var v=videos[i];
-      if(!heroMediaOn||!v||heroReducedMotion||saveData){scheduleFallback();return;}
+      if(!v||heroReducedMotion||saveData){scheduleFallback();return;}
       if(v.classList.contains('is-error')){scheduleFallback();return;}
-      ensureSource(v);
+      primeVideo(v);
       clearFallback();
-      try{v.currentTime=0;}catch(e){}
-      var p=v.play();
-      if(p&&p.catch){
-        p.then(function(){v.classList.add('is-ready');})
-          .catch(function(){v.classList.add('is-error');scheduleFallback();});
-      }else{
-        v.classList.add('is-ready');
+      function go(){
+        if(v!==videos[i]||heroPaused)return;
+        var p=v.play();
+        if(p&&p.then){
+          p.then(function(){markReady(v);})
+            .catch(function(){
+              heroNeedsGesture=true;
+              scheduleFallback();
+            });
+        }else{
+          markReady(v);
+        }
       }
-    }
-
-    /* Mobile keeps the poster. Video bytes start on interaction, or on
-       desktop after load so they don't compete with LCP. */
-    function armHeroVideo(){
-      if(heroMediaOn||heroReducedMotion||saveData)return;
-      heroMediaOn=true;
-      clearFallback();
-      playActiveVideo();
+      go();
+      if(v.readyState<2)v.addEventListener('canplay',go,{once:true});
     }
 
     var heroEl=document.querySelector('.hero-slider');
@@ -189,17 +197,16 @@
     });
 
     ['pointerdown','keydown','touchstart'].forEach(function(evt){
-      window.addEventListener(evt,armHeroVideo,{once:true,passive:true});
+      window.addEventListener(evt,function(){
+        if(!heroNeedsGesture)return;
+        var v=videos[i];
+        if(v)v.classList.remove('is-error');
+        playActiveVideo();
+      },{passive:true});
     });
-    if(desktopHero){
-      window.addEventListener('load',function(){
-        var run=function(){armHeroVideo();};
-        if('requestIdleCallback' in window) requestIdleCallback(run,{timeout:1800});
-        else setTimeout(run,600);
-      });
-    }
 
     show(0);
+    playActiveVideo();
   }
 })();
 
