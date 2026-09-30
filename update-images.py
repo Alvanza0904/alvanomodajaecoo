@@ -196,10 +196,46 @@ def html_files(root: str) -> list[str]:
     return sorted(found)
 
 
-def local_image_file_exists(root: str, image_norm: str) -> bool:
+def prune_empty_dirs(start: str, stop: str) -> None:
+    """Hapus folder kosong dari start naik sampai (tidak termasuk) stop."""
+    current = os.path.abspath(start)
+    stop = os.path.abspath(stop)
+    while current != stop and current.startswith(stop + os.sep):
+        try:
+            os.rmdir(current)
+        except OSError:
+            break
+        current = os.path.dirname(current)
+
+
+def materialize_cms_image(root: str, entry: dict) -> tuple[bool, str | None]:
+    """Pastikan file gambar ada di path publik yang tertulis di Markdown.
+
+    Sveltia menyimpan upload relatif terhadap folder koleksi bila media_folder
+    koleksi tidak diawali slash. Markdown tetap memakai public_folder, jadi
+    file bisa nyasar ke content/<koleksi>/<public path>. Jika ketemu di sana,
+    file dipindah ke path publik dan path nyasar dikembalikan.
+    """
+    image_norm = entry["image_norm"]
     if not image_norm or image_norm.startswith(("http://", "https://")):
-        return True
-    return os.path.isfile(os.path.join(root, image_norm))
+        return True, None
+    canonical = os.path.join(root, image_norm)
+    if os.path.isfile(canonical):
+        return True, None
+    md_dir = os.path.dirname(entry["md_path"]).replace("\\", "/")
+    if not md_dir or md_dir == ".":
+        return False, None
+    stray_rel = f"{md_dir}/{image_norm}"
+    stray_abs = os.path.join(root, stray_rel)
+    if not os.path.isfile(stray_abs):
+        return False, None
+    if os.path.abspath(stray_abs) == os.path.abspath(canonical):
+        return True, None
+    os.makedirs(os.path.dirname(canonical), exist_ok=True)
+    shutil.copy2(stray_abs, canonical)
+    os.remove(stray_abs)
+    prune_empty_dirs(os.path.dirname(stray_abs), os.path.join(root, md_dir))
+    return True, stray_rel
 
 
 def style_for_write(original_url: str, cms_image: str) -> str:
@@ -472,12 +508,16 @@ def run(root: str, write: bool = True) -> int:
         if entry["image_norm"].startswith(("http://", "https://")):
             warnings.append(f"WARNING: CMS memakai URL eksternal\nCMS key: {key}\nImage: {entry['image']}")
             continue
-        if not local_image_file_exists(root, entry["image_norm"]):
+        exists, relocated_from = materialize_cms_image(root, entry)
+        if relocated_from:
+            print(f"  [relokasi] {relocated_from} → {entry['image_norm']}")
+        if not exists:
             fatal.append(
                 "ERROR: file gambar CMS tidak ditemukan\n"
                 f"CMS key: {key}\n"
                 f"Image: {entry['image']}\n"
-                f"Expected file: {entry['image_norm']}"
+                f"Expected file: {entry['image_norm']}\n"
+                f"Juga dicek di: {os.path.dirname(entry['md_path'])}/{entry['image_norm']}"
             )
 
     bound, unknown = collect_bound_keys(root, cms)
@@ -752,6 +792,39 @@ def self_test() -> int:
             return 1
         if open(os.path.join(tmp, "jaecoo-j7.html"), encoding="utf-8").read() != j7_now:
             print("SELF-TEST FAIL: HTML berubah padahal file CMS hilang")
+            return 1
+
+        # Pulihkan J7 supaya tes berikutnya tidak ikut gagal.
+        md("jaecoo-j7/hero", "/assets/images/j7/hero.webp", "J7 hero alt")
+
+        # Upload Sveltia yang nyasar ke dalam folder konten harus dipindah
+        # ke path publik, lalu HTML mengikuti path itu.
+        stray = os.path.join(tmp, "content/homepage/assets/images/cms/homepage/nyasar.jpeg")
+        _touch(stray)
+        md("homepage/hero-slide-2", "assets/images/cms/homepage/nyasar.jpeg", "")
+        index_path = os.path.join(tmp, "index.html")
+        with open(index_path, "a", encoding="utf-8") as handle:
+            handle.write(
+                '<div data-cms="homepage/hero-slide-2" '
+                "style=\"background-image:url('/assets/images/home/slide.webp')\"></div>"
+            )
+        code = run(tmp, write=True)
+        if code != 0:
+            print("SELF-TEST FAIL: relokasi upload nyasar harus berhasil")
+            return 1
+        canonical = os.path.join(tmp, "assets/images/cms/homepage/nyasar.jpeg")
+        if not os.path.isfile(canonical):
+            print("SELF-TEST FAIL: file tidak dipindah ke path publik")
+            return 1
+        if os.path.exists(stray):
+            print("SELF-TEST FAIL: file nyasar masih ada")
+            return 1
+        home = open(index_path, encoding="utf-8").read()
+        if "/assets/images/cms/homepage/nyasar.jpeg" not in home:
+            print("SELF-TEST FAIL: HTML tidak memakai file yang dipindah", home)
+            return 1
+        if "/assets/images/j8/hero.webp" not in home:
+            print("SELF-TEST FAIL: relokasi mengubah slide lain")
             return 1
 
         print("\nSELF-TEST OK")

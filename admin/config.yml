@@ -84,7 +84,7 @@ collections:
     create: false
     summary: "{{section}} · {{title}}"
     identifier_field: title
-    media_folder: assets/images/cms/homepage
+    media_folder: /assets/images/cms/homepage
     public_folder: /assets/images/cms/homepage
     sortable_fields: [section, title]
     view_filters:
@@ -105,7 +105,7 @@ collections:
     create: false
     summary: "{{section}} · {{title}}"
     identifier_field: title
-    media_folder: assets/images/cms/jaecoo-j5
+    media_folder: /assets/images/cms/jaecoo-j5
     public_folder: /assets/images/cms/jaecoo-j5
     sortable_fields: [section, title]
     view_filters:
@@ -127,7 +127,7 @@ collections:
     create: false
     summary: "{{section}} · {{title}}"
     identifier_field: title
-    media_folder: assets/images/cms/jaecoo-j7
+    media_folder: /assets/images/cms/jaecoo-j7
     public_folder: /assets/images/cms/jaecoo-j7
     sortable_fields: [section, title]
     view_filters:
@@ -151,7 +151,7 @@ collections:
     create: false
     summary: "{{section}} · {{title}}"
     identifier_field: title
-    media_folder: assets/images/cms/jaecoo-j8
+    media_folder: /assets/images/cms/jaecoo-j8
     public_folder: /assets/images/cms/jaecoo-j8
     sortable_fields: [section, title]
     view_filters:
@@ -174,7 +174,7 @@ collections:
     create: false
     summary: "{{section}} · {{title}}"
     identifier_field: title
-    media_folder: assets/images/cms/omoda-o4
+    media_folder: /assets/images/cms/omoda-o4
     public_folder: /assets/images/cms/omoda-o4
     sortable_fields: [section, title]
     view_filters:

@@ -36,11 +36,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -u
-          # Hanya HTML. Jangan ikut commit script, konten CMS, atau laporan.
+          git add -A
+          # HTML, plus file gambar yang script pindahkan dari folder content
+          # ke path publik. Jangan ikut commit script, config, atau Markdown.
           while IFS= read -r file; do
             case "$file" in
               *.html) ;;
+              assets/images/cms/*) ;;
+              content/*/assets/*) ;;
               *) git reset HEAD -- "$file" ;;
             esac
           done < <(git diff --cached --name-only)
