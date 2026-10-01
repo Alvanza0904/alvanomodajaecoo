@@ -12,14 +12,26 @@ const INJECT_END = "<!-- CMS:ARTIKEL:END -->";
 const SITEMAP_START = "<!-- CMS:BERITA:START -->";
 const SITEMAP_END = "<!-- CMS:BERITA:END -->";
 
+const MAX_SLUG_LENGTH = 80;
+const MAX_FILENAME_LENGTH = 180;
+const MAX_TITLE_LENGTH = 110;
+
 function slugify(text) {
-  return String(text || "")
+  const slug = String(text || "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+  if (slug.length <= MAX_SLUG_LENGTH) return slug;
+  return slug.slice(0, MAX_SLUG_LENGTH).replace(/-+$/g, "");
+}
+
+function shortenTitle(title) {
+  const text = String(title || "").replace(/\s+/g, " ").trim();
+  if (text.length <= MAX_TITLE_LENGTH) return text;
+  return text.slice(0, MAX_TITLE_LENGTH).replace(/\s+\S*$/, "").trim();
 }
 
 function escapeHtml(value) {
@@ -782,10 +794,20 @@ function generate() {
   const activeSlugs = new Set();
 
   for (const file of files) {
+    if (file.length > MAX_FILENAME_LENGTH) {
+      console.warn(`Lewati ${file.slice(0, 80)}...: nama file terlalu panjang (${file.length} karakter).`);
+      continue;
+    }
     const source = fs.readFileSync(path.join(NEWS_DIR, file), "utf8");
     const { data, body } = parseFrontMatter(source);
     if (!data.title) { console.warn(`Lewati ${file}: tidak ada title.`); continue; }
-    const slug = data.slug ? slugify(data.slug) : slugify(data.title);
+    const originalTitle = String(data.title);
+    data.title = shortenTitle(originalTitle);
+    if (data.title !== originalTitle) {
+      console.warn(`Judul ${file} dipotong karena terlalu panjang.`);
+    }
+    const fileSlug = slugify(path.basename(file, path.extname(file)));
+    const slug = data.slug ? slugify(data.slug) : (slugify(data.title) || fileSlug || "artikel");
     activeSlugs.add(slug);
     articles.push({ data, body, slug });
   }

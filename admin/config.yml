@@ -8,6 +8,11 @@ backend:
 media_folder: assets/images
 public_folder: /assets/images
 
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
 collections:
 
   - name: promo
@@ -66,8 +71,12 @@ collections:
     label: "📰 Berita"
     folder: berita
     create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
     fields:
-      - { label: Judul, name: title, widget: string }
+      - { label: Judul, name: title, widget: string, hint: "Judul artikel saja (bukan seluruh isi). Contoh: Harga JAECOO Berpotensi Naik Oktober 2026", pattern: [".{8,110}", "Judul harus 8-110 karakter. Jangan paste seluruh artikel ke kolom judul."] }
+      - { label: "Slug (URL)", name: slug, widget: string, required: false, hint: "Huruf kecil, pakai tanda hubung. Contoh: harga-jaecoo-berpotensi-naik-oktober-2026. Kosongkan untuk otomatis dari judul.", pattern: ["^[a-z0-9-]{0,80}$", "Slug hanya huruf kecil, angka, dan tanda hubung (maks 80 karakter)."] }
       - { label: Tanggal, name: date, widget: datetime }
       - { label: Kategori, name: category, widget: select, options: ["Info Terbaru", "Harga & Launching", "Perbandingan Model"], default: "Info Terbaru" }
       - { label: Deskripsi Singkat, name: description, widget: string, required: false }
