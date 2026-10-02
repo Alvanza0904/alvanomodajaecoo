@@ -3,6 +3,8 @@ title: Garansi Baterai JAECOO J5 EV 8 Tahun, Apakah Setelahnya Baterai Akan Rusa
 date: 2026-09-08T21:53:00
 category: Info Terbaru
 description: Garansi baterai JAECOO J5 EV 8 tahun bukan berarti baterai akan rusak setelah 8 tahun. Pahami garansi, umur baterai, biaya penggantian dan asuransi.
+seo_title: Garansi Baterai JAECOO J5 Palembang 8 Tahun
+seo_description: Garansi baterai JAECOO J5 Palembang 8 tahun atau 160.000 km bukan batas umur baterai. Pahami klaim, estimasi ganti Rp170 jutaan, dan asuransi.
 focus_keyword: garansi baterai JAECOO J5 EV 8 tahun, garansi JAECOO J5 EV, baterai JAECOO J5 EV, biaya ganti baterai JAECOO J5, JAECOO J5 EV Palembang, mobil listrik JAECOO, OMODA O4, OMODA JAECOO
 image_alt: ''
 image_caption: Garansi baterai 8 Tahun

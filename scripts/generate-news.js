@@ -302,8 +302,8 @@ function getDescription(body) {
 
 function normalizeDescription(value, fallback) {
   const text = String(value || fallback || "").replace(/\s+/g, " ").trim();
-  if (text.length <= 160) return text;
-  return text.slice(0, 157).replace(/\s+\S*$/, "") + "...";
+  if (text.length <= 155) return text;
+  return text.slice(0, 152).replace(/\s+\S*$/, "") + "...";
 }
 
 function categorySlug(category) {
@@ -473,7 +473,8 @@ function buildRelatedArticles(currentSlug, articles) {
 
 function createArticleHtml(data, body, allArticles) {
   const title = String(data.title || "Berita OMODA JAECOO Palembang").trim();
-  const description = normalizeDescription(data.description, getDescription(body));
+  const documentTitle = String(data.seo_title || `${title} | OMODA JAECOO Palembang`).replace(/\s+/g, " ").trim();
+  const description = normalizeDescription(data.seo_description || data.description, getDescription(body));
   const date = isoDate(data.date);
   const modified = isoDate(data.modified || data.date);
   const category = data.category || "Info Terbaru";
@@ -533,14 +534,14 @@ function createArticleHtml(data, body, allArticles) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"></noscript>
-<title>${escapeAttr(title)} | OMODA JAECOO Palembang</title>
+<title>${escapeAttr(documentTitle)}</title>
 <meta name="description" content="${escapeAttr(description)}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="${articleUrl}">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="OMODA JAECOO Palembang">
-<meta property="og:title" content="${escapeAttr(title)}">
+<meta property="og:title" content="${escapeAttr(data.seo_title || title)}">
 <meta property="og:description" content="${escapeAttr(description)}">
 <meta property="og:url" content="${articleUrl}">
 <meta property="og:image" content="${escapeAttr(imageUrl)}">
@@ -550,7 +551,7 @@ function createArticleHtml(data, body, allArticles) {
 <meta property="article:section" content="${escapeAttr(category)}">
 <meta property="article:author" content="Alvan">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${escapeAttr(title)}">
+<meta name="twitter:title" content="${escapeAttr(data.seo_title || title)}">
 <meta name="twitter:description" content="${escapeAttr(description)}">
 <meta name="twitter:image" content="${escapeAttr(imageUrl)}">
 <meta name="twitter:image:alt" content="${escapeAttr(imageAlt)}">

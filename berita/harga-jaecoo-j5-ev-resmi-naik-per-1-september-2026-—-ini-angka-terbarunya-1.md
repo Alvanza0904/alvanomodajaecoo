@@ -5,6 +5,8 @@ category: Harga & Launching
 description: Harga JAECOO J5 EV di Palembang resmi naik mulai 1 September 2026
   dari Rp 349.900.000 menjadi Rp 354.900.000. Cek harga OTR terbaru dan simulasi
   kredit sebelum memutuskan.
+seo_title: Harga JAECOO J5 Palembang Naik per 1 Sep 2026
+seo_description: Harga JAECOO J5 Palembang naik 1 September 2026 dari Rp349,9 juta menjadi Rp354,9 juta OTR. Cek selisih Rp5 juta dan simulasi kredit.
 focus_keyword: Jaecoo J5
 image_caption: Jaecoo J5 Premium
 image: /assets/images/r07qxo-r⤓download.jpeg
