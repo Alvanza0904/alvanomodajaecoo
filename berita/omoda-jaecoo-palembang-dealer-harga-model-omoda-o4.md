@@ -22,7 +22,7 @@ Mulai dari mobil listrik, SUV hybrid, hingga SUV premium, OMODA JAECOO menghadir
 Untuk melihat unit, mendapatkan informasi harga, maupun berkonsultasi mengenai model yang sesuai, Anda dapat mengunjungi dealer OMODA JAECOO Palembang.
 
 **OMODA JAECOO Palembang**
-Komp. Graha Maju, Jl. Mayor HM. Rasyad Nawawi No. 506–509, 9 Ilir, Ilir Timur II, Palembang, Sumatera Selatan 30113
+Graha Maju Motor, Jl. Mayor HM Rasyad Nawawi No. 502-505, Ilir Timur II, Palembang
 Setiap hari · 07.00–17.00
 
 Di dealer, calon konsumen dapat mendapatkan informasi mengenai model, fitur, program pembelian, test drive, hingga proses pemesanan unit.
@@ -113,7 +113,7 @@ Silakan sampaikan model yang sedang Anda cari dan kebutuhan Anda. Informasi dapa
 
 **Di mana dealer OMODA JAECOO Palembang?**
 
-Dealer OMODA JAECOO Palembang berada di Komp. Graha Maju, Jl. Mayor HM. Rasyad Nawawi No. 506–509, 9 Ilir, Ilir Timur II, Palembang, Sumatera Selatan 30113.
+Dealer OMODA JAECOO Palembang berada di Graha Maju Motor, Jl. Mayor HM Rasyad Nawawi No. 502-505, Ilir Timur II, Palembang.
 
 **Apa saja model OMODA JAECOO di Palembang?**
 
