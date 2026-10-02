@@ -15,6 +15,25 @@ slug:
 
 collections:
 
+  - name: models
+    label: "🚗 Harga OTR Model"
+    folder: content/models
+    create: false
+    slug: "{{slug}}"
+    identifier_field: name
+    fields:
+      - { label: "Nama Model", name: name, widget: string, required: true }
+      - { label: "Slug", name: slug, widget: string, required: true }
+      - label: "Varian"
+        name: variants
+        widget: list
+        required: false
+        fields:
+          - { label: "Nama Varian", name: name, widget: string, required: true }
+          - { label: "Slug Varian", name: slug, widget: string, required: true }
+          - { label: "Harga OTR (Rp)", name: otr, widget: number, valueType: "int", required: true, hint: "Masukkan angka tanpa titik. Contoh: 354900000" }
+      - { label: "Harga OTR (Rp)", name: otr, widget: number, valueType: "int", required: false, hint: "Untuk model tanpa varian. Masukkan angka tanpa titik. Contoh: 354900000" }
+
   - name: promo
     label: "🎁 Promo"
     folder: promo
@@ -75,8 +94,8 @@ collections:
     extension: md
     format: frontmatter
     fields:
-      - { label: Judul, name: title, widget: string, hint: "Judul artikel saja (bukan seluruh isi). Contoh: Harga JAECOO Berpotensi Naik Oktober 2026", pattern: [".{8,110}", "Judul harus 8-110 karakter. Jangan paste seluruh artikel ke kolom judul."] }
-      - { label: "Slug (URL)", name: slug, widget: string, required: false, hint: "Huruf kecil, pakai tanda hubung. Contoh: harga-jaecoo-berpotensi-naik-oktober-2026. Kosongkan untuk otomatis dari judul.", pattern: ["^[a-z0-9-]{0,80}$", "Slug hanya huruf kecil, angka, dan tanda hubung (maks 80 karakter)."] }
+      - { label: Judul, name: title, widget: string, hint: "Judul artikel saja (bukan seluruh isi). Contoh: Harga JAECOO Berpotensi Naik Oktober 2026", pattern: [".{8,110}", "Judul harus 8-110 karakter"] }
+      - { label: "Slug (URL)", name: slug, widget: string, required: false, hint: "Huruf kecil, pakai tanda hubung. Contoh: harga-jaecoo-berpotensi-naik-oktober-2026. Kosongkan untuk otomatis dari judul." }
       - { label: Tanggal, name: date, widget: datetime }
       - { label: Kategori, name: category, widget: select, options: ["Info Terbaru", "Harga & Launching", "Perbandingan Model"], default: "Info Terbaru" }
       - { label: Deskripsi Singkat, name: description, widget: string, required: false }
@@ -200,4 +219,3 @@ collections:
       - { label: Kelompok, name: section, widget: select, options: ["Hero", "Eksterior", "Interior", "Teknologi", "Keselamatan", "Warna", "Galeri", "Performa"] }
       - { label: Gambar, name: image, widget: image, hint: "Kunci CMS tetap (nama file .md). Yang berubah hanya path gambar." }
       - { label: Alt Text, name: alt, widget: string, required: false }
-
