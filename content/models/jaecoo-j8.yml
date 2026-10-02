@@ -1,0 +1,9 @@
+name: JAECOO J8
+slug: jaecoo-j8
+variants:
+  - name: JAECOO J8 ARDiS
+    slug: jaecoo-j8-ardis
+    otr: 719900000
+  - name: JAECOO J8 ARDiS SHS
+    slug: jaecoo-j8-ardis-shs
+    otr: 865000000
