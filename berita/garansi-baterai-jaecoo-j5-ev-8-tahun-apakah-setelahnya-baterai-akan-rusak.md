@@ -1,5 +1,6 @@
 ---
 title: Garansi Baterai JAECOO J5 EV 8 Tahun, Apakah Setelahnya Baterai Akan Rusak?
+slug: ''
 date: 2026-09-08T21:53:00
 category: Info Terbaru
 description: Garansi baterai JAECOO J5 EV 8 tahun bukan berarti baterai akan rusak setelah 8 tahun. Pahami garansi, umur baterai, biaya penggantian dan asuransi.
@@ -10,81 +11,282 @@ image: /assets/images/5CD37D70-2772-4CA5-88E0-EBC330956977.png
 show_kredit_cta: false
 ---
 
-“Kenapa garansinya 8 tahun, bukan lifetime?”
+**Garansi Baterai JAECOO J5 EV 8 Tahun: Apakah Baterainya Akan Rusak Setelahnya?**
 
-“Kalau sudah lewat 8 tahun, baterainya langsung rusak?”
+“Kenapa garansi baterai JAECOO J5 EV 8 tahun, bukan lifetime?”
 
-“Kalau baterainya harus diganti, bukankah biayanya bisa ratusan juta?”
+“Kalau sudah lewat 8 tahun, apakah baterainya langsung rusak?”
 
-Wajar kalau pertanyaan seperti ini muncul. Baterai memang menjadi salah satu komponen paling penting pada mobil listrik, sekaligus salah satu yang nilainya cukup tinggi.
+“Kalau baterai JAECOO J5 EV harus diganti, bukankah biayanya bisa ratusan juta?”
 
-Tapi ada satu hal yang perlu diluruskan.
+Pertanyaan seperti ini wajar muncul ketika seseorang sedang mempertimbangkan **mobil listrik**, terutama karena baterai merupakan salah satu komponen terpenting sekaligus komponen dengan nilai tinggi pada kendaraan listrik.
 
-**Garansi 8 tahun bukan berarti umur baterai hanya 8 tahun.**
+Tapi ada satu hal yang perlu diluruskan sejak awal:
 
-JAECOO J5 EV mendapatkan garansi komponen tegangan tinggi selama **8 tahun atau 160.000 km**, sesuai ketentuan garansi yang berlaku.
+**Garansi 8 tahun bukan berarti umur baterai JAECOO J5 EV hanya 8 tahun.**
 
-Jadi, ketika masa 8 tahun tersebut berakhir, bukan berarti baterai tiba-tiba berhenti bekerja. Garansi dan umur pakai baterai adalah dua hal yang berbeda.
+JAECOO J5 EV mendapatkan **garansi komponen tegangan tinggi selama 8 tahun atau 160.000 km**, sesuai ketentuan garansi yang berlaku.
 
-**Lalu, Kenapa Bukan Lifetime Warranty?**
+Jadi, ketika masa garansi 8 tahun tersebut berakhir, bukan berarti baterai tiba-tiba berhenti bekerja.
 
-Lifetime warranty memang terdengar lebih menarik. Tapi sebenarnya, yang perlu dilihat bukan hanya tulisan “lifetime” atau “8 tahun”.
+**Garansi dan umur pakai baterai adalah dua hal yang berbeda.**
 
-Yang lebih penting adalah apa yang benar-benar dijamin.
+**Garansi Baterai JAECOO J5 EV 8 Tahun atau 160.000 Km**
 
-Misalnya, apa saja komponennya, berapa batas kilometernya, kondisi apa yang ditanggung, dan bagaimana proses klaimnya.
+Salah satu hal yang penting diketahui calon pemilik **JAECOO J5 EV** adalah perlindungan terhadap komponen tegangan tingginya.
 
-Jadi saat membandingkan mobil listrik, jangan hanya bertanya:
+Garansi berlaku selama:
 
-**“Garansinya berapa lama?”**
+**8 tahun atau 160.000 km, mana yang tercapai lebih dahulu**, sesuai syarat dan ketentuan garansi yang berlaku.
 
-Tapi juga tanyakan:
+Perlu dipahami bahwa angka tersebut merupakan **periode perlindungan garansi**, bukan batas maksimal penggunaan baterai.
 
-**“Apa yang saya dapat selama masa garansi tersebut?”**
+Dengan kata lain, tidak ada aturan bahwa baterai JAECOO J5 EV akan otomatis rusak ketika memasuki tahun ke-8.
 
-**Bagaimana Kalau Sudah Lewat 8 Tahun?**
+Jika baterai masih berfungsi dengan baik setelah masa garansi berakhir, kendaraan tetap dapat digunakan seperti biasa.
 
-Sama seperti kendaraan pada umumnya, baterai juga mengalami proses pemakaian dan perubahan seiring waktu.
+**Garansi Baterai Berbeda dengan Umur Baterai**
 
-Namun, **bukan berarti tepat di tahun ke-8 baterai harus diganti.**
+Ini merupakan salah satu kesalahpahaman yang cukup sering muncul ketika membahas **mobil listrik dan baterai EV**.
 
-Selama baterai masih dalam kondisi baik, mobil tetap bisa digunakan.
+**Garansi bukan berarti umur pakai.**
 
-Yang berubah setelah masa garansi berakhir adalah perlindungan garansinya, bukan otomatis fungsi baterainya.
+Garansi merupakan bentuk perlindungan yang diberikan produsen dalam periode dan kondisi tertentu.
 
-**Bagaimana Kalau Suatu Saat Harus Ganti Baterai?**
+Sementara umur pakai baterai dipengaruhi oleh berbagai faktor, termasuk:
 
-Nah, ini bagian yang memang perlu dibicarakan secara jujur.
+- Pola penggunaan kendaraan
+- Kebiasaan charging
+- Frekuensi pengisian daya
+- Penggunaan fast charging
+- Temperatur
+- Kondisi baterai
+- Pola perjalanan
+- Perawatan kendaraan
 
-Baterai mobil listrik bukan komponen murah. JAECOO Indonesia pernah menyampaikan estimasi penggantian baterai J5 EV berada di kisaran **Rp170 jutaan termasuk pemasangan**.
+Karena itu, kurang tepat jika mengatakan:
 
-Angka tersebut memang besar. Tapi bukan berarti pemilik J5 EV otomatis harus menyiapkan Rp170 juta setelah 8 tahun.
+**“Baterai JAECOO J5 EV hanya bertahan 8 tahun.”**
 
-Jika terjadi masalah selama masa garansi dan memenuhi ketentuan yang berlaku, tentunya prosesnya mengikuti mekanisme klaim garansi.
+Yang lebih tepat:
 
-Selain itu, penting juga membedakan antara kerusakan karena komponen dengan kerusakan akibat kejadian eksternal seperti benturan. Untuk kondisi seperti itu, perlindungan asuransi bisa memiliki peran yang berbeda.
+**“Baterai JAECOO J5 EV mendapatkan garansi hingga 8 tahun atau 160.000 km sesuai ketentuan yang berlaku.”**
 
-**OMODA & JAECOO, Bukan Hanya Soal Baterai**
+**Kenapa Bukan Lifetime Warranty?**
 
-Perkembangan mobil listrik juga semakin menarik.
+Istilah **lifetime warranty** memang terdengar lebih menarik.
 
-JAECOO J5 EV membawa teknologi elektrifikasi untuk penggunaan sehari-hari, sementara di sisi lain OMODA juga terus mengembangkan lini kendaraan listrik dan teknologi pintar melalui model seperti **OMODA O4**.
+Namun ketika membandingkan **garansi mobil listrik**, jangan hanya melihat tulisan “lifetime” atau angka “8 tahun”.
 
-Artinya, pembicaraan tentang kendaraan listrik sekarang bukan hanya soal “berapa lama baterainya bertahan”.
+Yang lebih penting adalah memahami apa yang sebenarnya dijamin.
 
-Ada teknologi, kenyamanan, keamanan, konektivitas, hingga bagaimana kendaraan tersebut bisa terus mengikuti kebutuhan penggunanya.
+Sebelum membeli kendaraan listrik, beberapa hal yang layak ditanyakan antara lain:
+
+- Komponen apa saja yang mendapatkan garansi?
+- Berapa lama masa garansinya?
+- Berapa batas kilometernya?
+- Kondisi apa saja yang ditanggung?
+- Apa saja pengecualiannya?
+- Bagaimana prosedur klaim?
+- Apa yang terjadi jika kendaraan mengalami kerusakan tertentu?
+
+Jadi, ketika membandingkan JAECOO J5 EV dengan mobil listrik lainnya, jangan hanya bertanya:
+
+**“Garansinya berapa tahun?”**
+
+Tetapi tanyakan juga:
+
+**“Apa yang sebenarnya saya dapat selama masa garansi tersebut?”**
+
+**Apakah Baterai JAECOO J5 EV Akan Rusak Setelah 8 Tahun?**
+
+**Tidak otomatis.**
+
+Ketika masa garansi berakhir, yang berakhir adalah **perlindungan garansinya**, bukan otomatis fungsi baterainya.
+
+Sama seperti komponen kendaraan lainnya, baterai dapat mengalami perubahan performa seiring waktu dan pemakaian.
+
+Salah satu hal yang perlu dipahami adalah **degradasi baterai**, yaitu berkurangnya kemampuan baterai menyimpan energi dibandingkan saat kondisinya masih baru.
+
+Degradasi merupakan bagian dari penggunaan baterai dan tidak sama dengan baterai yang langsung rusak.
+
+Selama baterai masih berfungsi dan masih mampu memenuhi kebutuhan penggunaan, kendaraan tetap dapat digunakan.
+
+Jadi:
+
+**Tahun ke-8 bukan tanggal kedaluwarsa baterai.**
+
+**Apakah Baterai Mobil Listrik Harus Diganti Setelah 8 Tahun?**
+
+Tidak.
+
+Tidak ada kewajiban bahwa pemilik **JAECOO J5 EV** harus mengganti baterai ketika kendaraan memasuki tahun ke-8.
+
+Penggantian baterai dilakukan apabila memang diperlukan karena kondisi tertentu.
+
+Jika baterai masih berfungsi dengan baik, kendaraan tetap dapat digunakan meskipun masa garansinya telah berakhir.
+
+Inilah alasan penting untuk membedakan tiga hal:
+
+**Masa garansi**
+Periode perlindungan dari produsen.
+
+**Degradasi baterai**
+Perubahan kapasitas baterai akibat penggunaan dan usia.
+
+**Penggantian baterai**
+Tindakan yang dilakukan apabila kondisi baterai memang sudah membutuhkan penggantian.
+
+Ketiganya bukan hal yang sama.
+
+**Berapa Biaya Ganti Baterai JAECOO J5 EV?**
+
+Nah, bagian ini memang perlu dibicarakan secara jujur.
+
+**Baterai mobil listrik bukan komponen murah.**
+
+Estimasi biaya penggantian baterai JAECOO J5 EV pernah disampaikan berada di kisaran **Rp170 jutaan termasuk pemasangan**.
+
+Angka tersebut memang cukup besar jika dibandingkan dengan biaya penggantian beberapa komponen kendaraan lainnya.
+
+Tetapi jangan langsung menyimpulkan bahwa:
+
+**“Setelah 8 tahun saya pasti harus mengeluarkan Rp170 juta.”**
+
+Itu bukan cara membaca biaya baterai mobil listrik.
+
+Angka tersebut merupakan gambaran biaya ketika **penggantian baterai memang diperlukan dan berada di luar kondisi yang ditanggung garansi**.
+
+Selama kendaraan masih berada dalam masa garansi dan masalah yang terjadi memenuhi ketentuan klaim, prosesnya mengikuti mekanisme garansi yang berlaku.
+
+**Bagaimana Jika Baterai Rusak Sebelum 8 Tahun?**
+
+Inilah salah satu alasan mengapa **garansi baterai JAECOO J5 EV** penting untuk dipahami.
+
+Jika terjadi masalah pada komponen yang tercakup dalam garansi selama periode **8 tahun atau 160.000 km**, dan kondisi tersebut memenuhi ketentuan garansi, maka penanganannya mengikuti prosedur klaim garansi.
+
+Jadi, pemilik tidak otomatis harus membayar sendiri biaya penggantian baterai ketika terjadi masalah yang memang termasuk dalam perlindungan garansi.
+
+Namun, setiap klaim tetap perlu mengikuti pemeriksaan dan ketentuan yang berlaku.
+
+**Kerusakan Baterai dan Kerusakan Akibat Benturan Itu Berbeda**
+
+Hal lain yang juga penting adalah membedakan antara kerusakan komponen dan kerusakan akibat kejadian eksternal.
+
+Misalnya, kerusakan akibat kecelakaan atau benturan memiliki kondisi penanganan yang berbeda dengan kerusakan komponen yang memenuhi ketentuan garansi.
+
+Karena itu, pemilik **JAECOO J5 EV** juga perlu memahami perbedaan antara:
+
+**Garansi pabrikan**
+dan
+**perlindungan asuransi kendaraan.**
+
+Keduanya memiliki fungsi yang berbeda.
+
+Garansi berkaitan dengan perlindungan komponen sesuai ketentuan pabrikan, sementara asuransi dapat memberikan perlindungan terhadap risiko tertentu akibat kejadian eksternal sesuai polis.
+
+**Baterai JAECOO J5 EV Menggunakan Teknologi LFP**
+
+JAECOO J5 EV menggunakan baterai dengan teknologi **LFP atau Lithium Iron Phosphate**.
+
+Teknologi LFP banyak digunakan pada kendaraan listrik karena memiliki karakteristik yang sesuai untuk penggunaan kendaraan elektrifikasi, termasuk stabilitas dan kemampuan menghadapi siklus pengisian berulang.
+
+Namun, jenis baterai saja bukan satu-satunya faktor yang menentukan performanya.
+
+Cara penggunaan, temperatur, pola charging, sistem manajemen baterai, dan kondisi kendaraan juga dapat memengaruhi performa baterai dalam jangka panjang.
+
+Karena itu, ketika membahas **umur baterai mobil listrik**, tidak cukup hanya melihat angka garansi.
+
+**Berapa Lama Umur Baterai Mobil Listrik?**
+
+Tidak ada satu angka yang dapat digunakan untuk menentukan umur semua baterai mobil listrik.
+
+Setiap kendaraan memiliki teknologi baterai, sistem manajemen baterai, pola penggunaan, dan kondisi operasional yang berbeda.
+
+Yang dapat dipastikan adalah:
+
+**garansi 8 tahun bukan berarti baterai hanya bisa digunakan selama 8 tahun.**
+
+Selama baterai masih berfungsi dan performanya masih sesuai kebutuhan pengguna, kendaraan dapat terus digunakan setelah masa garansi berakhir.
+
+Hal yang sama juga berlaku pada banyak komponen kendaraan lainnya.
+
+Masa garansi menunjukkan periode perlindungan, bukan otomatis menunjukkan kapan komponen tersebut berhenti berfungsi.
+
+**JAECOO J5 EV untuk Penggunaan Sehari-hari**
+
+JAECOO J5 EV hadir sebagai **SUV listrik** yang ditujukan untuk kebutuhan mobilitas sehari-hari.
+
+Selain membahas baterai, calon pembeli juga sebaiknya melihat keseluruhan pengalaman kepemilikan, mulai dari jarak tempuh, waktu charging, biaya listrik, servis, fitur keselamatan, kenyamanan, hingga layanan purna jual.
+
+Dengan begitu, pertimbangan membeli **mobil listrik JAECOO J5 EV** tidak hanya berdasarkan harga atau teknologi baterai.
+
+**OMODA & JAECOO dan Perkembangan Mobil Listrik Indonesia**
+
+Perkembangan kendaraan listrik di Indonesia juga semakin luas.
+
+Di dalam ekosistem **OMODA & JAECOO**, konsumen tidak hanya menemukan JAECOO J5 EV, tetapi juga berbagai model dengan karakter dan teknologi yang berbeda.
+
+JAECOO J5 EV membawa pendekatan SUV listrik untuk penggunaan harian, sementara OMODA terus mengembangkan kendaraan dengan desain futuristis dan teknologi pintar melalui model seperti **OMODA O4**.
+
+Artinya, pembahasan mobil listrik saat ini tidak lagi hanya mengenai baterai.
+
+Ada juga:
+
+- Teknologi kendaraan
+- Jarak tempuh
+- Charging
+- Kenyamanan
+- Fitur keselamatan
+- Konektivitas
+- Biaya kepemilikan
+- Garansi
+- Layanan purna jual
+
+Semua faktor tersebut penting dipertimbangkan ketika memilih **mobil listrik di Indonesia**.
+
+**JAECOO J5 EV di Palembang**
+
+Bagi konsumen yang sedang mencari **mobil listrik di Palembang**, informasi mengenai baterai dan garansi tentu menjadi salah satu pertimbangan penting.
+
+JAECOO J5 EV menawarkan SUV listrik dengan teknologi LFP dan **garansi komponen tegangan tinggi hingga 8 tahun atau 160.000 km**, sesuai ketentuan yang berlaku.
+
+Untuk calon konsumen di **Palembang dan Sumatera Selatan**, selain melihat harga JAECOO J5 EV, penting juga memahami biaya charging, perawatan, garansi, serta bagaimana kendaraan listrik digunakan untuk kebutuhan harian maupun perjalanan antarkota.
+
+Dengan semakin berkembangnya ekosistem kendaraan listrik di Indonesia, informasi seperti ini dapat membantu calon pemilik memahami kendaraan listrik secara lebih realistis.
 
 **Jadi, Haruskah Takut dengan Garansi 8 Tahun?**
 
-Menurut kami, tidak perlu melihat angka 8 tahun sebagai “batas hidup” baterai.
+Menurut kami, angka **8 tahun** sebaiknya tidak dipahami sebagai “batas hidup” baterai.
 
-Lebih tepat melihatnya sebagai **periode perlindungan yang diberikan pabrikan**.
+Lebih tepat melihatnya sebagai **masa perlindungan garansi**.
 
-Karena pada akhirnya, saat membeli mobil listrik, yang penting bukan sekadar mencari angka garansi paling panjang.
+Baterai tidak otomatis rusak ketika memasuki tahun ke-8.
 
-Tapi memahami **apa yang sebenarnya dijamin.**
+Begitu pula pemilik JAECOO J5 EV tidak otomatis harus mengeluarkan biaya penggantian baterai setelah garansi berakhir.
+
+Yang penting adalah memahami perbedaan antara:
+
+**Garansi**
+**Umur pakai**
+**Degradasi baterai**
+**Kerusakan**
+**Penggantian baterai**
+
+Karena pada akhirnya, ketika membeli mobil listrik, bukan hanya angka garansi yang perlu dilihat.
+
+Tanyakan lebih jauh:
+
+**Apa yang dijamin?**
+
+**Berapa batas waktunya?**
+
+**Berapa batas kilometernya?**
+
+**Apa saja syarat dan pengecualiannya?**
+
+Dengan memahami hal tersebut, kamu bisa melihat **JAECOO J5 EV** bukan hanya dari angka garansi, tetapi dari keseluruhan pengalaman dan biaya kepemilikan mobil listrik.
 
 **8 tahun bukan batas usia baterai.**
-**8 tahun adalah masa perlindungan garansi.**
 
-Dan kalau masih penasaran soal JAECOO J5 EV, justru bagian yang paling menarik adalah bagaimana mobil ini dirancang untuk menemani penggunaan sehari-hari, bukan sekadar menawarkan angka di atas kertas.
+**8 tahun adalah masa perlindungan garansi.**
