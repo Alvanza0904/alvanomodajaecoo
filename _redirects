@@ -1,15 +1,27 @@
 # www → apex is handled by functions/_middleware.js
 # Cloudflare Pages _redirects cannot redirect one hostname to another.
+# .html and trailing-slash variants are 301 in _middleware.js (Functions run first).
+# These rules remain as a fallback if Functions are skipped.
 
 # Admin
 /admin /admin/index.html 200
 
-# Legacy URL cleanup
+# Homepage
 /index.html / 301
-/jaecoo-j7-sivp /jaecoo-j7-sivp/ 301
-/jaecoo-j7-sivp.html /jaecoo-j7-sivp/ 301
-/omoda-o4.html /omoda-o4/ 301!
+
+# Model pages: .html → clean canonical (no trailing slash)
+/jaecoo-j5.html /jaecoo-j5 301
+/jaecoo-j7.html /jaecoo-j7 301
+/jaecoo-j8.html /jaecoo-j8 301
+/jaecoo-j8-design.html /jaecoo-j8-design 301
+/jaecoo-j8-technology.html /jaecoo-j8-technology 301
+/sales-jaecoo-palembang.html /sales-jaecoo-palembang 301
+
+# Directory pages: .html / no-slash → trailing slash
+/omoda-o4.html /omoda-o4/ 301
 /omoda-o4 /omoda-o4/ 301
+/jaecoo-j7-sivp.html /jaecoo-j7-sivp/ 301
+/jaecoo-j7-sivp /jaecoo-j7-sivp/ 301
 
 # J8 legacy pages consolidated into the new 3-page flagship flow
 /jaecoo-j8-performance.html /jaecoo-j8-technology 301
@@ -18,6 +30,3 @@
 /jaecoo-j8-specifications /jaecoo-j8-technology 301
 /jaecoo-j8-interior.html /jaecoo-j8-design 301
 /jaecoo-j8-interior /jaecoo-j8-design 301
-
-# Sales page legacy URL
-/sales-jaecoo-palembang.html /sales-jaecoo-palembang 301
