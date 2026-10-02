@@ -1,5 +1,6 @@
 ---
-title: Beneran Hemat? Ini Perbandingan Biaya JAECOO J5 EV vs Mobil Bensin di Palembang
+title: 'Biaya Operasional JAECOO J5 EV vs Mobil Bensin: Seberapa Hemat Mobil Listrik?'
+slug: ''
 date: 2026-09-05T08:47:00.000+07:00
 category: Perbandingan Model
 description: Banyak yang masih ragu soal biaya kendaraan listrik. Coba kita hitung bareng — selisihnya bisa sampai Rp 7,5 juta per tahun.
@@ -10,58 +11,80 @@ image: /assets/images/bensin-vs-ev.jpeg
 show_kredit_cta: false
 ---
 
-Kalau selama ini kamu pikir mobil listrik itu mahal dioperasikan, angka berikut mungkin bikin kamu berpikir ulang.
+Kalau selama ini kamu berpikir **mobil listrik mahal untuk dioperasikan**, angka berikut mungkin bisa bikin kamu berpikir ulang.
 
-Dengan asumsi pemakaian 18.000 km per tahun — angka yang cukup realistis untuk aktivitas harian di Palembang — ini perbandingan biaya nyatanya:
+Salah satu keunggulan **JAECOO J5 EV** sebagai SUV listrik adalah biaya operasional hariannya yang relatif rendah dibandingkan mobil bensin sekelas. Selain tidak membutuhkan bahan bakar bensin, mobil listrik juga memiliki komponen mesin yang lebih sederhana sehingga kebutuhan perawatan rutinnya berbeda.
 
-***
+Dengan asumsi pemakaian **18.000 km per tahun**, berikut gambaran perbandingan biaya operasional antara **mobil bensin sekelas** dan **JAECOO J5 EV**.
 
-**Mobil Bensin Sekelas: Rp 12.000.000/Tahun**
+**Mobil Bensin Sekelas: Sekitar Rp12 Juta/Tahun**
 
-Ini bukan estimasi, ini pengeluaran rutin yang sudah biasa ditanggung pengguna mobil bensin:
+Untuk penggunaan sekitar 18.000 km per tahun, biaya rutin mobil bensin dapat mencapai sekitar **Rp12.000.000 per tahun**, dengan rincian:
 
-• Bahan bakar/tahun: ±Rp 7.200.000
-• Pajak: ±Rp 3.000.000
-• Servis: ±Rp 2.000.000
+- Bahan bakar: ±Rp7.200.000 per tahun
+- Pajak kendaraan: ±Rp3.000.000 per tahun
+- Servis: ±Rp2.000.000 per tahun
 
-Total: Rp 12.000.000 per tahun. Belum termasuk ganti oli, filter, dan komponen lain yang jadi rutinitas mesin bensin.
+**Total: ±Rp12.000.000 per tahun**
 
-***
+Angka tersebut belum memperhitungkan beberapa kebutuhan perawatan kendaraan bermesin pembakaran internal seperti penggantian oli mesin, filter, dan komponen lain yang berkaitan dengan sistem mesin bensin.
 
-**JAECOO J5 EV — Cas di SPKLU: Rp 6.000.000/Tahun**
+**JAECOO J5 EV Cas di SPKLU: Sekitar Rp6 Juta/Tahun**
 
-Buat yang mobilnya lebih sering keluar dan lewat area SPKLU:
+Bagi pengguna yang lebih sering bepergian dan memanfaatkan **SPKLU (Stasiun Pengisian Kendaraan Listrik Umum)**, biaya operasional JAECOO J5 EV juga dapat tetap lebih rendah.
 
-• Tarif SPKLU: Rp 2.500/kWh
-• Biaya charge/tahun: ±Rp 5.200.000
-• Pajak: ±Rp 150.000
-• Servis: ±Rp 400.000
+Dengan asumsi tarif pengisian sekitar Rp2.500/kWh:
 
-Total: Rp 6.000.000 per tahun. Hemat 50% — atau sekitar Rp 500.000 per bulan yang bisa dialihkan buat hal lain.
+- Biaya charging: ±Rp5.200.000 per tahun
+- Pajak: ±Rp150.000 per tahun
+- Servis: ±Rp400.000 per tahun
 
-***
+**Total: ±Rp6.000.000 per tahun**
 
-**JAECOO J5 EV — Cas di Rumah: Rp 4.500.000/Tahun**
+Dibandingkan mobil bensin dengan asumsi biaya Rp12 juta per tahun, terdapat potensi penghematan sekitar **Rp6 juta setiap tahun**, atau rata-rata sekitar **Rp500 ribu per bulan**.
 
-Ini opsi paling hemat, cocok kalau daya listrik rumah kamu sudah 6.600 Watt ke atas:
+**JAECOO J5 EV Cas di Rumah: Bisa Sekitar Rp4,5 Juta/Tahun**
 
-• Tarif listrik rumah: Rp 1.700/kWh
-• Biaya charge/tahun: kurang dari Rp 3.500.000
-• Pajak: ±Rp 150.000
-• Servis: ±Rp 400.000
+Untuk pengguna yang memiliki akses pengisian di rumah, biaya operasional **mobil listrik JAECOO J5 EV** dapat menjadi lebih ekonomis.
 
-Total: Rp 4.500.000 per tahun. Artinya, setiap hari cukup seharga segelas kopi untuk operasional kendaraan kamu.
+Dengan asumsi tarif listrik rumah sekitar Rp1.700/kWh:
 
-***
+- Biaya charging: kurang dari Rp3.500.000 per tahun
+- Pajak: ±Rp150.000 per tahun
+- Servis: ±Rp400.000 per tahun
 
-**Selisihnya Bisa Sampai Rp 7,5 Juta Per Tahun**
+**Total: sekitar Rp4.500.000 per tahun**
 
-Kalau dihitung dalam 5 tahun, penghematannya bisa menyentuh angka Rp 37,5 juta. Bukan angka kecil.
+Artinya, selain praktis karena mobil dapat diisi daya di rumah, penggunaan **JAECOO J5 EV** juga berpotensi memberikan biaya energi yang lebih rendah untuk kebutuhan mobilitas harian.
 
-Apalagi untuk mobilitas harian di Palembang — dengan kondisi lalu lintas yang sudah familiar dan tarif listrik PLN yang stabil, beralih ke JAECOO J5 EV bisa jadi keputusan finansial yang masuk akal.
+**Berapa Penghematan JAECOO J5 EV dalam 5 Tahun?**
 
-\*Perhitungan berdasarkan harga BBM dan tarif listrik yang berlaku April 2026.
+Jika menggunakan perbandingan biaya operasional di atas:
 
-***
+**Mobil bensin:** ±Rp12.000.000/tahun
+**JAECOO J5 EV di SPKLU:** ±Rp6.000.000/tahun
+**JAECOO J5 EV di rumah:** ±Rp4.500.000/tahun
 
-Mau tahu lebih lanjut atau coba test drive langsung? Kunjungi showroom OMODA JAECOO Palembang atau hubungi tim kami sekarang.
+Dengan skenario pengisian di rumah, selisih biaya operasional dapat mencapai sekitar **Rp7.500.000 per tahun**.
+
+Dalam periode 5 tahun, selisih tersebut secara sederhana dapat mencapai sekitar **Rp37,5 juta**.
+
+Tentu, angka aktual dapat berbeda tergantung jarak tempuh, konsumsi energi kendaraan, tarif listrik, tarif SPKLU, harga BBM, kondisi lalu lintas, serta pola penggunaan masing-masing pemilik.
+
+**JAECOO J5 EV untuk Mobilitas Harian**
+
+Bagi masyarakat yang mencari **mobil listrik untuk penggunaan sehari-hari**, biaya pengisian daya menjadi salah satu pertimbangan penting sebelum membeli kendaraan listrik.
+
+JAECOO J5 EV menawarkan alternatif SUV listrik dengan biaya energi yang dapat lebih rendah dibandingkan kendaraan bensin, terutama bagi pemilik yang memiliki akses charging di rumah.
+
+Untuk penggunaan harian di **Palembang maupun kota-kota lain di Indonesia**, perhitungan biaya operasional seperti ini bisa menjadi salah satu pertimbangan sebelum beralih dari mobil bensin ke mobil listrik.
+
+Jadi, bukan hanya soal teknologi dan pengalaman berkendara listrik. **Biaya operasional JAECOO J5 EV juga menjadi bagian penting dari nilai yang ditawarkan sebuah SUV listrik.**
+
+_Perhitungan merupakan simulasi berdasarkan asumsi jarak tempuh 18.000 km per tahun dan parameter harga BBM serta tarif listrik yang digunakan dalam simulasi. Biaya aktual dapat berbeda tergantung penggunaan kendaraan dan tarif yang berlaku._
+
+**Tertarik Mencoba JAECOO J5 EV?**
+
+Ingin mengetahui lebih lanjut mengenai **harga JAECOO J5 EV, spesifikasi, fitur, biaya penggunaan, atau melakukan test drive di Palembang?**
+
+Kunjungi **showroom OMODA JAECOO Palembang** atau hubungi tim kami untuk mendapatkan informasi JAECOO J5 EV terbaru.
