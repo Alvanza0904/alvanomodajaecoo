@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link href="/assets/css/style.css" rel="stylesheet"/>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Product","Car"],"name":"JAECOO J7 SHS-P","brand":{"@type":"Brand","name":"JAECOO"},"description":"SUV plug-in hybrid dengan Super Hybrid System (SHS), menggabungkan mesin 1.5TGDI dengan motor listrik 201 hp, EV range 100 km, dan jarak kombinasi hingga 1.300 km.","url":"https://omodajaecoopalembang.web.id/jaecoo-j7","image":"https://omodajaecoopalembang.web.id/assets/images/jaecoo-j7/ext-hero.jpeg","model":"JAECOO J7 SHS-P","fuelType":"PlugInHybrid","offers":{"@type":"Offer","url":"https://omodajaecoopalembang.web.id/jaecoo-j7","priceCurrency":"IDR","price":"534900000","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","seller":{"@id":"https://omodajaecoopalembang.web.id/#business"}},"numberOfDoors":5,"numberOfSeats":5,"vehicleEngine":{"@type":"EngineSpecification","engineType":"Plug-in Hybrid Electric Vehicle","fuelType":"PlugInHybrid"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://omodajaecoopalembang.web.id/"},{"@type":"ListItem","position":2,"name":"JAECOO J7 SHS","item":"https://omodajaecoopalembang.web.id/jaecoo-j7"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Product","Car"],"name":"JAECOO J7","brand":{"@type":"Brand","name":"JAECOO"},"description":"SUV premium tersedia dalam dua varian: J7 SHS plug-in hybrid dengan EV range 100 km dan jarak kombinasi 1.300 km, serta J7 AWD dengan sistem ARDIS all-wheel drive dan 7 driving modes.","url":"https://omodajaecoopalembang.web.id/jaecoo-j7","image":"https://omodajaecoopalembang.web.id/assets/images/jaecoo-j7/ext-hero.jpeg","model":"JAECOO J7","offers":[{"@type":"Offer","name":"JAECOO J7 SHS","url":"https://omodajaecoopalembang.web.id/jaecoo-j7","priceCurrency":"IDR","price":"534900000","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","seller":{"@id":"https://omodajaecoopalembang.web.id/#business"}},{"@type":"Offer","name":"JAECOO J7 AWD","url":"https://omodajaecoopalembang.web.id/jaecoo-j7","priceCurrency":"IDR","price":"579900000","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","seller":{"@id":"https://omodajaecoopalembang.web.id/#business"}}],"numberOfDoors":5,"numberOfSeats":5,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://omodajaecoopalembang.web.id/"},{"@type":"ListItem","position":2,"name":"JAECOO J7 SHS","item":"https://omodajaecoopalembang.web.id/jaecoo-j7"}]}]}</script>
 
 <style>
 /* =============================================================
@@ -289,6 +289,184 @@
 .j7-price__note {
   font-size: 11.5px;
   color: var(--j7-muted);
+}
+
+/* ---- VARIANT BAND ---- */
+.j7-variants-band {
+  background: var(--j7-bg-2);
+  border-bottom: 1px solid var(--j7-line);
+  padding: 36px max(var(--container-pad),5vw);
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.j7-variant-card {
+  flex: 1;
+  min-width: 240px;
+  padding: 8px 32px 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.j7-variant-card--featured {
+  padding-left: 32px;
+  padding-right: 0;
+}
+
+.j7-variant-card__tag {
+  font-family: var(--j7-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+}
+
+.j7-variant-card__name {
+  font-family: var(--j7-display);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -.015em;
+  color: var(--j7-text);
+  margin: 0;
+}
+
+.j7-variant-card__sub {
+  font-size: 11.5px;
+  color: var(--j7-muted);
+  margin: 0;
+}
+
+.j7-variant-card__price {
+  font-family: var(--j7-display);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  letter-spacing: -.025em;
+  color: var(--j7-text);
+  margin: 4px 0 0;
+}
+
+.j7-variant-card__otr {
+  font-size: 10.5px;
+  color: var(--j7-muted);
+  margin: 0;
+}
+
+.j7-variant-card__cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 9px 20px;
+  border: 1px solid var(--j7-line);
+  font-family: var(--j7-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--j7-text);
+  text-decoration: none;
+  align-self: flex-start;
+  transition: background .2s, color .2s;
+}
+
+.j7-variant-card__cta:hover { background: var(--j7-text); color: var(--j7-bg); }
+
+.j7-variant-card__cta--primary {
+  background: var(--j7-accent);
+  border-color: var(--j7-accent);
+  color: #fff;
+}
+
+.j7-variant-card__cta--primary:hover { background: var(--j7-text); border-color: var(--j7-text); color: #fff; }
+
+.j7-variant-divider {
+  width: 1px;
+  background: var(--j7-line);
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.j7-variants-band__note {
+  width: 100%;
+  font-size: 11px;
+  color: var(--j7-muted);
+  margin: 16px 0 0;
+  opacity: .7;
+}
+
+/* ---- AWD SECTION ---- */
+.j7-awd {
+  padding: clamp(80px, 10vw, 130px) var(--container-pad);
+  background: var(--j7-bg-2);
+  border-top: 1px solid var(--j7-line);
+}
+
+.j7-awd__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.j7-awd__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+  align-items: start;
+}
+
+.j7-awd__sub {
+  font-size: clamp(.92rem, 1.3vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--j7-muted);
+  margin: 0 0 16px;
+}
+
+.j7-awd__engine-note {
+  font-family: var(--j7-display);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--j7-accent);
+}
+
+.j7-awd__spec-table {
+  margin: 48px 0 64px;
+  border: 1px solid var(--j7-line);
+}
+
+.j7-awd__spec-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid var(--j7-line);
+  padding: 14px 24px;
+}
+
+.j7-awd__spec-row:last-child { border-bottom: none; }
+
+.j7-awd__spec-key {
+  font-family: var(--j7-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--j7-muted);
+}
+
+.j7-awd__spec-val {
+  font-size: 13.5px;
+  color: var(--j7-text);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .j7-awd__head { grid-template-columns: 1fr; gap: 24px; }
+  .j7-awd__spec-row { grid-template-columns: 1fr; gap: 4px; padding: 12px 16px; }
+  .j7-variant-divider { width: 100%; height: 1px; align-self: auto; margin: 16px 0; }
+  .j7-variant-card--featured { padding-left: 0; }
 }
 
 /* ---- INTRO ---- */
@@ -1021,10 +1199,25 @@
   </section>
 
   <!-- ======================= PRICE BAND ======================= -->
-  <div class="j7-price">
-    <span class="j7-price__label">JAECOO J7 SHS-P · OTR PALEMBANG</span>
-    <span class="j7-price__value"><!-- CMS:OTR:jaecoo-j7:START -->Rp 534.900.000<!-- CMS:OTR:jaecoo-j7:END --></span>
-    <span class="j7-price__note">Harga dapat berubah sewaktu-waktu.</span>
+  <div class="j7-variants-band">
+    <div class="j7-variant-card">
+      <span class="j7-variant-card__tag">Plug-in Hybrid · FWD</span>
+      <h3 class="j7-variant-card__name">JAECOO J7 SHS</h3>
+      <p class="j7-variant-card__sub">1.5L TGDI + Motor Listrik · DHT · 5-Seater</p>
+      <p class="j7-variant-card__price"><!-- CMS:OTR:jaecoo-j7:START -->Rp534.900.000<!-- CMS:OTR:jaecoo-j7:END --></p>
+      <p class="j7-variant-card__otr">OTR Palembang</p>
+      <a class="j7-variant-card__cta" href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+tertarik+dengan+JAECOO+J7+SHS+Rp+534.900.000.+Boleh+info+lebih+lanjut?" rel="noopener noreferrer" target="_blank">Tanya Harga</a>
+    </div>
+    <div class="j7-variant-divider" aria-hidden="true"></div>
+    <div class="j7-variant-card j7-variant-card--featured">
+      <span class="j7-variant-card__tag">Bensin · AWD · ARDIS · Unggulan</span>
+      <h3 class="j7-variant-card__name">JAECOO J7 AWD</h3>
+      <p class="j7-variant-card__sub">1.6L TGDI · 7DCT · AWD ARDIS · 5-Seater</p>
+      <p class="j7-variant-card__price"><!-- CMS:OTR:jaecoo-j7-awd:START -->Rp579.900.000<!-- CMS:OTR:jaecoo-j7-awd:END --></p>
+      <p class="j7-variant-card__otr">OTR Palembang</p>
+      <a class="j7-variant-card__cta j7-variant-card__cta--primary" href="https://wa.me/6285183145926?text=Halo+Alvan%2C+saya+tertarik+dengan+JAECOO+J7+AWD+Rp+579.900.000.+Boleh+info+lebih+lanjut?" rel="noopener noreferrer" target="_blank">Tanya Harga</a>
+    </div>
+    <p class="j7-variants-band__note">Harga dapat berubah sewaktu-waktu.</p>
   </div>
 
   <!-- ======================= INTRO ======================= -->
@@ -1142,6 +1335,107 @@
 
       <div style="margin-top:52px;" class="reveal">
         <a class="j7-link" href="/jaecoo-j7/performance">Jelajahi Performa →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= AWD SECTION ======================= -->
+  <section class="j7-awd" id="awd">
+    <div class="j7-awd__inner">
+      <div class="j7-awd__head">
+        <div class="reveal">
+          <p class="j7-kicker">04 / ALL WHEEL DRIVE</p>
+          <h2>ARDIS.<br><em>Kuasai semua medan.</em></h2>
+        </div>
+        <div class="reveal">
+          <p class="j7-awd__sub">JAECOO J7 AWD hadir dengan sistem All Road Drive Intelligent System (ARDIS) — penggerak empat roda cerdas dengan Torque Vectoring yang mendistribusikan tenaga secara presisi ke setiap roda. Tujuh mode berkendara untuk setiap kondisi, dari aspal kota hingga medan offroad.</p>
+          <p class="j7-awd__engine-note">1.6L TGDI · 7-speed DCT Dual-Clutch · AWD ARDIS</p>
+        </div>
+      </div>
+
+      <div class="j7-shs__specs reveal">
+        <div class="j7-shs__spec">
+          <div class="j7-shs__spec-val">194<span class="j7-shs__spec-unit">hp</span></div>
+          <div class="j7-shs__spec-label">Tenaga Mesin</div>
+        </div>
+        <div class="j7-shs__spec">
+          <div class="j7-shs__spec-val">290<span class="j7-shs__spec-unit">Nm</span></div>
+          <div class="j7-shs__spec-label">Torsi Maksimum</div>
+        </div>
+        <div class="j7-shs__spec">
+          <div class="j7-shs__spec-val">9,9<span class="j7-shs__spec-unit">dtk</span></div>
+          <div class="j7-shs__spec-label">0–100 km/jam</div>
+        </div>
+        <div class="j7-shs__spec">
+          <div class="j7-shs__spec-val">7<span class="j7-shs__spec-unit">mode</span></div>
+          <div class="j7-shs__spec-label">Driving Modes</div>
+        </div>
+      </div>
+
+      <div class="j7-awd__spec-table reveal">
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Mesin</span>
+          <span class="j7-awd__spec-val">1.6L TGDI · 16-valve DOHC Turbo</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Kapasitas</span>
+          <span class="j7-awd__spec-val">1.598 cc</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Transmisi</span>
+          <span class="j7-awd__spec-val">7-speed Dual-Clutch DCT (Wet)</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Penggerak</span>
+          <span class="j7-awd__spec-val">AWD · ARDIS · Torque Vectoring</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Kecepatan Maks.</span>
+          <span class="j7-awd__spec-val">180 km/jam</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Dimensi (P×L×T)</span>
+          <span class="j7-awd__spec-val">4.500 × 1.865 × 1.680 mm</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Wheelbase</span>
+          <span class="j7-awd__spec-val">2.672 mm</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Ground Clearance</span>
+          <span class="j7-awd__spec-val">200 mm</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Kapasitas Bagasi</span>
+          <span class="j7-awd__spec-val">412 liter</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Ban</span>
+          <span class="j7-awd__spec-val">235/50R19</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Kapasitas Tangki</span>
+          <span class="j7-awd__spec-val">51 liter</span>
+        </div>
+        <div class="j7-awd__spec-row">
+          <span class="j7-awd__spec-key">Konsumsi BBM</span>
+          <span class="j7-awd__spec-val">~7,8 L/100 km</span>
+        </div>
+      </div>
+
+      <div class="j7-shs__features reveal">
+        <div class="j7-shs__feature">
+          <h3>7 Driving Modes</h3>
+          <p>Eco, Normal, Sport, Sand, Mud, Snow, dan Off-road — sistem ARDIS menyesuaikan distribusi torsi secara real-time untuk setiap kondisi jalan.</p>
+        </div>
+        <div class="j7-shs__feature">
+          <h3>Torque Vectoring</h3>
+          <p>Distribusi tenaga aktif ke setiap roda secara independen untuk cornering yang lebih presisi dan stabilitas maksimal di segala medan.</p>
+        </div>
+        <div class="j7-shs__feature">
+          <h3>19 Fitur ADAS</h3>
+          <p>Lengkap dengan Lane Keeping Assist, Adaptive Cruise Control, Blind Spot Detection, Automatic Emergency Braking, dan lebih banyak lagi.</p>
+        </div>
       </div>
     </div>
   </section>
