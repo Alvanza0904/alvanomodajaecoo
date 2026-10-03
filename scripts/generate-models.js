@@ -8,7 +8,8 @@ const HTML_FILES = [
   path.join(ROOT, 'jaecoo-j5.html'),
   path.join(ROOT, 'jaecoo-j7.html'),
   path.join(ROOT, 'jaecoo-j8.html'),
-  path.join(ROOT, 'index.html')
+  path.join(ROOT, 'index.html'),
+  path.join(ROOT, 'sales-jaecoo-palembang.html')
 ];
 
 function toRupiah(num) {
@@ -83,22 +84,29 @@ function updateHtmlWithModelValues() {
       throw new Error(`No OTR markers found in ${path.basename(filePath)}`);
     }
 
+    // Deduplicate slugs — replace all occurrences of each slug in one pass
+    const slugsSeen = new Set();
     for (const match of markerMatches) {
       const slug = match[1];
+      if (slugsSeen.has(slug)) continue;
+      slugsSeen.add(slug);
+
       const entry = lookup.get(slug);
       if (!entry) {
         throw new Error(`Missing model data for OTR slug: ${slug}`);
       }
       const startMarker = `<!-- CMS:OTR:${slug}:START -->`;
       const endMarker = `<!-- CMS:OTR:${slug}:END -->`;
-      const start = html.indexOf(startMarker);
-      const end = html.indexOf(endMarker);
-      if (start === -1 || end === -1 || end < start) {
+
+      // Replace all occurrences of this slug's markers in one pass
+      const escapedStart = startMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const escapedEnd = endMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const pattern = new RegExp(`${escapedStart}[\\s\\S]*?${escapedEnd}`, 'g');
+
+      if (!pattern.test(html)) {
         throw new Error(`Broken OTR markers in ${path.basename(filePath)} for slug ${slug}`);
       }
-      const before = html.slice(0, start + startMarker.length);
-      const after = html.slice(end);
-      html = `${before}${entry.display}${after}`;
+      html = html.replace(pattern, `${startMarker}${entry.display}${endMarker}`);
     }
 
     fs.writeFileSync(filePath, html, 'utf8');
