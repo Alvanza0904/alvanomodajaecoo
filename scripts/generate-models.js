@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const yaml = require('js-yaml');
 
 const ROOT = process.cwd();
 const MODELS_DIR = path.join(ROOT, 'content', 'models');
@@ -22,131 +23,52 @@ function toRupiah(num) {
   }).format(num);
 }
 
-function parseYamlValue(raw) {
-  if (raw === undefined || raw === null || raw === '') return null;
-  if (raw.startsWith('"') && raw.endsWith('"')) return raw.slice(1, -1);
-  if (raw.startsWith("'") && raw.endsWith("'")) return raw.slice(1, -1);
-  if (/^-?\d+$/.test(raw)) return Number(raw);
-  return raw;
-}
-
-function parseSimpleYaml(filePath) {
-  const text = fs.readFileSync(filePath, 'utf8');
-  const data = {};
-  let currentList = null;
-  let currentItem = null;
-
-  for (const rawLine of text.split(/\r?\n/)) {
-    const line = rawLine.trim();
-    if (!line || line.startsWith('#')) continue;
-
-    if (/^variants:/.test(line)) {
-      currentList = 'variants';
-      data.variants = [];
-      continue;
-    }
-
-    if (currentList === 'variants' && /^- /.test(line)) {
-      currentItem = {};
-      data.variants.push(currentItem);
-      const rest = line.slice(2).trim();
-      if (rest) {
-        const idx = rest.indexOf(':');
-        if (idx !== -1) {
-          const key = rest.slice(0, idx).trim();
-          const value = parseYamlValue(rest.slice(idx + 1).trim());
-          currentItem[key] = value;
-        }
-      }
-      continue;
-    }
-
-    if (currentList === 'variants' && currentItem && /^\w+:/.test(line)) {
-      const idx = line.indexOf(':');
-      const key = line.slice(0, idx).trim();
-      const value = parseYamlValue(line.slice(idx + 1).trim());
-      currentItem[key] = value;
-      continue;
-    }
-
-    const idx = line.indexOf(':');
-    if (idx === -1) continue;
-    const key = line.slice(0, idx).trim();
-    const value = parseYamlValue(line.slice(idx + 1).trim());
-    data[key] = value;
-  }
-
-  return data;
-}
-
 function getModelEntries() {
   const files = fs.readdirSync(MODELS_DIR).filter(f => f.endsWith('.yml')).sort();
   const entries = [];
 
   for (const file of files) {
     const full = path.join(MODELS_DIR, file);
-    const data = parseSimpleYaml(full);
-    if (!data.slug) {
+    const data = yaml.load(fs.readFileSync(full, 'utf8'));
+
+    if (!data || !data.slug) {
       throw new Error(`Missing slug in ${file}`);
     }
 
-    if (data.variants && Array.isArray(data.variants) && data.variants.length > 0) {
-      for (const variant of data.variants) {
-        if (!variant.slug || typeof variant.otr !== 'number') {
+    const variants = Array.isArray(data.variants) ? data.variants.filter(v => v && v.slug) : [];
+
+    if (variants.length > 0) {
+      for (const variant of variants) {
+        const otr = Number(variant.otr);
+        if (!variant.slug || isNaN(otr)) {
           throw new Error(`Missing variant OTR data in ${file}: ${JSON.stringify(variant)}`);
         }
         entries.push({
           slug: variant.slug,
           name: variant.name,
-          otr: variant.otr,
-          display: toRupiah(variant.otr),
+          otr,
+          display: toRupiah(otr),
           source: file,
         });
       }
       continue;
     }
 
-    if (typeof data.otr !== 'number') {
+    const otr = Number(data.otr);
+    if (isNaN(otr)) {
       throw new Error(`Missing OTR for model ${data.slug} in ${file}`);
     }
 
     entries.push({
       slug: data.slug,
       name: data.name,
-      otr: data.otr,
-      display: toRupiah(data.otr),
+      otr,
+      display: toRupiah(otr),
       source: file,
     });
   }
 
   return entries;
-}
-
-function ensureExactMarker(html, marker) {
-  if (html.includes(marker)) {
-    return true;
-  }
-  throw new Error(`Missing expected marker: ${marker}`);
-}
-
-function replaceInMarker(html, marker, value) {
-  const start = html.indexOf(marker);
-  if (start === -1) {
-    throw new Error(`Marker not found: ${marker}`);
-  }
-  const end = html.indexOf(marker.replace('START', 'END'));
-  if (end === -1) {
-    throw new Error(`Closing marker not found for: ${marker}`);
-  }
-
-  const startMarker = marker;
-  const endMarker = marker.replace('START', 'END');
-  const before = html.slice(0, start + startMarker.length);
-  const after = html.slice(end);
-  const block = html.slice(start + startMarker.length, end);
-  const cleaned = block.replace(/\s*Rp\s*[^\n]+|\s*\$?\d[\d.,\s]*\s*/g, '').trim();
-  const replacement = `${value}`;
-  return `${before}${replacement}${after}`;
 }
 
 function updateHtmlWithModelValues() {
@@ -176,8 +98,7 @@ function updateHtmlWithModelValues() {
       }
       const before = html.slice(0, start + startMarker.length);
       const after = html.slice(end);
-      const replacement = `${entry.display}`;
-      html = `${before}${replacement}${after}`;
+      html = `${before}${entry.display}${after}`;
     }
 
     fs.writeFileSync(filePath, html, 'utf8');
