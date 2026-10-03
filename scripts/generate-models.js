@@ -90,7 +90,7 @@ function getModelEntries() {
       throw new Error(`Missing slug in ${file}`);
     }
 
-    if (data.variants && Array.isArray(data.variants)) {
+    if (data.variants && Array.isArray(data.variants) && data.variants.length > 0) {
       for (const variant of data.variants) {
         if (!variant.slug || typeof variant.otr !== 'number') {
           throw new Error(`Missing variant OTR data in ${file}: ${JSON.stringify(variant)}`);
