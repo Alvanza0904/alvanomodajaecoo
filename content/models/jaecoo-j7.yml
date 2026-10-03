@@ -1,4 +1,9 @@
-name: JAECOO J7 SHS
+name: JAECOO J7
 slug: jaecoo-j7
-variants: []
-otr: 534900000
+variants:
+  - name: JAECOO J7 SHS
+    slug: jaecoo-j7
+    otr: 534900000
+  - name: JAECOO J7 AWD
+    slug: jaecoo-j7-awd
+    otr: 579900000
