@@ -1,7 +1,4 @@
 name: JAECOO J7 SHS
 slug: jaecoo-j7
-variants:
-  - name: JAECOO J7 AWD (ICE)
-    slug: jaecoo-j7-awd
-    otr: 579900000
+variants: []
 otr: 534900000
