@@ -6,7 +6,8 @@ const MODELS_DIR = path.join(ROOT, 'content', 'models');
 const HTML_FILES = [
   path.join(ROOT, 'jaecoo-j5.html'),
   path.join(ROOT, 'jaecoo-j7.html'),
-  path.join(ROOT, 'jaecoo-j8.html')
+  path.join(ROOT, 'jaecoo-j8.html'),
+  path.join(ROOT, 'index.html')
 ];
 
 function toRupiah(num) {
