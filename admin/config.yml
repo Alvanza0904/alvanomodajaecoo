@@ -31,8 +31,8 @@ collections:
         fields:
           - { label: "Nama Varian", name: name, widget: string, required: true }
           - { label: "Slug Varian", name: slug, widget: string, required: true }
-          - { label: "Harga OTR (Rp)", name: otr, widget: number, valueType: "int", required: true, hint: "Masukkan angka tanpa titik. Contoh: 354900000" }
-      - { label: "Harga OTR (Rp)", name: otr, widget: number, valueType: "int", required: false, hint: "Untuk model tanpa varian. Masukkan angka tanpa titik. Contoh: 354900000" }
+          - { label: "Harga OTR (Rp)", name: otr, widget: number, value_type: "int", required: true, hint: "Masukkan angka tanpa titik. Contoh: 354900000" }
+      - { label: "Harga OTR (Rp)", name: otr, widget: number, value_type: "int", required: false, hint: "Untuk model tanpa varian. Masukkan angka tanpa titik. Contoh: 354900000" }
 
   - name: promo
     label: "🎁 Promo"
