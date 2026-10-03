@@ -20,6 +20,8 @@ collections:
     folder: content/models
     create: false
     slug: "{{slug}}"
+    extension: yml
+    format: yaml
     identifier_field: name
     fields:
       - { label: "Nama Model", name: name, widget: string, required: true }
