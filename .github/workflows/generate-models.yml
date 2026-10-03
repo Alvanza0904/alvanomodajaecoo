@@ -52,9 +52,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           git add jaecoo-j5.html jaecoo-j7.html jaecoo-j8.html index.html
           git diff --cached --quiet || git commit -m "chore: update OTR prices from CMS"
-          git pull --rebase origin main
           git push
 
       - name: Trigger Cloudflare Pages deploy
