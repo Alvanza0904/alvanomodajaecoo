@@ -1,0 +1,60 @@
+name: Generate OTR Models
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+    paths:
+      - "content/models/**.yml"
+      - "scripts/generate-models.js"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Check if models changed
+        id: check
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'content/models/*.yml' 'scripts/generate-models.js' 2>/dev/null || echo "")
+          if [ -n "$CHANGED" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> $GITHUB_OUTPUT
+          else
+            echo "run=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup Node.js
+        if: steps.check.outputs.run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate OTR HTML
+        if: steps.check.outputs.run == 'true'
+        run: node scripts/generate-models.js
+
+      - name: Commit updated HTML
+        if: steps.check.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jaecoo-j5.html jaecoo-j7.html jaecoo-j8.html
+          git diff --cached --quiet || git commit -m "chore: update OTR prices from CMS"
+          git pull --rebase origin main
+          git push
+
+      - name: Trigger Cloudflare Pages deploy
+        if: steps.check.outputs.run == 'true'
+        run: |
+          curl -s -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/30df0197-3107-49bc-8621-7ed13f767bab"
+          echo "Cloudflare deploy triggered."
